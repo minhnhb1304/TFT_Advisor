@@ -409,8 +409,11 @@ class CompSelector:
             return COMMIT_LOCK, f"{best.name} hơn hướng thứ hai {margin:.2f} điểm"
         if margin >= float(tune["lean_margin"]):
             return COMMIT_LEAN, f"{best.name} nhỉnh hơn hướng thứ hai {margin:.2f} điểm"
-        second = scored[1]
-        if best.archetype in FAST_ARCHETYPES and best.archetype == second.archetype and not best.pivoted:
+        second = scored[1] if len(scored) > 1 else None
+        if (
+            second and best.archetype in FAST_ARCHETYPES
+            and best.archetype == second.archetype and not best.pivoted
+        ):
             return COMMIT_NONE, (
                 f"Các hướng đầu cùng kiểu {ARCHETYPE_LABEL[best.archetype]} — đồ đã đúng hướng, "
                 "giữ board tạm và chọn đội hình cụ thể khi xoay bài"
