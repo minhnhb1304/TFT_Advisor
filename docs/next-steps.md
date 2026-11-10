@@ -10,6 +10,19 @@ Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần 
 > Mọi mục **§1–§7 bên dưới là LỊCH SỬ** (09-09). Chúng ghi lại phép đo đã làm, giữ để tra cứu —
 > nhưng kế hoạch hiện hành là mục này.
 
+### Dữ liệu game: patch 18.6 (2026-11-10), video cũ chấm theo patch của nó
+
+Chi tiết: [playtest-fixes/patch-data.md](playtest-fixes/patch-data.md).
+
+| Việc | Trạng thái |
+|---|---|
+| Tier lõi, meta comp (TFT Academy 74, MetaTFT 60) lên 18.6 | Xong. `item_stats`, lolchess vẫn cũ như ở 18.5b |
+| Danh mục lõi theo CDragon 04/11: không lõi mới, không đổi mô tả, 18 lõi đổi chỉ số; CDragon bỏ Heart of Steel → giữ qua overrides, `live = null` | Xong |
+| **Duyệt lại 8 lõi đổi số vàng/reroll** (`econ_value`) | **Việc của bạn**: `scriptseview_augment_features.py --flags data/eval/augment_review_patch_18_6.json` |
+| Heart of Steel còn trong game 18.6 không? | Việc của bạn: sửa `live` trong `data/augment_overrides.json` |
+| 15 video cũ: `game_patch` 18.2 (minh_01–03, dat_01–05) / 18.3 (minh_04–10), chấm bằng `data/patches/18.2`; bản 18.5b là tag `data-18.5b` | Xong |
+| **Quay video 18.6**: mọi video 18.6 → held-out; 18.6 là patch cuối cùng | Bắt đầu tuần 6 |
+
 ### Dữ liệu game: đã lên patch 18.5b (2026-10-26)
 
 `refresh_data.py` báo 18.5b (dữ liệu cũ ghi 18.2). Đã cập nhật tier lõi và đội hình meta, rồi
