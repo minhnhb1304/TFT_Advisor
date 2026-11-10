@@ -1,0 +1,54 @@
+{
+ "meta": {
+  "created_at": "2026-11-10T04:32:55+00:00",
+  "purpose": "Duyệt lại sau khi cập nhật CDragon lên patch 18.6 (bản 2026-11-04): lõi đổi số vàng/reroll có thể đổi econ_value",
+  "sources": {
+   "old": "cdragon en_us Last-Modified 2026-10-21 (tests/fixtures/cdragon tại data-18.5b)",
+   "new": "cdragon en_us Last-Modified 2026-11-04"
+  },
+  "note": "Mở trang bằng --flags data/eval/augment_review_patch_18_6.json. Không có lõi mới, không lõi nào đổi mô tả; 18 lõi đổi chỉ số, Heart of Steel bị CDragon bỏ.",
+  "n": 9,
+  "filter": "Chỉ giữ lõi mà thay đổi có thể đổi NHÃN (categories, carry_type, tempo, econ_value, item_grants). Bỏ qua lõi chỉ đổi con số sức mạnh hoặc câu chữ: nhãn không ghi sức mạnh, sức mạnh theo patch nằm ở augment_tiers.json.",
+  "skipped": {
+   "DA_18_FaeTraitAugment": "Embiggen: 0,10 → 0,18 (tham số không tên): chỉ số",
+   "DA_18_FloraFatalisAugment": "Consuming Flora: 0,5 → 0,7 lợi ích tộc: chỉ số",
+   "DA_18_RiftbeastTraitAugment": "Omega Riftbeast: +12% Tốc đánh / +15% máu → 8% / 8%: chỉ số",
+   "DA_BronzeForLifeII": "Giáp 3 → 2,5: chỉ số",
+   "DA_ChallengersGrace": "0,25 → 0,30: chỉ số",
+   "DA_CookingPot": "máu tăng 60 → 70: chỉ số",
+   "DA_CryMeARiver": "hồi phục khi nâng cấp 4 → 3: chỉ số",
+   "DA_FlowingTears": "ngưỡng 6500 → 7000: chỉ số",
+   "DA_PromisedProtection": "200 → 175: chỉ số",
+   "DA_SeraphimsStaff": "ngưỡng SMPT 0,9 → 1,1: chỉ số"
+  }
+ },
+ "flags": {
+  "DA_BuildABud": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 6 → 9 vàng. Đang econ_value 3"
+  ],
+  "DA_InvestmentStrategyI": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 6 → 3 vàng ngay. Đang econ_value 1"
+  ],
+  "DA_InvestmentStrategy": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 10 → 6 vàng ngay (Investment Strategy II). Đang econ_value 1"
+  ],
+  "DA_MaliciousMonetization": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 4 → 6 vàng ngay. Đang econ_value 3 (nhãn máy, chưa duyệt tay)"
+  ],
+  "DA_NestingAnvils": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 4 → 6 vàng sau khi mở hết đe. Đang econ_value 2 (nhãn máy, chưa duyệt tay)"
+  ],
+  "DA_PandorasBench": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 4 → 1 vàng. Đang econ_value 1"
+  ],
+  "DA_PrismaticDestiny": [
+   "chỉ số vàng đổi ở 18.6 (xem econ_value): 4 → 2 vàng. Đang econ_value 3 (nhãn máy, chưa duyệt tay)"
+  ],
+  "DA_PatienceIsAVirtue": [
+   "tham số không tên {88446308} đổi 4 → 5 ở 18.6, có thể là số lượt reroll ban đầu (xem econ_value). Đang econ_value 3"
+  ],
+  "DA_HeartOfSteel": [
+   "CDragon 2026-11-04 bỏ lõi này; bảng giữ lại qua data/augment_overrides.json với live = null. Thấy trong game 18.6 thì đổi live thành true, chắc chắn đã bỏ thì false. Nhãn không đổi"
+  ]
+ }
+}
