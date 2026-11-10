@@ -77,7 +77,7 @@ Quy tắc HUD khi gắn nhãn: điền **giá trị cuối cùng nhìn thấy tr
 
 | # | Việc | Trạng thái |
 |---|---|---|
-| 1 | **Sửa lỗi centering `CompSelector`** — bug độc lập, phải làm trước directional | Đã đo + có 3 phương án, **chờ chốt phương án A**. [directional-augment/centering-fix.md](directional-augment/centering-fix.md) |
+| 1 | **Sửa lỗi centering `CompSelector`** — bug độc lập, phải làm trước directional | **Xong 2026-11-10** (phương án A, sàn mọi profile = 0, 2 ngưỡng quy đổi). [directional-augment/centering-fix.md](directional-augment/centering-fix.md) |
 | 2 | Sửa tầng feature: `econ_type` multi-label trích tất định, **khoá bằng test** để LLM không ghi đè | 13/13 lõi mất nhãn `reroll` do LLM. [directional-augment/blind-spots.md](directional-augment/blind-spots.md) §2 |
 | 3 | Directional augment evaluation — **tính năng bắt buộc**, phải là trục ablation tắt được | [directional-augment/architecture.md](directional-augment/architecture.md) |
 | 4 | SPEC v4: viết lại §1.1 (4 đóng góp), §3.6 (bỏ widget không tồn tại), tick lại §7 | Chưa bắt đầu |
@@ -129,7 +129,6 @@ Danh sách soát lại:
 
 | Câu hỏi | Ở đâu / bối cảnh |
 |---|---|
-| Chốt phương án **A** cho centering fix? | [centering-fix.md](directional-augment/centering-fix.md) |
 | Giữ hay bỏ hình ảnh "la bàn" trong §1 | [review-findings.md](directional-augment/review-findings.md) |
 | Có dùng khung *Evaluative AI* cho ca hoà điểm | [explainability.md](directional-augment/explainability.md) |
 | Có dẫn `tft.ninja` không (nguồn không nhãn set) | [review-findings.md](directional-augment/review-findings.md) |

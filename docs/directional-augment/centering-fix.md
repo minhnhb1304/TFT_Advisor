@@ -1,7 +1,8 @@
 # Centering Fix
 
 Bước 1 của [architecture.md](architecture.md). Là **sửa bug độc lập** — phải làm dù có làm
-directional hay không. Chưa tiến hành; file này là bản tóm tắt để chốt trước khi sửa.
+directional hay không. **Đã sửa theo phương án A (chốt 2026-11-10)**, kết quả ở mục
+[Kết quả](#kết-quả-2026-11-10).
 
 ## Lỗi
 
@@ -100,6 +101,20 @@ sẽ đỏ, và đó là **đúng**: chúng đang khoá lại hành vi sai.
 
 > ⚠️ Không gộp bước này vào cùng commit với directional. Nếu gộp, không còn biết delta đo được đến
 > từ việc sửa bug hay từ tính năng mới.
+
+## Kết quả (2026-11-10)
+
+| Bước | Kết quả |
+|---|---|
+| 1. Test hồi quy | `test_no_signal_scores_zero_for_every_archetype`, `test_comp_with_evidence_beats_comps_without_any` (`tests/test_comp_archetype.py`): đỏ trước khi sửa (fast8 rỗng 0,31 xếp trên reroll có 1/4 tướng lõi) |
+| 2. Sửa | `item_type_score`: không tín hiệu → 0, khớp hướng → `max(0, match−0,5)·2·confidence`. `meta_score` = `raw·trust`. `_evidence` bỏ bước re-center riêng cho `item` vì `item` đã gốc-0. Sàn mọi profile = **0** |
+| Lỗi lộ ra | `commitment()` đọc `scored[1]` khi chỉ có một comp: trước đây sàn 0,115 che mất, giờ nổ `IndexError`. Đã chặn |
+| 3. Ngưỡng | `same_direction_min_score` 0,60 → **0,42**; `pivot_flag_below` 0,30 → **0,12**: **quy đổi**, trừ sàn cũ của profile `reroll` (0,18), chưa fit dữ liệu. `lock_margin`/`lean_margin` giữ nguyên (hiệu số, sàn cùng profile triệt tiêu) |
+| 4. Baseline | `directional_baseline.py` **không đổi**: `AugmentAdvisor.rank()` không dùng `CompSelector`. Directional sẽ nối hai bên, nên sửa này phải có trước |
+
+Không hiệu chuẩn được trên 104 game state đã log (`data/scenarios`): tên tướng trên board
+(`DA_18_MasterYi_AD`) không khớp `core_units` của comp, nên `unit = 0` ở mọi state và top-1
+chỉ đổi 1/104. Cần state có board thật (nhãn playtest) mới kiểm được hai ngưỡng quy đổi.
 
 ## Related
 
