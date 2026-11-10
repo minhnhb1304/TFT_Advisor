@@ -42,7 +42,7 @@ Mốc **M1** (phần vỏ) của [playtest fixes](overview.md). Biến `run_repl
 ## CLI
 
 ```
-python run_replay.py [video] [--card-reader ocr|gemini] [--speed 1.0] [--start 600]
+python run_replay.py [video] [--card-reader ocr|gemini|hybrid] (mặc định hybrid) [--speed 1.0] [--start 600]
 python run_replay.py --headless video.mp4 --out data/eval/runs/<ts>.jsonl   # cho eval_playtest
 ```
 

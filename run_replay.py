@@ -1,7 +1,7 @@
 """TFT Advisory Agent - trinh xem lai ban record kem co van.
 
     .venv\\Scripts\\python run_replay.py --video "D:\\tft_records\\van1.mp4"
-    .venv\\Scripts\\python run_replay.py --video <file> --card-reader gemini
+    .venv\\Scripts\\python run_replay.py --video <file> --card-reader ocr|gemini|hybrid  (mac dinh hybrid)
 
 Tu moc M1 (docs/playtest-fixes/core-session.md), file nay chi con la VO:
 toan bo phan quyet dinh nam trong `src/live/LiveSession` - dung lop ma vo live
@@ -28,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Xem lại bản record kèm cố vấn lõi")
     ap.add_argument("--video", "-v", help="đường dẫn video (.mp4, .mkv)")
     ap.add_argument("--regions", default="config/screen_regions.yaml")
-    ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="ocr")
+    ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="hybrid")
     ap.add_argument("--analysis-fps", type=float, default=5.0,
                     help="số lần đọc mỗi giây video khi đang phát")
     ap.add_argument("--palette", default="neon",
