@@ -217,7 +217,8 @@ def test_direction_stability_rewards_staying() -> None:
 
 def test_pivot_penalty_applies_when_selling_many_units() -> None:
     selector = CompSelector(CompDatabase([comp("X")]))
-    junk = [Champion(name=f"J{i}", cost=1) for i in range(5)]
+    # Can mot tuong loi: board khong co tin hieu thi diem da la 0, khong con gi de tru.
+    junk = [Champion(name="A", cost=1)] + [Champion(name=f"J{i}", cost=1) for i in range(5)]
     without = selector.select(GameState(board=junk)).best.total
     with_pivot = selector.select(GameState(board=junk), previous="Y").best.total
     assert with_pivot < without

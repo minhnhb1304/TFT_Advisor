@@ -215,7 +215,8 @@ def test_fast_comp_is_not_penalised_for_selling_the_board() -> None:
 
 
 def test_reroll_comp_still_pays_for_selling_the_board() -> None:
-    board = units("X1", "X2", "X3", "X4", "X5")
+    # Can mot tuong loi: board khong co tin hieu thi diem da la 0, khong con gi de tru.
+    board = units("R1", "X1", "X2", "X3", "X4", "X5")
     sel = selector(reroll())
     fresh = sel.select(GameState(stage="3-2", board=board)).best.total
     after_other = sel.select(GameState(stage="3-2", board=board), previous="OTHER").best.total
@@ -356,3 +357,25 @@ def test_parity_counts_xp_across_levels_for_fast9() -> None:
     r = _pivot(GameState(stage="4-2", level=7, xp=16, xp_needed=56, gold=60), "fast9")
     assert r.xp_waste == 0
     assert xp_overshoot(42, DEFAULT_ADAPTIVE["economy"]) == 2
+
+
+# --- centering: "khong biet" khong duoc cong diem (docs/directional-augment/centering-fix.md) ---
+
+
+def test_no_signal_scores_zero_for_every_archetype() -> None:
+    """Board rong, comp khong co co mau: moi profile phai cung san 0, khong phu thuoc trong so."""
+    unlabelled = reroll("FIXED", archetype="")
+    advice = selector(fast8(), fast8("F9", archetype="fast9"), reroll(), unlabelled).select(
+        GameState(stage="2-1"), top_n=4
+    )
+    assert {s.name: s.total for s in advice.top} == pytest.approx(
+        {"F8": 0.0, "F9": 0.0, "RR": 0.0, "FIXED": 0.0}
+    )
+
+
+def test_comp_with_evidence_beats_comps_without_any() -> None:
+    """Loi cu: fast8 rong (san 0,16 + meta trung tinh) xep tren reroll da co 1/4 tuong loi."""
+    advice = selector(fast8(), reroll()).select(GameState(stage="2-1", board=units("R1")))
+    best, other = advice.top
+    assert best.evidence > 0.0 and other.evidence == 0.0
+    assert best.name == "RR"

@@ -194,6 +194,9 @@ class CompSelector:
     def item_type_score(self, comp: MetaComp, state: GameState) -> tuple[float, str, bool]:
         """Do khop LOAI do (AP/AD) giua board va comp. Do tank khong chi huong.
 
+        Goc-0 nhu moi thanh phan khac: khong co tin hieu -> 0, lech huong -> 0,
+        chi do KHOP huong moi cong diem (docs/directional-augment/centering-fix.md).
+
         Returns: (diem, ly do, board co do tan cong de noi len huong khong).
         """
         tune = self.tune["item_type"]
@@ -202,13 +205,13 @@ class CompSelector:
         target = item_profile(comp.core_items, (), self.recipes, weight)
 
         if target.ap_share is None:
-            type_score, reason = 0.5, "Không có dữ liệu đồ tấn công của đội hình"
+            type_score, reason = 0.0, "Không có dữ liệu đồ tấn công của đội hình"
         elif player.mass == 0:
-            type_score, reason = 0.5, "Chưa có đồ tấn công — đồ chưa nói lên hướng"
+            type_score, reason = 0.0, "Chưa có đồ tấn công — đồ chưa nói lên hướng"
         else:
             match = 1.0 - abs(player.ap_share - target.ap_share)
             confidence = clamp01(player.mass / float(tune["full_mass"]))
-            type_score = 0.5 + (match - 0.5) * confidence
+            type_score = max(0.0, match - 0.5) * 2.0 * confidence
             reason = f"Đồ đang nghiêng {player.lean}, đội hình cần {target.lean}"
 
         exact_weight = float(tune["exact_match_weight"])
@@ -241,14 +244,14 @@ class CompSelector:
 
     @staticmethod
     def meta_score(comp: MetaComp) -> float:
-        """Chuan hoa top4_rate. Comp khong co co mau -> keo ve trung tinh.
+        """Chuan hoa top4_rate, goc-0: comp khong co co mau -> 0, khong phai 0,5.
 
         Nguong 200 tran giong nguong cua AugmentStats: duoi muc do, chenh lech
         top4 giua cac comp nho hon sai so cua chinh phep do.
         """
         raw = clamp01((comp.top4_rate - 0.4) / 0.3)
         trust = clamp01(comp.sample_n / 200) if comp.sample_n else 0.0
-        return 0.5 + (raw - 0.5) * trust
+        return raw * trust
 
     @staticmethod
     def augment_score(comp: MetaComp, state: GameState) -> float:
@@ -275,7 +278,6 @@ class CompSelector:
         parts: dict[str, float],
         weights: dict[str, float],
         present: dict[str, bool],
-        adaptive: bool,
     ) -> float:
         """Board ung ho comp bao nhieu, chi tren nhung tin hieu board CO.
 
@@ -283,16 +285,13 @@ class CompSelector:
         chung chong lai comp - neu tinh chung vao mau so thi moi board dau tran
         deu bi xem la "chua co gi" du do da noi ro huong.
         """
-        signal = dict(parts)
-        if adaptive and "item" in signal:
-            signal["item"] = max(0.0, signal["item"] - 0.5) * 2.0
         used = {
             k: weights.get(k, 0.0)
             for k in BOARD_PARTS
-            if k in signal and present.get(k) and weights.get(k, 0.0) > 0.0
+            if k in parts and present.get(k) and weights.get(k, 0.0) > 0.0
         }
         total = sum(used.values())
-        return sum(w * signal[k] for k, w in used.items()) / total if total else 0.0
+        return sum(w * parts[k] for k, w in used.items()) / total if total else 0.0
 
     # -- tong hop ----------------------------------------------------------
 
@@ -345,7 +344,7 @@ class CompSelector:
             "emblem": any(is_emblem(i) for i in state.completed_items),
             "augment": bool(state.augments),
         }
-        evidence = self._evidence(parts, weights, present, adaptive=bool(archetype))
+        evidence = self._evidence(parts, weights, present)
 
         contest = analyze_contest(comp, state, enabled=self.enable_scouting)
         if contest.score:
