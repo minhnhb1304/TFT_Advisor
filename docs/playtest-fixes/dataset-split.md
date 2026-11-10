@@ -100,6 +100,7 @@ Cả hai loại nhãn — frame labels (§12.1) và scenario labels (§12.0 → 
 
 ## Related
 
+- [Patch data](patch-data.md) — video được chấm bằng dữ liệu của đúng patch nó được chơi
 - [Recording protocol](recording-protocol.md) — ghi và gửi bản record
 - [Labeling guide](labeling-guide.md) — gắn nhãn thế nào
 - [Eval dataset](eval-dataset.md) — định dạng file nhãn và các chỉ số
