@@ -165,12 +165,16 @@ comp_selector:
   stability:
     # Trung khuyen nghi truoc do va con du tot -> thuong, de tranh pivot vo co.
     same_direction_bonus: 0.15
-    same_direction_min_score: 0.60
+    # Hai nguong tuyet doi duoi day QUY DOI tu thang cu (0,60 / 0,30) khi sua
+    # centering (2026-11-10): tru san "khong tin hieu" cu cua profile reroll
+    # (item 0,40 x 0,20 + meta 0,5 x 0,20 = 0,18). Chua fit tren du lieu.
+    # docs/directional-augment/centering-fix.md
+    same_direction_min_score: 0.42
     # Pivot ma phai ban qua nhieu unit -> phat.
     pivot_penalty: 0.10
     pivot_sell_threshold: 3
     # Duoi nguong nay thi comp hien tai bi danh dau la nen doi huong.
-    pivot_flag_below: 0.30
+    pivot_flag_below: 0.12
 
 # Chinh sach reroll augment - SPEC 3.5.5. Cung ly do de o day voi `weights`:
 # ablation phai bat/tat duoc tu file.

@@ -47,10 +47,10 @@ from .scoring.types import ScoringConfig, clamp01
 DEFAULT_WEIGHTS = {"unit": 0.40, "item": 0.25, "meta": 0.23, "augment": 0.12, "contest": 0.20}
 DEFAULT_STABILITY = {
     "same_direction_bonus": 0.15,
-    "same_direction_min_score": 0.60,
+    "same_direction_min_score": 0.42,
     "pivot_penalty": 0.10,
     "pivot_sell_threshold": 3,
-    "pivot_flag_below": 0.30,
+    "pivot_flag_below": 0.12,
 }
 # Moi con so duoi day la GIA DINH TIEN NGHIEM tu kinh nghiem nguoi choi hang
 # cao, chua fit tren du lieu. Ban chinh thuc nam o config/scoring_weights.yaml.
