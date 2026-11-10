@@ -21,7 +21,7 @@ from ..capture.frame_source import Frame, format_ref
 from ..capture.regions import ScreenRegions
 from ..decision.advisor import Advisor
 from ..knowledge.name_index import NameIndex
-from ..live.card_reader import GeminiCardReader, OcrCardReader
+from ..live.card_reader import GeminiCardReader, HybridCardReader, OcrCardReader
 from ..live.events import AdviceReady, Cleared, Idle, Status
 from ..live.session import LiveSession
 from ..utils.settings import Settings
@@ -40,10 +40,12 @@ def build_session(
     source_id: str = "",
 ) -> LiveSession:
     """Dung LiveSession y het cach vo live se dung - do la diem cua M1."""
-    if card_reader == "gemini":
+    if card_reader in ("gemini", "hybrid"):
         from ..vision.augment_reader import AugmentReader
 
         reader: Any = GeminiCardReader(AugmentReader.load(regions))
+        if card_reader == "hybrid":
+            reader = HybridCardReader(OcrCardReader(regions, name_index), reader)
     else:
         reader = OcrCardReader(regions, name_index)
     return LiveSession(

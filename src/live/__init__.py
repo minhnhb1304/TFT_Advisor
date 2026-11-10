@@ -4,7 +4,7 @@ KHÔNG import Qt ở đây — `tests/test_live_session.py` và AST test khoá �
 mọi quyết định phải chạy được headless, và hai vỏ phải dùng đúng một lõi.
 """
 
-from .card_reader import CardReader, GeminiCardReader, OcrCardReader
+from .card_reader import CardReader, GeminiCardReader, HybridCardReader, OcrCardReader
 from .events import AdviceReady, Cleared, Idle, LiveEvent, Status
 from .screen_tracker import AugmentScreenTracker
 from .session import LiveSession
@@ -15,6 +15,7 @@ __all__ = [
     "CardReader",
     "Cleared",
     "GeminiCardReader",
+    "HybridCardReader",
     "Idle",
     "LiveEvent",
     "LiveSession",

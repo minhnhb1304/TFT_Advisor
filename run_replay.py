@@ -28,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Xem lại bản record kèm cố vấn lõi")
     ap.add_argument("--video", "-v", help="đường dẫn video (.mp4, .mkv)")
     ap.add_argument("--regions", default="config/screen_regions.yaml")
-    ap.add_argument("--card-reader", choices=("ocr", "gemini"), default="ocr")
+    ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="ocr")
     ap.add_argument("--analysis-fps", type=float, default=5.0,
                     help="số lần đọc mỗi giây video khi đang phát")
     ap.add_argument("--palette", default="neon",

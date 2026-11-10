@@ -1,9 +1,10 @@
 """Doc TEN LOI tren mot o cua man chon augment (moc M1).
 
-Hai ban, cung mot giao dien, chon bang config `live.card_reader`:
+Ba ban, cung mot giao dien, chon bang config `live.card_reader`:
 
     OcrCardReader     - OCR tieng Viet + khop ten, chay cuc bo, khong cham mang.
     GeminiCardReader  - boc AugmentReader san co (Gemini Vision, co cache aHash).
+    HybridCardReader  - OCR truoc; chi goi Gemini cho o OCR khong chac.
 
 Vi sao la Protocol chu khong phai mot lop duy nhat: ca hai deu co diem yeu
 khac nhau, va cach duy nhat de biet ban nao tot hon tren mot ban record la
@@ -18,6 +19,7 @@ from __future__ import annotations
 import difflib
 import re
 import time
+from dataclasses import replace
 from typing import Any, Protocol, Sequence
 
 import numpy as np
@@ -207,3 +209,41 @@ class GeminiCardReader:
 
     def read_traits(self, frame: np.ndarray) -> dict[str, int]:
         return dict(self._reading(frame).traits)
+
+    def cached_traits(self, frame: np.ndarray) -> dict[str, int] | None:
+        """Toc/he Gemini da doc cho DUNG khung nay, hoac None neu chua goi."""
+        if self._last is None or int(frame.sum()) != self._last_key:
+            return None
+        return dict(self._last.traits)
+
+
+class HybridCardReader:
+    """OCR truoc, Gemini chi cho o OCR khong chac, Gemini loi thi giu OCR.
+
+    Do tren 111 the development (2026-11-07): OCR + khop danh muc ra dung 107,
+    sai 0, moi dong ~15 ms; Gemini mat trung vi 2,2 s va khoa free hay dinh
+    503/429. Nen phan lon o khong can goi mang, va khi mang loi o do van co
+    ket qua OCR (co the rong hoac mo ho) thay vi trong tron.
+    """
+
+    name = "hybrid"
+
+    def __init__(self, ocr: OcrCardReader, gemini: GeminiCardReader) -> None:
+        self.ocr = ocr
+        self.gemini = gemini
+
+    def read_slot(self, frame: np.ndarray, slot: int) -> CardRead:
+        card = self.ocr.read_slot(frame, slot)
+        if len(card.api_names) == 1:
+            return card
+        try:
+            fallback = self.gemini.read_slot(frame, slot)
+        except Exception as exc:                      # noqa: BLE001 - mang loi thi giu OCR
+            return replace(card, reason=f"{card.reason}; Gemini lỗi: {exc}")
+        if fallback.api_names:
+            return fallback
+        return replace(card, reason=f"{card.reason}; Gemini: {fallback.reason}")
+
+    def read_traits(self, frame: np.ndarray) -> dict[str, int]:
+        traits = self.gemini.cached_traits(frame)
+        return traits if traits else self.ocr.read_traits(frame)
