@@ -40,7 +40,7 @@ from src.eval.playtest_draft import Sample, group_screens, make_thumb, resolve_c
 from src.eval.playtest_labels import HUD_KEYS, Offer, PlaytestLabels, ScreenLabel, save  # noqa: E402
 from src.knowledge.name_index import NameIndex  # noqa: E402
 from src.vision.hud_reader import DEFAULT_REGIONS, HudReader  # noqa: E402
-from src.vision.ocr_engine import engine  # noqa: E402
+from src.vision.ocr_engine import read_full  # noqa: E402
 from src.vision.preprocess import ocr_texts  # noqa: E402
 from src.vision.reroll_buttons import RerollButtonReader  # noqa: E402
 
@@ -185,7 +185,7 @@ def main(argv: list[str] | None = None) -> int:
     buttons = RerollButtonReader.load(regions)
     hud = HudReader.load(regions)
     index = NameIndex.load(args.name_index)
-    ocr = engine()
+    ocr = read_full
 
     print(f"{src.path.name}: {src.size[0]}x{src.size[1]}, {src.duration:.0f}s")
     spans = _find_screens(src, buttons, _windows(src, args), args.coarse_fps, args.merge_gap)

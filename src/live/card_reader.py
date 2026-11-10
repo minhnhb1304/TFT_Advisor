@@ -104,9 +104,9 @@ class OcrCardReader:
     @property
     def ocr(self) -> Any:
         if self._ocr is None:
-            from ..vision.ocr_engine import engine  # noqa: PLC0415 - nap tre, model nang
+            from ..vision.ocr_engine import read_full  # noqa: PLC0415 - nap tre, model nang
 
-            self._ocr = engine()
+            self._ocr = read_full
         return self._ocr
 
     def read_slot(self, frame: np.ndarray, slot: int) -> CardRead:

@@ -31,7 +31,7 @@ _ENGINE: Any | None = None
 # Crop HUD da cat san theo ROI, nen buoc phat hien chu (det) va xoay chu (cls) la thua.
 # Do 2026-10-31 (tools/bench_hud_latency.py): det chiem ~85% thoi gian doc HUD; bo det+cls
 # thi 1,1 s -> 54 ms, ket qua giong het (20 khung gan nhan + 420 luot doc tren dat_01).
-# Dat False de quay ve OCR day du. Doc ten the (card_reader) van can det, khong dung ham nay.
+# Dat False de quay ve OCR day du. Doc ten the (card_reader) van can det: dung `read_full`.
 RECOGNIZE_ONLY = True
 
 
@@ -45,6 +45,16 @@ def engine() -> Any:
         except Exception as exc:
             raise OcrError(f"khong the khoi tao RapidOCR: {exc}") from exc
     return _ENGINE
+
+
+def read_full(img: np.ndarray) -> Any:
+    """OCR day du (det + cls + rec) cho crop chua biet vi tri dong chu, vd o ten the.
+
+    PHAI truyen ro use_det/use_cls: RapidOCR NHO tham so cua lan goi truoc, nen
+    sau mot lan `recognize()` thi `engine()(img)` tran chi con nhan dang - o the
+    doc ra '一' thay vi ten loi (minh_03..08, 2026-11-07).
+    """
+    return engine()(img, use_det=True, use_cls=True)
 
 
 def recognize(img: np.ndarray) -> Any:

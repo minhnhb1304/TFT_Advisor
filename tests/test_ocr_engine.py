@@ -159,3 +159,15 @@ def test_singleton_engine_cached() -> None:
         assert mod.engine() is sentinel
     finally:
         mod._ENGINE = old
+
+
+def test_read_full_forces_detection_after_a_recognize_only_call(monkeypatch: pytest.MonkeyPatch) -> None:
+    # RapidOCR nho use_det=False cua lan goi truoc: o the phai tu bat lai det+cls
+    import src.vision.ocr_engine as mod
+
+    spy = _SpyEngine()
+    monkeypatch.setattr(mod, "_ENGINE", spy)
+    monkeypatch.setattr(mod, "RECOGNIZE_ONLY", True)
+    read_digits(_dummy_crop())
+    mod.read_full(_dummy_crop())
+    assert spy.kwargs[-1] == {"use_det": True, "use_cls": True}
