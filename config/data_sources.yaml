@@ -29,7 +29,7 @@ static:
     url: https://raw.communitydragon.org/latest/cdragon/tft/{locale}.json
     provides: [augment_names, augment_tiers, augment_descriptions, traits, champions]
     status: live
-    last_verified: 2026-08-31
+    last_verified: 2026-11-10
     note: >-
       Nguon cua data/augment_features.json (254/254). Locale vi_vn va en_us
       deu lay duoc. Xem scripts/build_augment_features.py.

@@ -3,7 +3,7 @@
     "set": "TFTSet18",
     "source_locale": "en_us",
     "source_file": "cdragon:en_us",
-    "generated_at": "2026-10-26T18:01:05+00:00",
+    "generated_at": "2026-11-10T04:31:02+00:00",
     "extractor_version": "deterministic-v2",
     "llm_refined": true,
     "n": 258,
@@ -3416,7 +3416,7 @@
       "offer_rounds": [
         "2-1"
       ],
-      "live": true,
+      "live": null,
       "extraction_method": "manual-audit:categories,category,tempo (from deterministic-v2)",
       "confidence": 0.2
     },

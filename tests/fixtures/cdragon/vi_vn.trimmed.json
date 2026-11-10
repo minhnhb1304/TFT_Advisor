@@ -32,8 +32,8 @@
    "desc": "Giờ đây bạn có thể chọn thêm một Quái Rừng Đầu Đàn thứ hai. Quái Rừng Đầu Đàn nhận thêm @BonusHP*100@% Máu tối đa và @BonusAS*100@% Tốc Độ Đánh. Nhận 1 Cua Kỳ Cục, 1 Mầm Non và 1 Sỏi.",
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
-    "BonusAS": 0.12000000476837158,
-    "BonusHP": 0.1499999761581421
+    "BonusAS": 0.08000004291534424,
+    "BonusHP": 0.08000004291534424
    },
    "associatedTraits": [
     "DA_Riftbeast18"
@@ -210,7 +210,7 @@
    "desc": "Nhận 1 tướng @UnitCost@ vàng @ActorLevel@ sao ngẫu nhiên. Nhận @NumGold@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.tex",
    "effects": {
-    "NumGold": 6.0,
+    "NumGold": 9.0,
     "UnitCost": 1.0,
     "{141b5538}": 3.0
    },
@@ -472,7 +472,7 @@
    "desc": "Đội của bạn nhận @DamageAmp*100@% Khuếch Đại Sát Thương và @Armor@ Giáp & Kháng Phép cho mỗi tộc/hệ bậc Đồng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_iii.tex",
    "effects": {
-    "Armor": 3.0,
+    "Armor": 2.5,
     "DamageAmp": 0.02500000037252903
    },
    "associatedTraits": [],
@@ -484,7 +484,7 @@
    "desc": "Tướng của bạn nhận thêm vĩnh viễn @MaxHealthPerInterest@ máu tối đa với mỗi vàng lợi tức bạn kiếm được. Lợi tức tối đa của bạn tăng thêm @MaxInterestInc@. Nhận ngay @InstantGold@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_iii.tex",
    "effects": {
-    "InstantGold": 10.0,
+    "InstantGold": 6.0,
     "{77dbf275}": 2.0,
     "{da66a800}": 12.0
    },
@@ -974,7 +974,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
     "Gold": 3.0,
-    "{df808d3d}": 0.5
+    "{df808d3d}": 0.699999988079071
    },
    "associatedTraits": [
     "DA_FloraFatalis18"
@@ -1011,7 +1011,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/mirroredmonetization_ii.tex",
    "effects": {
     "Duration": 2.0,
-    "InstantGold": 4.0,
+    "InstantGold": 6.0,
     "{2af2509e}": 2.0
    },
    "associatedTraits": [],
@@ -1337,7 +1337,7 @@
    "icon": "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.tex",
    "effects": {
     "BuffDuration": 4.0,
-    "{ad998bcf}": 0.25
+    "{ad998bcf}": 0.2999999523162842
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1349,7 +1349,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
     "BonusMultiplier": 0.5,
-    "{020fc56b}": 0.10000000149011612
+    "{020fc56b}": 0.18000000715255737
    },
    "associatedTraits": [
     "DA_18_Fae"
@@ -1466,7 +1466,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/crymeariver_ii.tex",
    "effects": {
     "RegenBonus": 1.0,
-    "UpgradedRegenBonus": 4.0,
+    "UpgradedRegenBonus": 3.0,
     "{a69302a6}": 12.0
    },
    "associatedTraits": [],
@@ -1524,7 +1524,7 @@
    "desc": "Nhận 1 Gói Trang Bị Tạo Tác. Sau khi bạn mở nó, nhận 1 Gói Trang Bị Thành Phần. Sau khi bạn mở nó, nhận @Gold@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t3.tex",
    "effects": {
-    "Gold": 4.0
+    "Gold": 6.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1829,7 +1829,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/patienceisavirtue_i.tex",
    "effects": {
     "Rerolls": 1.0,
-    "{88446308}": 4.0
+    "{88446308}": 5.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1896,7 +1896,7 @@
    "desc": "Tướng của bạn nhận thêm vĩnh viễn @MaxHealthPerInterest@ máu tối đa với mỗi vàng lợi tức bạn kiếm được. Nhận ngay @InstantGold@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_ii.tex",
    "effects": {
-    "InstantGold": 6.0,
+    "InstantGold": 3.0,
     "{da66a800}": 9.0
    },
    "associatedTraits": [],
@@ -1956,7 +1956,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/promisedprotection_ii.tex",
    "effects": {
     "{88b73576}": 0.20000000298023224,
-    "{c38f01f2}": 200.0
+    "{c38f01f2}": 175.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2374,7 +2374,7 @@
    "desc": "Nhận 1 Quyền Trượng Thiên Thần. Quyền Trượng Thiên Thần tăng thêm @ManaPerSecond@ Hồi Phục Năng Lượng nếu chủ sở hữu có @APThreshold*100@% Sức Mạnh Phép Thuật trở lên.",
    "icon": "assets/maps/tft/icons/augments/hexcore/seraphimsstaff_ii.tex",
    "effects": {
-    "APThreshold": 0.8999999761581421,
+    "APThreshold": 1.0999999046325684,
     "ManaPerSecond": 2.0
    },
    "associatedTraits": [],
@@ -2503,7 +2503,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/griefofthegreatgoddess_i.tex",
    "effects": {
     "{c11bb61b}": 2.0,
-    "{ca7d02a1}": 6500.0
+    "{ca7d02a1}": 7000.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2542,7 +2542,8 @@
     "{40e6f170}": 10.0
    },
    "associatedTraits": [],
-   "isAugment": true
+   "isAugment": true,
+   "live": null
   },
   {
    "apiName": "DA_SalvageBinPlus",
@@ -2593,7 +2594,7 @@
    "desc": "Nhận 1 Nâng Cấp Kim Cương ngẫu nhiên và @Gold@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.tex",
    "effects": {
-    "Gold": 4.0
+    "Gold": 2.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2604,7 +2605,7 @@
    "desc": "Khi bắt đầu mỗi lượt, tất cả các đồng minh đang mang trang bị Xẻng Vàng hoặc Chảo Vàng sẽ vĩnh viễn tăng cho tướng gần nhất @HealthIncrease@ Máu. Nhận 1 Chảo Vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/cookingpot_ii.tex",
    "effects": {
-    "HealthIncrease": 60.0
+    "HealthIncrease": 70.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2615,7 +2616,7 @@
    "desc": "Ở đầu mỗi vòng đấu, các tướng ở @NumBenchSlots@ ô ngoài cùng bên phải hàng chờ sẽ được chuyển đổi thành tướng ngẫu nhiên cùng giá tiền. Nhận @GoldGain@ vàng.",
    "icon": "assets/maps/tft/icons/augments/hexcore/pandoras-bench-ii.tex",
    "effects": {
-    "GoldGain": 4.0,
+    "GoldGain": 1.0,
     "NumBenchSlots": 3.0
    },
    "associatedTraits": [],

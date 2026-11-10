@@ -32,8 +32,8 @@
    "desc": "You can now choose a second Alpha Riftbeast. Alpha Riftbeasts gain @BonusHP*100@% max Health and @BonusAS*100@% Attack Speed. Gain a Scuttlecrab, a Cinderling, and a Pebbles.",
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
-    "BonusAS": 0.12000000476837158,
-    "BonusHP": 0.1499999761581421
+    "BonusAS": 0.08000004291534424,
+    "BonusHP": 0.08000004291534424
    },
    "associatedTraits": [
     "DA_Riftbeast18"
@@ -210,7 +210,7 @@
    "desc": "Gain a random @ActorLevel@-star @UnitCost@-cost champion. Gain @NumGold@ gold.",
    "icon": "assets/maps/tft/icons/augments/hexcore/constructacompanion_iii.tex",
    "effects": {
-    "NumGold": 6.0,
+    "NumGold": 9.0,
     "UnitCost": 1.0,
     "{141b5538}": 3.0
    },
@@ -472,7 +472,7 @@
    "desc": "Your team gains @DamageAmp*100@% Damage Amp and @Armor@ Armor and Magic Resist for each Bronze-tier trait.",
    "icon": "assets/maps/tft/icons/augments/hexcore/bronzeforlife_iii.tex",
    "effects": {
-    "Armor": 3.0,
+    "Armor": 2.5,
     "DamageAmp": 0.02500000037252903
    },
    "associatedTraits": [],
@@ -484,7 +484,7 @@
    "desc": "Your champions gain @MaxHealthPerInterest@ permanent max health per interest you earn. Your max interest is increased by @MaxInterestInc@. Gain @InstantGold@ gold now.",
    "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_iii.tex",
    "effects": {
-    "InstantGold": 10.0,
+    "InstantGold": 6.0,
     "{77dbf275}": 2.0,
     "{da66a800}": 12.0
    },
@@ -971,7 +971,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
     "Gold": 3.0,
-    "{df808d3d}": 0.5
+    "{df808d3d}": 0.699999988079071
    },
    "associatedTraits": [
     "DA_FloraFatalis18"
@@ -1008,7 +1008,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/mirroredmonetization_ii.tex",
    "effects": {
     "Duration": 2.0,
-    "InstantGold": 4.0,
+    "InstantGold": 6.0,
     "{2af2509e}": 2.0
    },
    "associatedTraits": [],
@@ -1334,7 +1334,7 @@
    "icon": "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.tex",
    "effects": {
     "BuffDuration": 4.0,
-    "{ad998bcf}": 0.25
+    "{ad998bcf}": 0.2999999523162842
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1346,7 +1346,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t2.tex",
    "effects": {
     "BonusMultiplier": 0.5,
-    "{020fc56b}": 0.10000000149011612
+    "{020fc56b}": 0.18000000715255737
    },
    "associatedTraits": [
     "DA_18_Fae"
@@ -1460,7 +1460,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/crymeariver_ii.tex",
    "effects": {
     "RegenBonus": 1.0,
-    "UpgradedRegenBonus": 4.0,
+    "UpgradedRegenBonus": 3.0,
     "{a69302a6}": 12.0
    },
    "associatedTraits": [],
@@ -1518,7 +1518,7 @@
    "desc": "Gain an Artifact Anvil. After you open it, gain a Component Anvil. After you open that, gain @Gold@ gold.",
    "icon": "assets/maps/tft/icons/augments/hexcore/missing-t3.tex",
    "effects": {
-    "Gold": 4.0
+    "Gold": 6.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1823,7 +1823,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/patienceisavirtue_i.tex",
    "effects": {
     "Rerolls": 1.0,
-    "{88446308}": 4.0
+    "{88446308}": 5.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -1890,7 +1890,7 @@
    "desc": "Your champions gain @MaxHealthPerInterest@ permanent max health per interest you earn. Gain @InstantGold@ gold now.",
    "icon": "assets/maps/tft/icons/augments/hexcore/investmentstrategy_ii.tex",
    "effects": {
-    "InstantGold": 6.0,
+    "InstantGold": 3.0,
     "{da66a800}": 9.0
    },
    "associatedTraits": [],
@@ -1950,7 +1950,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/promisedprotection_ii.tex",
    "effects": {
     "{88b73576}": 0.20000000298023224,
-    "{c38f01f2}": 200.0
+    "{c38f01f2}": 175.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2365,7 +2365,7 @@
    "desc": "Gain an Archangel's Staff. Archangel's Staff grants @ManaPerSecond@ additional Mana Regen if its holder has @APThreshold*100@% or more Ability Power.",
    "icon": "assets/maps/tft/icons/augments/hexcore/seraphimsstaff_ii.tex",
    "effects": {
-    "APThreshold": 0.8999999761581421,
+    "APThreshold": 1.0999999046325684,
     "ManaPerSecond": 2.0
    },
    "associatedTraits": [],
@@ -2491,7 +2491,7 @@
    "icon": "assets/maps/tft/icons/augments/hexcore/griefofthegreatgoddess_i.tex",
    "effects": {
     "{c11bb61b}": 2.0,
-    "{ca7d02a1}": 6500.0
+    "{ca7d02a1}": 7000.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2530,7 +2530,8 @@
     "{40e6f170}": 10.0
    },
    "associatedTraits": [],
-   "isAugment": true
+   "isAugment": true,
+   "live": null
   },
   {
    "apiName": "DA_SalvageBinPlus",
@@ -2581,7 +2582,7 @@
    "desc": "Gain a random Prismatic Augment and @Gold@ gold.",
    "icon": "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.tex",
    "effects": {
-    "Gold": 4.0
+    "Gold": 2.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2592,7 +2593,7 @@
    "desc": "At the start of each turn, all allies holding a Frying Pan or Spatula item grant the nearest champion @HealthIncrease@ permanent Health. Gain a Frying Pan.",
    "icon": "assets/maps/tft/icons/augments/hexcore/cookingpot_ii.tex",
    "effects": {
-    "HealthIncrease": 60.0
+    "HealthIncrease": 70.0
    },
    "associatedTraits": [],
    "isAugment": true
@@ -2603,7 +2604,7 @@
    "desc": "At the start of every round, champions on the @NumBenchSlots@ rightmost bench slots transform into random champions of the same cost. Gain @GoldGain@ gold.",
    "icon": "assets/maps/tft/icons/augments/hexcore/pandoras-bench-ii.tex",
    "effects": {
-    "GoldGain": 4.0,
+    "GoldGain": 1.0,
     "NumBenchSlots": 3.0
    },
    "associatedTraits": [],
