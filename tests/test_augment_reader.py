@@ -451,3 +451,56 @@ def test_timeout_returns_on_time_instead_of_waiting_for_the_hung_call(name_index
     reading = reader.read(_make_frame())
     assert time.perf_counter() - t0 < 1.5
     assert reading.resolved() is False
+
+
+class _FakeApiError(Exception):
+    def __init__(self, code: int) -> None:
+        super().__init__(f"{code} error")
+        self.code = code
+
+
+class _FakeModels:
+    def __init__(self, failures: dict[str, int]) -> None:
+        self.failures = failures
+        self.tried: list[str] = []
+
+    def generate_content(self, *, model: str, **_: Any) -> Any:
+        self.tried.append(model)
+        if model in self.failures:
+            raise _FakeApiError(self.failures[model])
+        return type("Resp", (), {"text": '{"cards": [], "traits": []}'})()
+
+
+def _reader_with_fake_client(
+    name_index: NameIndex, monkeypatch: pytest.MonkeyPatch, failures: dict[str, int]
+) -> tuple[AugmentReader, _FakeModels]:
+    pytest.importorskip("google.genai")
+    monkeypatch.setenv("GEMINI_API_KEY", "test")
+    reader = AugmentReader(regions=_make_regions(), names=name_index,
+                           model="m1", fallback_models=("m2", "m3"))
+    models = _FakeModels(failures)
+    reader._client = type("Client", (), {"models": models})()
+    return reader, models
+
+
+@pytest.mark.parametrize("code", [429, 503])
+def test_overloaded_model_falls_back_to_next(
+    name_index: NameIndex, monkeypatch: pytest.MonkeyPatch, code: int
+) -> None:
+    reader, models = _reader_with_fake_client(name_index, monkeypatch, {"m1": code})
+    assert reader._default_call(b"png") == '{"cards": [], "traits": []}'
+    assert models.tried == ["m1", "m2"]
+
+
+def test_other_errors_do_not_fall_back(name_index: NameIndex, monkeypatch: pytest.MonkeyPatch) -> None:
+    reader, models = _reader_with_fake_client(name_index, monkeypatch, {"m1": 400})
+    with pytest.raises(_FakeApiError):
+        reader._default_call(b"png")
+    assert models.tried == ["m1"]
+
+
+def test_last_model_error_is_raised(name_index: NameIndex, monkeypatch: pytest.MonkeyPatch) -> None:
+    reader, models = _reader_with_fake_client(name_index, monkeypatch, {"m1": 503, "m2": 429, "m3": 503})
+    with pytest.raises(_FakeApiError):
+        reader._default_call(b"png")
+    assert models.tried == ["m1", "m2", "m3"]

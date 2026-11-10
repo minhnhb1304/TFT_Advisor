@@ -35,6 +35,10 @@ from ..utils.env import load_env
 DEFAULT_REGIONS = "config/screen_regions.yaml"
 DEFAULT_NAME_INDEX = "data/name_index.json"
 DEFAULT_MODEL = "gemini-3.5-flash-lite"
+# Khoa free bi 503 (qua tai) va 429 (het han muc) giua van. Han muc free tinh
+# RIENG tung model, nen model ke tiep thuong van con luot.
+DEFAULT_FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-2.5-flash-lite")
+RETRYABLE_CODES = (429, 503)
 # Do duoc 3 lan tren may ranh: 3,10 / 3,14 / 3,16 s. 12,0 = ~4x p50, con
 # chua ~18 s trong dong ho ~30 s cua man chon augment. Nguong 6,0 cu da
 # timeout that o che do --from-video. CHUA do khi game dang chay (SPEC 12.1).
@@ -268,6 +272,7 @@ class AugmentReader:
         names: NameIndex | str | Path | None = None,
         *,
         model: str = DEFAULT_MODEL,
+        fallback_models: Sequence[str] = DEFAULT_FALLBACK_MODELS,
         timeout_s: float = DEFAULT_TIMEOUT_S,
         enable_gemini_vision: bool = True,
         call: Callable[[bytes], str] | None = None,
@@ -289,6 +294,7 @@ class AugmentReader:
             self.names = NameIndex.load(names)
 
         self.model = model
+        self.fallback_models = tuple(fallback_models)
         self.timeout_s = timeout_s
         self.enable_gemini_vision = enable_gemini_vision
         self.call = call
@@ -344,18 +350,26 @@ class AugmentReader:
         if getattr(self, "_client", None) is None:
             self._client = genai.Client(api_key=api_key)
         client = self._client
-        resp = client.models.generate_content(
-            model=self.model,
-            contents=[
-                PROMPT,
-                types.Part.from_bytes(data=image_png, mime_type="image/png"),
-            ],
-            config={
-                "response_mime_type": "application/json",
-                "response_schema": RESPONSE_SCHEMA,
-            },
-        )
-        return getattr(resp, "text", "") or ""
+        models = (self.model, *self.fallback_models)
+        for i, model in enumerate(models):
+            try:
+                resp = client.models.generate_content(
+                    model=model,
+                    contents=[
+                        PROMPT,
+                        types.Part.from_bytes(data=image_png, mime_type="image/png"),
+                    ],
+                    config={
+                        "response_mime_type": "application/json",
+                        "response_schema": RESPONSE_SCHEMA,
+                    },
+                )
+            except Exception as exc:
+                if getattr(exc, "code", None) in RETRYABLE_CODES and i + 1 < len(models):
+                    continue
+                raise
+            return getattr(resp, "text", "") or ""
+        raise AugmentReadError("Không còn model Gemini nào để thử")  # khong toi duoc
 
     @staticmethod
     def _parse(raw: str) -> dict[str, Any] | None:
