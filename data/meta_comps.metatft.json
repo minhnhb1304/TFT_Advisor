@@ -2,16 +2,16 @@
   "meta": {
     "set": "TFTSet18",
     "provider": "metatft.com",
-    "source": "metatft:META Spencer/patch=18.5b",
-    "patch": "18.5b",
-    "generated_at": "2026-10-26T15:40:41.475519+00:00",
+    "source": "metatft:META Spencer/patch=18.6",
+    "patch": "18.6",
+    "generated_at": "2026-11-10T04:28:57.431149+00:00",
     "total_comps": 60,
     "note": "Phân cụm máy học từ MetaTFT (META Spencer). Cung cấp cỡ mẫu thực và avg placement đo được."
   },
   "comps": [
     {
       "name": "MetaTFT: DA_18_Defender, DA_18_Rengar",
-      "tier": "A",
+      "tier": "S",
       "core_units": [
         "DA_18_Ornn",
         "DA_18_Rammus",
@@ -25,12 +25,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_18_EmblemDefender",
-        "DA_GuinsoosRageblade",
-        "DA_TitansResolve",
         "DA_ArchangelsStaff",
         "DA_HextechGunblade",
-        "DA_SpearOfShojin"
+        "DA_SpearOfShojin",
+        "DA_BlueBuff",
+        "DA_18_EmblemDefender",
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -42,17 +42,17 @@
         "DA_18_Spellweaver": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 4.3412,
-      "top4_rate": 0.5397,
-      "win_rate": 0.1377,
-      "play_rate": 0.0104,
+      "avg_placement": 4.1483,
+      "top4_rate": 0.5879,
+      "win_rate": 0.1531,
+      "play_rate": 0.008,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=10,356 trận). Avg: 4.34",
-      "source": "metatft:META Spencer/cluster=426000/patch=18.5b",
-      "sample_n": 10356,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,009 trận). Avg: 4.15",
+      "source": "metatft:META Spencer/cluster=426000/patch=18.6",
+      "sample_n": 8009,
       "archetype": ""
     },
     {
@@ -71,12 +71,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
-        "DA_KrakensFury",
         "DA_Deathblade",
-        "DA_18_EmblemRapidfire",
-        "DA_EdgeOfNight",
-        "DA_Quicksilver"
+        "DA_InfinityEdge",
+        "DA_KrakensFury",
+        "DA_StrikersFlail",
+        "DA_RedBuff",
+        "DA_18_EmblemRapidfire"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -92,17 +92,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.7453,
-      "top4_rate": 0.4387,
-      "win_rate": 0.1054,
-      "play_rate": 0.0099,
+      "avg_placement": 4.787,
+      "top4_rate": 0.4283,
+      "win_rate": 0.102,
+      "play_rate": 0.0053,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=9,914 trận). Avg: 4.75",
-      "source": "metatft:META Spencer/cluster=426001/patch=18.5b",
-      "sample_n": 9914,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=5,309 trận). Avg: 4.79",
+      "source": "metatft:META Spencer/cluster=426001/patch=18.6",
+      "sample_n": 5309,
       "archetype": ""
     },
     {
@@ -121,12 +121,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_18_EmblemElderwood",
-        "DA_GuinsoosRageblade",
-        "DA_KrakensFury",
         "DA_InfinityEdge",
-        "DA_LastWhisper",
-        "DA_SpearOfShojin"
+        "DA_SpearOfShojin",
+        "DA_StrikersFlail",
+        "DA_Deathblade",
+        "DA_18_EmblemElderwood",
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -141,22 +141,22 @@
         "DA_18_Rapidfire": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 4.2496,
-      "top4_rate": 0.5626,
-      "win_rate": 0.145,
-      "play_rate": 0.0343,
+      "avg_placement": 4.2823,
+      "top4_rate": 0.5544,
+      "win_rate": 0.1424,
+      "play_rate": 0.0457,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=34,314 trận). Avg: 4.25",
-      "source": "metatft:META Spencer/cluster=426002/patch=18.5b",
-      "sample_n": 34314,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=45,729 trận). Avg: 4.28",
+      "source": "metatft:META Spencer/cluster=426002/patch=18.6",
+      "sample_n": 45729,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Sprykin, DA_18_Azir",
-      "tier": "B",
+      "tier": "A",
       "core_units": [
         "DA_18_Rammus",
         "DA_18_Teemo",
@@ -189,17 +189,17 @@
         "DA_18_Summoner": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 4.4024,
-      "top4_rate": 0.5244,
-      "win_rate": 0.1328,
-      "play_rate": 0.0387,
+      "avg_placement": 4.3365,
+      "top4_rate": 0.5409,
+      "win_rate": 0.1381,
+      "play_rate": 0.0258,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=38,675 trận). Avg: 4.40",
-      "source": "metatft:META Spencer/cluster=426003/patch=18.5b",
-      "sample_n": 38675,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=25,804 trận). Avg: 4.34",
+      "source": "metatft:META Spencer/cluster=426003/patch=18.6",
+      "sample_n": 25804,
       "archetype": ""
     },
     {
@@ -218,12 +218,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_Deathblade",
-        "DA_GuinsoosRageblade",
-        "DA_KrakensFury",
+        "DA_Bloodthirster",
+        "DA_EdgeOfNight",
+        "DA_SteraksGage",
+        "DA_18_EmblemHunter",
         "DA_InfinityEdge",
-        "DA_SpearOfShojin",
-        "DA_SteraksGage"
+        "DA_SpearOfShojin"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -239,17 +239,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.499,
-      "top4_rate": 0.5003,
-      "win_rate": 0.1251,
-      "play_rate": 0.0633,
+      "avg_placement": 4.5133,
+      "top4_rate": 0.4967,
+      "win_rate": 0.1239,
+      "play_rate": 0.0472,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=63,344 trận). Avg: 4.50",
-      "source": "metatft:META Spencer/cluster=426004/patch=18.5b",
-      "sample_n": 63344,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=47,224 trận). Avg: 4.51",
+      "source": "metatft:META Spencer/cluster=426004/patch=18.6",
+      "sample_n": 47224,
       "archetype": ""
     },
     {
@@ -271,9 +271,9 @@
         "DA_GargoyleStoneplate",
         "DA_SpiritVisage",
         "DA_WarmogsArmor",
-        "DA_ProtectorsVow",
-        "DA_SteadfastHeart",
-        "DA_Deathblade"
+        "DA_BrambleVest",
+        "DA_Deathblade",
+        "DA_SpearOfShojin"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -288,17 +288,17 @@
         "DA_18_Spellweaver": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 4.5238,
-      "top4_rate": 0.4941,
-      "win_rate": 0.1231,
-      "play_rate": 0.0188,
+      "avg_placement": 4.5187,
+      "top4_rate": 0.4953,
+      "win_rate": 0.1235,
+      "play_rate": 0.0166,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=18,780 trận). Avg: 4.52",
-      "source": "metatft:META Spencer/cluster=426005/patch=18.5b",
-      "sample_n": 18780,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=16,645 trận). Avg: 4.52",
+      "source": "metatft:META Spencer/cluster=426005/patch=18.6",
+      "sample_n": 16645,
       "archetype": ""
     },
     {
@@ -319,9 +319,8 @@
         "DA_JeweledGauntlet",
         "DA_SpearOfShojin",
         "DA_StrikersFlail",
-        "DA_RabadonsDeathcap",
-        "DA_ArchangelsStaff",
-        "DA_HextechGunblade"
+        "DA_BlueBuff",
+        "DA_RabadonsDeathcap"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -335,22 +334,22 @@
         "DA_18_Sprykin": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 4.3435,
-      "top4_rate": 0.5391,
-      "win_rate": 0.1375,
-      "play_rate": 0.0206,
+      "avg_placement": 4.3055,
+      "top4_rate": 0.5486,
+      "win_rate": 0.1406,
+      "play_rate": 0.0307,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=20,614 trận). Avg: 4.34",
-      "source": "metatft:META Spencer/cluster=426006/patch=18.5b",
-      "sample_n": 20614,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=30,691 trận). Avg: 4.31",
+      "source": "metatft:META Spencer/cluster=426006/patch=18.6",
+      "sample_n": 30691,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_Riftbeast18, DA_18_Sentry",
-      "tier": "S",
+      "tier": "A",
       "core_units": [
         "DA_Cinderling18",
         "DA_18_Sentry",
@@ -368,7 +367,7 @@
       "core_items": [
         "DA_EdgeOfNight",
         "DA_GuinsoosRageblade",
-        "DA_HandOfJustice",
+        "DA_Quicksilver",
         "DA_InfinityEdge",
         "DA_LastWhisper",
         "DA_StrikersFlail"
@@ -383,22 +382,22 @@
         "DA_Riftbeast18": 3,
         "DA_18_Slayer": 1
       },
-      "avg_placement": 4.1387,
-      "top4_rate": 0.5903,
-      "win_rate": 0.1539,
-      "play_rate": 0.2182,
+      "avg_placement": 4.1724,
+      "top4_rate": 0.5819,
+      "win_rate": 0.1512,
+      "play_rate": 0.088,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=218,213 trận). Avg: 4.14",
-      "source": "metatft:META Spencer/cluster=426007/patch=18.5b",
-      "sample_n": 218213,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=87,984 trận). Avg: 4.17",
+      "source": "metatft:META Spencer/cluster=426007/patch=18.6",
+      "sample_n": 87984,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Vanguard, DA_18_Morgana",
-      "tier": "B",
+      "tier": "A",
       "core_units": [
         "DA_KogMaw18_AD",
         "DA_18_Diana",
@@ -413,12 +412,12 @@
       ],
       "flex_units": [],
       "core_items": [
+        "DA_JeweledGauntlet",
+        "DA_SpearOfShojin",
+        "DA_StrikersFlail",
         "DA_HextechGunblade",
         "DA_Morellonomicon",
-        "DA_VoidStaff",
-        "DA_ArchangelsStaff",
-        "DA_BlueBuff",
-        "DA_JeweledGauntlet"
+        "DA_VoidStaff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -431,17 +430,17 @@
         "DA_18_Slayer": 1,
         "DA_18_Vanguard": 2
       },
-      "avg_placement": 4.4165,
-      "top4_rate": 0.5209,
-      "win_rate": 0.1317,
-      "play_rate": 0.0374,
+      "avg_placement": 4.2588,
+      "top4_rate": 0.5603,
+      "win_rate": 0.1443,
+      "play_rate": 0.0527,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=37,446 trận). Avg: 4.42",
-      "source": "metatft:META Spencer/cluster=426008/patch=18.5b",
-      "sample_n": 37446,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=52,676 trận). Avg: 4.26",
+      "source": "metatft:META Spencer/cluster=426008/patch=18.6",
+      "sample_n": 52676,
       "archetype": ""
     },
     {
@@ -463,12 +462,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_BrambleVest",
-        "DA_DragonsClaw",
-        "DA_WarmogsArmor",
-        "DA_GargoyleStoneplate",
-        "DA_ProtectorsVow",
-        "DA_GiantSlayer"
+        "DA_EdgeOfNight",
+        "DA_Morellonomicon",
+        "DA_VoidStaff",
+        "DA_18_EmblemSlayer",
+        "DA_AdaptiveHelm",
+        "DA_Crownguard"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -481,17 +480,17 @@
         "DA_18_Slayer": 1,
         "DA_18_Vanguard": 2
       },
-      "avg_placement": 4.6097,
-      "top4_rate": 0.4726,
-      "win_rate": 0.1162,
-      "play_rate": 0.0076,
+      "avg_placement": 4.5373,
+      "top4_rate": 0.4907,
+      "win_rate": 0.122,
+      "play_rate": 0.0047,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=7,643 trận). Avg: 4.61",
-      "source": "metatft:META Spencer/cluster=426009/patch=18.5b",
-      "sample_n": 7643,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=4,657 trận). Avg: 4.54",
+      "source": "metatft:META Spencer/cluster=426009/patch=18.6",
+      "sample_n": 4657,
       "archetype": ""
     },
     {
@@ -512,10 +511,10 @@
       "core_items": [
         "DA_18_EmblemInvoker",
         "DA_JeweledGauntlet",
-        "DA_StrikersFlail",
-        "DA_Morellonomicon",
         "DA_RabadonsDeathcap",
-        "DA_VoidStaff"
+        "DA_Morellonomicon",
+        "DA_VoidStaff",
+        "DA_StrikersFlail"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -529,17 +528,17 @@
         "DA_18_Spellweaver": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 4.5502,
-      "top4_rate": 0.4874,
-      "win_rate": 0.121,
-      "play_rate": 0.0825,
+      "avg_placement": 4.4125,
+      "top4_rate": 0.5219,
+      "win_rate": 0.132,
+      "play_rate": 0.0525,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=82,490 trận). Avg: 4.55",
-      "source": "metatft:META Spencer/cluster=426010/patch=18.5b",
-      "sample_n": 82490,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=52,456 trận). Avg: 4.41",
+      "source": "metatft:META Spencer/cluster=426010/patch=18.6",
+      "sample_n": 52456,
       "archetype": ""
     },
     {
@@ -563,8 +562,7 @@
         "DA_GuinsoosRageblade",
         "DA_KrakensFury",
         "DA_18_EmblemExecutioner",
-        "DA_InfinityEdge",
-        "DA_GargoyleStoneplate"
+        "DA_InfinityEdge"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -577,22 +575,22 @@
         "DA_18_Executioner": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.4616,
-      "top4_rate": 0.5096,
-      "win_rate": 0.1281,
-      "play_rate": 0.0707,
+      "avg_placement": 4.4384,
+      "top4_rate": 0.5154,
+      "win_rate": 0.1299,
+      "play_rate": 0.0627,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=70,715 trận). Avg: 4.46",
-      "source": "metatft:META Spencer/cluster=426011/patch=18.5b",
-      "sample_n": 70715,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=62,734 trận). Avg: 4.44",
+      "source": "metatft:META Spencer/cluster=426011/patch=18.6",
+      "sample_n": 62734,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Elderwood, DA_18_KhaZix",
-      "tier": "A",
+      "tier": "C",
       "core_units": [
         "DA_18_Diana",
         "DA_18_Hecarim",
@@ -610,8 +608,8 @@
         "DA_NashorsTooth",
         "DA_RabadonsDeathcap",
         "DA_GargoyleStoneplate",
-        "DA_SpiritVisage",
-        "DA_WarmogsArmor"
+        "DA_ProtectorsVow",
+        "DA_SunfireCape"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -628,17 +626,17 @@
         "DA_18_Vanguard": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 4.3415,
-      "top4_rate": 0.5396,
-      "win_rate": 0.1377,
-      "play_rate": 0.0462,
+      "avg_placement": 4.9498,
+      "top4_rate": 0.3876,
+      "win_rate": 0.089,
+      "play_rate": 0.0082,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=46,197 trận). Avg: 4.34",
-      "source": "metatft:META Spencer/cluster=426012/patch=18.5b",
-      "sample_n": 46197,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,181 trận). Avg: 4.95",
+      "source": "metatft:META Spencer/cluster=426012/patch=18.6",
+      "sample_n": 8181,
       "archetype": ""
     },
     {
@@ -660,12 +658,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_ArchangelsStaff",
         "DA_JeweledGauntlet",
-        "DA_NashorsTooth",
-        "DA_BlueBuff",
         "DA_RabadonsDeathcap",
-        "DA_SpearOfShojin"
+        "DA_SpearOfShojin",
+        "DA_NashorsTooth",
+        "DA_StrikersFlail",
+        "DA_ArchangelsStaff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -679,17 +677,17 @@
         "DA_18_Sprykin": 1,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 4.5331,
-      "top4_rate": 0.4917,
-      "win_rate": 0.1224,
-      "play_rate": 0.0029,
+      "avg_placement": 4.4908,
+      "top4_rate": 0.5023,
+      "win_rate": 0.1257,
+      "play_rate": 0.0027,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,859 trận). Avg: 4.53",
-      "source": "metatft:META Spencer/cluster=426013/patch=18.5b",
-      "sample_n": 2859,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,714 trận). Avg: 4.49",
+      "source": "metatft:META Spencer/cluster=426013/patch=18.6",
+      "sample_n": 2714,
       "archetype": ""
     },
     {
@@ -711,7 +709,8 @@
         "DA_GargoyleStoneplate",
         "DA_SpiritVisage",
         "DA_WarmogsArmor",
-        "DA_Crownguard"
+        "DA_Crownguard",
+        "DA_BrambleVest"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -725,17 +724,17 @@
         "DA_18_Spellweaver": 2,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 4.3003,
-      "top4_rate": 0.5499,
-      "win_rate": 0.141,
-      "play_rate": 0.0665,
+      "avg_placement": 4.3489,
+      "top4_rate": 0.5378,
+      "win_rate": 0.1371,
+      "play_rate": 0.0496,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=66,521 trận). Avg: 4.30",
-      "source": "metatft:META Spencer/cluster=426014/patch=18.5b",
-      "sample_n": 66521,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=49,595 trận). Avg: 4.35",
+      "source": "metatft:META Spencer/cluster=426014/patch=18.6",
+      "sample_n": 49595,
       "archetype": ""
     },
     {
@@ -758,8 +757,7 @@
         "DA_HextechGunblade",
         "DA_SpearOfShojin",
         "DA_BlueBuff",
-        "DA_IonicSpark",
-        "DA_SunfireCape"
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -770,22 +768,22 @@
         "DA_18_Summoner": 1,
         "DA_Juggernaut18": 3
       },
-      "avg_placement": 4.5599,
-      "top4_rate": 0.485,
-      "win_rate": 0.1202,
-      "play_rate": 0.0132,
+      "avg_placement": 4.492,
+      "top4_rate": 0.502,
+      "win_rate": 0.1256,
+      "play_rate": 0.0129,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=13,221 trận). Avg: 4.56",
-      "source": "metatft:META Spencer/cluster=426015/patch=18.5b",
-      "sample_n": 13221,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=12,873 trận). Avg: 4.49",
+      "source": "metatft:META Spencer/cluster=426015/patch=18.6",
+      "sample_n": 12873,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Hunter, DA_18_Malphite",
-      "tier": "C",
+      "tier": "B",
       "core_units": [
         "DA_Cinderling18",
         "DA_18_Sivir",
@@ -799,12 +797,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_InfinityEdge",
-        "DA_RedBuff",
-        "DA_StrikersFlail",
+        "DA_Bloodthirster",
+        "DA_EdgeOfNight",
+        "DA_SteraksGage",
         "DA_BlueBuff",
-        "DA_GiantSlayer",
-        "DA_Deathblade"
+        "DA_Deathblade",
+        "DA_InfinityEdge"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -819,17 +817,17 @@
         "DA_Primal18": 1,
         "DA_Riftbeast18": 1
       },
-      "avg_placement": 4.6722,
-      "top4_rate": 0.4569,
-      "win_rate": 0.1112,
-      "play_rate": 0.0121,
+      "avg_placement": 4.495,
+      "top4_rate": 0.5012,
+      "win_rate": 0.1254,
+      "play_rate": 0.0159,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=12,114 trận). Avg: 4.67",
-      "source": "metatft:META Spencer/cluster=426016/patch=18.5b",
-      "sample_n": 12114,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=15,928 trận). Avg: 4.50",
+      "source": "metatft:META Spencer/cluster=426016/patch=18.6",
+      "sample_n": 15928,
       "archetype": ""
     },
     {
@@ -851,12 +849,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_HandOfJustice",
-        "DA_Quicksilver",
-        "DA_SteraksGage",
+        "DA_GiantSlayer",
         "DA_InfinityEdge",
-        "DA_KrakensFury",
-        "DA_RedBuff"
+        "DA_LastWhisper",
+        "DA_Deathblade",
+        "DA_RedBuff",
+        "DA_KrakensFury"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -870,17 +868,17 @@
         "DA_18_Summoner": 1,
         "DA_18_Vanguard": 2
       },
-      "avg_placement": 4.8176,
-      "top4_rate": 0.4206,
-      "win_rate": 0.0996,
-      "play_rate": 0.0121,
+      "avg_placement": 4.6769,
+      "top4_rate": 0.4558,
+      "win_rate": 0.1108,
+      "play_rate": 0.0077,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=12,060 trận). Avg: 4.82",
-      "source": "metatft:META Spencer/cluster=426017/patch=18.5b",
-      "sample_n": 12060,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=7,683 trận). Avg: 4.68",
+      "source": "metatft:META Spencer/cluster=426017/patch=18.6",
+      "sample_n": 7683,
       "archetype": ""
     },
     {
@@ -899,11 +897,11 @@
       "flex_units": [],
       "core_items": [
         "DA_ArchangelsStaff",
+        "DA_BlueBuff",
         "DA_HextechGunblade",
         "DA_SpearOfShojin",
-        "DA_BlueBuff",
         "DA_IonicSpark",
-        "DA_ProtectorsVow"
+        "DA_SpiritVisage"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -914,17 +912,17 @@
         "DA_18_Spellweaver": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 4.838,
-      "top4_rate": 0.4155,
-      "win_rate": 0.098,
-      "play_rate": 0.0172,
+      "avg_placement": 4.7881,
+      "top4_rate": 0.428,
+      "win_rate": 0.102,
+      "play_rate": 0.0115,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=17,159 trận). Avg: 4.84",
-      "source": "metatft:META Spencer/cluster=426018/patch=18.5b",
-      "sample_n": 17159,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=11,450 trận). Avg: 4.79",
+      "source": "metatft:META Spencer/cluster=426018/patch=18.6",
+      "sample_n": 11450,
       "archetype": ""
     },
     {
@@ -942,11 +940,11 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_18_EmblemExecutioner",
-        "DA_EdgeOfNight",
-        "DA_SpearOfShojin",
         "DA_18_EmblemBlackthorn",
         "DA_LastWhisper",
+        "DA_SpearOfShojin",
+        "DA_18_EmblemExecutioner",
+        "DA_SteraksGage",
         "DA_TitansResolve"
       ],
       "carry_items": {},
@@ -960,17 +958,17 @@
         "DA_18_Slayer": 1,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 4.8609,
-      "top4_rate": 0.4098,
-      "win_rate": 0.0961,
-      "play_rate": 0.0032,
+      "avg_placement": 4.7998,
+      "top4_rate": 0.425,
+      "win_rate": 0.101,
+      "play_rate": 0.0017,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,228 trận). Avg: 4.86",
-      "source": "metatft:META Spencer/cluster=426019/patch=18.5b",
-      "sample_n": 3228,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,683 trận). Avg: 4.80",
+      "source": "metatft:META Spencer/cluster=426019/patch=18.6",
+      "sample_n": 1683,
       "archetype": ""
     },
     {
@@ -992,9 +990,9 @@
         "DA_Morellonomicon",
         "DA_SpearOfShojin",
         "DA_VoidStaff",
-        "DA_BlueBuff",
         "DA_JeweledGauntlet",
-        "DA_RabadonsDeathcap"
+        "DA_StrikersFlail",
+        "DA_RedBuff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1010,17 +1008,17 @@
         "DA_FloraFatalis18": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.6245,
-      "top4_rate": 0.4689,
-      "win_rate": 0.115,
-      "play_rate": 0.0184,
+      "avg_placement": 4.6075,
+      "top4_rate": 0.4731,
+      "win_rate": 0.1164,
+      "play_rate": 0.0431,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=18,443 trận). Avg: 4.62",
-      "source": "metatft:META Spencer/cluster=426020/patch=18.5b",
-      "sample_n": 18443,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=43,077 trận). Avg: 4.61",
+      "source": "metatft:META Spencer/cluster=426020/patch=18.6",
+      "sample_n": 43077,
       "archetype": ""
     },
     {
@@ -1044,8 +1042,8 @@
         "DA_JeweledGauntlet",
         "DA_RabadonsDeathcap",
         "DA_RedBuff",
-        "DA_18_EmblemLunar",
-        "DA_GargoyleStoneplate"
+        "DA_HextechGunblade",
+        "DA_18_EmblemLunar"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1059,17 +1057,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.4693,
-      "top4_rate": 0.5077,
-      "win_rate": 0.1275,
-      "play_rate": 0.0158,
+      "avg_placement": 4.5116,
+      "top4_rate": 0.4971,
+      "win_rate": 0.1241,
+      "play_rate": 0.0094,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=15,812 trận). Avg: 4.47",
-      "source": "metatft:META Spencer/cluster=426021/patch=18.5b",
-      "sample_n": 15812,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=9,375 trận). Avg: 4.51",
+      "source": "metatft:META Spencer/cluster=426021/patch=18.6",
+      "sample_n": 9375,
       "archetype": ""
     },
     {
@@ -1090,9 +1088,9 @@
         "DA_EdgeOfNight",
         "DA_GuinsoosRageblade",
         "DA_TitansResolve",
-        "DA_Quicksilver",
-        "DA_SteraksGage",
-        "DA_Bloodthirster"
+        "DA_Evenshroud",
+        "DA_SunfireCape",
+        "DA_WarmogsArmor"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1106,17 +1104,17 @@
         "DA_18_Rival": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.3941,
-      "top4_rate": 0.5265,
-      "win_rate": 0.1335,
-      "play_rate": 0.0376,
+      "avg_placement": 4.2976,
+      "top4_rate": 0.5506,
+      "win_rate": 0.1412,
+      "play_rate": 0.0337,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=37,638 trận). Avg: 4.39",
-      "source": "metatft:META Spencer/cluster=426022/patch=18.5b",
-      "sample_n": 37638,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=33,678 trận). Avg: 4.30",
+      "source": "metatft:META Spencer/cluster=426022/patch=18.6",
+      "sample_n": 33678,
       "archetype": ""
     },
     {
@@ -1138,9 +1136,9 @@
         "DA_SpearOfShojin",
         "DA_SteraksGage",
         "DA_TitansResolve",
+        "DA_18_EmblemSlayer",
         "DA_EdgeOfNight",
-        "DA_HandOfJustice",
-        "DA_InfinityEdge"
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1152,17 +1150,17 @@
         "DA_Riftbeast18": 1,
         "DA_18_Slayer": 2
       },
-      "avg_placement": 4.4591,
-      "top4_rate": 0.5102,
-      "win_rate": 0.1283,
-      "play_rate": 0.0089,
+      "avg_placement": 4.4045,
+      "top4_rate": 0.5239,
+      "win_rate": 0.1326,
+      "play_rate": 0.0088,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,892 trận). Avg: 4.46",
-      "source": "metatft:META Spencer/cluster=426023/patch=18.5b",
-      "sample_n": 8892,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,755 trận). Avg: 4.40",
+      "source": "metatft:META Spencer/cluster=426023/patch=18.6",
+      "sample_n": 8755,
       "archetype": ""
     },
     {
@@ -1180,12 +1178,12 @@
       ],
       "flex_units": [],
       "core_items": [
+        "DA_Bloodthirster",
+        "DA_GuinsoosRageblade",
+        "DA_SteraksGage",
         "DA_HandOfJustice",
-        "DA_JeweledGauntlet",
-        "DA_NashorsTooth",
         "DA_RabadonsDeathcap",
-        "DA_SpearOfShojin",
-        "DA_GuinsoosRageblade"
+        "DA_StrikersFlail"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1200,17 +1198,17 @@
         "DA_18_Spellweaver": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 5.0899,
-      "top4_rate": 0.3525,
-      "win_rate": 0.0778,
-      "play_rate": 0.0085,
+      "avg_placement": 5.2332,
+      "top4_rate": 0.3167,
+      "win_rate": 0.0663,
+      "play_rate": 0.005,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,457 trận). Avg: 5.09",
-      "source": "metatft:META Spencer/cluster=426024/patch=18.5b",
-      "sample_n": 8457,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=5,017 trận). Avg: 5.23",
+      "source": "metatft:META Spencer/cluster=426024/patch=18.6",
+      "sample_n": 5017,
       "archetype": ""
     },
     {
@@ -1230,12 +1228,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_EdgeOfNight",
-        "DA_HandOfJustice",
-        "DA_InfinityEdge",
         "DA_Crownguard",
         "DA_GargoyleStoneplate",
-        "DA_SteadfastHeart"
+        "DA_WarmogsArmor",
+        "DA_SpiritVisage",
+        "DA_Bloodthirster",
+        "DA_EdgeOfNight"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1247,17 +1245,17 @@
         "DA_18_Rapidfire": 1,
         "DA_18_Slayer": 1
       },
-      "avg_placement": 4.5429,
-      "top4_rate": 0.4893,
-      "win_rate": 0.1216,
-      "play_rate": 0.0277,
+      "avg_placement": 4.6488,
+      "top4_rate": 0.4628,
+      "win_rate": 0.1131,
+      "play_rate": 0.0247,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=27,690 trận). Avg: 4.54",
-      "source": "metatft:META Spencer/cluster=426025/patch=18.5b",
-      "sample_n": 27690,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=24,725 trận). Avg: 4.65",
+      "source": "metatft:META Spencer/cluster=426025/patch=18.6",
+      "sample_n": 24725,
       "archetype": ""
     },
     {
@@ -1277,12 +1275,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
+        "DA_ProtectorsVow",
+        "DA_WarmogsArmor",
+        "DA_18_EmblemVanguard",
+        "DA_18_EmblemFae",
         "DA_InfinityEdge",
-        "DA_RedBuff",
-        "DA_AdaptiveHelm",
-        "DA_GargoyleStoneplate",
-        "DA_ProtectorsVow"
+        "DA_KrakensFury"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1296,22 +1294,22 @@
         "DA_18_Rapidfire": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 4.7003,
-      "top4_rate": 0.4499,
-      "win_rate": 0.109,
-      "play_rate": 0.007,
+      "avg_placement": 4.7385,
+      "top4_rate": 0.4404,
+      "win_rate": 0.1059,
+      "play_rate": 0.0075,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=6,966 trận). Avg: 4.70",
-      "source": "metatft:META Spencer/cluster=426026/patch=18.5b",
-      "sample_n": 6966,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=7,549 trận). Avg: 4.74",
+      "source": "metatft:META Spencer/cluster=426026/patch=18.6",
+      "sample_n": 7549,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Vanguard, DA_18_Ahri",
-      "tier": "B",
+      "tier": "A",
       "core_units": [
         "DA_18_Elise",
         "DA_Sentinel18",
@@ -1345,22 +1343,22 @@
         "DA_18_Vanguard": 2,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 4.4164,
-      "top4_rate": 0.5209,
-      "win_rate": 0.1317,
-      "play_rate": 0.0241,
+      "avg_placement": 4.3352,
+      "top4_rate": 0.5412,
+      "win_rate": 0.1382,
+      "play_rate": 0.0251,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=24,098 trận). Avg: 4.42",
-      "source": "metatft:META Spencer/cluster=426027/patch=18.5b",
-      "sample_n": 24098,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=25,059 trận). Avg: 4.34",
+      "source": "metatft:META Spencer/cluster=426027/patch=18.6",
+      "sample_n": 25059,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Executioner, DA_18_Malphite",
-      "tier": "C",
+      "tier": "B",
       "core_units": [
         "DA_18_Soraka",
         "DA_Fiddlesticks18",
@@ -1377,9 +1375,9 @@
         "DA_Crownguard",
         "DA_GargoyleStoneplate",
         "DA_WarmogsArmor",
-        "DA_SpiritVisage",
         "DA_18_EmblemExecutioner",
-        "DA_SpearOfShojin"
+        "DA_SpearOfShojin",
+        "DA_VoidStaff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1394,17 +1392,17 @@
         "DA_FloraFatalis18": 2,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.7206,
-      "top4_rate": 0.4448,
-      "win_rate": 0.1074,
-      "play_rate": 0.041,
+      "avg_placement": 4.5691,
+      "top4_rate": 0.4827,
+      "win_rate": 0.1195,
+      "play_rate": 0.0314,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=41,020 trận). Avg: 4.72",
-      "source": "metatft:META Spencer/cluster=426028/patch=18.5b",
-      "sample_n": 41020,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=31,356 trận). Avg: 4.57",
+      "source": "metatft:META Spencer/cluster=426028/patch=18.6",
+      "sample_n": 31356,
       "archetype": ""
     },
     {
@@ -1423,12 +1421,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
-        "DA_RedBuff",
-        "DA_SpearOfShojin",
         "DA_18_EmblemBrawler",
         "DA_EdgeOfNight",
-        "DA_GuinsoosRageblade"
+        "DA_GuinsoosRageblade",
+        "DA_GiantSlayer",
+        "DA_RedBuff",
+        "DA_SpearOfShojin"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1442,17 +1440,17 @@
         "DA_18_Rival": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.3401,
-      "top4_rate": 0.54,
-      "win_rate": 0.1378,
-      "play_rate": 0.0195,
+      "avg_placement": 4.1809,
+      "top4_rate": 0.5798,
+      "win_rate": 0.1505,
+      "play_rate": 0.0181,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=19,548 trận). Avg: 4.34",
-      "source": "metatft:META Spencer/cluster=426029/patch=18.5b",
-      "sample_n": 19548,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=18,117 trận). Avg: 4.18",
+      "source": "metatft:META Spencer/cluster=426029/patch=18.6",
+      "sample_n": 18117,
       "archetype": ""
     },
     {
@@ -1493,17 +1491,17 @@
         "DA_18_Executioner": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.5031,
-      "top4_rate": 0.4992,
-      "win_rate": 0.1248,
-      "play_rate": 0.1332,
+      "avg_placement": 4.4085,
+      "top4_rate": 0.5229,
+      "win_rate": 0.1323,
+      "play_rate": 0.1473,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=133,187 trận). Avg: 4.50",
-      "source": "metatft:META Spencer/cluster=426030/patch=18.5b",
-      "sample_n": 133187,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=147,302 trận). Avg: 4.41",
+      "source": "metatft:META Spencer/cluster=426030/patch=18.6",
+      "sample_n": 147302,
       "archetype": ""
     },
     {
@@ -1523,10 +1521,10 @@
       "core_items": [
         "DA_18_EmblemFae",
         "DA_GuinsoosRageblade",
-        "DA_RedBuff",
+        "DA_RabadonsDeathcap",
         "DA_JeweledGauntlet",
-        "DA_GiantSlayer",
-        "DA_InfinityEdge"
+        "DA_RedBuff",
+        "DA_HextechGunblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1540,17 +1538,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.7466,
-      "top4_rate": 0.4384,
-      "win_rate": 0.1053,
-      "play_rate": 0.0168,
+      "avg_placement": 4.8025,
+      "top4_rate": 0.4244,
+      "win_rate": 0.1008,
+      "play_rate": 0.0194,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=16,781 trận). Avg: 4.75",
-      "source": "metatft:META Spencer/cluster=426031/patch=18.5b",
-      "sample_n": 16781,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=19,450 trận). Avg: 4.80",
+      "source": "metatft:META Spencer/cluster=426031/patch=18.6",
+      "sample_n": 19450,
       "archetype": ""
     },
     {
@@ -1584,22 +1582,22 @@
         "DA_18_Summoner": 1,
         "DA_Juggernaut18": 3
       },
-      "avg_placement": 4.6139,
-      "top4_rate": 0.4715,
-      "win_rate": 0.1159,
-      "play_rate": 0.0153,
+      "avg_placement": 4.6204,
+      "top4_rate": 0.4699,
+      "win_rate": 0.1154,
+      "play_rate": 0.0117,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=15,303 trận). Avg: 4.61",
-      "source": "metatft:META Spencer/cluster=426032/patch=18.5b",
-      "sample_n": 15303,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=11,682 trận). Avg: 4.62",
+      "source": "metatft:META Spencer/cluster=426032/patch=18.6",
+      "sample_n": 11682,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Vanguard, DA_18_Hecarim",
-      "tier": "B",
+      "tier": "A",
       "core_units": [
         "DA_18_Rengar",
         "DA_CrimsonRaptor18",
@@ -1617,8 +1615,8 @@
         "DA_HextechGunblade",
         "DA_TitansResolve",
         "DA_KrakensFury",
-        "DA_BrambleVest",
-        "DA_GargoyleStoneplate"
+        "DA_ProtectorsVow",
+        "DA_SteadfastHeart"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1633,17 +1631,17 @@
         "DA_18_Summoner": 1,
         "DA_18_Vanguard": 2
       },
-      "avg_placement": 4.6071,
-      "top4_rate": 0.4732,
-      "win_rate": 0.1164,
-      "play_rate": 0.0138,
+      "avg_placement": 4.3699,
+      "top4_rate": 0.5325,
+      "win_rate": 0.1354,
+      "play_rate": 0.0124,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=13,822 trận). Avg: 4.61",
-      "source": "metatft:META Spencer/cluster=426033/patch=18.5b",
-      "sample_n": 13822,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=12,400 trận). Avg: 4.37",
+      "source": "metatft:META Spencer/cluster=426033/patch=18.6",
+      "sample_n": 12400,
       "archetype": ""
     },
     {
@@ -1661,11 +1659,11 @@
       ],
       "flex_units": [],
       "core_items": [
+        "DA_GuinsoosRageblade",
         "DA_HextechGunblade",
         "DA_RabadonsDeathcap",
-        "DA_GuinsoosRageblade",
-        "DA_ArchangelsStaff",
-        "DA_GiantSlayer"
+        "DA_VoidStaff",
+        "DA_JeweledGauntlet"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1680,17 +1678,17 @@
         "DA_18_Summoner": 2,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.9016,
-      "top4_rate": 0.3996,
-      "win_rate": 0.0929,
-      "play_rate": 0.0022,
+      "avg_placement": 5.0428,
+      "top4_rate": 0.3643,
+      "win_rate": 0.0816,
+      "play_rate": 0.0016,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,206 trận). Avg: 4.90",
-      "source": "metatft:META Spencer/cluster=426034/patch=18.5b",
-      "sample_n": 2206,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,634 trận). Avg: 5.04",
+      "source": "metatft:META Spencer/cluster=426034/patch=18.6",
+      "sample_n": 1634,
       "archetype": ""
     },
     {
@@ -1708,12 +1706,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_Crownguard",
-        "DA_GargoyleStoneplate",
-        "DA_WarmogsArmor",
-        "DA_18_EmblemExecutioner",
         "DA_BlueBuff",
-        "DA_RabadonsDeathcap"
+        "DA_JeweledGauntlet",
+        "DA_RabadonsDeathcap",
+        "DA_18_EmblemExecutioner",
+        "DA_Crownguard",
+        "DA_GargoyleStoneplate"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1726,17 +1724,17 @@
         "DA_18_Summoner": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.3985,
-      "top4_rate": 0.5254,
-      "win_rate": 0.1331,
-      "play_rate": 0.0814,
+      "avg_placement": 4.3967,
+      "top4_rate": 0.5258,
+      "win_rate": 0.1333,
+      "play_rate": 0.0713,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=81,381 trận). Avg: 4.40",
-      "source": "metatft:META Spencer/cluster=426035/patch=18.5b",
-      "sample_n": 81381,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=71,318 trận). Avg: 4.40",
+      "source": "metatft:META Spencer/cluster=426035/patch=18.6",
+      "sample_n": 71318,
       "archetype": ""
     },
     {
@@ -1756,12 +1754,12 @@
       ],
       "flex_units": [],
       "core_items": [
+        "DA_Deathblade",
         "DA_InfinityEdge",
         "DA_SpearOfShojin",
+        "DA_BlueBuff",
         "DA_StrikersFlail",
-        "DA_Deathblade",
-        "DA_GiantSlayer",
-        "DA_LastWhisper"
+        "DA_GiantSlayer"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1774,17 +1772,17 @@
         "DA_18_Executioner": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.4987,
-      "top4_rate": 0.5003,
-      "win_rate": 0.1251,
-      "play_rate": 0.0282,
+      "avg_placement": 4.5045,
+      "top4_rate": 0.4989,
+      "win_rate": 0.1246,
+      "play_rate": 0.029,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=28,151 trận). Avg: 4.50",
-      "source": "metatft:META Spencer/cluster=426036/patch=18.5b",
-      "sample_n": 28151,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=28,977 trận). Avg: 4.50",
+      "source": "metatft:META Spencer/cluster=426036/patch=18.6",
+      "sample_n": 28977,
       "archetype": ""
     },
     {
@@ -1806,9 +1804,9 @@
         "DA_18_EmblemSlayer",
         "DA_GuinsoosRageblade",
         "DA_TitansResolve",
-        "DA_EdgeOfNight",
-        "DA_InfinityEdge",
-        "DA_SteraksGage"
+        "DA_HandOfJustice",
+        "DA_Quicksilver",
+        "DA_Deathblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1818,22 +1816,22 @@
         "DA_Riftbeast18": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 4.6861,
-      "top4_rate": 0.4535,
-      "win_rate": 0.1101,
-      "play_rate": 0.002,
+      "avg_placement": 4.679,
+      "top4_rate": 0.4552,
+      "win_rate": 0.1107,
+      "play_rate": 0.0015,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,026 trận). Avg: 4.69",
-      "source": "metatft:META Spencer/cluster=426037/patch=18.5b",
-      "sample_n": 2026,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,536 trận). Avg: 4.68",
+      "source": "metatft:META Spencer/cluster=426037/patch=18.6",
+      "sample_n": 1536,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_18_Blossom, DA_18_Ahri",
-      "tier": "C",
+      "tier": "B",
       "core_units": [
         "DA_18_Yorick",
         "DA_18_Yunara",
@@ -1850,12 +1848,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_JeweledGauntlet",
-        "DA_SpearOfShojin",
-        "DA_StrikersFlail",
         "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
         "DA_WarmogsArmor",
-        "DA_BlueBuff"
+        "DA_18_EmblemJuggernaut",
+        "DA_LastWhisper",
+        "DA_RedBuff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1867,22 +1865,22 @@
         "DA_18_Spellweaver": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.6577,
-      "top4_rate": 0.4606,
-      "win_rate": 0.1124,
-      "play_rate": 0.0119,
+      "avg_placement": 4.4901,
+      "top4_rate": 0.5025,
+      "win_rate": 0.1258,
+      "play_rate": 0.0121,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=11,851 trận). Avg: 4.66",
-      "source": "metatft:META Spencer/cluster=426038/patch=18.5b",
-      "sample_n": 11851,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=12,084 trận). Avg: 4.49",
+      "source": "metatft:META Spencer/cluster=426038/patch=18.6",
+      "sample_n": 12084,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_Juggernaut18, DA_18_Caitlyn",
-      "tier": "C",
+      "tier": "B",
       "core_units": [
         "DA_18_Sejuani",
         "DA_18_Caitlyn",
@@ -1898,9 +1896,9 @@
         "DA_GuinsoosRageblade",
         "DA_HextechGunblade",
         "DA_KrakensFury",
-        "DA_Deathblade",
         "DA_InfinityEdge",
-        "DA_LastWhisper"
+        "DA_LastWhisper",
+        "DA_RedBuff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1912,17 +1910,17 @@
         "DA_Primal18": 1,
         "DA_Juggernaut18": 2
       },
-      "avg_placement": 4.6943,
-      "top4_rate": 0.4514,
-      "win_rate": 0.1095,
-      "play_rate": 0.0119,
+      "avg_placement": 4.5958,
+      "top4_rate": 0.4761,
+      "win_rate": 0.1173,
+      "play_rate": 0.0089,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=11,912 trận). Avg: 4.69",
-      "source": "metatft:META Spencer/cluster=426039/patch=18.5b",
-      "sample_n": 11912,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,867 trận). Avg: 4.60",
+      "source": "metatft:META Spencer/cluster=426039/patch=18.6",
+      "sample_n": 8867,
       "archetype": ""
     },
     {
@@ -1952,7 +1950,7 @@
         "DA_SpearOfShojin",
         "DA_InfinityEdge",
         "DA_StrikersFlail",
-        "DA_18_EmblemInferno"
+        "DA_18_EmblemFae"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -1965,17 +1963,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 2
       },
-      "avg_placement": 4.5594,
-      "top4_rate": 0.4851,
-      "win_rate": 0.1202,
-      "play_rate": 0.0359,
+      "avg_placement": 4.6293,
+      "top4_rate": 0.4677,
+      "win_rate": 0.1147,
+      "play_rate": 0.0306,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=35,902 trận). Avg: 4.56",
-      "source": "metatft:META Spencer/cluster=426040/patch=18.5b",
-      "sample_n": 35902,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=30,625 trận). Avg: 4.63",
+      "source": "metatft:META Spencer/cluster=426040/patch=18.6",
+      "sample_n": 30625,
       "archetype": ""
     },
     {
@@ -1996,12 +1994,12 @@
       ],
       "flex_units": [],
       "core_items": [
+        "DA_Bloodthirster",
         "DA_EdgeOfNight",
-        "DA_GuinsoosRageblade",
-        "DA_Quicksilver",
+        "DA_SteraksGage",
         "DA_18_EmblemHunter",
-        "DA_SpearOfShojin",
-        "DA_SteraksGage"
+        "DA_GuinsoosRageblade",
+        "DA_HextechGunblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2014,17 +2012,17 @@
         "DA_18_Vanguard": 2,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.9761,
-      "top4_rate": 0.381,
-      "win_rate": 0.0869,
-      "play_rate": 0.003,
+      "avg_placement": 4.7557,
+      "top4_rate": 0.4361,
+      "win_rate": 0.1045,
+      "play_rate": 0.009,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,966 trận). Avg: 4.98",
-      "source": "metatft:META Spencer/cluster=426041/patch=18.5b",
-      "sample_n": 2966,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=8,988 trận). Avg: 4.76",
+      "source": "metatft:META Spencer/cluster=426041/patch=18.6",
+      "sample_n": 8988,
       "archetype": ""
     },
     {
@@ -2044,10 +2042,10 @@
       "core_items": [
         "DA_18_EmblemFae",
         "DA_18_EmblemHunter",
-        "DA_EdgeOfNight",
-        "DA_GuinsoosRageblade",
-        "DA_TitansResolve",
-        "DA_GiantSlayer"
+        "DA_18_EmblemSprykin",
+        "DA_Quicksilver",
+        "DA_SteraksGage",
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2062,17 +2060,17 @@
         "DA_18_Sprykin": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.9306,
-      "top4_rate": 0.3923,
-      "win_rate": 0.0906,
-      "play_rate": 0.0167,
+      "avg_placement": 4.8361,
+      "top4_rate": 0.416,
+      "win_rate": 0.0981,
+      "play_rate": 0.0109,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=16,688 trận). Avg: 4.93",
-      "source": "metatft:META Spencer/cluster=426042/patch=18.5b",
-      "sample_n": 16688,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=10,877 trận). Avg: 4.84",
+      "source": "metatft:META Spencer/cluster=426042/patch=18.6",
+      "sample_n": 10877,
       "archetype": ""
     },
     {
@@ -2096,10 +2094,9 @@
       "core_items": [
         "DA_ArchangelsStaff",
         "DA_HextechGunblade",
+        "DA_18_EmblemExecutioner",
         "DA_SpearOfShojin",
-        "DA_VoidStaff",
-        "DA_GuinsoosRageblade",
-        "DA_RabadonsDeathcap"
+        "DA_VoidStaff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2112,17 +2109,17 @@
         "DA_FloraFatalis18": 2,
         "DA_Juggernaut18": 2
       },
-      "avg_placement": 5.2332,
-      "top4_rate": 0.3167,
-      "win_rate": 0.0663,
-      "play_rate": 0.0026,
+      "avg_placement": 5.2696,
+      "top4_rate": 0.3076,
+      "win_rate": 0.0634,
+      "play_rate": 0.0018,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,586 trận). Avg: 5.23",
-      "source": "metatft:META Spencer/cluster=426043/patch=18.5b",
-      "sample_n": 2586,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,795 trận). Avg: 5.27",
+      "source": "metatft:META Spencer/cluster=426043/patch=18.6",
+      "sample_n": 1795,
       "archetype": ""
     },
     {
@@ -2142,11 +2139,11 @@
       "flex_units": [],
       "core_items": [
         "DA_18_EmblemFloraFatalisAugment",
-        "DA_BlueBuff",
-        "DA_JeweledGauntlet",
         "DA_GiantSlayer",
-        "DA_NashorsTooth",
-        "DA_HextechGunblade"
+        "DA_JeweledGauntlet",
+        "DA_BlueBuff",
+        "DA_RabadonsDeathcap",
+        "DA_18_EmblemInvoker"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2160,22 +2157,22 @@
         "DA_18_Sprykin": 2,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 5.0713,
-      "top4_rate": 0.3572,
-      "win_rate": 0.0793,
-      "play_rate": 0.0037,
+      "avg_placement": 5.0319,
+      "top4_rate": 0.367,
+      "win_rate": 0.0824,
+      "play_rate": 0.0044,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,677 trận). Avg: 5.07",
-      "source": "metatft:META Spencer/cluster=426044/patch=18.5b",
-      "sample_n": 3677,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=4,421 trận). Avg: 5.03",
+      "source": "metatft:META Spencer/cluster=426044/patch=18.6",
+      "sample_n": 4421,
       "archetype": ""
     },
     {
       "name": "MetaTFT: DA_Juggernaut18, DA_Nidalee18_AP",
-      "tier": "C",
+      "tier": "B",
       "core_units": [
         "DA_Scuttlecrab18",
         "DA_18_Rakan",
@@ -2189,12 +2186,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_18_EmblemPrimal",
-        "DA_GuinsoosRageblade",
-        "DA_InfinityEdge",
+        "DA_Bloodthirster",
         "DA_EdgeOfNight",
-        "DA_HandOfJustice",
-        "DA_SteraksGage"
+        "DA_SteraksGage",
+        "DA_BlueBuff",
+        "DA_Deathblade",
+        "DA_InfinityEdge"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2205,17 +2202,17 @@
         "DA_18_Summoner": 1,
         "DA_Juggernaut18": 3
       },
-      "avg_placement": 4.9113,
-      "top4_rate": 0.3972,
-      "win_rate": 0.0921,
-      "play_rate": 0.0041,
+      "avg_placement": 4.5832,
+      "top4_rate": 0.4792,
+      "win_rate": 0.1183,
+      "play_rate": 0.0197,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=4,124 trận). Avg: 4.91",
-      "source": "metatft:META Spencer/cluster=426045/patch=18.5b",
-      "sample_n": 4124,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=19,697 trận). Avg: 4.58",
+      "source": "metatft:META Spencer/cluster=426045/patch=18.6",
+      "sample_n": 19697,
       "archetype": ""
     },
     {
@@ -2237,12 +2234,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_DragonsClaw",
-        "DA_Evenshroud",
+        "DA_18_EmblemVanguard",
         "DA_GargoyleStoneplate",
+        "DA_WarmogsArmor",
+        "DA_InfinityEdge",
         "DA_LastWhisper",
-        "DA_RedBuff",
-        "DA_SpearOfShojin"
+        "DA_RedBuff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2255,17 +2252,17 @@
         "DA_Primal18": 1,
         "DA_Juggernaut18": 2
       },
-      "avg_placement": 4.8401,
-      "top4_rate": 0.415,
-      "win_rate": 0.0978,
-      "play_rate": 0.0046,
+      "avg_placement": 4.7763,
+      "top4_rate": 0.4309,
+      "win_rate": 0.1029,
+      "play_rate": 0.0039,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=4,597 trận). Avg: 4.84",
-      "source": "metatft:META Spencer/cluster=426046/patch=18.5b",
-      "sample_n": 4597,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,925 trận). Avg: 4.78",
+      "source": "metatft:META Spencer/cluster=426046/patch=18.6",
+      "sample_n": 3925,
       "archetype": ""
     },
     {
@@ -2286,11 +2283,11 @@
       "flex_units": [],
       "core_items": [
         "DA_GargoyleStoneplate",
-        "DA_ProtectorsVow",
-        "DA_Crownguard",
-        "DA_WarmogsArmor",
-        "DA_18_EmblemBrawler",
-        "DA_SpiritVisage"
+        "DA_SpiritVisage",
+        "DA_18_EmblemSprykin",
+        "DA_GuinsoosRageblade",
+        "DA_InfinityEdge",
+        "DA_SunfireCape"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2304,17 +2301,17 @@
         "DA_18_Sprykin": 3,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 5.2341,
-      "top4_rate": 0.3165,
-      "win_rate": 0.0663,
-      "play_rate": 0.0018,
+      "avg_placement": 5.2399,
+      "top4_rate": 0.315,
+      "win_rate": 0.0658,
+      "play_rate": 0.0016,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,824 trận). Avg: 5.23",
-      "source": "metatft:META Spencer/cluster=426047/patch=18.5b",
-      "sample_n": 1824,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,634 trận). Avg: 5.24",
+      "source": "metatft:META Spencer/cluster=426047/patch=18.6",
+      "sample_n": 1634,
       "archetype": ""
     },
     {
@@ -2336,12 +2333,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
-        "DA_GuinsoosRageblade",
-        "DA_HextechGunblade",
         "DA_18_EmblemFae",
         "DA_LastWhisper",
-        "DA_RedBuff"
+        "DA_RedBuff",
+        "DA_GiantSlayer",
+        "DA_GuinsoosRageblade",
+        "DA_HextechGunblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2356,17 +2353,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 4.4964,
-      "top4_rate": 0.5009,
-      "win_rate": 0.1253,
-      "play_rate": 0.0258,
+      "avg_placement": 4.5617,
+      "top4_rate": 0.4846,
+      "win_rate": 0.1201,
+      "play_rate": 0.0199,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=25,827 trận). Avg: 4.50",
-      "source": "metatft:META Spencer/cluster=426048/patch=18.5b",
-      "sample_n": 25827,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=19,864 trận). Avg: 4.56",
+      "source": "metatft:META Spencer/cluster=426048/patch=18.6",
+      "sample_n": 19864,
       "archetype": ""
     },
     {
@@ -2387,9 +2384,9 @@
         "DA_18_EmblemFloraFatalisAugment",
         "DA_BlueBuff",
         "DA_JeweledGauntlet",
-        "DA_Crownguard",
-        "DA_GargoyleStoneplate",
-        "DA_SpiritVisage"
+        "DA_Morellonomicon",
+        "DA_SpearOfShojin",
+        "DA_VoidStaff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2403,17 +2400,17 @@
         "DA_18_Sprykin": 1,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 4.8503,
-      "top4_rate": 0.4124,
-      "win_rate": 0.097,
-      "play_rate": 0.0015,
+      "avg_placement": 4.928,
+      "top4_rate": 0.393,
+      "win_rate": 0.0908,
+      "play_rate": 0.0013,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,523 trận). Avg: 4.85",
-      "source": "metatft:META Spencer/cluster=426049/patch=18.5b",
-      "sample_n": 1523,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,250 trận). Avg: 4.93",
+      "source": "metatft:META Spencer/cluster=426049/patch=18.6",
+      "sample_n": 1250,
       "archetype": ""
     },
     {
@@ -2432,12 +2429,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_ArchangelsStaff",
-        "DA_GiantSlayer",
+        "DA_RabadonsDeathcap",
         "DA_SpearOfShojin",
+        "DA_ArchangelsStaff",
         "DA_StrikersFlail",
-        "DA_JeweledGauntlet",
-        "DA_BlueBuff"
+        "DA_NashorsTooth",
+        "DA_GiantSlayer"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2451,17 +2448,17 @@
         "DA_FloraFatalis18": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 5.0965,
-      "top4_rate": 0.3509,
-      "win_rate": 0.0773,
-      "play_rate": 0.0039,
+      "avg_placement": 5.1698,
+      "top4_rate": 0.3325,
+      "win_rate": 0.0714,
+      "play_rate": 0.0038,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,867 trận). Avg: 5.10",
-      "source": "metatft:META Spencer/cluster=426050/patch=18.5b",
-      "sample_n": 3867,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,829 trận). Avg: 5.17",
+      "source": "metatft:META Spencer/cluster=426050/patch=18.6",
+      "sample_n": 3829,
       "archetype": ""
     },
     {
@@ -2487,11 +2484,11 @@
       "flex_units": [],
       "core_items": [
         "DA_BlueBuff",
-        "DA_HextechGunblade",
         "DA_JeweledGauntlet",
-        "DA_18_EmblemBrawler",
+        "DA_RabadonsDeathcap",
+        "DA_VoidStaff",
         "DA_GargoyleStoneplate",
-        "DA_SpiritVisage"
+        "DA_SunfireCape"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2504,17 +2501,17 @@
         "DA_18_Slayer": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 5.4649,
-      "top4_rate": 0.2588,
-      "win_rate": 0.0478,
-      "play_rate": 0.0065,
+      "avg_placement": 5.5042,
+      "top4_rate": 0.249,
+      "win_rate": 0.0447,
+      "play_rate": 0.0028,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=6,548 trận). Avg: 5.46",
-      "source": "metatft:META Spencer/cluster=426051/patch=18.5b",
-      "sample_n": 6548,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,824 trận). Avg: 5.50",
+      "source": "metatft:META Spencer/cluster=426051/patch=18.6",
+      "sample_n": 2824,
       "archetype": ""
     },
     {
@@ -2533,12 +2530,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_JeweledGauntlet",
-        "DA_NashorsTooth",
-        "DA_StrikersFlail",
-        "DA_SpearOfShojin",
         "DA_BlueBuff",
-        "DA_RabadonsDeathcap"
+        "DA_JeweledGauntlet",
+        "DA_StrikersFlail",
+        "DA_18_EmblemFloraFatalisAugment",
+        "DA_SpearOfShojin",
+        "DA_NashorsTooth"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2549,17 +2546,17 @@
         "DA_18_Spellweaver": 2,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 5.0479,
-      "top4_rate": 0.363,
-      "win_rate": 0.0812,
-      "play_rate": 0.0056,
+      "avg_placement": 5.1445,
+      "top4_rate": 0.3389,
+      "win_rate": 0.0734,
+      "play_rate": 0.0049,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=5,611 trận). Avg: 5.05",
-      "source": "metatft:META Spencer/cluster=426052/patch=18.5b",
-      "sample_n": 5611,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=4,926 trận). Avg: 5.14",
+      "source": "metatft:META Spencer/cluster=426052/patch=18.6",
+      "sample_n": 4926,
       "archetype": ""
     },
     {
@@ -2579,11 +2576,11 @@
       "flex_units": [],
       "core_items": [
         "DA_InfinityEdge",
+        "DA_KrakensFury",
         "DA_LastWhisper",
-        "DA_RedBuff",
         "DA_Deathblade",
-        "DA_GiantSlayer",
-        "DA_GuinsoosRageblade"
+        "DA_GuinsoosRageblade",
+        "DA_RedBuff"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2597,17 +2594,17 @@
         "DA_18_Summoner": 1,
         "DA_18_Vanguard": 2
       },
-      "avg_placement": 4.8381,
-      "top4_rate": 0.4155,
-      "win_rate": 0.098,
-      "play_rate": 0.0073,
+      "avg_placement": 4.9321,
+      "top4_rate": 0.392,
+      "win_rate": 0.0904,
+      "play_rate": 0.0061,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=7,337 trận). Avg: 4.84",
-      "source": "metatft:META Spencer/cluster=426053/patch=18.5b",
-      "sample_n": 7337,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=6,068 trận). Avg: 4.93",
+      "source": "metatft:META Spencer/cluster=426053/patch=18.6",
+      "sample_n": 6068,
       "archetype": ""
     },
     {
@@ -2646,17 +2643,17 @@
         "DA_18_Slayer": 1,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 5.626,
-      "top4_rate": 0.2185,
-      "win_rate": 0.0349,
-      "play_rate": 0.0321,
+      "avg_placement": 5.7967,
+      "top4_rate": 0.1758,
+      "win_rate": 0.0213,
+      "play_rate": 0.0289,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=32,140 trận). Avg: 5.63",
-      "source": "metatft:META Spencer/cluster=426054/patch=18.5b",
-      "sample_n": 32140,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=28,885 trận). Avg: 5.80",
+      "source": "metatft:META Spencer/cluster=426054/patch=18.6",
+      "sample_n": 28885,
       "archetype": ""
     },
     {
@@ -2674,11 +2671,11 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
-        "DA_GuinsoosRageblade",
+        "DA_18_EmblemInferno",
         "DA_LastWhisper",
+        "DA_SpearOfShojin",
         "DA_GargoyleStoneplate",
-        "DA_ProtectorsVow",
+        "DA_SpiritVisage",
         "DA_SunfireCape"
       ],
       "carry_items": {},
@@ -2695,17 +2692,17 @@
         "DA_18_Vanguard": 1,
         "DA_Juggernaut18": 1
       },
-      "avg_placement": 5.4506,
-      "top4_rate": 0.2624,
-      "win_rate": 0.049,
-      "play_rate": 0.0023,
+      "avg_placement": 5.6381,
+      "top4_rate": 0.2155,
+      "win_rate": 0.034,
+      "play_rate": 0.002,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,337 trận). Avg: 5.45",
-      "source": "metatft:META Spencer/cluster=426055/patch=18.5b",
-      "sample_n": 2337,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,959 trận). Avg: 5.64",
+      "source": "metatft:META Spencer/cluster=426055/patch=18.6",
+      "sample_n": 1959,
       "archetype": ""
     },
     {
@@ -2729,10 +2726,10 @@
       "core_items": [
         "DA_GargoyleStoneplate",
         "DA_SpiritVisage",
+        "DA_WarmogsArmor",
+        "DA_SunfireCape",
         "DA_Crownguard",
-        "DA_SteadfastHeart",
-        "DA_GuinsoosRageblade",
-        "DA_JeweledGauntlet"
+        "DA_GuinsoosRageblade"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2745,17 +2742,17 @@
         "DA_18_Summoner": 2,
         "DA_FloraFatalis18": 1
       },
-      "avg_placement": 5.4593,
-      "top4_rate": 0.2602,
-      "win_rate": 0.0483,
-      "play_rate": 0.0028,
+      "avg_placement": 5.4921,
+      "top4_rate": 0.252,
+      "win_rate": 0.0456,
+      "play_rate": 0.0016,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,763 trận). Avg: 5.46",
-      "source": "metatft:META Spencer/cluster=426056/patch=18.5b",
-      "sample_n": 2763,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=1,642 trận). Avg: 5.49",
+      "source": "metatft:META Spencer/cluster=426056/patch=18.6",
+      "sample_n": 1642,
       "archetype": ""
     },
     {
@@ -2773,11 +2770,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_HandOfJustice",
-        "DA_RabadonsDeathcap",
         "DA_EdgeOfNight",
-        "DA_NashorsTooth",
-        "DA_JeweledGauntlet"
+        "DA_HandOfJustice",
+        "DA_JeweledGauntlet",
+        "DA_RabadonsDeathcap",
+        "DA_18_EmblemLunar",
+        "DA_NashorsTooth"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2793,17 +2791,17 @@
         "DA_18_Vanguard": 1,
         "DA_FloraFatalis18": 2
       },
-      "avg_placement": 6.0871,
-      "top4_rate": 0.1032,
+      "avg_placement": 6.4067,
+      "top4_rate": 0.0233,
       "win_rate": 0.0,
-      "play_rate": 0.0009,
+      "play_rate": 0.0006,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=918 trận). Avg: 6.09",
-      "source": "metatft:META Spencer/cluster=426057/patch=18.5b",
-      "sample_n": 918,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=600 trận). Avg: 6.41",
+      "source": "metatft:META Spencer/cluster=426057/patch=18.6",
+      "sample_n": 600,
       "archetype": ""
     },
     {
@@ -2824,12 +2822,12 @@
       ],
       "flex_units": [],
       "core_items": [
-        "DA_GiantSlayer",
         "DA_GuinsoosRageblade",
         "DA_HextechGunblade",
+        "DA_KrakensFury",
+        "DA_InfinityEdge",
         "DA_LastWhisper",
-        "DA_Deathblade",
-        "DA_KrakensFury"
+        "DA_StrikersFlail"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2842,17 +2840,17 @@
         "DA_18_Rapidfire": 2,
         "DA_18_Vanguard": 1
       },
-      "avg_placement": 5.6619,
-      "top4_rate": 0.2095,
-      "win_rate": 0.032,
-      "play_rate": 0.0026,
+      "avg_placement": 5.6528,
+      "top4_rate": 0.2118,
+      "win_rate": 0.0328,
+      "play_rate": 0.0036,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=2,606 trận). Avg: 5.66",
-      "source": "metatft:META Spencer/cluster=426058/patch=18.5b",
-      "sample_n": 2606,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,592 trận). Avg: 5.65",
+      "source": "metatft:META Spencer/cluster=426058/patch=18.6",
+      "sample_n": 3592,
       "archetype": ""
     },
     {
@@ -2877,9 +2875,9 @@
         "DA_18_EmblemSlayer",
         "DA_GuinsoosRageblade",
         "DA_TitansResolve",
-        "DA_Crownguard",
         "DA_GargoyleStoneplate",
-        "DA_WarmogsArmor"
+        "DA_ArchangelsStaff",
+        "DA_18_EmblemFae"
       ],
       "carry_items": {},
       "unit_stars": {},
@@ -2890,17 +2888,17 @@
         "DA_18_Slayer": 1,
         "DA_18_Vanguard": 3
       },
-      "avg_placement": 6.4061,
-      "top4_rate": 0.0235,
+      "avg_placement": 6.5797,
+      "top4_rate": 0.0,
       "win_rate": 0.0,
-      "play_rate": 0.0039,
+      "play_rate": 0.0032,
       "level_timing": {
         "8": 4
       },
       "early_game": [],
-      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,930 trận). Avg: 6.41",
-      "source": "metatft:META Spencer/cluster=426059/patch=18.5b",
-      "sample_n": 3930,
+      "positioning_notes": "Cụm thống kê K-means MetaTFT (n=3,205 trận). Avg: 6.58",
+      "source": "metatft:META Spencer/cluster=426059/patch=18.6",
+      "sample_n": 3205,
       "archetype": ""
     }
   ]
