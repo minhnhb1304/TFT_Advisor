@@ -24,6 +24,7 @@ from ..knowledge.name_index import NameIndex
 from ..live.card_reader import GeminiCardReader, HybridCardReader, OcrCardReader
 from ..live.events import AdviceReady, Cleared, Idle, Status
 from ..live.session import LiveSession
+from ..eval.dataset_split import data_patch_for
 from ..utils.settings import Settings
 from ..vision.hud_reader import HudReader
 from ..vision.reroll_buttons import RerollButtonReader
@@ -75,10 +76,13 @@ class ReplayWindow(QtWidgets.QMainWindow):
         card_reader: str = "ocr",
         analysis_fps: float = 5.0,
         palette: str = "neon",
+        patch: str | None = "auto",
     ) -> None:
         super().__init__()
         theme.apply(palette)
-        self.settings = Settings.load()
+        if patch == "auto":
+            patch = data_patch_for(Path(video_path).stem)
+        self.settings = Settings.load().for_patch(patch)
         self.regions = ScreenRegions.load(regions_path)
         self.name_index = NameIndex.load(self.settings.path("name_index"))
         self.card_reader_name = card_reader

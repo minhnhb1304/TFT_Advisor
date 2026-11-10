@@ -31,6 +31,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="hybrid")
     ap.add_argument("--analysis-fps", type=float, default=5.0,
                     help="số lần đọc mỗi giây video khi đang phát")
+    ap.add_argument("--patch", default="auto",
+                    help="patch dữ liệu: auto = theo data/eval/split.json (video ngoài split dùng dữ liệu hiện tại)")
     ap.add_argument("--palette", default="neon",
                     help="bảng màu: neon, ember, citrus, magenta, hextech, geist, linear, semi, teal, violet")
     args = ap.parse_args(argv)
@@ -55,6 +57,7 @@ def main(argv: list[str] | None = None) -> int:
         card_reader=args.card_reader,
         analysis_fps=args.analysis_fps,
         palette=args.palette,
+        patch=args.patch,
     )
     window.show()
     window.raise_()

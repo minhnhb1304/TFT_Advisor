@@ -12,9 +12,28 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+import json
+
 import yaml
 
 DEFAULT_PATH = "config/settings.yaml"
+
+# Du lieu PHU THUOC patch: tier, so lieu, doi hinh meta. Moi video duoc cham
+# bang du lieu cua dung ban no duoc choi (data/eval/split.json `data_patch`).
+# Bang dac trung loi, cong thuc do, ten loi KHONG o day: chung la co che, dung
+# chung moi patch va la tap cha cua cac ban cu.
+PATCH_KEYS = (
+    "augment_stats_csv",
+    "augment_tiers",
+    "augment_tiers_backup",
+    "meta_comps",
+    "meta_comps_backup",
+    "item_stats",
+    # patch_state cua chinh snapshot: data_freshness so voi patch CUA VIDEO,
+    # khong bao "18.2 < 18.6" moi lan cham video cu.
+    "patch_state",
+)
+PATCHES_DIR = "data/patches"
 
 DEFAULTS: dict[str, Any] = {
     "paths": {
@@ -85,6 +104,30 @@ class Settings:
             _deep_update(merged, loaded)
         root = p.resolve().parent.parent if p.exists() else Path.cwd()
         return cls(merged, root)
+
+    def current_patch(self) -> str | None:
+        """Patch cua du lieu o `data/` (do scripts/refresh_data.py ghi)."""
+        path = self.path("patch_state")
+        if not path.exists():
+            return None
+        return json.loads(path.read_text(encoding="utf-8")).get("current_patch")
+
+    def for_patch(self, patch: str | None) -> "Settings":
+        """Ban sao tro PATCH_KEYS vao `data/patches/<patch>/`.
+
+        None hoac dung patch hien tai -> chinh no. Patch cu thieu file nao thi
+        NO NGAY: am tham roi ve du lieu hien tai la cham video bang sai patch.
+        """
+        if patch is None or patch == self.current_patch():
+            return self
+        folder = self.root / PATCHES_DIR / patch
+        merged = _deep_copy(self.data)
+        for key in PATCH_KEYS:
+            target = folder / Path(self.get("paths", key, "")).name
+            if not target.exists():
+                raise FileNotFoundError(f"Thiếu dữ liệu patch {patch}: {target}")
+            merged["paths"][key] = str(target)
+        return Settings(merged, self.root)
 
     def get(self, section: str, key: str, default: Any = None) -> Any:
         return (self.data.get(section) or {}).get(key, default)
