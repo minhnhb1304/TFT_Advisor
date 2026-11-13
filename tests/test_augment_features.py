@@ -39,6 +39,7 @@ from src.knowledge.augment_features import (
     extract_carry_type,
     extract_categories,
     extract_deterministic,
+    extract_econ_type,
     extract_econ_value,
     extract_frontline,
     extract_item_grants,
@@ -92,6 +93,14 @@ def test_reroll_counts_as_economic_value() -> None:
 
 def test_econ_value_is_zero_without_any_economic_signal() -> None:
     assert extract_econ_value("Your team gains 10% Attack Damage.", "X") == 0
+
+
+def test_econ_type_is_multi_label() -> None:
+    """Epoch: XP VA reroll trong cung mot cau - enum mot gia tri se mat mot ben."""
+    assert extract_econ_type("Gain 4 XP and 2 free rerolls.", "Epoch") == ["xp", "reroll"]
+    assert extract_econ_type("Gain 10 gold and 2 free Shop refreshes.", "X") == ["gold", "reroll"]
+    assert extract_econ_type("Your max interest is increased to 10.", "X") == ["gold"]
+    assert extract_econ_type("Gain a random 4-cost champion.", "X") == []
 
 
 def test_interest_is_the_strongest_economic_signal() -> None:
@@ -307,6 +316,7 @@ def test_committed_table_is_reproducible(table) -> None:
     # lieu co cau truc, khong phai phan doan doc tu van ban.
     immutable = (
         "api_name", "name", "tier", "trait_affinity", "item_grants", "trait_count_reward",
+        "econ_type",
     )
     n_llm = 0
     for api, row in committed.items():
@@ -571,8 +581,26 @@ def test_llm_cannot_write_categories_or_frontline() -> None:
     assert merged.category == base.category
     assert merged.frontline is False
     assert diff == []
-    for f in ("category", "categories", "frontline"):
+    for f in ("category", "categories", "frontline", "econ_type"):
         assert f not in LLM_REFINABLE
+
+
+def test_llm_and_manual_audit_cannot_write_econ_type() -> None:
+    """architecture.md: reroll trong desc => econ_type co reroll, khoa bang test."""
+    base = _feat(econ_type=["reroll"])
+    merged, diff = _merge(base, {"econ_type": ["gold"]}, "m", TRAITS)
+    assert merged.econ_type == ["reroll"] and diff == []
+    assert "econ_type" not in MANUAL_AUDITABLE
+
+
+def test_committed_table_keeps_every_reroll_keyword(table) -> None:
+    """blind-spots.md §2: 13/13 lose mat nhan reroll vi LLM. econ_type khong
+    duoc lap lai loi do tren bang da commit."""
+    committed = json.loads(COMMITTED.read_text(encoding="utf-8"))["augments"]
+    with_kw = [a for a, f in table.features.items() if "reroll" in f.econ_type]
+    assert len(with_kw) >= 15
+    for api in with_kw:
+        assert "reroll" in committed[api]["econ_type"], api
 
 
 def test_llm_legacy_tank_answer_is_out_of_domain() -> None:

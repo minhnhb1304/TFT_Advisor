@@ -77,6 +77,9 @@ CARRY_TYPES = ("AD", "AP", "both", "none")
 OFFER_ROUNDS = ("2-1", "3-2", "4-2")
 LEGACY_CARRY_TANK = "tank"     # gia tri cu, chi con trong du lieu truoc 2026-10-05
 TEMPOS = ("immediate", "scaling")
+# Hinh thai kinh te (multi-label): lose cho vang, XP hay reroll. Trich TAT DINH tu
+# desc, khong LLM, khong sua tay - docs/directional-augment/architecture.md.
+ECON_TYPES = ("gold", "xp", "reroll")
 # Huong thuong theo SO LUONG trait (khong gan trait cu the nao):
 #   vertical - thuong theo so dong minh CHUNG trait (di sau mot trait)
 #   wide     - thuong theo so trait DANG BAT (bat nhieu trait khac nhau)
@@ -187,6 +190,7 @@ class AugmentFeature:
     frontline: bool = False       # lose chu yeu cho chi so/hieu ung chong chiu
     trait_affinity: list[str] = field(default_factory=list)
     econ_value: int = 0           # 0-3, CHI vang/XP/reroll - item nam o item_grants
+    econ_type: list[str] = field(default_factory=list)      # con cua ECON_TYPES
     tempo: str = "immediate"
     item_grants: list[str] = field(default_factory=list)
     board_condition: str | None = None
@@ -266,6 +270,8 @@ def check_feature(f: AugmentFeature) -> list[str]:
         errs.append("co trait_affinity/trait_count_reward nhung thieu nhan trait")
     if "Emblem" in f.item_grants and "trait" not in cats:
         errs.append("lose cho Emblem nhung thieu nhan trait")
+    if [t for t in ECON_TYPES if t in f.econ_type] != f.econ_type:
+        errs.append(f"econ_type sai: {f.econ_type}")
     if f.carry_type not in CARRY_TYPES:
         errs.append(f"carry_type la: {f.carry_type!r}")
     bad_rounds = [r for r in f.offer_rounds if r not in OFFER_ROUNDS]
@@ -350,6 +356,22 @@ def extract_econ_value(desc: str, name: str) -> int:
     if RE_GOLD_PLACEHOLDER.search(text) and score == 1:
         score = 2               # so bi an sau placeholder, gia dinh khong tam thuong
     return min(score, 3)
+
+
+def extract_econ_type(desc: str, name: str) -> list[str]:
+    """Hinh thai kinh te nhac trong van ban, theo thu tu ECON_TYPES.
+
+    Doc lap voi econ_value (truong do LLM/audit tay sua duoc): day la nhan dinh
+    danh, nen LLM ghi de mat nhan reroll nhu blind-spots.md §2 la khong the.
+    Interest tinh la vang. Rong = khong noi ro hinh thai (vd lose cho tuong).
+    """
+    text = f"{name} {desc}"
+    patterns = {
+        "gold": f"{ECON_KEYWORDS['gold']}|{ECON_KEYWORDS['interest']}",
+        "xp": ECON_KEYWORDS["xp"],
+        "reroll": ECON_KEYWORDS["reroll"],
+    }
+    return [t for t in ECON_TYPES if re.search(patterns[t], text, re.I)]
 
 
 def extract_frontline(desc: str, name: str, econ_context: bool = False) -> bool:
@@ -575,6 +597,7 @@ def extract_deterministic(
         frontline=frontline,
         trait_affinity=trait_affinity,
         econ_value=econ_value,
+        econ_type=extract_econ_type(desc, name),
         tempo=tempo,
         item_grants=item_grants,
         board_condition=board_condition,

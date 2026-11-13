@@ -3,7 +3,7 @@
     "set": "TFTSet18",
     "source_locale": "en_us",
     "source_file": "cdragon:en_us",
-    "generated_at": "2026-11-13T06:16:59+00:00",
+    "generated_at": "2026-11-13T07:30:10+00:00",
     "extractor_version": "deterministic-v2",
     "llm_refined": true,
     "n": 258,
@@ -24,6 +24,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -53,6 +56,7 @@
         "DA_18_Blossom"
       ],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Blossom",
@@ -77,6 +81,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -103,6 +108,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -128,6 +134,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -155,6 +162,7 @@
         "DA_18_Coven"
       ],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Coven",
@@ -181,6 +189,7 @@
         "DA_18_Coven"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Coven",
@@ -206,6 +215,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -234,6 +244,7 @@
         "DA_18_Elderwood"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions that start combat adjacent to an Elderwood plant",
@@ -260,6 +271,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -286,6 +298,7 @@
         "DA_18_Fae"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Fae",
@@ -315,6 +328,9 @@
         "DA_FloraFatalis18"
       ],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -345,6 +361,9 @@
         "DA_FloraFatalis18"
       ],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -368,6 +387,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions that aren't holding items",
@@ -394,6 +416,7 @@
         "DA_18_Inferno"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Inferno",
@@ -422,6 +445,7 @@
         "DA_18_Solar"
       ],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "fielded Lunar champions and unique Solar champions",
@@ -450,6 +474,7 @@
         "DA_18_Solar"
       ],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "fielded unique Solar champions",
@@ -476,6 +501,7 @@
         "DA_18_LuxUniqueTrait"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -500,6 +526,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -525,6 +554,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -551,6 +581,7 @@
         "DA_Primal18"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_Primal18",
@@ -577,6 +608,7 @@
         "DA_Primal18"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_Primal18",
@@ -603,6 +635,7 @@
         "DA_Primal18"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_Primal18",
@@ -629,6 +662,7 @@
         "DA_Primal18"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_Primal18",
@@ -652,6 +686,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -675,6 +710,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -698,6 +734,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -725,6 +762,7 @@
         "DA_Riftbeast18"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_Riftbeast18",
@@ -753,6 +791,7 @@
         "DA_18_Rival"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Rival",
@@ -780,6 +819,7 @@
         "DA_18_Solar"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Solar",
@@ -806,6 +846,7 @@
         "DA_18_Sprykin"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "can unit thuoc trait: DA_18_Sprykin",
@@ -831,6 +872,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "Have a 3-star champion",
@@ -854,6 +896,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -877,6 +922,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -901,6 +949,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -925,6 +976,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -948,6 +1002,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -972,6 +1027,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -996,6 +1052,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1020,6 +1077,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -1045,6 +1103,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "RecurveBow"
@@ -1070,6 +1129,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1095,6 +1155,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1118,6 +1179,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1141,6 +1203,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1165,6 +1228,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1190,6 +1254,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "GiantsBelt"
@@ -1216,6 +1281,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1240,6 +1308,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent"
@@ -1268,6 +1337,7 @@
         "DA_18_Blackthorn"
       ],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -1294,6 +1364,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1318,6 +1389,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1341,6 +1413,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1364,6 +1437,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1387,6 +1463,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1410,6 +1489,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1433,6 +1515,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1458,6 +1541,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Bronze-tier trait",
@@ -1483,6 +1567,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1508,6 +1593,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1531,6 +1619,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -1557,6 +1646,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1580,6 +1673,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1603,6 +1697,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1626,6 +1723,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1649,6 +1749,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -1672,6 +1775,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent",
@@ -1698,6 +1802,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "BFSword"
@@ -1723,6 +1828,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1747,6 +1853,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1771,6 +1878,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1795,6 +1903,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1819,6 +1928,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1842,6 +1952,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1865,6 +1976,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1888,6 +2000,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "no champions on your bench at the end of player combat",
@@ -1911,6 +2026,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1935,6 +2051,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "bench is full at the end of player combat",
@@ -1959,6 +2078,11 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp",
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -1982,6 +2106,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2005,6 +2133,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2028,6 +2160,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2052,6 +2185,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2075,6 +2211,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -2102,6 +2239,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent"
@@ -2128,6 +2268,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2152,6 +2295,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "Spatula",
@@ -2179,6 +2323,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2203,6 +2348,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2229,6 +2375,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [
         "CompletedItem"
@@ -2255,6 +2404,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "TearOfTheGoddess"
@@ -2282,6 +2432,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2307,6 +2458,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "BFSword"
@@ -2334,6 +2486,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "TearOfTheGoddess"
@@ -2361,6 +2514,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2385,6 +2539,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2408,6 +2563,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "field exactly 2 copies of a champion",
@@ -2433,6 +2589,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2457,6 +2614,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2480,6 +2638,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2505,6 +2664,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2531,6 +2691,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2555,6 +2718,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2579,6 +2746,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2603,6 +2774,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2628,6 +2802,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2653,6 +2828,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2676,6 +2854,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2699,6 +2880,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2722,6 +2906,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "GiantsBelt"
@@ -2747,6 +2932,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2770,6 +2958,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "A champion starting combat in the center of the front row",
@@ -2796,6 +2985,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "Emblem"
@@ -2821,6 +3011,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "TearOfTheGoddess"
@@ -2846,6 +3037,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2871,6 +3063,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2895,6 +3090,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent",
@@ -2922,6 +3118,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -2948,6 +3145,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -2971,6 +3171,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -2994,6 +3197,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3019,6 +3223,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "field at least one 5-cost champion",
@@ -3042,6 +3247,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Allies must start combat in the back row",
@@ -3066,6 +3272,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Allies that start combat in the back row",
@@ -3091,6 +3298,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3114,6 +3325,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3137,6 +3351,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3161,6 +3378,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3185,6 +3403,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "CompletedItem"
@@ -3211,6 +3432,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "CompletedItem"
@@ -3237,6 +3461,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "CompletedItem"
@@ -3262,6 +3489,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions grant other adjacent champions Armor and Magic Resist",
@@ -3286,6 +3514,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions adjacent to other champions at combat start",
@@ -3310,6 +3539,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3335,6 +3567,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [
         "Emblem"
@@ -3360,6 +3595,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3384,6 +3620,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3409,6 +3646,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3432,6 +3670,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3455,6 +3696,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3478,6 +3722,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3501,6 +3748,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3524,6 +3774,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions in your back 2 rows gain stats for each champion that starts combat in your front row",
@@ -3548,6 +3799,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3573,6 +3827,9 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3597,6 +3854,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3621,6 +3882,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3645,6 +3910,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3669,6 +3937,9 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3693,6 +3964,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -3719,6 +3993,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "CompletedItem"
@@ -3747,6 +4022,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "a champion placed in the spotlight in the bottom right corner",
@@ -3771,6 +4049,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3795,6 +4074,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3819,6 +4099,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3842,6 +4125,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3866,6 +4152,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -3888,6 +4175,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3911,6 +4201,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -3934,6 +4227,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "Anvil"
@@ -3961,6 +4255,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -3986,6 +4281,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4009,6 +4307,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "Anvil"
@@ -4035,6 +4334,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4059,6 +4361,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "SparringGloves"
@@ -4084,6 +4389,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "SparringGloves"
@@ -4111,6 +4417,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4134,6 +4443,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4157,6 +4467,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions without items equipped",
@@ -4181,6 +4492,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Champions without items equipped",
@@ -4205,6 +4517,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4229,6 +4544,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4254,6 +4572,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -4279,6 +4600,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4303,6 +4625,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4326,6 +4651,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4349,6 +4677,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4373,6 +4704,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -4400,6 +4734,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -4428,6 +4765,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4453,6 +4793,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4477,6 +4820,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4500,6 +4844,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4525,6 +4870,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4550,6 +4898,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -4577,6 +4926,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4603,6 +4953,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -4630,6 +4983,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -4657,6 +5013,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -4682,6 +5041,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4707,6 +5067,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "did not buy a champion last round",
@@ -4730,6 +5093,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4754,6 +5120,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4777,6 +5146,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4801,6 +5171,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4826,6 +5197,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4849,6 +5223,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4873,6 +5250,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4898,6 +5278,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4922,6 +5303,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -4945,6 +5329,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4969,6 +5354,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -4995,6 +5381,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5018,6 +5407,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -5045,6 +5435,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5070,6 +5461,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "reroll"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5094,6 +5488,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -5120,6 +5515,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent",
@@ -5148,6 +5544,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5173,6 +5570,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -5197,6 +5595,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -5220,6 +5622,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5243,6 +5648,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5266,6 +5674,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5289,6 +5700,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5312,6 +5726,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "no items on your bench (other than consumables) after each player combat",
@@ -5335,6 +5753,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": "no items on your bench (other than consumables)",
@@ -5358,6 +5780,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -5381,6 +5804,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5404,6 +5828,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "AnyComponent"
@@ -5432,6 +5857,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent"
@@ -5458,6 +5886,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "Allies holding Gargoyle Stoneplate start combat alone in their row",
@@ -5482,6 +5911,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5507,6 +5937,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -5531,6 +5964,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5556,6 +5990,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5581,6 +6016,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5604,6 +6042,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "NeedlesslyLargeRod",
@@ -5631,6 +6070,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "active non-unique Traits across your team",
@@ -5656,6 +6096,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Anvil"
@@ -5682,6 +6123,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "BFSword"
@@ -5708,6 +6150,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "BFSword",
@@ -5735,6 +6178,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Emblem"
@@ -5760,6 +6204,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5786,6 +6231,9 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5809,6 +6257,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5836,6 +6285,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5861,6 +6313,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5884,6 +6339,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5907,6 +6365,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5931,6 +6390,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -5956,6 +6416,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -5980,6 +6444,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "gold",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -6004,6 +6472,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "Emblem"
@@ -6029,6 +6498,7 @@
       "frontline": true,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -6054,6 +6524,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Spatula",
@@ -6083,6 +6554,10 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [
+        "xp",
+        "reroll"
+      ],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -6108,6 +6583,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 1,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [
         "Spatula",
@@ -6136,6 +6614,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": "allies that share a trait with them",
@@ -6161,6 +6640,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -6186,6 +6666,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
@@ -6210,6 +6691,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "NeedlesslyLargeRod"
@@ -6238,6 +6720,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -6263,6 +6746,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "immediate",
       "item_grants": [
         "Anvil",
@@ -6290,6 +6774,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -6313,6 +6798,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 3,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
       "board_condition": null,
@@ -6336,6 +6822,7 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 0,
+      "econ_type": [],
       "tempo": "scaling",
       "item_grants": [
         "AnyComponent"
@@ -6362,6 +6849,9 @@
       "frontline": false,
       "trait_affinity": [],
       "econ_value": 2,
+      "econ_type": [
+        "gold"
+      ],
       "tempo": "immediate",
       "item_grants": [],
       "board_condition": null,
