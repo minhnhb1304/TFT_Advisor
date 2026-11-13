@@ -18,8 +18,8 @@ Chi tiết: [playtest-fixes/patch-data.md](playtest-fixes/patch-data.md).
 |---|---|
 | Tier lõi, meta comp (TFT Academy 74, MetaTFT 60) lên 18.6 | Xong. `item_stats`, lolchess vẫn cũ như ở 18.5b |
 | Danh mục lõi theo CDragon 04/11: không lõi mới, không đổi mô tả, 18 lõi đổi chỉ số; CDragon bỏ Heart of Steel → giữ qua overrides, `live = null` | Xong |
-| **Duyệt lại 8 lõi đổi số vàng/reroll** (`econ_value`) | **Việc của bạn**: `scriptseview_augment_features.py --flags data/eval/augment_review_patch_18_6.json` |
-| Heart of Steel còn trong game 18.6 không? | Việc của bạn: sửa `live` trong `data/augment_overrides.json` |
+| Duyệt lại 8 lõi đổi số vàng/reroll (`econ_value`) | Xong 2026-11-13: chỉ Prismatic Destiny 3 → 2 |
+| Heart of Steel còn trong game 18.6 không? | Không (2026-11-13): `live = false` |
 | 15 video cũ: `game_patch` 18.2 (minh_01–03, dat_01–05) / 18.3 (minh_04–10), chấm bằng `data/patches/18.2`; bản 18.5b là tag `data-18.5b` | Xong |
 | **Quay video 18.6**: mọi video 18.6 → held-out; 18.6 là patch cuối cùng | Bắt đầu tuần 6 |
 
@@ -91,7 +91,7 @@ Quy tắc HUD khi gắn nhãn: điền **giá trị cuối cùng nhìn thấy tr
 | # | Việc | Trạng thái |
 |---|---|---|
 | 1 | **Sửa lỗi centering `CompSelector`** — bug độc lập, phải làm trước directional | **Xong 2026-11-10** (phương án A, sàn mọi profile = 0, 2 ngưỡng quy đổi). [directional-augment/centering-fix.md](directional-augment/centering-fix.md) |
-| 2 | Sửa tầng feature: `econ_type` multi-label trích tất định, **khoá bằng test** để LLM không ghi đè | 13/13 lõi mất nhãn `reroll` do LLM. [directional-augment/blind-spots.md](directional-augment/blind-spots.md) §2 |
+| 2 | Sửa tầng feature: `econ_type` multi-label trích tất định, **khoá bằng test** để LLM không ghi đè | **Xong 2026-11-13.** `econ_type` ⊆ (`gold`, `xp`, `reroll`), `extract_econ_type` trong `src/knowledge/augment_features.py`; LLM và audit tay không ghi được (test). 108/258 lõi có nhãn: gold 73, xp 10, reroll 10, tổ hợp ≥2 hình thái 15. 24 lõi `econ_value > 0` không có hình thái (chủ yếu cho tướng) → rỗng. Nhãn `reroll` trong `categories` đã khôi phục từ đợt duyệt tay 10/2026 (18/19; Recombobulator người duyệt để `utility`). Không nâng `EXTRACTOR_VERSION`: chỉ thêm trường, không đổi trường cũ |
 | 3 | Directional augment evaluation — **tính năng bắt buộc**, phải là trục ablation tắt được | [directional-augment/architecture.md](directional-augment/architecture.md) |
 | 4 | SPEC v4: viết lại §1.1 (4 đóng góp), §3.6 (bỏ widget không tồn tại), tick lại §7 | Chưa bắt đầu |
 | 5 | Re-baseline tài liệu: `README` bảng trạng thái | `dev_log.md` đã thành lịch sử (2026-10-15); README chưa |
