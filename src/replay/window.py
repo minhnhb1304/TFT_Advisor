@@ -20,12 +20,14 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from ..capture.frame_source import Frame, format_ref
 from ..capture.regions import ScreenRegions
 from ..decision.advisor import Advisor
+from ..knowledge.augment_features import FeatureTable
 from ..knowledge.name_index import NameIndex
 from ..live.card_reader import GeminiCardReader, HybridCardReader, OcrCardReader
 from ..live.events import AdviceReady, Cleared, Idle, Status
 from ..live.session import LiveSession
 from ..eval.dataset_split import data_patch_for
 from ..utils.settings import Settings
+from ..vision.held_augments import HeldAugmentTracker, IconBank
 from ..vision.hud_reader import HudReader
 from ..vision.reroll_buttons import RerollButtonReader
 from . import overlay, theme, widgets
@@ -56,6 +58,18 @@ def build_session(
         advisor=Advisor(settings=settings),
         regions=regions,
         source_id=source_id,
+        held_tracker=_held_tracker(settings),
+    )
+
+
+def _held_tracker(settings: Any) -> HeldAugmentTracker:
+    """Bo doc lo da chon. Mau chinh cat tu the lo; icon CDragon chi la du phong,
+    nen thieu `data/augment_icons` (chua chay fetch_augment_icons) van chay."""
+    icons = Path(settings.root) / "data" / "augment_icons"
+    path = settings.path("augment_features")
+    features = FeatureTable.load(path) if path.exists() else FeatureTable.empty()
+    return HeldAugmentTracker(
+        IconBank(icons), {a: f.offer_rounds for a, f in features.features.items()}
     )
 
 

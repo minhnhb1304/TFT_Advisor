@@ -12,7 +12,9 @@ Mốc cứng: **tuần 12 (từ 2026-12-16) đóng băng số**, tuần 9–11 g
 | B | Bảng combo lõi | Cần bạn cung cấp combo, làm song song được |
 | E | Đánh giá held-out + viết chương | Cần video 18.6 đã gắn `plan.route` |
 
-## A. Ghi lõi đã chọn (tuần 7)
+## A. Ghi lõi đã chọn (tuần 7) — xong 2026-11-14, 15/15 trên dev
+
+Mẫu so sánh chính là icon **cắt từ thẻ lõi** ngay trước khi màn đóng; icon CDragon chỉ dự phòng vì có lõi lệch icon (Bonus Gift+). Chi tiết: [dev_log §17](../../dev_log.md).
 
 Dải icon ~37 px ở hướng 10 giờ (x≈511, y≈245 ở 1080p), xếp trái sang phải theo thứ tự chọn.
 

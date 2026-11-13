@@ -444,3 +444,47 @@ def test_a_short_forward_seek_keeps_the_hud():
     feed(s, 0.0, 2)
     s.seek(5.0)
     assert s.game_tracker.state().gold == 32
+
+
+# --- lõi đã chọn (directional, việc A) ---------------------------------------
+
+
+class FakeHeldTracker:
+    """Ghi lại vòng đời: chào ở trong màn, quan sát ở ngoài màn."""
+
+    def __init__(self) -> None:
+        self.offers: list[tuple[list[str], str]] = []
+        self.observed: list[float] = []
+        self.resets = 0
+        self.known = ["DA_Held"]
+
+    def offer_seen(self, candidates, stage, t, card_icons=None) -> None:
+        self.offers.append((list(candidates), stage))
+        self.card_icons = card_icons
+
+    def observe(self, image, t) -> None:
+        self.observed.append(t)
+
+    def reset(self) -> None:
+        self.resets += 1
+
+
+def test_held_augments_flow_into_state_and_reset_per_game():
+    held = FakeHeldTracker()
+    s, reroll, _, _ = session(held_tracker=held)
+    reroll.present = False
+    s.step(frame(0.0))
+    assert held.observed == [0.0]
+    reroll.present = True
+    feed(s, 1.0, 5)
+    assert held.offers and held.offers[-1][0] == ["DA_60", "DA_60", "DA_60"]
+    assert set(held.card_icons) == {"DA_60"}
+    assert s.advisor.states[-1].augments == ["DA_Held"]
+    s.new_game()
+    assert held.resets == 1
+
+
+def test_no_held_tracker_keeps_augments_empty():
+    s, _, _, _ = session()
+    feed(s, 0.0, 5)
+    assert s.advisor.states[-1].augments == []

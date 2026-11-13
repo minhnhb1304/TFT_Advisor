@@ -33,6 +33,7 @@ from ..decision.reroll_policy import RerollState
 from ..eval.scenario_logger import derive_game_id
 from ..game_state.state_tracker import GameStateTracker
 from ..vision.augment_reader import CardRead
+from ..vision.held_augments import HeldAugmentTracker, card_icon
 from ..vision.hud_reader import HudReading
 from .card_reader import SLOTS, CardReader
 from .events import AdviceReady, Cleared, Idle, LiveEvent, Status
@@ -59,6 +60,9 @@ class LiveSession:
     # khi choi truc tiep. Rong thi `game_id` khong duoc sinh ra va scenario ghi
     # ra KHONG dung duoc cho SPEC 12.2 - xem `_game_id`.
     source_id: str = ""
+    # Doc lo DA CHON tu dai icon huong 10 gio -> `GameState.augments` (luat can
+    # bang va combo cua directional). None = tat, augments luon rong nhu cu.
+    held_tracker: HeldAugmentTracker | None = None
 
     def __post_init__(self) -> None:
         self.screen_tracker = AugmentScreenTracker(self.regions, stable_frames=self.stable_frames)
@@ -86,6 +90,8 @@ class LiveSession:
         ma tua lui khong phai van moi. Chi `_detect_new_game` moi tang.
         """
         self.game_tracker.reset()
+        if self.held_tracker is not None:
+            self.held_tracker.reset()
         self._reset_screen()
         self._last_t = float("-inf")
 
@@ -172,6 +178,15 @@ class LiveSession:
                           tuple(f"ô {c.slot + 1}: {c.reason}" for c in cards))
 
         state = self.game_tracker.state(traits=traits)
+        if self.held_tracker is not None:
+            # Lan chao CUOI truoc khi man dong la lan nguoi choi chon tu do. Icon
+            # tren the la mau so sanh dang tin nhat (icon CDragon co the khac).
+            icons = {a: card_icon(frame.image, c.slot) for c in choices if c.slot is not None
+                     for a in c.api_names}
+            self.held_tracker.offer_seen(
+                [a for c in choices for a in c.api_names], state.stage, t, icons
+            )
+            state.augments = self.held_tracker.known
         t0 = time.perf_counter()
         bundle = self.advisor.advise(
             state=state,
@@ -208,6 +223,9 @@ class LiveSession:
         left_screen = self._in_screen and t - self._last_present_t > self.grace_s
         if left_screen:
             self._reset_screen()
+        if self.held_tracker is not None:
+            # Re (~1 ms: cat + hinh thai hoc), va chi lam viec khi dang cho mot lan chon.
+            self.held_tracker.observe(frame.image, t)
 
         if t - self._last_hud_t >= self.hud_every_s:
             self._last_hud_t = t

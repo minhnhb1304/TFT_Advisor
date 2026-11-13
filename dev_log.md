@@ -4,7 +4,7 @@
 > Kế hoạch hiện hành và việc tồn đọng giữa các phiên:
 > [`docs/next-steps.md`](docs/next-steps.md).
 >
-> Cập nhật: **2026-11-14** · 1103 test xanh. Mục 1–13 và "Dự kiến triển khai"
+> Cập nhật: **2026-11-14** · 1119 test xanh. Mục 1–13 và "Dự kiến triển khai"
 > viết lúc 2026-09-07, giữ làm lịch sử.
 
 ---
@@ -607,6 +607,37 @@ Kết quả: **tắt 6/15 → bật 9/15**. `minh_04` 4-2 ra đúng Baron's Lair
 `minh_06` 4-2 vẫn trượt, như dự đoán: luật chung không biết combo. Cần một **bảng combo lõi** (việc B). Kiểm cũng lộ ra một lỗ hổng: lúc chơi thật **không gì ghi `state.augments`**, chỉ script đánh giá điền từ nhãn. Như vậy luật cân bằng và combo chưa chạy trên overlay. Lõi đã chọn có hiện trên client: một dải icon khoảng 37 px ở hướng 10 giờ so với tâm màn hình (x≈511, y≈245 ở 1080p), xếp trái sang phải theo thứ tự chọn và nở ra hai bên. Cách đọc dự kiến (việc A): khi màn chọn lõi đóng, so icon mới nhất trong dải với icon CDragon của 3 lõi cuối được chào. Test → 1105.
 
 Giới hạn phải ghi trong báo cáo: `picked` là lựa chọn của **một** người chơi, nên phép đo là độ khớp với chuyên gia, không phải độ chính xác. Số báo cáo lấy từ held-out (video 18.6). Test 1092 → 1103 (`tests/test_plan_fit.py`, 11 ca).
+
+### 17. Đọc lõi đã chọn từ dải icon: 15/15 trên dev, nhờ icon cắt từ chính thẻ lõi
+
+2026-11-14. Việc A của [implementation-plan](docs/directional-augment/implementation-plan.md). Trước bản này, khi chơi thật `state.augments` luôn rỗng. Luật cân bằng và combo của §16 chỉ chạy được trong script đánh giá, vì script tự điền lõi từ nhãn.
+
+**Dải icon.** Người chơi chỉ ra vị trí: hướng 10 giờ so với tâm màn hình. Các thông số đo trên 15 màn dev:
+- Mỗi icon khoảng 37 px trên nền đen. Cả dải canh giữa quanh x≈511, y≈245 ở 1080p, xếp trái sang phải theo thứ tự chọn, nở ra hai bên khi có thêm icon.
+- Bản 16:10 (`dat_01`) lệch trái khoảng 100 px so với phép neo giữa, nên vùng tìm được đặt rộng.
+- Vị trí giữ nguyên cả khi camera đang ở bàn người khác. Lúc đó dải hiện là của **họ**.
+
+| Phần | Nội dung |
+|---|---|
+| `src/vision/held_augments.py` | `find_strip`: lọc pixel tối (≤ 40), đóng hình thái, rồi tìm khối cao 0,026–0,044×H, tỉ lệ ≈ số nguyên, độ lấp ≥ 0,70. Icon bạc đo được 0,82–0,84, nên ngưỡng 0,85 ban đầu làm trượt `minh_04` và `dat_01`. `classify`: tương quan chuẩn hoá trên ảnh xám 32 px, cắt viền 10%, **chỉ giữa các lõi vừa chào**. Cần khớp ≥ 0,35 và cách ứng viên kế tiếp ≥ 0,08 |
+| `HeldAugmentTracker` | `offer_seen` (trong màn: ứng viên, stage, icon thẻ) → `observe` (ngoài màn: số icon **tăng** và icon mới nhất khớp thì ghi). Lọc ứng viên theo `offer_rounds` của stage để tách bản +/++, như người chơi gợi ý. Bỏ lỡ đoạn trước (mở app giữa ván, tua video) thì các ô trước ghi `None`. Hết 120 s mà chưa chắc cũng ghi `None`, không đoán |
+| `LiveSession` | Trường tuỳ chọn `held_tracker`, đưa `known` vào `state.augments`, reset khi sang ván mới. Replay luôn bật |
+| `scripts/fetch_augment_icons.py` | Tải icon CDragon về `data/augment_icons/` (dự phòng). CDragon trả 403 với User-Agent mặc định, mỗi request mất khoảng 20 s, chạy song song thì bị 522. Kết quả: 213/252 icon (1,7 MB); 39 lõi lần nào cũng 522, 6 lõi không có trường `icon`. Thiếu không sao, vì đây chỉ là dự phòng |
+| `scripts/eval_held_augments.py` | Mô phỏng vòng đời trên video. Ứng viên lấy từ nhãn, nên script chỉ đo bộ đọc dải icon |
+
+**Kết quả trên 5 ván dev, 15 màn:**
+
+| Nguồn mẫu so sánh | Đúng | Chưa rõ | Sai |
+|---|---|---|---|
+| Chỉ icon CDragon | 11 | 3 | **1** (`dat_01` 3-2 → Healing Orbs II, khớp 0,40) |
+| Icon cắt từ thẻ, lấy ở `at_s` của lần chào cuối | 9 | 6 | 0 |
+| **Icon cắt từ thẻ ngay trước khi màn đóng, lấy điểm cao hơn giữa thẻ và CDragon** | **15** | 0 | 0 |
+
+- **Icon CDragon không trùng với icon trong game.** Bonus Gift+ trên CDragon là chữ "T", trong game là đồng xu "?". Invested++ cũng lệch, điểm khớp chỉ 0,26. Icon cắt từ chính thẻ lõi trên màn chọn (`card_icon`, đo trên 1080p, 16:10 và thẻ kim cương) khắc phục được việc này: ví dụ trên khớp 0,83 và cách lõi kế tiếp 0,52.
+- **Lấy mẫu ở `at_s` thì rơi vào hiệu ứng lật thẻ sau khi đổi lõi.** Trong live, mỗi lần đọc thẻ đều đã chờ thẻ ổn định (`stable_frames`), nên lần cắt cuối nằm ngay trước khi màn đóng.
+- Màn khó nhất là `dat_01` 3-2: khớp 0,62, cách lõi kế tiếp 0,215. Lõi được ghi nhận khoảng 2 s sau khi màn đóng.
+
+Giới hạn: đây là 15 màn dev, ứng viên lấy từ nhãn. Khi chơi thật, nếu đọc thẻ sai thì bộ đọc dải sẽ chỉ ra "chưa rõ", không ra sai, vì icon không khớp ứng viên nào. Chưa kiểm trường hợp đầu ván chỉ được chọn 1 trong 2 thẻ. Test 1105 → 1119.
 
 ## Dự kiến triển khai
 
