@@ -39,6 +39,35 @@ HUD_KEYS = ("gold", "level", "xp", "xp_needed", "hp", "streak")
 STAGE_RE = re.compile(r"^\d-\d$")
 CAPTURE_KEYS = ("tool", "size", "lang", "fps", "original_name")
 PLACEMENT_RANGE = (1, 8)
+# Huong bai nguoi choi THUC SU di - su that de do bo suy huong (directional),
+# KHONG phai dau vao cua he thong. research/261113-tft-leveling-rules.md
+PLANS = ("reroll1", "reroll2", "reroll3", "standard", "fast8", "fast9")
+PLAN_KEYS = ("route", "carry", "since", "notes")
+# Vong Ky Ngo Khai Cuoc (Opening Encounter) cua van - research/261113-tft-set18-maps.md.
+# Danh sach Set 18 tim duoc chi phu 86% ti le, nen co "other" (ghi ro o plan/notes).
+ENCOUNTERS = {
+    "none": "Không có Kỳ Ngộ",
+    "teemo": "Teemo — +1 lượt đổi lõi mỗi màn",
+    "leona": "Leona — cả 3 lõi vàng",
+    "elder_dragon": "Rồng Ngàn Tuổi — cả 3 lõi kim cương",
+    "amumu": "Amumu — lõi đầu vàng",
+    "morgana": "Morgana — lõi đầu kim cương",
+    "ivern": "Ivern — lõi cuối vàng",
+    "karma": "Karma — lõi cuối kim cương",
+    "sivir": "Sivir — 2 đe mảnh đồ",
+    "yunara": "Yunara — 1 đe đồ hoàn chỉnh",
+    "ornn": "Ornn — 2 đe đồ hoàn chỉnh",
+    "lux": "Lux — 3 ấn",
+    "kayle": "Kayle — đổi shop miễn phí mỗi stage",
+    "kobuko": "Kobuko — vàng mỗi stage",
+    "ashe": "Ashe — lên cấp rẻ 2 XP",
+    "draven": "Draven — 2 người cuối +70 vàng",
+    "leblanc": "LeBlanc — tướng 2 sao",
+    "azir": "Azir — 5 tướng 1 vàng",
+    "warwick": "Warwick — tướng 2 vàng",
+    "tristana": "Tristana — tướng 3 vàng",
+    "other": "Khác (ghi ở ghi chú)",
+}
 
 LabelStatus = Literal["draft", "verified"]
 
@@ -118,6 +147,11 @@ class PlaytestLabels:
     player_id: str | None = None
     final_placement: int | None = None
     capture_profile: dict[str, Any] | None = None
+    # Hai truong tuy chon (2026-11-13), khuyet = chua gan, khong phai loi:
+    #   plan       {"route": PLANS, "carry", "since": "3-2", "notes"} - nguoi choi tu khai
+    #   encounter  khoa cua ENCOUNTERS
+    plan: dict[str, Any] | None = None
+    encounter: str | None = None
     schema: int = SCHEMA_VERSION
 
     @property
@@ -134,6 +168,8 @@ class PlaytestLabels:
             "player_id": self.player_id,
             "final_placement": self.final_placement,
             "capture_profile": self.capture_profile,
+            "plan": self.plan,
+            "encounter": self.encounter,
             "screens": [_screen_to_dict(s) for s in self.screens],
         }
 
@@ -179,6 +215,8 @@ def from_dict(data: dict[str, Any]) -> PlaytestLabels:
         player_id=data.get("player_id"),
         final_placement=int(placement) if placement is not None else None,
         capture_profile=data.get("capture_profile"),
+        plan=data.get("plan"),
+        encounter=data.get("encounter"),
         # Khong co khoa `schema` = file soan tay truoc schema 2. Mac dinh 1, KHONG
         # phai SCHEMA_VERSION: mac dinh vao ban moi nhat la tu nhan cho mot file cu
         # la file moi, roi bo qua dung nhung truong no thieu.
@@ -260,6 +298,22 @@ def _validate_file_fields(labels: PlaytestLabels) -> list[str]:
             for key in labels.capture_profile:
                 if key not in CAPTURE_KEYS:
                     errors.append(f"capture_profile.{key} không nằm trong {CAPTURE_KEYS}")
+    if labels.encounter is not None and labels.encounter not in ENCOUNTERS:
+        errors.append(f"encounter '{labels.encounter}' không nằm trong {tuple(ENCOUNTERS)}")
+    if labels.plan is not None:
+        errors.extend(_validate_plan(labels.plan))
+    return errors
+
+
+def _validate_plan(plan: Any) -> list[str]:
+    if not isinstance(plan, dict):
+        return ["plan phải là object"]
+    errors = [f"plan.{k} không nằm trong {PLAN_KEYS}" for k in plan if k not in PLAN_KEYS]
+    if plan.get("route") not in PLANS:
+        errors.append(f"plan.route '{plan.get('route')}' phải là một trong {PLANS}")
+    since = plan.get("since")
+    if since is not None and not STAGE_RE.match(str(since)):
+        errors.append(f"plan.since '{since}' phải có dạng 'x-y', ví dụ '3-2'")
     return errors
 
 

@@ -33,6 +33,7 @@
 
 <header>
   <h1 id="title">Đang tải…</h1>
+  <span id="game"></span>
   <button id="save">Lưu</button>
   <span id="status"></span>
 </header>
@@ -167,6 +168,30 @@ function screenNode(screen, si) {
   return node;
 }
 
+function gameNode() {
+  // Truong cap van: encounter + huong bai thuc te (nguoi choi tu khai).
+  const L = STATE.labels;
+  const plan = L.plan || {};
+  const opts = (pairs, cur) => pairs.map(([v, t]) =>
+    `<option value="${v}"${v === (cur ?? "") ? " selected" : ""}>${t}</option>`).join("");
+  const node = el(`<span class="row" style="margin:0">
+    <span><label>Kỳ Ngộ</label><select class="enc">${opts([["", "— chưa gán —"],
+      ...Object.entries(STATE.encounters)], L.encounter)}</select></span>
+    <span><label>Hướng bài</label><select class="route">${opts([["", "— chưa gán —"],
+      ...STATE.plans.map((p) => [p, p])], plan.route)}</select></span>
+    <span><label>Carry</label><input class="carry" style="width:110px" value="${plan.carry || ""}"></span>
+    <span><label>Chốt từ</label><input class="since num" placeholder="3-2" value="${plan.since || ""}"></span>
+    <span><label>Ghi chú hướng</label><input class="pnotes" style="width:200px" value="${(plan.notes || "").replace(/"/g, "&quot;")}"></span>
+  </span>`);
+  node.addEventListener("change", () => {
+    L.encounter = $(".enc", node).value || null;
+    const route = $(".route", node).value;
+    L.plan = route ? { route, carry: $(".carry", node).value.trim() || null,
+      since: $(".since", node).value.trim() || null, notes: $(".pnotes", node).value } : null;
+  });
+  return node;
+}
+
 function render() {
   const box = $("#screens");
   box.textContent = "";
@@ -206,6 +231,7 @@ $("#save").onclick = async () => {
     VI2API.set(norm(opt.vi), opt.api);
     dl.appendChild(el(`<option value="${opt.vi.replace(/"/g, "&quot;")}"></option>`));
   }
+  $("#game").appendChild(gameNode());
   render();
   setStatus("sẵn sàng");
 })();

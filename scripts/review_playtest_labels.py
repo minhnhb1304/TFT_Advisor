@@ -27,7 +27,7 @@ for _stream in (sys.stdout, sys.stderr):
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.eval.playtest_labels import from_dict  # noqa: E402
+from src.eval.playtest_labels import ENCOUNTERS, PLANS, from_dict  # noqa: E402
 from src.eval.playtest_review import augment_options, capture_snapshot, resolve_slot, save_payload  # noqa: E402
 from src.knowledge.name_index import NameIndex  # noqa: E402
 
@@ -55,6 +55,7 @@ def make_handler(args, labels_path: Path, options: list[dict], known: set[str]):
             if self.path == "/api/state":
                 data = json.loads(labels_path.read_text(encoding="utf-8"))
                 return self._json(200, {"labels": data, "options": options,
+                                        "encounters": ENCOUNTERS, "plans": PLANS,
                                         "path": str(labels_path), "has_video": bool(args.video)})
             if self.path.startswith("/file/"):
                 target = (ROOT / self.path[len("/file/"):]).resolve()

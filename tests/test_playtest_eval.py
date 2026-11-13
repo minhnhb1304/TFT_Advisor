@@ -123,6 +123,10 @@ def test_four_file_fields_roundtrip(tmp_path):
         ("final_placement", 9, "ngoài khoảng"),
         ("player_id", "  ", "rỗng"),
         ("capture_profile", {"resolution": [1920, 1080]}, "capture_profile.resolution"),
+        ("encounter", "zed", "encounter 'zed'"),
+        ("plan", {"route": "hyperroll"}, "plan.route"),
+        ("plan", {"route": "fast8", "since": "stage 3"}, "plan.since"),
+        ("plan", {"route": "fast8", "comp": "X"}, "plan.comp"),
     ],
 )
 def test_file_field_formats_are_checked(field, value, needle):
@@ -131,6 +135,23 @@ def test_file_field_formats_are_checked(field, value, needle):
     data[field] = value
     errors = validate(from_dict(data), KNOWN)
     assert any(needle in e for e in errors), errors
+
+
+def test_plan_and_encounter_roundtrip_and_stay_optional(tmp_path):
+    """Trang duyet gui lai ca file qua from_dict: truong nao schema khong biet
+    se bi xoa am tham khi luu. Hai truong nay phai song sot mot vong luu."""
+    assert validate(from_dict(label_dict()), KNOWN) == []     # khuyet = hop le
+    data = label_dict()
+    data.update({
+        "schema": 2, "encounter": "teemo",
+        "plan": {"route": "reroll1", "carry": "Veigar", "since": "2-1", "notes": ""},
+    })
+    labels = from_dict(data)
+    assert validate(labels, KNOWN) == []
+    save(labels, tmp_path / "p.json")
+    back = load(tmp_path / "p.json", KNOWN)
+    assert back.encounter == "teemo"
+    assert back.plan == {"route": "reroll1", "carry": "Veigar", "since": "2-1", "notes": ""}
 
 
 def test_missing_for_correlation_names_what_12_2_needs():
