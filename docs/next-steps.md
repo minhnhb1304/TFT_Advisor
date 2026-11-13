@@ -33,6 +33,26 @@ gắn nhãn dev `minh_03`–`minh_06` kèm hạng (1, 4, 1, 4). Dev hiện có 5
 3. Chốt ngưỡng luật. Nguồn: [research/261113-tft-leveling-rules.md](../research/261113-tft-leveling-rules.md) (BunnyMuffins Set 18: standard cấp 6 ở 3-1/3-2, cấp 8 ở 4-2; reroll đứng cấp; mốc máu 40/60 chỉ có từ nguồn ZH cũ).
 4. Bàn cờ: chưa có reader, để giai đoạn sau.
 
+**Đặc trưng tempo phải tính cả XP còn thiếu** (ý của bạn, 2026-11-13): phần lớn vàng sẽ dùng để
+mua cấp, nên vàng thô không đủ. HUD nhãn đã có `xp`/`xp_needed`. Mua XP theo gói 4 vàng = 4 XP.
+
+- `cấp thực = cấp + xp / xp_needed`
+- `vàng sau khi lên cấp = vàng − 4 × ⌈(xp_needed − xp) / 4⌉`
+
+| Ván | Hướng | 3-2: cấp (XP), vàng → còn | 4-2: cấp (XP), vàng → còn sau khi lên 8 |
+|---|---|---|---|
+| dat_01 | fast9 | 5 (6/20), 40 → 24 | 7 (34/56), 53 → 29 |
+| minh_03 | fast9 | 5 (18/20), 50 → 46 | 7 (6/56), 80 → 28 |
+| minh_04 | reroll1 | 4 (8/10), 55 → 51 | 7 (2/56), 62 → 6 |
+| minh_05 | fast9 | 5 (2/20), 46 → 26 | 7 (8/56), 62 → 14 |
+| minh_06 | fast8 | 5 (6/20), 30 → 14 | 7 (30/56), 53 → 25 |
+
+- **Reroll 1 vàng** tách được ngay ở 3-2: vàng nhiều nhưng không mua XP.
+- **Cấp thực** sửa được cách đọc sai: `minh_03` "cấp 5" thực ra gần cấp 6 với 46 vàng.
+- **fast8 và fast9 không tách được ở 4-2** (còn 6–29 vàng sau khi lên 8 ở cả hai). Mốc phân biệt
+  nên là **4-5 hoặc 5-1** (fast9 giữ vàng ở cấp 8, fast8 roll xuống), thay cho 3-6. 5 ván, mới là
+  dấu hiệu.
+
 **Encounter ("map")** — [research/261113-tft-set18-maps.md](../research/261113-tft-set18-maps.md):
 mỗi ván random một *Vòng Kỳ Ngộ Khai Cuộc*. Teemo cho +1 lượt đổi lõi mỗi màn (giải thích `minh_05`).
 Leona/Elder Dragon ép cả 3 màn vàng/kim cương; 4 encounter khác ép màn đầu hoặc màn cuối. Việc mở:
