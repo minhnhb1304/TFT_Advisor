@@ -10,6 +10,13 @@
   "player_id": null,
   "final_placement": 4,
   "capture_profile": null,
+  "plan": {
+    "route": "reroll1",
+    "carry": "Veigar",
+    "since": null,
+    "notes": ""
+  },
+  "encounter": null,
   "screens": [
     {
       "stage": "2-1",

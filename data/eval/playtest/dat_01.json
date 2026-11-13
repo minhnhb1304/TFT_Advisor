@@ -19,6 +19,13 @@
     "fps": 60,
     "original_name": "TiennDat-Teamfight Tactics_09-16-2026_22-20-1-366-002.mp4"
   },
+  "plan": {
+    "route": "fast9",
+    "carry": null,
+    "since": null,
+    "notes": ""
+  },
+  "encounter": null,
   "screens": [
     {
       "stage": "2-1",
