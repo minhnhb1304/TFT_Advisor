@@ -4,7 +4,7 @@
 > Kế hoạch hiện hành và việc tồn đọng giữa các phiên:
 > [`docs/next-steps.md`](docs/next-steps.md).
 >
-> Cập nhật: **2026-10-15** · 1034 test xanh · 178 file Python. Mục 1–13 và "Dự kiến triển khai"
+> Cập nhật: **2026-11-14** · 1103 test xanh. Mục 1–13 và "Dự kiến triển khai"
 > viết lúc 2026-09-07, giữ làm lịch sử.
 
 ---
@@ -549,6 +549,64 @@ Máu vẫn chưa ổn: `minh_08` 3-2 đọc 2; `minh_04` và `minh_06` 4-2 đọ
 
 Còn mở: phần `body` trong JSON Gemini chiếm phần lớn token đầu ra nhưng chỉ được truyền qua — bỏ
 đi có thể nhanh hơn, chưa đo. Test 1043 → 1067.
+
+### 16. Directional augment đổi thiết kế: gợi ý theo từng hướng, không đoán hướng
+
+2026-11-13 → 11-14. Thiết kế: [plan-conditioned-advice](docs/directional-augment/plan-conditioned-advice.md).
+
+**Hai ngõ cụt trước khi chốt.**
+
+| Cách | Vì sao bỏ |
+|---|---|
+| Lấy hướng từ `CompSelector` | Chưa có bộ đọc bàn cờ → `state.board` rỗng → `evidence = 0` → directional luôn tắt, delta held-out = 0 |
+| Suy hướng từ HUD ở mốc 3-2/3-6/4-2 | Ở 4-2 cả 5 ván dev đều cấp 7, 53–80 vàng. fast8 và fast9 khác nhau ở chỗ **roll ở cấp 8 hay cấp 9**, mà điều đó chỉ thấy được sau 4-2 |
+
+Bảng "vàng sau khi lên 8" ghi ở next-steps hôm 11-13 là số giả định: lấy vàng trừ thẳng phần XP còn thiếu. Nó sai với cách chơi thật. fast9 giữ lợi tức: lên 8 bằng phần vàng dư trên 50, rồi lên thẳng 9, thường sau 4-4. Lên 9 ngay ở 4-2 cần 2 lõi kinh tế rất mạnh và một chuỗi dài.
+
+**Quyết định (người chơi, từng Thách Đấu VN ~#400).**
+- Hệ thống không đoán hướng. Mỗi màn, **từ 2-1**, hiện lõi tốt nhất cho từng hướng, và người chơi tự chọn dòng của mình.
+- Chốt hướng sớm, kèm một đường lui dự phòng, là chiến thuật đáng hỗ trợ. Ba lõi bổ trợ nhau thì càng mạnh.
+- 2-1 không phạt. Game state chỉ để hiểu game và để cảnh báo.
+
+Luật combat/eco do người chơi đưa ra:
+- Mạnh nhất là **3 lõi combat cộng full bài** (core 2 sao, hoặc 3 sao với bài reroll).
+- 3 lõi combat chỉ cần **full form** (đủ đội hình, 1 sao). 3 lõi eco thì phải full bài mới mạnh.
+- 3 lõi combat vẫn fast 9 được nếu đủ tiền và máu. `minh_03` là ví dụ: fast9, cả 3 lõi `econ_value 0`.
+- Hệ quả: loại lõi **trực giao** với hướng.
+
+**Triển khai.** Không thêm trường mới. Ban đầu tôi đề xuất trường `kind`, người chơi chỉ ra `categories` (econ/combat/trait/item/utility/reroll) đã có sẵn và đã duyệt tay, nên bỏ đề xuất đó.
+
+| Phần | Nội dung |
+|---|---|
+| `scoring/plan_fit.py` | `PlanFitScorer(a, state, plan, held)`. eco = `econ_value > 0` hoặc có `econ`/`reroll`; power = có `combat`/`item`/`trait`. Điểm = 0,5 + `eco`×sức mạnh + tổng `econ_type` theo hướng + `power` + **nợ sức mạnh**: mỗi lõi chỉ-eco đã cầm cộng `debt_bonus` 0,05 cho lõi chỉ-combat. Câu lý do nêu cái giá: *"lõi kinh tế: phải lên full bài mới mạnh"* / *"lõi combat: full form là đủ"*. Dưới `min_hp` chỉ cảnh báo, không đổi điểm |
+| `AugmentAdvisor.rank_by_plan()` | Mỗi hướng: tổng `rank()` + w × (plan_fit − 0,5). Các hướng ra cùng một lõi được gộp thành một dòng (`PlanLine`). **`rank()` không đổi một byte**, đó là dòng đối chứng ablation |
+| `config/scoring_weights.yaml` `tuning.plan_fit` | 4 hướng: `fast9`, `fast8` (gồm route `standard`), `reroll` (reroll1/2/3), `cash` (thiếu tiền). Mọi số là giả định tiên nghiệm, chưa fit. `enabled: false` cho tới khi nối overlay |
+| `scripts/eval_plan_advice.py` | Lấy offer cuối mỗi màn verified, lõi đã cầm đưa vào `state.augments`, dữ liệu theo `data_patch` của video. So top-1 khi tắt (`rank()`) và khi bật (dòng của `plan.route`) với `picked` |
+
+**Kết quả trên dev (5 ván, 15 màn; chỉ để chỉnh, không báo cáo).** Top-1 khớp lựa chọn người chơi: **tắt 6/15 → bật 8/15**. Cả hai lần tăng đều ở `minh_05` (fast9): 3-2 Slammin'+ (gold+xp) và 4-2 Invested++. Không có màn nào đang khớp mà bật thành sai.
+
+Các màn vẫn trượt cho thấy luật còn thiếu. Chưa sửa vì 15 màn quá ít, chỉnh theo chúng là overfit:
+
+| Màn | Thấy gì | Câu hỏi cho người chơi |
+|---|---|---|
+| 2-1, 4/5 ván | Mọi hướng ra cùng lõi, và trượt | 2-1 do `base` (bảng tier) quyết. plan_fit không tách được lõi combat với lõi combat |
+| `minh_04` 4-2 (reroll1) | Dòng Reroll → Money Monsoon (eco). Người chơi lấy Baron's Lair (combat) | Ở 4-2 bài reroll 1 vàng đã roll xong, nên eco hết giá trị. Trọng số hướng có nên đổi theo stage không? |
+| `minh_06` 4-2 (fast8) | Dòng fast8 → Glass Cannon. Người chơi lấy Booster Pack++ (gold) | fast8 lấy eco ở 4-2 vì cần tiền để roll ở 8? |
+| `minh_03` 2-1 (fast9) | Dòng fast8 ra đúng Seraphim, dòng fast9 thì không | Đúng luật #2: lõi combat vẫn fast 9 được. Nhãn `route` là hướng của cả ván, không phải của màn đó |
+
+**Vòng 2 (11-14), sau khi người chơi giải thích hai màn trượt.**
+- `minh_04` 4-2: đã full core 3 sao, hai lõi trước nặng eco nên đủ eco mà thiếu combat. Lúc đó còn thiếu đồ tank, và Baron's Lair là lõi combat mạnh.
+- `minh_06` 4-2: lõi 1 là combat mạnh làm bàn đạp, nên cần eco để lên full bài ở 8. Lý do lớn hơn là **combo**: Booster Pack++ trả quà bằng orb, còn Bonus Gifts+ (lõi 2) có tỉ lệ cho thêm orb 3 vàng.
+
+Hai luật thêm vào:
+- **Cân bằng hai chiều.** `debt` = số lõi chỉ-eco đã cầm − số lõi chỉ-combat đã cầm. Lệch về eco thì lõi combat được cộng; lệch về combat thì lõi eco được cộng.
+- **`by_stage`**: một hướng có thể đổi trọng số từ một stage nào đó. Hướng reroll từ stage 4 dùng eco −0,10, power +0,20.
+
+Kết quả: **tắt 6/15 → bật 9/15**. `minh_04` 4-2 ra đúng Baron's Lair. Đây là **số trong mẫu**: luật `by_stage` được rút ra từ chính màn này, nên con số chỉ cho thấy luật chạy đúng, không phải bằng chứng nó tổng quát được.
+
+`minh_06` 4-2 vẫn trượt, như dự đoán: luật chung không biết combo. Cần một **bảng combo lõi** (việc B). Kiểm cũng lộ ra một lỗ hổng: lúc chơi thật **không gì ghi `state.augments`**, chỉ script đánh giá điền từ nhãn. Như vậy luật cân bằng và combo chưa chạy trên overlay. Lõi đã chọn có hiện trên client: một dải icon khoảng 37 px ở hướng 10 giờ so với tâm màn hình (x≈511, y≈245 ở 1080p), xếp trái sang phải theo thứ tự chọn và nở ra hai bên. Cách đọc dự kiến (việc A): khi màn chọn lõi đóng, so icon mới nhất trong dải với icon CDragon của 3 lõi cuối được chào. Test → 1105.
+
+Giới hạn phải ghi trong báo cáo: `picked` là lựa chọn của **một** người chơi, nên phép đo là độ khớp với chuyên gia, không phải độ chính xác. Số báo cáo lấy từ held-out (video 18.6). Test 1092 → 1103 (`tests/test_plan_fit.py`, 11 ca).
 
 ## Dự kiến triển khai
 

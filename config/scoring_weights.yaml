@@ -77,6 +77,47 @@ tuning:
     # M3: cap "dung nhip" theo stage (chi so 0 = stage 1). `pace_weight: 0` de tat.
     level_pace: [3, 5, 6, 7, 8, 9]
     pace_weight: 0.15
+  # Goi y THEO HUONG (directional augment) - docs/directional-augment/
+  # plan-conditioned-advice.md. KHONG nam trong `weights`: rank() khong doi,
+  # chi rank_by_plan() cong w * (plan_fit - 0.5) cho tung huong.
+  # Moi so duoi day la GIA DINH TIEN NGHIEM tu luat cua nguoi choi (tung Thach
+  # Dau VN), CHUA fit tren du lieu (dev chi co 15 man). Them huong moi = them
+  # mot khoi trong `plans`, khong sua code.
+  plan_fit:
+    enabled: false   # true -> overlay hien cac dong theo huong (chua noi)
+    weight: 0.15
+    # Can bang lo da cam, hai chieu: nang eco -> lo combat +debt_bonus x lech;
+    # co lo combat lam ban dap -> lo eco +debt_bonus x lech ("3 eco phai full
+    # bai moi manh, combat chi can full form").
+    debt_bonus: 0.05
+    plans:
+      fast9:
+        label: "Muốn lên 9"
+        routes: [fast9]
+        eco: 0.20
+        power: 0.0
+        econ_type: {gold: 0.10, xp: 0.10, reroll: -0.10}
+        min_hp: 40
+      fast8:
+        label: "Mạnh ngay, chơi ở 8"
+        routes: [fast8, standard]
+        eco: -0.10
+        power: 0.20
+        econ_type: {xp: 0.05, reroll: -0.10}
+      reroll:
+        label: "Reroll"
+        routes: [reroll1, reroll2, reroll3]
+        eco: 0.05
+        power: 0.05
+        econ_type: {reroll: 0.20, gold: 0.05, xp: -0.20}
+        # Tu stage 4: bai reroll da roll xong -> du eco, thieu combat.
+        by_stage:
+          4: {eco: -0.10, power: 0.20, econ_type: {}}
+      cash:
+        label: "Thiếu tiền lên cấp"
+        eco: 0.20
+        power: 0.0
+        econ_type: {gold: 0.10, xp: 0.10}
 
 # Comp Selection Algorithm - SPEC 3.5.2. De o day (khong hardcode) vi cung ly
 # do voi `weights`: phai doi duoc tu file khi hieu chinh hoac khi ablation.

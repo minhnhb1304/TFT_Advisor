@@ -9,6 +9,7 @@ from .base import BaseScorer, full_reason
 from .board_fit import BoardFitScorer, infer_carry_type, trait_key
 from .econ_fit import EconFitScorer
 from .item_fit import ItemFitScorer
+from .plan_fit import PlanFitScorer, PlanProfile, PlanSettings
 from .tempo_fit import TempoFitScorer
 from .types import NEUTRAL, ComponentScore, ScoringConfig, clamp01, neutral
 
@@ -18,6 +19,9 @@ __all__ = [
     "BoardFitScorer",
     "EconFitScorer",
     "ItemFitScorer",
+    "PlanFitScorer",
+    "PlanProfile",
+    "PlanSettings",
     "TempoFitScorer",
     "ComponentScore",
     "ScoringConfig",

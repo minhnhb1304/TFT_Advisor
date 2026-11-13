@@ -48,6 +48,9 @@ from .scoring import (
     ComponentScore,
     EconFitScorer,
     ItemFitScorer,
+    PlanFitScorer,
+    PlanProfile,
+    PlanSettings,
     ScoringConfig,
     TempoFitScorer,
 )
@@ -160,6 +163,51 @@ class Ranking:
         }
 
 
+@dataclass
+class PlanLine:
+    """Mot dong goi y theo huong: "<huong> -> lay <augment>".
+
+    `plans` co nhieu phan tu khi nhieu huong cung ra mot augment - khi do
+    overlay gop thanh mot dong thay vi lap lai.
+    """
+
+    plans: list[PlanProfile]
+    entry: ScoredAugment
+    plan_fit: ComponentScore
+    warnings: list[str] = field(default_factory=list)
+
+    @property
+    def label(self) -> str:
+        return " / ".join(p.label for p in self.plans)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "plans": [p.key for p in self.plans],
+            "label": self.label,
+            "api_name": self.entry.api_name,
+            "name": self.entry.name,
+            "total": round(self.entry.total, 4),
+            "plan_fit": {"score": round(self.plan_fit.score, 4), "reason": self.plan_fit.reason},
+            "warnings": self.warnings,
+        }
+
+
+@dataclass
+class PlanAdvice:
+    """Ket qua `rank_by_plan`: mot xep hang cho moi huong, va cac dong da gop."""
+
+    rankings: dict[str, Ranking] = field(default_factory=dict)
+    plan_fits: dict[str, dict[str, ComponentScore]] = field(default_factory=dict)
+    lines: list[PlanLine] = field(default_factory=list)
+
+    def top_for(self, plan_key: str) -> str | None:
+        ranking = self.rankings.get(plan_key)
+        return ranking.top.api_name if ranking and ranking.top else None
+
+    def to_dict(self) -> dict[str, Any]:
+        return {"lines": [line.to_dict() for line in self.lines]}
+
+
 class AugmentAdvisor:
     """Tong hop 5 thanh phan thanh mot xep hang co giai thich."""
 
@@ -225,6 +273,66 @@ class AugmentAdvisor:
         # tai lap duoc 100% - ablation study can dieu do.
         entries.sort(key=lambda e: (-e.total, e.api_name))
         return Ranking(entries, dict(self.config.weights))
+
+    # -- goi y theo huong (directional augment) ----------------------------
+
+    def rank_by_plan(
+        self,
+        choices: Sequence[AugmentChoice | MatchResult | str],
+        state: GameState,
+        plans: Sequence[PlanProfile] | None = None,
+    ) -> PlanAdvice:
+        """Xep hang MOT LAN CHO MOI HUONG, roi gop cac huong ra cung augment.
+
+        Diem theo huong = tong cua `rank()` + w * (plan_fit - 0.5). Cong lech
+        khoi trung tinh thay vi them mot trong so moi: huong khong co y kien
+        (0.5) thi thu tu dung bang `rank()`, va `rank()` khong doi mot byte.
+        Lo da cam (`state.augments`) di vao plan_fit qua luat "no suc manh".
+        """
+        settings = PlanSettings.from_config(self.config)
+        plans = list(plans if plans is not None else settings.plans)
+        scorer = PlanFitScorer(settings)
+        base = self.rank(choices, state)
+        held = [f for f in (self.features.get(a) for a in state.augments) if f is not None]
+
+        advice = PlanAdvice()
+        for plan in plans:
+            fits: dict[str, ComponentScore] = {}
+            entries: list[ScoredAugment] = []
+            for e in base.entries:
+                fit = scorer(e.api_name, self.features.get(e.api_name), state, plan, held)
+                fits[e.api_name] = fit
+                entries.append(
+                    ScoredAugment(
+                        api_name=e.api_name,
+                        name=e.name,
+                        total=e.total + settings.weight * (fit.score - 0.5),
+                        components={**e.components, fit.name: fit},
+                        ambiguous=e.ambiguous,
+                        choice_index=e.choice_index,
+                        confidence=e.confidence,
+                    )
+                )
+            entries.sort(key=lambda x: (-x.total, x.api_name))
+            advice.rankings[plan.key] = Ranking(entries, {**base.weights, "plan_fit": settings.weight})
+            advice.plan_fits[plan.key] = fits
+
+        by_api: dict[str, PlanLine] = {}
+        for plan in plans:
+            top = advice.rankings[plan.key].top
+            if top is None:
+                continue
+            fit = advice.plan_fits[plan.key][top.api_name]
+            warning = str(fit.detail.get("warning") or "")
+            line = by_api.get(top.api_name)
+            if line is None:
+                line = by_api[top.api_name] = PlanLine([plan], top, fit)
+                advice.lines.append(line)
+            else:
+                line.plans.append(plan)
+            if warning:
+                line.warnings.append(warning)
+        return advice
 
     # -- reroll (SPEC 3.5.5) -----------------------------------------------
 
