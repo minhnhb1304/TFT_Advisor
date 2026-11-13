@@ -4,7 +4,7 @@
   "observed_at": "2026-10-27",
   "observed_by": "nguoi dung choi tren client live (patch 18.5b) + metatft.gg (ten tieng Viet)",
   "retained_source": "cdragon 2026-09-01, lay tu tests/fixtures/cdragon/*.trimmed.json tai commit 0b58097",
-  "retained_heart_of_steel": "2026-11-10: CDragon 2026-11-04 bo DA_HeartOfSteel; giu ban tu tests/fixtures/cdragon/*.trimmed.json (18.5b), live=null cho toi khi thay trong game"
+  "retained_heart_of_steel": "2026-11-10: CDragon 2026-11-04 bo DA_HeartOfSteel; giu ban tu tests/fixtures/cdragon/*.trimmed.json (18.5b), live=null cho toi khi thay trong game; 2026-11-13: nguoi dung xac nhan khong con trong game 18.6 -> live=false"
  },
  "live": {
   "_note": "Lose khong ghi o day = true. false = khong con trong game; null = chua biet. Pool reroll chi lay true.",
@@ -14,7 +14,7 @@
   "DA_NestingDollsPlusPlus": false,
   "DA_KnowYourEnemy": false,
   "DA_18_FloraFatalisAugmentPlus": null,
-  "DA_HeartOfSteel": null
+  "DA_HeartOfSteel": false
  },
  "vi_names": {
   "_note": "Ten client live (metatft.gg) khac CDragon vi_vn. Ten CDragon van tra duoc (alias).",
