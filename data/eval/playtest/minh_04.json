@@ -1,0 +1,285 @@
+{
+  "schema": 2,
+  "video": "minh_04.mp4",
+  "video_sha256": "54c3ebf0121ae802202de0f35756b09330693276b4ec4d019f5259fd336b3c28",
+  "size": [
+    1920,
+    1080
+  ],
+  "game_id": null,
+  "player_id": null,
+  "final_placement": 4,
+  "capture_profile": null,
+  "screens": [
+    {
+      "stage": "2-1",
+      "status": "verified",
+      "open_s": 119.75,
+      "close_s": 142.25,
+      "hud": {
+        "gold": 0,
+        "level": 3,
+        "xp": 0,
+        "xp_needed": 6,
+        "hp": 100,
+        "streak": 0
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 123.75,
+          "cards": [
+            [
+              "DA_ExpectedUnexpectedness"
+            ],
+            [
+              "DA_HedgeFund"
+            ],
+            [
+              "DA_BandOfThievesII"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: K Vng Bt Ng / Ngay bây gi và khi bt đu 2 / giai đon tip theo, đ 3 xúc / xc. Nhn nhiu loi phn / thưng dra trên tng s đ / đưc.",
+            "ô 2: Qu Phòng H / Nhn 22 vàng. Li tc ti đa / ca bn tng lên thành 10.",
+            "ô 3: Băng Trm II / Nhn 2 Găng Đo Tc. Sau 5 / giao tranh ngưi chơi, nhn / thêm 1 Găng Đo Tc."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00119_2-1_offer1.jpg"
+        },
+        {
+          "at_s": 126.0,
+          "cards": [
+            [
+              "DA_ExpectedUnexpectedness"
+            ],
+            [
+              "DA_HedgeFund"
+            ],
+            [
+              "DA_ShimmerscaleEssence"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: K Vng Bt Ng / Ngay bây gi và khi bt đu 2 / giai đon tip theo, đ 3 xúc / xc. Nhn nhiu loi phn / thưng dra trên tng s đ / đưc.",
+            "ô 2: Qu Phòng H / Nhn 22 vàng. Li tc ti đa / ca bn tăng lên thành 10.",
+            "ô 3: Tinh Túy Kim Long / Nhn 1 Kim Ca Tay Bc. / Sau 6 giao tranh ngưi chơi, / nhn 1 Giáp Đi Hãn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00119_2-1_offer2.jpg"
+        },
+        {
+          "at_s": 131.75,
+          "cards": [
+            [
+              "DA_ExpectedUnexpectedness"
+            ],
+            [
+              "DA_GoingLong"
+            ],
+            [
+              "DA_ShimmerscaleEssence"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: K Vng Bt Ng / Ngay bây gi và khi bt đu 2 / giai đon tip theo, đ 3 xúc / xc. Nhn nhiu loi phn / thưng dra trên tng s đ / đưc.",
+            "ô 2: Thích M Rng / Bn s không còn nhn / đưc li tc. Nhn ngay 10 / vàng. Nhn 4 XP sau mõi / giao tranh ngưi chơi. / Ldi túxe là ludn a uàn s ban",
+            "ô 3: Tinh Túy Kim Long / Nhn 1 Kim Ca Tay Bc. / Sau 6 giao tranh ngưi chơi, / nhn 1 Giáp Đi Hãn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00119_2-1_offer4.jpg"
+        }
+      ],
+      "picked": "DA_ExpectedUnexpectedness",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "3-2",
+      "status": "verified",
+      "open_s": 650.0,
+      "close_s": 657.75,
+      "hud": {
+        "gold": 55,
+        "level": 4,
+        "xp": 8,
+        "xp_needed": 10,
+        "hp": 73,
+        "streak": 1
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 651.0,
+          "cards": [
+            [
+              "DA_18_ResidualMagicPlus"
+            ],
+            [
+              "DA_Recombobulator"
+            ],
+            [
+              "DA_MissedConnections"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Dư Âm Ma Thut + / Đi ca bn đưc tăng 75 / Máu. Mi khi bn mua mt / Tinh Linh, tăng hiu ng này / thêm 10.",
+            "ô 2: Xoay Bài T Đng / Tt cà tưng trên sân đu ca / bn s vĩnh vin chuyn / thành tưng ngu nhiên vi / giá cao hơn 1 bc (ti đa 5). / Nhn 2 Nam Châm Ma Thut / và 2 luat di min nbí",
+            "ô 3: Kt Ni Gián Đon / Nhn 1 bn sao ca mi / tưng 1 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00650_3-2_offer1.jpg"
+        },
+        {
+          "at_s": 655.75,
+          "cards": [
+            [
+              "DA_18_ResidualMagicPlus"
+            ],
+            [
+              "DA_TwinGuardians"
+            ],
+            [
+              "DA_MissedConnections"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: Dư Âm Ma Thut + / Đi ca bn đưc tăng 75 / Máu. Mi khi bn mua mt / Tinh Linh, tăng hiu ng này / thêm 10.",
+            "ô 2: Song V / Nu bn có đúng 2 đồng / minh  hàng đu, tăng cho h / 100 Máu, 35 Giáp và 35 / Kháng Phép.",
+            "ô 3: Kt Ni Gián Đon / Nhn 1 bn sao ca mi / tưng 1 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00650_3-2_offer2.jpg"
+        },
+        {
+          "at_s": 657.25,
+          "cards": [
+            [
+              "DA_PandorasBench"
+            ],
+            [
+              "DA_TwinGuardians"
+            ],
+            [
+              "DA_MissedConnections"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Hàng Ch Pandora /  đu mi vòng đu, các / tưng  3 ô ngoài cùng bên / phi hàng ch s đưc / chuyn đi thành tưng / ngu nhiên cùng giá tin. / Nbân 4vàna",
+            "ô 2: Song Vê / Nu bn có đúng 2 đồng / minh  hàng đu, tăng cho h / 100 Máu, 35 Giáp và 35 / Kháng Phép.",
+            "ô 3: Kt Ni Gián Đon / Nhn 1 bn sao ca mi / tưng 1 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/00650_3-2_offer3.jpg"
+        }
+      ],
+      "picked": "DA_MissedConnections",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "4-2",
+      "status": "verified",
+      "open_s": 1097.75,
+      "close_s": 1116.75,
+      "hud": {
+        "gold": 62,
+        "level": 7,
+        "xp": 2,
+        "xp_needed": 56,
+        "hp": 53,
+        "streak": 2
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 1098.75,
+          "cards": [
+            [
+              "DA_Coronation"
+            ],
+            [
+              "DA_SwordOverflow"
+            ],
+            [
+              "DA_VerticalityIII"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Lên Ngôi Vương / Nhn 1 Vương Min Chin / Thut. Vương Min, Áo / Choàng và Lá Chn Chin / Thut s cho ch s hũu 20% / Tc Đ Đánh, 25% Sc Mnh / Công Kích và 20% Cús Manb",
+            "ô 2: Đam Mê Kim / Nhn 4 Kim BF. Kim BF ca / bn s cho +4% Tc Đ Đánh.",
+            "ô 3: Chi Mt Con Đưng III / Các Tưng nhn đưc 3,5% / Sc Mnh Công Kích, 3,5% / Sc Mnh Phép Thut, 3,5 / Giáp và 3,5 Kháng Phép cho / mi đồng minh có cùng tc/ / bê vái he"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/01097_4-2_offer1.jpg"
+        },
+        {
+          "at_s": 1100.0,
+          "cards": [
+            [
+              "DA_Coronation"
+            ],
+            [
+              "DA_BaronsLair"
+            ],
+            [
+              "DA_VerticalityIII"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: Lên Ngôi Vương / Nhn 1 Vương Min Chin / Thut. Vương Min, Áo / Choàng và Lá Chn Chin / Thut s cho ch s hũu 20% / Tc Đ Đánh, 25% Sc Mnh / Côna Kíshvà 20% Cús Manh",
+            "ô 2: Hang  Baron / Nhn 1 trang b Đ Đòn ngu / nhiên. Sau 8 giây giao tranh, / đi ca bn nhn thêm 4% / Sc Mnh Công Kích và Sc / Mnh Phép Thut mői giây / che dn ht giae tranh.",
+            "ô 3: Chi Mt Con Đưng III / Các Tưng nhn đưc 3,5% / Sc Mnh Công Kích, 3,5% / Sc Mnh Phép Thut, 3,5 / Giáp và 3,5 Kháng Phép cho / mi đồng minh có cùng tc/ / bê vái he"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/01097_4-2_offer2.jpg"
+        },
+        {
+          "at_s": 1107.25,
+          "cards": [
+            [
+              "DA_Coronation"
+            ],
+            [
+              "DA_BaronsLair"
+            ],
+            [
+              "DA_MoneyMonsoon"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Lên Ngôi Vương / Nhn 1 Vương Min Chin / Thut. Vương Min, Áo / Choàng và Lá Chn Chin / Thut s cho ch s hũu 20% / Tc Đ Đánh, 25% Sc Mnh / Côna Kích và 20% Cús Manh",
+            "ô 2: Hang  Baron / Nhn 1 trang b Đõ Đòn ngu / nhiên. Sau 8 giây giao tranh, / đi ca bn nhn thêm 4% / Sc Mnh Công Kích và Sc / Mnh Phép Thut mi giây / she dn bêt aiae tranh",
+            "ô 3: Bão Vàng / Nhn 7 vàng ngay bây gi / và mi vòng đu cho đn / ht trn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/01097_4-2_offer3.jpg"
+        },
+        {
+          "at_s": 1115.5,
+          "cards": [
+            [
+              "DA_JeweledLotus_II"
+            ],
+            [
+              "DA_BaronsLair"
+            ],
+            [
+              "DA_MoneyMonsoon"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Khm Bo Thach II / Đi ca bn nhn 25% Ti L / Chí Mng, 10% Sát Thương / Chí Mng và Chun Xác. / Chun Xác: Sát thương k / nžns sé th chí mana Chi s",
+            "ô 2: Hang  Baron / Nhn 1 trang b Đ Đòn ngu / nhiên. Sau 8 giây giao tranh, / đi ca bn nhn thêm 4% / Sc Mnh Công Kích và Sc / Mnh Phép Thut mi giây / she dn bêt giae tranh",
+            "ô 3: Bão Vàng / Nhn 7 vàng ngay bây gi và / mi vòng đu cho đn ht / trn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_04/01097_4-2_offer4.jpg"
+        }
+      ],
+      "picked": "DA_BaronsLair",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    }
+  ]
+}

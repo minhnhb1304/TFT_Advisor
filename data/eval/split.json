@@ -46,7 +46,7 @@
       "player_id": "minh",
       "role": "development",
       "video_sha256": "d31d53c6d0842c2f95ecdd2956d2db794dfa056b186f6d4024dbcb0cf903c64b",
-      "final_placement": null,
+      "final_placement": 1,
       "capture_profile": {
         "tool": "windows-screen-recorder",
         "size": [
@@ -65,7 +65,7 @@
       "player_id": "minh",
       "role": "development",
       "video_sha256": "54c3ebf0121ae802202de0f35756b09330693276b4ec4d019f5259fd336b3c28",
-      "final_placement": null,
+      "final_placement": 4,
       "capture_profile": {
         "tool": "outplayed",
         "size": [
@@ -84,7 +84,7 @@
       "player_id": "minh",
       "role": "development",
       "video_sha256": "828e8932b0f2694646524bb793f806b76b76e6f6783f82a5d9ac2367888ce4a7",
-      "final_placement": null,
+      "final_placement": 1,
       "capture_profile": {
         "tool": "outplayed",
         "size": [
@@ -103,7 +103,7 @@
       "player_id": "minh",
       "role": "development",
       "video_sha256": "be66fb24385eff4e983bd19bad12d5ea3a8686c6dc3769c148a0ebec04daad91",
-      "final_placement": null,
+      "final_placement": 4,
       "capture_profile": {
         "tool": "outplayed",
         "size": [

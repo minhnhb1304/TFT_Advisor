@@ -1,0 +1,265 @@
+{
+  "schema": 2,
+  "video": "minh_06.mp4",
+  "video_sha256": "be66fb24385eff4e983bd19bad12d5ea3a8686c6dc3769c148a0ebec04daad91",
+  "size": [
+    1920,
+    1080
+  ],
+  "game_id": null,
+  "player_id": null,
+  "final_placement": 4,
+  "capture_profile": null,
+  "screens": [
+    {
+      "stage": "2-1",
+      "status": "verified",
+      "open_s": 123.5,
+      "close_s": 134.25,
+      "hud": {
+        "gold": 2,
+        "level": 3,
+        "xp": 0,
+        "xp_needed": 6,
+        "hp": 100,
+        "streak": 0
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 126.5,
+          "cards": [
+            [
+              "DA_CalculatedLoss"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_SoloLeveling"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Thua Có Tính Toán / Sau khi thua giao tranh, nhn / 2 vàng và i lưt đi Ca / Hàng min phí.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm 2 Hi Phc / Năng Lưng nu ch s hu / có 90% Sc Mnh Phép Thut / tr lôn",
+            "ô 3: Tôi Thăng Cp Mt Minh / Trong 5 giao tranh tip theo, / bn chi đưc trin khai 1 / tưng, nhưng tưng đó sê / đưc tăng mnh chi s. Nhn / 1 XP vi mi mng h gc / turána dté dtat dturas Cau té"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00123_2-1_offer1.jpg"
+        },
+        {
+          "at_s": 130.5,
+          "cards": [
+            [
+              "DA_CalculatedLoss"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_Hustler"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Thua Có Tính Toán / Sau khi thua giao tranh, nhn / 2 vàng và i lưt đi Ca / Hàng min phí.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm 2 Hi Phc / Năng Lưng nu ch s hu / có 90% Sc Mnh Phép Thut / tr lôn",
+            "ô 3: Sőng Vi / Bn không còn li tc, nhưng / s nhn 3 vàng khi bt đu / mi vòng giao tranh ngưi / chơi. Nhn ngay 3 vàng. / Ldi túxe là ludn a uàns ban"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00123_2-1_offer2.jpg"
+        },
+        {
+          "at_s": 134.25,
+          "cards": [
+            [
+              "DA_TradeSector"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_Hustler"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "CHƯA ỔN ĐỊNH — thẻ chưa kịp đứng yên, kiểm kỹ ảnh",
+            "ô 1: Khu Giao Dch / Nhn 1 lưt đi Ca Hàng / mi vòng đu. Nhn 2 vàng.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm / Hi Phc / Năng Lưng nu h s hu / có 90% Sc Mnh Phép Thut",
+            "ô 3: Sng Vi / Bn không còn li tc, nhưng / s nhn 3 vàng khi bt đu / mi vòng giao tranh ngưi / chơi. Nhn ngay 3 vàng. / Ldi túxs là ludn s uàng ban"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00123_2-1_offer3.jpg"
+        }
+      ],
+      "picked": "DA_SeraphimsStaff",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "3-2",
+      "status": "verified",
+      "open_s": 648.5,
+      "close_s": 655.75,
+      "hud": {
+        "gold": 30,
+        "level": 5,
+        "xp": 6,
+        "xp_needed": 20,
+        "hp": 87,
+        "streak": -2
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 649.5,
+          "cards": [
+            [
+              "DA_Pilfer"
+            ],
+            [
+              "DA_BonusGiftPlus"
+            ],
+            [
+              "DA_ClockworkAccelerator"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Ån Trm / Mői vòng đu, nhn 1 bn / sao 1 sao ca tưng đu tiên / bn tiêu dit  giao tranh / trưc. Ln đu tiên bn nhn / đưc s lưng tưng tr giá / 21 vàng theo cách này, nhân",
+            "ô 2: Quà Tng Thêm+ / Bt c khi nào bn m hp / vt phm, bn có 25% cơ hi / nhn đưc 1 hp vt phm / xám. Nhn 2 hp vt phm / xám.",
+            "ô 3: Đng Cơ Tăng Tc / Đi ca bn đưc tăng 10% / Tc Đ Đánh sau mi 3 giây / giao tranh."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00648_3-2_offer1.jpg"
+        },
+        {
+          "at_s": 653.0,
+          "cards": [
+            [
+              "DA_Pilfer"
+            ],
+            [
+              "DA_BonusGiftPlus"
+            ],
+            [
+              "DA_ExplosiveGrowth"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Ån Trm / Mői vòng đu, nhn 1 bn / sao 1 sao ca tưng đu tiên / bn tiêu dit  giao tranh / trưc. Ln đu tiên bn nhn / đưc s lưng tưng tr giá / 21 vàng theo cách này, nhân",
+            "ô 2: Quà Tng Thêm+ / Bt c khi nào bn m hp / vt phm, bn có 25% cơ hi / nhn đưc 1 hp vt phm / xám. Nhn 2 hp vt phm / xám.",
+            "ô 3: Tăng Trưng Bùng N / Nhn 7 XP ngay bây gi và / khi bt đu 3 vòng đu tip / theo."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00648_3-2_offer2.jpg"
+        },
+        {
+          "at_s": 654.5,
+          "cards": [
+            [
+              "DA_GroupHugII"
+            ],
+            [
+              "DA_BonusGiftPlus"
+            ],
+            [
+              "DA_ExplosiveGrowth"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Ôm Tp Th II / Bt đu giao tranh: Các / tưng s tăng cho các tưng / lin k khác 10 Giáp và / Kháng Phép. Hiu ng này có / th cng dồn.",
+            "ô 2: Quà Tng Thêm+ / Bt c khi nào bn m hp / vt phm, bn có 25% cơ hi / nhn đưc 1 hp vt phm / xám. Nhn 2 hp vt phm / xám.",
+            "ô 3: Tăng Trưng Bùng N / Nhn 7 XP ngay bây gi và / khi bt đu 3 vòng đu tip / theo."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/00648_3-2_offer3.jpg"
+        }
+      ],
+      "picked": "DA_BonusGiftPlus",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "4-2",
+      "status": "verified",
+      "open_s": 1097.25,
+      "close_s": 1103.0,
+      "hud": {
+        "gold": 53,
+        "level": 7,
+        "xp": 30,
+        "xp_needed": 56,
+        "hp": null,
+        "streak": 1
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 1099.5,
+          "cards": [
+            [
+              "DA_CyberneticImplants_Gold"
+            ],
+            [
+              "DA_BoosterPackPlusPlus"
+            ],
+            [
+              "DA_ItsMeBaby"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Cy Ghép Siêu Công Ngh / Tưng có s hu trang b / nhn 100 Máu và 15% Sc / Mnh Công Kích. Nhn 1 / Kim B.F.",
+            "ô 2: Gói Tăng Cưng++ / Nhn các tưng ngu nhiên / có tng giá là 26 vàng. (Đm / bo có ít nht mt tưng 5 / vàng!)",
+            "ô 3: Là Ta Đây / Nhn 1 ô vô đch  góc dưi / bên phi. Tưng bên trong / nhn 15% Khuch Đi Sát / Thương và 15% Tc Đ Đánh, / đồng thi rơi ra 1 vàng mi 5 / ln tham gia ha quc."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/01097_4-2_offer1.jpg"
+        },
+        {
+          "at_s": 1100.25,
+          "cards": [
+            [
+              "DA_GlassCannon_Gold"
+            ],
+            [
+              "DA_BoosterPackPlusPlus"
+            ],
+            [
+              "DA_ItsMeBaby"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Ly Công Bù Th II / Đồng minh bt đu giao / tranh  hàng sau s khi / đu vi 80% Máu nhưng / đưc tăng 25% Khuch Đi / Sát Thương.",
+            "ô 2: Gói Tăng Cưng++ / Nhn các tưng ngu nhiên / có tng giá là 26 vàng. (Đm / bo có ít nht mt tưng 5 / vàng!)",
+            "ô 3: Là Ta Đây / Nhn 1 ô vô đch  góc dưi / bên phi. Tưng bên trong / nhn 15% Khuch Đi Sát / Thương và 15% Tc Đ Đánh, / đồng thi rơi ra 1 vàng mi 5 / ln tham gia ha quc."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/01097_4-2_offer2.jpg"
+        },
+        {
+          "at_s": 1101.75,
+          "cards": [
+            [
+              "DA_GlassCannon_Gold"
+            ],
+            [
+              "DA_BoosterPackPlusPlus"
+            ],
+            [
+              "DA_ExplosiveGrowthPlus"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Ly Công Bù Th II / Đồng minh bt đu giao / tranh  hàng sau s khi / đu vi 80% Máu nhưng / đưc tăng 25% Khuch Đi / Sát Thương.",
+            "ô 2: Gói Tăng Cưng++ / Nhn các tưng ngu nhiên / có tng giá là 26 vàng. (Đm / bo có ít nht mt tưng 5 / vàng!)",
+            "ô 3: Tăng Trưng Bùng N+ / Nhn 10 XP ngay bây gi và / khi bt đu 3 vòng đu tip / theo."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_06/01097_4-2_offer3.jpg"
+        }
+      ],
+      "picked": "DA_BoosterPackPlusPlus",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    }
+  ]
+}

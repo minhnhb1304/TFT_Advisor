@@ -1,0 +1,389 @@
+{
+  "schema": 2,
+  "video": "minh_05.mp4",
+  "video_sha256": "828e8932b0f2694646524bb793f806b76b76e6f6783f82a5d9ac2367888ce4a7",
+  "size": [
+    1920,
+    1080
+  ],
+  "game_id": null,
+  "player_id": null,
+  "final_placement": 1,
+  "capture_profile": null,
+  "screens": [
+    {
+      "stage": "2-1",
+      "status": "verified",
+      "open_s": 122.5,
+      "close_s": 138.25,
+      "hud": {
+        "gold": 0,
+        "level": 3,
+        "xp": 0,
+        "xp_needed": 6,
+        "hp": 100,
+        "streak": 0
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 123.75,
+          "cards": [
+            [
+              "DA_18_RivalsAugment"
+            ],
+            [
+              "DA_Warpath"
+            ],
+            [
+              "DA_SoloLeveling"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Không Đi Th / Bn có th đưa Rengar và / Kha'Zix ra sân cùng nhau mà / không b hn ch và chúng s / nhn thêm sc mnh khi / tưng kia tung chiêu. Nhn 1 / Denaar uà 1 Khal7ix",
+            "ô 2: Đưng Ra Trn / Nhn 1 tưng 2 vàng 2 sao. / Sau khi gây 80 sát thương lên / ngưi chơi, nhn 1 rương / cha các trang b và tưng / bc cao.",
+            "ô 3: Tôi Thăng Cp Mt Minh / Trong 5 giao tranh tip theo, / bn chi đưc trin khai 1 / tưng, nhưng tưng đó sê / đưc tăng mnh chi s. Nhn / 1 XP vi mi mng h gc / turána dté dtat dturas Cau té"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00122_2-1_offer1.jpg"
+        },
+        {
+          "at_s": 129.0,
+          "cards": [
+            [
+              "DA_Replication"
+            ],
+            [
+              "DA_Warpath"
+            ],
+            [
+              "DA_SoloLeveling"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "(chèn tay)"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/manual_129.00.jpg"
+        },
+        {
+          "at_s": 131.0,
+          "cards": [
+            [
+              "DA_NoScoutNoPivot"
+            ],
+            [
+              "DA_Warpath"
+            ],
+            [
+              "DA_SoloLeveling"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: NHM MÁT CHOI BA / Các tưng tham gia giao / tranh ngưi chơi không th / đưc đưa v hàng d b hoc / bán. Đi ca bn nhn 1% / Máu, 1% Sc Mnh Công Kích / và Cúe Manb Dhén Thuât cau",
+            "ô 2: Đưng Ra Trn / Nhn 1 tưng 2 vàng 2 sao. / Sau khi gây 80 sát thương lên / ngưi chơi, nhn 1 rương / cha các trang b và tưng / bc cao.",
+            "ô 3: Tôi Thăng Cp Mt Minh / Trong 5 giao tranh tip theo, / bn chi đưc trin khai 1 / tưng, nhưng tưng đó së / đưc tăng mnh chi s. Nhn / 1 XP vi mi mng h gc / turána dté dtat dturae Cau dté"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00122_2-1_offer3.jpg"
+        },
+        {
+          "at_s": 133.0,
+          "cards": [
+            [
+              "DA_NoScoutNoPivot"
+            ],
+            [
+              "DA_Warpath"
+            ],
+            [
+              "DA_BodyguardTraining"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: NHM MT CHOI BA / Các tưóng tham gia giao / tranh ngưi chơi không th / đưc đưa v hàng d b hoc / bán. Đi ca bn nhn 1% / Máu, 1% Sc Mnh Công Kích / và Cúe Manb Dhén Thuât cau",
+            "ô 2: Đưng Ra Trn / Nhn 1 tưng 2 vàng 2 sao. / Sau khi gây 80 sát thương lên / ngưi chơi, nhn 1 rương / cha các trang b và tưng / bc cao.",
+            "ô 3: Hun Luyn Cn V / Các đồng minh nhn 15 Giáp / và Kháng Phép, tăng thêm 2 / vi mi cp ngưi chơi. / Chung Kt Th Gii Thi Đi / Công Nabô.2022"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00122_2-1_offer4.jpg"
+        },
+        {
+          "at_s": 138.0,
+          "cards": [
+            [
+              "DA_NoScoutNoPivot"
+            ],
+            [
+              "DA_Warpath"
+            ],
+            [
+              "DA_HardBargain"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "CHƯA ỔN ĐỊNH — thẻ chưa kịp đứng yên, kiểm kỹ ảnh",
+            "ô 1: NHM MT CHOI BA / Các tưóng tham gia giao / tranh ngưi chơi không th / đưc đưa v hàng d b hoc / bán. Đi ca bn nhn 1% / Máu, 1% Sc Mnh Công Kích / và Cúe Manb Dhén Thuât cau",
+            "ô 2: ĐưngRa Trn / Nhn 1 tưng z vàng 2 sao. / Sau khi gây 80 sát thương lên / ngưi chơi, nhn 1 rương / cha các trang b và tưng / bc cao.",
+            "ô 3: Thương V Khó Xơi / Bn không th chn phn / thưng trong Vòng Đi Ch. / Nhn thêm 6 máu ngưi chơi / và 8 vàng mi vòng đi ch. / Khi bn không chn Phn / Thung  Vèna Di Chα ban"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00122_2-1_offer5.jpg"
+        }
+      ],
+      "picked": "DA_Warpath",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "3-2",
+      "status": "verified",
+      "open_s": 677.25,
+      "close_s": 691.75,
+      "hud": {
+        "gold": 46,
+        "level": 5,
+        "xp": 2,
+        "xp_needed": 20,
+        "hp": 87,
+        "streak": -1
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 678.0,
+          "cards": [
+            [
+              "DA_URF"
+            ],
+            [
+              "DA_SlamminPlus"
+            ],
+            [
+              "DA_GainGold"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: U.R.F / Nhn 1 Xng Vàng. Các tưng / mang Xng Vàng hoc Chào / Vàng nhn thêm 20% Tc Đ / Đánh và 3 Hi Năng Lưng.",
+            "ô 2: H Đo Ván+ / Nhn ngay 4 vàng và 10 XP. / Sau mi giao tranh ngưi / chơi, nu không có trang b / nào ca bn nm  hàng chò / (ngoài các trang b tiêu th), / nbân 2. YD",
+            "ô 3: Nhn 21 Vàng / Nhn 21 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00677_3-2_offer1.jpg"
+        },
+        {
+          "at_s": 681.75,
+          "cards": [
+            [
+              "DA_URF"
+            ],
+            [
+              "DA_SlamminPlus"
+            ],
+            [
+              "DA_GoldDestinyPlus"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: U.R.F / Nhn 1 Xng Vàng. Các tưng / mang Xng Vàng hoc Chào / Vàng nhn thêm 20% Tc Đ / Đánh và 3 Hi Năng Lưng.",
+            "ô 2: H Đo Ván+ / Nhn ngay 4 vàng và 10 XP. / Sau mi giao tranh ngưi / chơi, nu không có trang b / nào ca bn nm  hàng chò / (ngoài các trang b tiêu th), / bân 2.YD",
+            "ô 3: Vn Mnh Vàng+ / Nhn 1 Nâng / Cp Vàng / ngu nhiên và / 5 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00677_3-2_offer2.jpg"
+        },
+        {
+          "at_s": 682.75,
+          "cards": [
+            [
+              "DA_ClockworkAccelerator"
+            ],
+            [
+              "DA_SlamminPlus"
+            ],
+            [
+              "DA_GoldDestinyPlus"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Đng Cơ Tăng Tc / Đi ca bn đưc tăng 10% / Tc Đ Đánh sau mi 3 giây / giao tranh.",
+            "ô 2: H Đo Ván+ / Nhn ngay 4 vàng và 10 XP. / Sau mi giao tranh ngưi / chơi, nu không có trang b / nào ca bn nm  hàng chò / (ngoài các trang b tiêu th), / bân 2.YD",
+            "ô 3: Vn Mnh Vàng+ / Nhn 1 Nâng / Cp Vàng / ngu nhiên và / 5 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00677_3-2_offer3.jpg"
+        },
+        {
+          "at_s": 688.75,
+          "cards": [
+            [
+              "DA_MagicRoll"
+            ],
+            [
+              "DA_SlamminPlus"
+            ],
+            [
+              "DA_GoldDestinyPlus"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Xúc Xc Ma Pháp / Đ 3 xúc xc. Nhn nhiu / loi phn thưng da trên / tng s đã đ đưc.",
+            "ô 2: H Đo Ván+ / Nhn ngay 4 vàng và 10 XP. / Sau mi giao tranh ngưi / chơi, nu không có trang b / nào ca bn nm  hàng chò / (ngoài các trang b tiêu th), / bân 2.YD",
+            "ô 3: Vn Mnh Vàng+ / Nhn 1 Nâng Cp Vàng ngu / nhiên và 5 vàng."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/00677_3-2_offer4.jpg"
+        }
+      ],
+      "picked": "DA_SlamminPlus",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "4-2",
+      "status": "verified",
+      "open_s": 1137.25,
+      "close_s": 1150.0,
+      "hud": {
+        "gold": 62,
+        "level": 7,
+        "xp": 8,
+        "xp_needed": 56,
+        "hp": 66,
+        "streak": 3
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 1139.75,
+          "cards": [
+            [
+              "DA_GoldenEgg"
+            ],
+            [
+              "DA_NestingAnvilsPlus"
+            ],
+            [
+              "DA_RadiantRascal"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: Rồng Đė Trng Vàng / Nhn mt trng vàng n ra / sau 11 vòng đu, cho lưng / ln báu vt. Chin thng / vòng giao tranh ngưi chơi s / đy nhanh thi gian n trng / thêm môt vòng.",
+            "ô 2: Gói Trang B Bt Ng+ / Nhn 1 Gói Trang B To Tác. / Sau khi bn m nó, nhn 1 / Gói Trang B Thành Phn. Sau / khi bn m th đó, nhn 8 / vàng.",
+            "ô 3: Quang Lân Tiu Yêu / Nhn 1 trang b Găng Đo / Tc Ánh Sáng. Vt phm này / s lp 2 trang b Ánh Sáng / ngu nhiên mi vòng đu."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer1.jpg"
+        },
+        {
+          "at_s": 1141.25,
+          "cards": [
+            [
+              "DA_InvestedPlusPlus"
+            ],
+            [
+              "DA_NestingAnvilsPlus"
+            ],
+            [
+              "DA_RadiantRascal"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Đu Tư++ / Nhn 45 vàng. Khi bt đu / mi vòng đu, nhn 1 lưt / làm mi a Hàng vi mi 10 / vàng vưt hơn 50 (ti đa 80 / vàng).",
+            "ô 2: Gói Trang B Bt Ng+ / Nhn 1 Gói Trang B To Tác. / Sau khi bn m nó, nhn 1 / Gói Trang B Thành Phn. Sau / khi bn m th đó, nhn 8 / vàng.",
+            "ô 3: Quang Lân Tiu Yêu / Nhn 1 trang b Găng Đo / Tc Ánh Sáng. Vt phm này / s lp 2 trang b Ánh Sáng / ngu nhiên mi vòng đu."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer2.jpg"
+        },
+        {
+          "at_s": 1143.75,
+          "cards": [
+            [
+              "DA_InvestedPlusPlus"
+            ],
+            [
+              "DA_SwordOverflow"
+            ],
+            [
+              "DA_RadiantRascal"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: Đu Tư++ / Nhn 45 vàng. Khi bt đu / mi vòng đu, nhn 1 lưt / làm mi Ca Hàng vi mi 10 / vàng vưt hơn 50 (ti đa 80 / vàng).",
+            "ô 2: Đam Mê Kim / Nhn 4 Kim BF. Kim BF ca / bn s cho +4% Tc Đ Đánh.",
+            "ô 3: Quang Lân Tiu Yêu / Nhn 1 trang b Găng Đo / Tc Ánh Sáng. Vt phm này / s lp 2 trang b Ánh Sáng / ngu nhiên mi vòng đu."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer3.jpg"
+        },
+        {
+          "at_s": 1144.25,
+          "cards": [
+            [
+              "DA_InvestedPlusPlus"
+            ],
+            [
+              "DA_HoldTheLine"
+            ],
+            [
+              "DA_RadiantRascal"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: Đu Tư++ / Nhn 45 vàng. Khi bt đu / mi vòng đu, nhn 1 lưt / làm mi Ca Hàng vi mi 10 / vàng vưt hơn 50 (ti đa 80 / vàng).",
+            "ô 2: Gi Vng Hàng Ngũ / Các tưng  2 hàng sau nhn / 11% Sc Mnh Phép Thut và / 11% Sc Mnh Công Kích vi / mi tưng bt đu giao tranh /  hàng trên.",
+            "ô 3: Quang Lân Tiu Yêu / Nhn 1 trang b Găng Đo / Tc Ánh Sáng. Vt phm này / s lp 2 trang b Ánh Sáng / ngu nhiên mi vòng đu."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer4.jpg"
+        },
+        {
+          "at_s": 1145.75,
+          "cards": [
+            [
+              "DA_InvestedPlusPlus"
+            ],
+            [
+              "DA_HoldTheLine"
+            ],
+            [
+              "DA_CommerceCore"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Đu Tư++ / Nhn 45 vàng. Khi bt đu / mi vòng đu, nhn 1 lưt / làm mi Ca Hàng vi mi 10 / vàng vưt hơn 50 (ti đa 80 / vàng).",
+            "ô 2: Gi Vng Hàng Ngũ / Các tưng  2 hàng sau nhn / 11% Sc Mnh Phép Thut và / 11% Sc Mnh Công Kích vi / mi tưng bt đu giao tranh /  hàng trên.",
+            "ô 3: Trung Tâm Thương Mi / Nhn 16 lưt đi ca hàng / min phí ngay lp tc và 3 / lưt đi mi vòng đu cho / đn ht trn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer5.jpg"
+        },
+        {
+          "at_s": 1149.0,
+          "cards": [
+            [
+              "DA_InvestedPlusPlus"
+            ],
+            [
+              "DA_HoldTheLine"
+            ],
+            [
+              "DA_JeweledLotus_II"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Đu Tư++ / Nhn 45 vàng. Khi bt đu / mi vòng đu, nhn 1 lưt / làm mi Ca Hàng vi mi 10 / vàng vưt hơn 50 (ti đa 80 / vàng).",
+            "ô 2: Gi Vng Hàng Ngũ / Các tưng  2 hàng sau nhn / 11% Sc Mnh Phép Thut và / 11% Sc Mnh Công Kích vi / mi tưng bt đu giao tranh /  hàng trên.",
+            "ô 3: Khm Bo Thach II / Đi ca bn nhn 25% Ti / L Chí Mng, 10% Sát / Thương Chí Mng và / Chun Xác. / Chun Xác: Sát thương kű"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_05/01137_4-2_offer6.jpg"
+        }
+      ],
+      "picked": "DA_InvestedPlusPlus",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    }
+  ]
+}

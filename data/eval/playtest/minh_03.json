@@ -1,0 +1,266 @@
+{
+  "schema": 2,
+  "video": "minh_03.mp4",
+  "video_sha256": "d31d53c6d0842c2f95ecdd2956d2db794dfa056b186f6d4024dbcb0cf903c64b",
+  "size": [
+    1920,
+    1080
+  ],
+  "game_id": null,
+  "player_id": null,
+  "final_placement": 1,
+  "capture_profile": null,
+  "screens": [
+    {
+      "stage": "2-1",
+      "status": "verified",
+      "open_s": 88.75,
+      "close_s": 112.25,
+      "hud": {
+        "gold": 13,
+        "level": 3,
+        "xp": 0,
+        "xp_needed": 6,
+        "hp": 100,
+        "streak": 0
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 89.5,
+          "cards": [
+            [
+              "DA_URF"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_BacklineBlueprint"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "ô 1: U.R.F / Nhn 1 Xng Vàng. Các tưng / mang Xng Vàng hoc Cho / Vàng nhn thêm 20% Tc Đ / Đánh và 3 Hi Năng Lưng.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm 2 Hi Phc / Năng Lưng nu ch s hu / có 90% Sc Mnh Phép Thut / tr lôn",
+            "ô 3: SơĐồ Tuyn Sau / Nhn 1 tưng 3 vàng không / phi Đõ Đòn vi n phù hp / vi h cang đó."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00088_2-1_offer1.jpg"
+        },
+        {
+          "at_s": 108.0,
+          "cards": [
+            [
+              "DA_ClearMind"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_BacklineBlueprint"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Thông Thoáng / Nu không có tưng trong / hàng chò khi kt thúc giao / tranh ngưi chơi, nhn 3 XP.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm 2 Hi Phc / Năng Lưng nu ch s hu / có 90% Sc Mnh Phép Thut / tr lôn",
+            "ô 3: Sơ Đồ Tuyn Sau / Nhn 1 tưng 3 vàng không / phi Đõ Đòn và 1 n phù hp / vi h ca tưng đó."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00088_2-1_offer2.jpg"
+        },
+        {
+          "at_s": 109.5,
+          "cards": [
+            [
+              "DA_ClearMind"
+            ],
+            [
+              "DA_SeraphimsStaff"
+            ],
+            [
+              "DA_18_CovenTraitAugment"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Thông Thoáng / Nu không có tưng trong / hàng chò khi kt thúc giao / tranh ngưi chơi, nhn 3 XP.",
+            "ô 2: Trưng Đi Thiên S / Nhn 1 Quyn Trưng Thiên / Thn. Quyn Trưng Thiên / Thn tăng thêm 2 Hi Phc / Năng Lưng nu ch s hu / có 90% Sc Mnh Phép Thut / tr lôn",
+            "ô 3: Tín Đ Tin Hc Ám / Khi bn chn tip tc thu / thp tinh hoa Tiên Hc Ám, / hồi 2 máu Linh Thú. Nhn 1 / Camille, 1 Elise và 1 Caitlyn."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00088_2-1_offer3.jpg"
+        }
+      ],
+      "picked": "DA_SeraphimsStaff",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "3-2",
+      "status": "verified",
+      "open_s": 667.25,
+      "close_s": 677.25,
+      "hud": {
+        "gold": 50,
+        "level": 5,
+        "xp": 18,
+        "xp_needed": 20,
+        "hp": 100,
+        "streak": 6
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 669.0,
+          "cards": [
+            [
+              "DA_Min_Max"
+            ],
+            [
+              "DA_SweetTreats"
+            ],
+            [
+              "DA_CelestialBlessingIII"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "CHƯA ỔN ĐỊNH — thẻ chưa kịp đứng yên, kiểm kỹ ảnh",
+            "ô 1: Ti Đa Hóa / Nhn 1 Nam Châm Hoàng / Kim và 4 trang b thành phn / ngu nhiên.",
+            "ô 2: Món Quà Ngot Ngào / Nhn 1 gói Trang B To Tác. / Đi ca bn nhn 16 Máu vi / mi trang b đang mang trên / tưng.",
+            "ô 3: Phưc Lành Vū Tr III / Đi ca bn nhn 25% Hút / Máu Toàn Phn. Lưng hi / máu ph tri s đưc chuyn / thành lá chn, ti đa 1.000 / Máu."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00667_3-2_offer1.jpg"
+        },
+        {
+          "at_s": 673.0,
+          "cards": [
+            [
+              "DA_Min_Max"
+            ],
+            [
+              "DA_SweetTreats"
+            ],
+            [
+              "DA_BaronsLair"
+            ]
+          ],
+          "rerolled_slot": 2,
+          "ocr_raw": [
+            "ô 1: Ti Đa Hóa / Nhn 1 Nam Châm Hoàng / Kim và 4 trang b thành phn / ngu nhiên.",
+            "ô 2: Món Quà Ngot Ngào / Nhn 1 gói Trang B To Tác. / Đi ca bn nhn 16 Máu vi / mi trang b đang mang trên / tưng.",
+            "ô 3: Hang  Baron / Nhn 1 trang b Đ Đòn ngu / nhiên. Sau 8 giây giao tranh, / đi ca bn nhn thêm 4% / Sc Mnh Công Kích và Sc / Mnh Phép Thut mői giây / she dn bêt aiae tranh"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00667_3-2_offer2.jpg"
+        },
+        {
+          "at_s": 675.75,
+          "cards": [
+            [
+              "DA_SoulAwakening"
+            ],
+            [
+              "DA_SweetTreats"
+            ],
+            [
+              "DA_BaronsLair"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Thc Tinh Linh Hồn / Bt đu giao tranh: Đi ca / bn nhn 1,5% Sc Mnh / Công Kích và Sc Mnh Phép / Thut mi giây trong 10 giây. / Khi đt cng dn ti đa, gây / tbôm 12% sát thuana cbuán",
+            "ô 2: Món Quà Ngot Ngào / Nhn 1 gói Trang B To Tác. / Đi ca bn nhn 16 Máu vi / mi trang b đang mang trên / tưng.",
+            "ô 3: Hang  Baron / Nhn 1 trang b Đõ Đòn ngu / nhiên. Sau 8 giây giao tranh, / đi ca bn nhn thêm 4% / Sc Mnh Công Kích và Sc / Mnh Phép Thut mi giây / she dn bêt siae tranh"
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/00667_3-2_offer3.jpg"
+        }
+      ],
+      "picked": "DA_SweetTreats",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    },
+    {
+      "stage": "4-2",
+      "status": "verified",
+      "open_s": 1143.75,
+      "close_s": 1160.75,
+      "hud": {
+        "gold": 80,
+        "level": 7,
+        "xp": 6,
+        "xp_needed": 56,
+        "hp": 88,
+        "streak": -1
+      },
+      "traits": null,
+      "offers": [
+        {
+          "at_s": 1145.25,
+          "cards": [
+            [
+              "DA_PartialAscension"
+            ],
+            [
+              "DA_ElectrochargeI"
+            ],
+            [
+              "DA_TwinGuardians"
+            ]
+          ],
+          "rerolled_slot": null,
+          "ocr_raw": [
+            "CHƯA ỔN ĐỊNH — thẻ chưa kịp đứng yên, kiểm kỹ ảnh",
+            "ô 1: Bán Thăng Hoa / Sau 12 giây giao tranh, các / tưng ca bn nhn thêm / 20% Khuch Đi Sát Thương.",
+            "ô 2: Tų Đin I / Mồi khi đồng minh nhn 4 / đòn đánh, h s gây 30 - 90 / (dra trên Giai Đon hin ti) / sát thương phép lên kė đch / gn đó (1 giây hi chiêu).",
+            "ô 3: Song V / Nu bn có đúng 2 đồng minh /  hàng đu, tăng cho h 100 / Máu, 35 Giáp và 35 Kháng / Phép."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/01143_4-2_offer1.jpg"
+        },
+        {
+          "at_s": 1153.75,
+          "cards": [
+            [
+              "DA_PartialAscension"
+            ],
+            [
+              "DA_TheTower"
+            ],
+            [
+              "DA_TwinGuardians"
+            ]
+          ],
+          "rerolled_slot": 1,
+          "ocr_raw": [
+            "ô 1: Bán Thăng Hoa / Sau 12 giây giao tranh, các / tưng ca bn nhn thêm / 20% Khuch Đi Sát Thương.",
+            "ô 2: Tòa Tháp / Nhn 1 Hình Nhân khng lồ. / C mi 4 giây, nó phóng / đin vào 3 k đch gn nht, / gây sát thương chun tương / đương 5% Máu ti đa.",
+            "ô 3: Song V / Nu bn có đúng 2 đng minh /  hàng đu, tăng cho h 100 / Máu, 35 Giáp và 35 Kháng / Phép."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/01143_4-2_offer2.jpg"
+        },
+        {
+          "at_s": 1160.25,
+          "cards": [
+            [
+              "DA_Corrosion"
+            ],
+            [
+              "DA_TheTower"
+            ],
+            [
+              "DA_TwinGuardians"
+            ]
+          ],
+          "rerolled_slot": 0,
+          "ocr_raw": [
+            "ô 1: Ån Mòn / Tưng đch đng  2 hàng / trên s b mt 4 Giáp và / Kháng Phép sau mői 2 giây.",
+            "ô 2: Tòa Tháp / Nhn 1 Hình Nhân khng l. / C mi 4 giây, nó phóng đin / vào 3 k đch gn nht, gây / sát thương chun tương / đương 5% Máu ti đa.",
+            "ô 3: Song V / Nu bn có đúng 2 đng minh /  hàng đu, tăng cho h 100 / Máu, 35 Giáp và 35 Kháng / Phép."
+          ],
+          "snapshot": "data/eval/playtest/snapshots/minh_03/01143_4-2_offer3.jpg"
+        }
+      ],
+      "picked": "DA_TwinGuardians",
+      "expert": null,
+      "notes": "nháp tự động — kiểm ảnh snapshot rồi sửa; điền streak, traits, picked"
+    }
+  ]
+}
