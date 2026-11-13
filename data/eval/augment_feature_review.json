@@ -1,7 +1,7 @@
 {
   "meta": {
     "features_file": "data/augment_features.json",
-    "updated_at": "2026-10-26T17:36:19+00:00"
+    "updated_at": "2026-11-13T06:11:51+00:00"
   },
   "reviews": {
     "DA_AdvancedLoan": {
@@ -755,14 +755,15 @@
       "verdict": "wrong",
       "note": "",
       "original": {
-        "category": "econ",
+        "category": "combat",
         "categories": [
+          "combat",
           "econ"
         ],
         "carry_type": "none",
         "frontline": false,
         "tempo": "immediate",
-        "econ_value": 2,
+        "econ_value": 3,
         "trait_affinity": [],
         "item_grants": [],
         "board_condition": null,
@@ -770,16 +771,9 @@
           "2-1"
         ]
       },
-      "extraction_method": "deterministic-v2",
-      "updated_at": "2026-10-06T09:34:12+00:00",
-      "fix": {
-        "econ_value": 3,
-        "categories": [
-          "combat",
-          "econ"
-        ],
-        "category": "combat"
-      }
+      "extraction_method": "manual-audit:categories,category,econ_value (from deterministic-v2)",
+      "updated_at": "2026-11-13T06:09:17+00:00",
+      "fix": {}
     },
     "DA_BuriedTreasuresIII": {
       "verdict": "ok",
@@ -2873,7 +2867,8 @@
       "original": {
         "category": "combat",
         "categories": [
-          "combat"
+          "combat",
+          "item"
         ],
         "carry_type": "none",
         "frontline": true,
@@ -2886,15 +2881,11 @@
           "2-1"
         ]
       },
-      "extraction_method": "manual-audit:tempo (from deterministic-v2)",
-      "updated_at": "2026-10-10T15:50:28+00:00",
+      "extraction_method": "manual-audit:categories,category,tempo (from deterministic-v2)",
+      "updated_at": "2026-11-13T06:09:58+00:00",
       "fix": {
         "item_grants": [
           "CompletedItem"
-        ],
-        "categories": [
-          "combat",
-          "item"
         ]
       }
     },
@@ -3149,14 +3140,15 @@
       "verdict": "wrong",
       "note": "",
       "original": {
-        "category": "econ",
+        "category": "combat",
         "categories": [
+          "combat",
           "econ"
         ],
         "carry_type": "none",
         "frontline": false,
         "tempo": "scaling",
-        "econ_value": 3,
+        "econ_value": 1,
         "trait_affinity": [],
         "item_grants": [],
         "board_condition": null,
@@ -3164,16 +3156,9 @@
           "2-1"
         ]
       },
-      "extraction_method": "manual-audit:tempo (from deterministic-v2)",
-      "updated_at": "2026-10-10T15:51:01+00:00",
-      "fix": {
-        "econ_value": 1,
-        "categories": [
-          "combat",
-          "econ"
-        ],
-        "category": "combat"
-      }
+      "extraction_method": "manual-audit:categories,category,econ_value,tempo (from deterministic-v2)",
+      "updated_at": "2026-11-13T06:10:24+00:00",
+      "fix": {}
     },
     "DA_IronAssets": {
       "verdict": "wrong",
@@ -3739,7 +3724,7 @@
         ]
       },
       "extraction_method": "llm:gemini-3.5-flash-lite",
-      "updated_at": "2026-10-06T09:49:24+00:00"
+      "updated_at": "2026-11-13T06:10:33+00:00"
     },
     "DA_18_LuxAugmentII": {
       "verdict": "wrong",
@@ -3986,7 +3971,7 @@
         ]
       },
       "extraction_method": "llm:gemini-3.5-flash-lite",
-      "updated_at": "2026-10-06T11:04:33+00:00",
+      "updated_at": "2026-11-13T06:11:04+00:00",
       "fix": {
         "item_grants": [
           "ComponentAnvil",
@@ -4205,8 +4190,9 @@
       "verdict": "wrong",
       "note": "- 3 tướng trên hàng dự bị sẽ biến thành tướng khác cùng giá tiền mỗi vòng => tìm tướng thích hợp dễ hơn\n- 3 tướng trên hàng dự bị sẽ biến thành tướng khác cùng giá tiền mỗi vòng => hợp với các bài reroll 2-3 vàng",
       "original": {
-        "category": "econ",
+        "category": "utility",
         "categories": [
+          "utility",
           "econ"
         ],
         "carry_type": "none",
@@ -4221,15 +4207,9 @@
           "3-2"
         ]
       },
-      "extraction_method": "llm:gemini-3.5-flash-lite",
-      "updated_at": "2026-10-11T16:43:04+00:00",
-      "fix": {
-        "categories": [
-          "utility",
-          "econ"
-        ],
-        "category": "utility"
-      }
+      "extraction_method": "manual-audit:categories,category (from llm:gemini-3.5-flash-lite)",
+      "updated_at": "2026-11-13T06:11:19+00:00",
+      "fix": {}
     },
     "DA_PandorasItemsI": {
       "verdict": "wrong",
@@ -4357,7 +4337,7 @@
         "carry_type": "none",
         "frontline": false,
         "tempo": "scaling",
-        "econ_value": 2,
+        "econ_value": 3,
         "trait_affinity": [],
         "item_grants": [],
         "board_condition": "did not buy a champion last round",
@@ -4365,11 +4345,9 @@
           "2-1"
         ]
       },
-      "extraction_method": "llm:gemini-3.5-flash-lite",
-      "updated_at": "2026-10-08T08:34:25+00:00",
-      "fix": {
-        "econ_value": 3
-      }
+      "extraction_method": "manual-audit:econ_value (from llm:gemini-3.5-flash-lite)",
+      "updated_at": "2026-11-13T06:11:25+00:00",
+      "fix": {}
     },
     "DA_PatientStudy": {
       "verdict": "wrong",
@@ -4480,7 +4458,7 @@
       }
     },
     "DA_PrismaticDestiny": {
-      "verdict": "ok",
+      "verdict": "wrong",
       "note": "",
       "original": {
         "category": "econ",
@@ -4499,7 +4477,10 @@
         ]
       },
       "extraction_method": "llm:gemini-3.5-flash-lite",
-      "updated_at": "2026-10-11T16:55:45+00:00"
+      "updated_at": "2026-11-13T06:11:51+00:00",
+      "fix": {
+        "econ_value": 2
+      }
     },
     "DA_PrismaticDestinyPlus": {
       "verdict": "ok",
