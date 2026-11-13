@@ -10,6 +10,37 @@ Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần 
 > Mọi mục **§1–§7 bên dưới là LỊCH SỬ** (09-09). Chúng ghi lại phép đo đã làm, giữ để tra cứu —
 > nhưng kế hoạch hiện hành là mục này.
 
+### Phiên 2026-11-13: dừng ở thiết kế directional — làm tiếp từ đây
+
+**Đã xong:** duyệt 18.6, Heart of Steel `live=false`, `econ_type` (gold/xp/reroll, khoá bằng test),
+gắn nhãn dev `minh_03`–`minh_06` kèm hạng (1, 4, 1, 4). Dev hiện có 5 ván, 15 quyết định
+(`dat_01` + `minh_03`–`06`). `minh_07`, `minh_08` có nháp, chưa duyệt (không bắt buộc).
+
+**Directional augment: quyết định đã chốt**
+
+| Quyết định | Nội dung |
+|---|---|
+| Ở 2-1 khi chưa có hướng | **Không phạt** lõi cam kết hướng. Ý của bạn: chốt hướng sớm + một hướng dự phòng là chiến thuật đáng làm. Mở rộng sau |
+| Lõi chỉ gold | Trung tính, không chỉnh |
+| Tín hiệu hướng | Ban đầu chọn CompSelector, nhưng **không đo được**: hệ thống không đọc bàn cờ, nên `state.board` rỗng → `evidence = 0` → directional luôn tắt, delta trên held-out = 0 |
+| Thay bằng | **Suy hướng từ HUD ở các mốc** (ý của bạn), module riêng, chỉ trả nhãn hướng; `EconFit` ghép nhãn đó với `econ_type`; cờ `econ_fit.directional` |
+| Rò dữ liệu tương lai | 2-1 không có mốc; 3-2 chỉ dùng HUD 3-2; 4-2 dùng 3-2, 3-6, 4-2 |
+
+**Việc của bạn, trước khi code**
+
+1. ~~Ghi hướng thực tế của 5 ván dev~~ **Xong (trường `plan` trong file nhãn):** `dat_01` fast9, `minh_03` fast9, `minh_04` reroll1 (Veigar), `minh_05` fast9, `minh_06` fast8. Còn thiếu (bạn bổ sung sau): mốc chốt hướng (`plan.since`), đổi hướng giữa chừng (`plan.notes`).
+2. Quyết có gán thêm **mốc HUD 3-6** mỗi video không. Đo trên 5 ván dev: HUD ở 3-2 đều là cấp 5 (riêng `minh_04` cấp 4), ở 4-2 đều là cấp 7 với 53–80 vàng. Nghĩa là chỉ nhìn cấp thì không tách được hướng.
+3. Chốt ngưỡng luật. Nguồn: [research/261113-tft-leveling-rules.md](../research/261113-tft-leveling-rules.md) (BunnyMuffins Set 18: standard cấp 6 ở 3-1/3-2, cấp 8 ở 4-2; reroll đứng cấp; mốc máu 40/60 chỉ có từ nguồn ZH cũ).
+4. Bàn cờ: chưa có reader, để giai đoạn sau.
+
+**Encounter ("map")** — [research/261113-tft-set18-maps.md](../research/261113-tft-set18-maps.md):
+mỗi ván random một *Vòng Kỳ Ngộ Khai Cuộc*. Teemo cho +1 lượt đổi lõi mỗi màn (giải thích `minh_05`).
+Leona/Elder Dragon ép cả 3 màn vàng/kim cương; 4 encounter khác ép màn đầu hoặc màn cuối. Việc mở:
+
+- ~~Thêm trường `encounter` vào nhãn video~~ Xong: `encounter` + `plan` trong `src/eval/playtest_labels.py`, chọn trên trang duyệt (thanh đầu trang). Chưa gán cho video nào.
+- Mô phỏng reroll đang giả định 1 lượt mỗi ô; ván Teemo có 2.
+- Kiểm encounter hiện thế nào trên client (đầu một video).
+
 ### Dữ liệu game: patch 18.6 (2026-11-10), video cũ chấm theo patch của nó
 
 Chi tiết: [playtest-fixes/patch-data.md](playtest-fixes/patch-data.md).
