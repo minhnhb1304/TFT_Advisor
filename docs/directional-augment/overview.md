@@ -61,6 +61,7 @@ Luận điểm cốt lõi không đổi: hàm điểm hiện tại chỉ đo *cu
 | [trait-count-reward.md](trait-count-reward.md) | Trường `trait_count_reward` (vertical/wide) — audit 18 lõi, hook chưa nối |
 | [metatft-tag-audit.md](metatft-tag-audit.md) | Đối chiếu feature với tag MetaTFT — số trước/sau, giới hạn |
 | [feature-audit.md](feature-audit.md) | Định nghĩa `econ_value`/`tempo`/`trait_count_reward`, nhãn `manual-audit` |
+| [implementation-plan.md](implementation-plan.md) | Kế hoạch A (ghi lõi đã chọn) · D (overlay) · B (combo) · E (held-out), theo tuần |
 | [plan-conditioned-advice.md](plan-conditioned-advice.md) | **Thiết kế hiện hành (2026-11-13)** — gợi ý lõi theo từng hướng, từ 2-1 |
 | [audit-merge-runbook.md](audit-merge-runbook.md) | Trình tự merge/push/rollback nhánh `wf/augment-integrated` |
 
