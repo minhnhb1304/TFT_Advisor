@@ -39,6 +39,12 @@ def icon_fields(locale_path: Path, wanted: set[str]) -> dict[str, str]:
     }
 
 
+def is_placeholder(icon: str) -> bool:
+    """CDragon tro ~40 lo chua co icon vao `hexcore/missing-t1|t2|t3.tex` - mot
+    hinh chu "T" dung chung. Tai ve thi moi lo do trong giong nhau va sai."""
+    return Path(icon).stem.lower().startswith("missing")
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--features", default=str(ROOT / "data/augment_features.json"))
@@ -55,7 +61,12 @@ def main(argv: list[str] | None = None) -> int:
 
     fetched = skipped = 0
     failed: list[str] = []
+    placeholders = sorted(a for a, icon in fields.items() if is_placeholder(icon))
+    for api_name in placeholders:
+        (out / f"{api_name}.png").unlink(missing_ok=True)
     for api_name, icon in sorted(fields.items()):
+        if api_name in placeholders:
+            continue
         target = out / f"{api_name}.png"
         if target.exists() and not args.force:
             skipped += 1
@@ -71,7 +82,8 @@ def main(argv: list[str] | None = None) -> int:
             failed.append(f"{api_name}: {exc}")
 
     missing = sorted(wanted - set(fields))
-    print(f"tải {fetched} · đã có {skipped} · lỗi {len(failed)} · không có icon trong CDragon {len(missing)}")
+    print(f"tải {fetched} · đã có {skipped} · lỗi {len(failed)} · không có icon trong CDragon"
+          f" {len(missing)} · icon giữ chỗ 'missing' (bỏ) {len(placeholders)}")
     for line in failed[:10] + [f"{m}: không có trường icon" for m in missing]:
         print("  " + line)
     return 1 if failed else 0

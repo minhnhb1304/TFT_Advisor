@@ -31,7 +31,9 @@ Rủi ro đã biết:
 - **Bố cục 16:10:** toạ độ phải đi qua `ScreenRegions`, không hardcode.
 - **Không chắc thì ghi "chưa rõ"**, không đoán.
 
-## D. Overlay theo hướng (tuần 8)
+## D. Overlay theo hướng (tuần 8) — xong 2026-11-14, kèm nâng UI kiểu Blitz
+
+Chi tiết và ảnh: [dev_log §18](../../dev_log.md). Còn D4: bạn chạy thử live.
 
 | Bước | Nội dung | Kiểm bằng |
 |---|---|---|

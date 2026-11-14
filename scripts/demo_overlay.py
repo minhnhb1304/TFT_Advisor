@@ -126,6 +126,7 @@ class DemoController(QtWidgets.QWidget):
             state=sc["state"], choices=sc["choices"], rerolls=sc["rerolls"]
         )
         self.panel.set_ranking(bundle.ranking, bundle.reroll)
+        self.panel.set_plans(bundle.plans)
         self.help_label.setText(
             f"[{key}] {sc['title']}  |  Phím: [1], [2], [3] đổi tình huống  |  [ESC] Thoát"
         )

@@ -4,7 +4,7 @@
 > Kế hoạch hiện hành và việc tồn đọng giữa các phiên:
 > [`docs/next-steps.md`](docs/next-steps.md).
 >
-> Cập nhật: **2026-11-14** · 1119 test xanh. Mục 1–13 và "Dự kiến triển khai"
+> Cập nhật: **2026-11-14** · 1126 test xanh. Mục 1–13 và "Dự kiến triển khai"
 > viết lúc 2026-09-07, giữ làm lịch sử.
 
 ---
@@ -638,6 +638,39 @@ Giới hạn phải ghi trong báo cáo: `picked` là lựa chọn của **một
 - Màn khó nhất là `dat_01` 3-2: khớp 0,62, cách lõi kế tiếp 0,215. Lõi được ghi nhận khoảng 2 s sau khi màn đóng.
 
 Giới hạn: đây là 15 màn dev, ứng viên lấy từ nhãn. Khi chơi thật, nếu đọc thẻ sai thì bộ đọc dải sẽ chỉ ra "chưa rõ", không ra sai, vì icon không khớp ứng viên nào. Chưa kiểm trường hợp đầu ván chỉ được chọn 1 trong 2 thẻ. Test 1105 → 1119.
+
+### 18. Hiện gợi ý theo hướng: replay, overlay trên video, panel trong trận; nâng UI kiểu Blitz
+
+2026-11-14. Việc D của [implementation-plan](docs/directional-augment/implementation-plan.md). Người chơi đề nghị: "nâng cấp UI replay và cả HUD, đẹp như Blitz". Ảnh: [trước](docs/directional-augment/img/replay-before.png) · [sau](docs/directional-augment/img/replay-plan-advice.png) · [panel trong trận](docs/directional-augment/img/ingame-panel.png).
+
+| Phần | Thay đổi |
+|---|---|
+| `Advisor.advise` | `plan_fit.enabled` (nay là **true**) thì gọi `rank_by_plan` và gắn vào `AdviceBundle.plans`. Gọi qua `_safe`, hỏng thì bảng xếp hạng vẫn hiện |
+| `AdviceReady.card_icons` | Icon cắt từ thẻ ngay ở khung vừa đọc thẻ (thẻ đã ổn định). Dùng làm mẫu cho dải lõi đã chọn và làm icon để vẽ |
+| Replay: dải trạng thái | Chip (VÒNG / CẤP / VÀNG / MÁU / CHUỖI / ĐỔI THẺ): nhãn viết hoa nhạt, giá trị đậm, số chưa đọc tô màu cảnh báo. Thêm hàng **LÕI ĐÃ CẦM** bằng icon. Cảnh báo gộp **một dòng** "▲ cái đầu (+n)", đủ danh sách nằm ở tooltip |
+| Replay: khối mới **THEO HƯỚNG ĐI** | Mỗi dòng: viên màu theo hướng (gộp nhiều hướng thì xếp dọc) → icon + "Ô n · tên" + nhãn **KINH TẾ** "cần full bài" / **COMBAT** "full form là đủ" + cảnh báo máu |
+| Replay: icon | `IconTile` vẽ icon thật, bo góc, viền theo độ hiếm, **khiên bậc** góc dưới (mẫu huy hiệu Blitz). Nguồn: CDragon, thiếu thì lấy icon cắt từ thẻ, thiếu nữa thì chữ cái |
+| Overlay trên video | Viên hướng **neo ngay dưới ô chữ của thẻ** được chọn cho hướng đó (mẫu Blitz: đặt thông tin trên thứ nó giải thích) |
+| Panel trong trận (`augment_panel`) | Nền kính tối bo góc 10 px, viền sáng mảnh; dòng theo hướng kèm viên màu; lý do dài thì cắt "…" |
+| Màu hướng | Cố định qua mọi bảng màu, trùng nhau ở replay và panel trong trận: vàng = lên 9, đỏ = đánh ngay ở 8, ngọc = reroll, xanh lá = thiếu tiền |
+
+**CDragon có icon giữ chỗ.** 41 lõi trỏ về `hexcore/missing-t1|t2|t3.tex`, một hình chữ "T" dùng chung, ví dụ Bonus Gift+ và Là Ta Đây. `fetch_augment_icons.py` giờ bỏ qua và xoá các icon này, còn 172 icon thật. Đọc lõi đã chọn vẫn 15/15, vì mẫu chính là icon cắt từ thẻ.
+
+**Vòng 2 của UI (người chơi: "vẫn xấu lắm", đề nghị dùng skill ui-ux-pro-max).**
+- Skill gợi ý style và typography cho gaming. Lấy Chakra Petch (kiểu esports, có dấu tiếng Việt) cho tiêu đề và số. Bỏ gợi ý tím neon và 3D, vì kiểu đó dành cho trang landing, không hợp overlay dữ liệu.
+- Chữ thân dùng Be Vietnam Pro. Cả hai font đóng gói ở `assets/fonts` kèm giấy phép OFL, nạp bằng `theme.load_fonts()`.
+
+| Phần | Thay đổi |
+|---|---|
+| Bảng màu `arena` (mặc định) | Nền than lạnh `#0a0d13`; ngọc `#2ee6c5` cho số liệu và CHỌN; vàng `#f5b544` cho bậc S và ĐỔI; viền 6% trắng; bo góc 10 px |
+| Thẻ kết luận | Icon 64 px; nhãn hành động đặc (CHỌN/ĐỔI) và "Ô n"; tên lõi 24 px Chakra Petch; viên chênh lệch. Lý do rút còn câu đầu, bỏ chú thích nguồn `[...]`; bản đầy đủ ở tooltip |
+| Thẻ ô | Icon 56 px có khiên bậc; hạng `#n` lớn; thanh điểm liền thay 6 chấm; tối đa 2 lý do, phần còn lại ở tooltip; nền gradient nhẹ theo màu bậc |
+| Khung cửa sổ | Thanh đầu có chữ "TFT ADVISOR"; nút viền mảnh; nút Phát đặc màu ngọc; slider ngọc; panel phải cuộn được |
+| Panel trong trận | Cùng bảng màu và font; dòng hành động có viền theo màu hành động; dòng hạng bo góc với điểm canh phải |
+
+Lỗi gặp khi làm: tên font có dấu nháy đơn làm vỡ thuộc tính `style='...'` trong rich text, nên font không áp dụng. Sửa bằng `theme.DISPLAY_HTML`.
+
+Chưa kiểm: ảnh chụp chỉ ở một màn (`minh_06` 4-2), tua thẳng tới đó nên hàng lõi đã cầm còn trống. Panel trong trận mới chạy qua `demo_overlay.py`, chưa chạy trong một ván thật. Test 1119 → 1126 (`tests/test_plan_display.py`).
 
 ## Dự kiến triển khai
 

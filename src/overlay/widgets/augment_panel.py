@@ -78,6 +78,47 @@ def build_rows(ranking: Any, min_confidence: float = 0.75) -> list[PanelRow]:
 
 ACTION_LABELS = {"PICK": "CHỌN", "REROLL": "ĐỔI"}
 
+# Mau theo huong - TRUNG voi src/replay/theme.PLAN_COLORS de nguoi choi nhan ra
+# cung mot huong o replay lan trong tran. Khong import replay (keo ca vo Qt kia).
+PLAN_COLORS = {"fast9": (255, 181, 71), "fast8": (255, 107, 129),
+               "reroll": (63, 213, 255), "cash": (155, 225, 93)}
+# Bang mau "arena" cua replay (src/replay/theme.py) - cung ngon ngu hinh anh.
+ACCENT = (46, 230, 197)
+WARN = (245, 181, 68)
+FONT_DIR = __import__("pathlib").Path(__file__).resolve().parents[3] / "assets" / "fonts"
+
+
+def _load_fonts(QtGui) -> None:
+    for path in FONT_DIR.glob("*.ttf"):
+        QtGui.QFontDatabase.addApplicationFont(str(path))
+PLAN_FALLBACK = (166, 172, 185)
+
+
+@dataclass
+class PlanRowVM:
+    """Mot dong "<huong> -> <lo>" cua overlay. Nhieu huong cung lo da gop."""
+
+    labels: list[str]
+    keys: list[str]
+    name: str
+    cost: str = ""
+    warnings: list[str] = field(default_factory=list)
+
+
+def build_plan_rows(plan_advice: Any) -> list[PlanRowVM]:
+    """`PlanAdvice` (decision) -> cac dong hien thi. None/rong -> []."""
+    rows: list[PlanRowVM] = []
+    for line in getattr(plan_advice, "lines", None) or []:
+        detail = line.plan_fit.detail or {}
+        eco, power = bool(detail.get("eco")), bool(detail.get("power"))
+        cost = "kinh tế · cần full bài" if eco and not power else (
+            "combat · full form là đủ" if power and not eco else "")
+        rows.append(PlanRowVM(
+            labels=[p.label for p in line.plans], keys=[p.key for p in line.plans],
+            name=line.entry.name, cost=cost, warnings=list(line.warnings),
+        ))
+    return rows
+
 
 def build_reroll_line(advice: Any) -> str:
     """Mot dong HANH DONG cho khuyen nghi doi the (SPEC 3.5.5).
@@ -102,7 +143,8 @@ def build_reroll_line(advice: Any) -> str:
     return f"▶ {label} ô {advice.target_slot + 1}{keep}{gain}{mark}"
 
 
-def render_text(rows: list[PanelRow], advice: Any = None) -> str:
+def render_text(rows: list[PanelRow], advice: Any = None,
+                plans: list[PlanRowVM] | None = None) -> str:
     """Ban ve bang van ban - dung cho log, test va che do khong overlay.
 
     `advice` la tuy chon de moi cho goi cu khong phai doi - panel van dung
@@ -112,6 +154,10 @@ def render_text(rows: list[PanelRow], advice: Any = None) -> str:
     line = build_reroll_line(advice)
     if line:
         lines.append(line)
+    for plan in plans or []:
+        warn = f"  ⚠ {'; '.join(plan.warnings)}" if plan.warnings else ""
+        cost = f"  ({plan.cost})" if plan.cost else ""
+        lines.append(f"[{' / '.join(plan.labels)}] → {plan.name}{cost}{warn}")
     for row in rows:
         badge = f"  [{' · '.join(row.badges)}]" if row.badges else ""
         lines.append(f"{row.rank}. {row.name}  {row.score:.3f}{badge}")
@@ -137,6 +183,7 @@ def _qt():
 def create_panel(parent: Any = None):
     """Tao widget panel. Goi ham nay thay vi import class o dau file."""
     QtCore, QtGui, QtWidgets = _qt()
+    _load_fonts(QtGui)
 
     class AugmentPanel(QtWidgets.QWidget):
         """Panel xep hang augment - chi doc, khong nhan input.
@@ -149,12 +196,19 @@ def create_panel(parent: Any = None):
             super().__init__(parent)
             self._rows: list[PanelRow] = []
             self._advice: Any = None
+            self._plans: list[PlanRowVM] = []
             self.setMinimumWidth(380)
+            self.setFont(QtGui.QFont("Be Vietnam Pro", 10))
 
         def set_ranking(self, ranking: Any, advice: Any = None) -> None:
             """Cap nhat noi dung. Goi tu luong chinh cua Qt."""
             self._rows = build_rows(ranking)
             self._advice = advice
+            self.update()
+
+        def set_plans(self, plan_advice: Any) -> None:
+            """Cac dong theo huong (bundle.plans). None = an khoi nay."""
+            self._plans = build_plan_rows(plan_advice)
             self.update()
 
         def set_advice(self, advice: Any) -> None:
@@ -167,35 +221,90 @@ def create_panel(parent: Any = None):
         def paintEvent(self, event) -> None:  # noqa: N802 - ten do Qt quy dinh
             painter = QtGui.QPainter(self)
             painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
-            painter.fillRect(self.rect(), QtGui.QColor(12, 14, 20, 215))
+            # Kinh mo kieu Blitz: nen toi gan dac, bo goc, vien sang manh.
+            painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255, 36), 1))
+            painter.setBrush(QtGui.QColor(10, 13, 19, 232))
+            painter.drawRoundedRect(QtCore.QRectF(self.rect()).adjusted(0.5, 0.5, -0.5, -0.5), 10, 10)
 
             y = 14
             reroll_line = build_reroll_line(self._advice)
             if reroll_line:
-                painter.fillRect(14, y - 2, self.width() - 28, 26, QtGui.QColor(35, 48, 65, 230))
-                painter.setPen(QtGui.QColor(255, 215, 60))
-                font = painter.font()
-                font.setBold(True)
-                painter.setFont(font)
-                painter.drawText(20, y + 16, reroll_line)
-                font.setBold(False)
-                painter.setFont(font)
-                y += 34
+                color = QtGui.QColor(*(WARN if "ĐỔI" in reroll_line else ACCENT))
+                fill = QtGui.QColor(color)
+                fill.setAlpha(40)
+                painter.setPen(QtGui.QPen(color, 1))
+                painter.setBrush(fill)
+                painter.drawRoundedRect(QtCore.QRectF(14, y - 2, self.width() - 28, 30), 8, 8)
+                painter.setPen(color)
+                head = QtGui.QFont("Chakra Petch", 12)
+                head.setBold(True)
+                painter.setFont(head)
+                painter.drawText(24, y + 19, reroll_line)
+                painter.setFont(self.font())
+                y += 40
+
+            for plan in self._plans:
+                y = self._paint_plan(painter, QtCore, QtGui, plan, y)
+            if self._plans:
+                y += 6
 
             for row in self._rows:
                 y = self._paint_row(painter, QtGui, row, y)
             painter.end()
+
+        def _paint_plan(self, painter, QtCore, QtGui, plan: PlanRowVM, y: int) -> int:
+            """Vien mau theo huong (moi huong mot vien) + ten lo + cai gia."""
+            x = 14
+            font = painter.font()
+            small = QtGui.QFont("Chakra Petch")
+            small.setPixelSize(12)
+            small.setBold(True)
+            painter.setFont(small)
+            for label, key in zip(plan.labels, plan.keys):
+                r, g, b = PLAN_COLORS.get(key, PLAN_FALLBACK)
+                w = painter.fontMetrics().horizontalAdvance(label) + 14
+                painter.setPen(QtCore.Qt.PenStyle.NoPen)
+                painter.setBrush(QtGui.QColor(r, g, b, 235))
+                painter.drawRoundedRect(QtCore.QRectF(x, y, w, 18), 9, 9)
+                painter.setPen(QtGui.QColor(12, 12, 16))
+                painter.drawText(QtCore.QRectF(x, y, w, 18), QtCore.Qt.AlignmentFlag.AlignCenter, label)
+                x += w + 4
+            painter.setFont(font)
+            painter.setPen(QtGui.QColor(240, 240, 245))
+            name = f"→ {plan.name}"
+            if x + 6 + painter.fontMetrics().horizontalAdvance(name) > self.width() - 14:
+                y += 22                              # vien nhieu huong: ten xuong dong
+                x = 14 - 6
+            painter.drawText(x + 6, y + 14, name)
+            y += 22
+            detail = plan.cost + (f" · ⚠ {'; '.join(plan.warnings)}" if plan.warnings else "")
+            if detail:
+                painter.setPen(QtGui.QColor(255, 190, 90) if plan.warnings else QtGui.QColor(170, 175, 190))
+                painter.drawText(20, y + 10, detail)
+                y += 16
+            return y + 6
 
         def _paint_row(self, painter, QtGui, row: PanelRow, y: int) -> int:
             width = self.width() - 28
 
             # Thanh diem ve TRUOC chu, de chu nam tren nen thanh.
             bar_w = int(width * row.bar_ratio)
-            color = QtGui.QColor(90, 200, 140, 90) if row.rank == 1 else QtGui.QColor(90, 130, 200, 70)
-            painter.fillRect(14, y - 2, bar_w, 22, color)
+            painter.setPen(QtCore.Qt.PenStyle.NoPen)
+            painter.setBrush(QtGui.QColor(29, 37, 51))
+            painter.drawRoundedRect(QtCore.QRectF(14, y - 2, width, 24), 6, 6)
+            color = QtGui.QColor(*ACCENT, 70) if row.rank == 1 else QtGui.QColor(122, 162, 255, 45)
+            painter.setBrush(color)
+            painter.drawRoundedRect(QtCore.QRectF(14, y - 2, bar_w, 24), 6, 6)
 
-            painter.setPen(QtGui.QColor(240, 240, 245))
-            painter.drawText(20, y + 14, f"{row.rank}. {row.name}   {row.score:.3f}")
+            head = QtGui.QFont("Chakra Petch", 11)
+            head.setBold(True)
+            painter.setFont(head)
+            painter.setPen(QtGui.QColor(*ACCENT) if row.rank == 1 else QtGui.QColor(240, 240, 245))
+            painter.drawText(22, y + 15, f"#{row.rank}  {row.name}")
+            painter.drawText(QtCore.QRectF(14, y - 2, width - 8, 24),
+                             QtCore.Qt.AlignmentFlag.AlignRight | QtCore.Qt.AlignmentFlag.AlignVCenter,
+                             f"{row.score:.2f}")
+            painter.setFont(self.font())
             y += 26
 
             if row.badges:
@@ -205,7 +314,9 @@ def create_panel(parent: Any = None):
 
             painter.setPen(QtGui.QColor(190, 195, 205))
             for reason in row.reasons:
-                painter.drawText(28, y + 12, f"– {reason}")
+                text = painter.fontMetrics().elidedText(
+                    f"– {reason}", QtCore.Qt.TextElideMode.ElideRight, self.width() - 42)
+                painter.drawText(28, y + 12, text)
                 y += 18
             return y + 8
 

@@ -84,7 +84,7 @@ tuning:
   # Dau VN), CHUA fit tren du lieu (dev chi co 15 man). Them huong moi = them
   # mot khoi trong `plans`, khong sua code.
   plan_fit:
-    enabled: false   # true -> overlay hien cac dong theo huong (chua noi)
+    enabled: true    # true -> overlay/replay hien cac dong theo huong; false = nhu truoc
     weight: 0.15
     # Can bang lo da cam, hai chieu: nang eco -> lo combat +debt_bonus x lech;
     # co lo combat lam ban dap -> lo eco +debt_bonus x lech ("3 eco phai full

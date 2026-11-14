@@ -23,7 +23,7 @@ from ..knowledge.comp_database import CompDatabase
 from ..knowledge.data_freshness import stale_warnings
 from ..knowledge.stats_provider import AugmentStatsProvider, default_provider
 from ..utils.settings import Settings
-from .augment_advisor import AugmentAdvisor, AugmentChoice, Ranking
+from .augment_advisor import AugmentAdvisor, AugmentChoice, PlanAdvice, Ranking
 from .comp_selector import CompAdvice, CompSelector
 from .comp_signals import load_item_stats, load_unit_costs
 from .item_advisor import ItemAdvice, ItemAdvisor, ItemRecipes
@@ -31,6 +31,7 @@ from .llm_reasoner import LlmReasoner
 from .position_advisor import PositionAdvice, PositionAdvisor
 from .reroll_policy import RerollAdvice, RerollState
 from .rules_engine import Advice, EconomyRules
+from .scoring.plan_fit import PlanSettings
 from .scoring.types import ScoringConfig
 
 
@@ -39,6 +40,8 @@ class AdviceBundle:
     """Toan bo dau ra cua mot chu ky tu van."""
 
     ranking: Ranking | None = None
+    # Goi y theo huong (directional). None khi `plan_fit.enabled` tat.
+    plans: PlanAdvice | None = None
     reroll: RerollAdvice | None = None
     comp: CompAdvice | None = None
     economy: list[Advice] = field(default_factory=list)
@@ -55,6 +58,7 @@ class AdviceBundle:
 
         return {
             "augment": self.ranking.to_dict() if self.ranking else None,
+            "plans": self.plans.to_dict() if self.plans else None,
             "reroll": self.reroll.to_dict() if self.reroll else None,
             "comp": comp_as_dict(self.comp) if self.comp else None,
             "economy": [a.to_dict() for a in self.economy],
@@ -98,6 +102,7 @@ class Advisor:
             s.path("augment_tiers_backup"),
         )
         self.augment_advisor = AugmentAdvisor(self.features, self.stats, config)
+        self.plan_settings = PlanSettings.from_config(config)
 
         primary_comps_path = s.path("meta_comps")
         if not primary_comps_path.exists():
@@ -163,6 +168,11 @@ class Advisor:
         if choices:
             bundle.ranking = self.augment_advisor.rank(choices, state)
             bundle.ranking = self.reasoner.refine(bundle.ranking, state)
+            # Dong theo huong la PHAN THEM: hong thi xep hang van phai hien.
+            if self.plan_settings.enabled:
+                bundle.plans = self._safe(
+                    bundle, "plans", lambda: self.augment_advisor.rank_by_plan(choices, state)
+                )
 
             # Khuyen nghi doi the la PHAN THEM tren xep hang, khong phai thay
             # the no. Neu no hong thi bang xep hang van phai hien ra - vi the

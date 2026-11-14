@@ -30,9 +30,9 @@ from ..utils.settings import Settings
 from ..vision.held_augments import HeldAugmentTracker, IconBank
 from ..vision.hud_reader import HudReader
 from ..vision.reroll_buttons import RerollButtonReader
-from . import overlay, theme, widgets
+from . import icons, overlay, theme, widgets
 from .scan import ScreenMarker
-from .viewmodel import build_view
+from .viewmodel import build_plans, build_view
 from .worker import AnalysisWorker, ScanWorker
 
 def build_session(
@@ -89,10 +89,11 @@ class ReplayWindow(QtWidgets.QMainWindow):
         regions_path: str = "config/screen_regions.yaml",
         card_reader: str = "ocr",
         analysis_fps: float = 5.0,
-        palette: str = "neon",
+        palette: str = "arena",
         patch: str | None = "auto",
     ) -> None:
         super().__init__()
+        theme.load_fonts()
         theme.apply(palette)
         if patch == "auto":
             patch = data_patch_for(Path(video_path).stem)
@@ -148,9 +149,17 @@ class ReplayWindow(QtWidgets.QMainWindow):
 
         # Hang moc vong chon lõi
         nav = QtWidgets.QFrame()
-        nav.setObjectName("bar")
+        nav.setObjectName("header")
         nav_layout = QtWidgets.QHBoxLayout(nav)
-        nav_layout.setContentsMargins(10, 6, 10, 6)
+        nav_layout.setContentsMargins(16, 8, 10, 8)
+        nav_layout.setSpacing(8)
+        logo = QtWidgets.QLabel(
+            f"<span style='color:{theme.ACCENT}; font-family:{theme.DISPLAY_HTML}; font-weight:700;"
+            f" font-size:18px; letter-spacing:2px'>TFT ADVISOR</span>"
+            f"<span style='color:{theme.TEXT_MUTED}; font-family:{theme.DISPLAY_HTML}; font-weight:600;"
+            f" font-size:12px; letter-spacing:2px'>&nbsp;&nbsp;REPLAY</span>")
+        nav_layout.addWidget(logo)
+        nav_layout.addSpacing(16)
         self.markers_box = QtWidgets.QHBoxLayout()
         nav_layout.addLayout(self.markers_box)
         nav_layout.addStretch()
@@ -197,6 +206,7 @@ class ReplayWindow(QtWidgets.QMainWindow):
 
         row2 = QtWidgets.QHBoxLayout()
         self.btn_play = QtWidgets.QPushButton("Phát")
+        self.btn_play.setProperty("role", "primary")
         self.btn_play.setFixedWidth(100)
         self.btn_play.clicked.connect(self.toggle_play)
         row2.addWidget(self.btn_play)
@@ -215,12 +225,17 @@ class ReplayWindow(QtWidgets.QMainWindow):
         left.addWidget(controls)
         content.addLayout(left, stretch=6)
 
-        right = QtWidgets.QVBoxLayout()
+        # Panel phai CUON duoc: them khoi theo huong + 3 the thi man 1080p van du.
+        right_host = QtWidgets.QWidget()
+        right = QtWidgets.QVBoxLayout(right_host)
+        right.setContentsMargins(0, 0, 4, 0)
         right.setSpacing(10)
         self.strip = widgets.StateStrip()
         right.addWidget(self.strip)
         self.verdict = widgets.VerdictBar()
         right.addWidget(self.verdict)
+        self.plans = widgets.PlanPanel()
+        right.addWidget(self.plans)
 
         columns = QtWidgets.QHBoxLayout()
         columns.setSpacing(10)
@@ -229,7 +244,11 @@ class ReplayWindow(QtWidgets.QMainWindow):
             columns.addWidget(column, stretch=1)
         right.addLayout(columns)
         right.addStretch(1)
-        content.addLayout(right, stretch=5)
+        scroll = QtWidgets.QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        scroll.setWidget(right_host)
+        content.addWidget(scroll, stretch=5)
         layout.addLayout(content)
 
         self.timeline = widgets.Timeline()
@@ -407,17 +426,23 @@ class ReplayWindow(QtWidgets.QMainWindow):
         self._set_overlay(None)
         self.strip.set_data(self._last_strip, status)
         self.verdict.set_data(VerdictVM())
+        self.plans.set_data([])
         for i, column in enumerate(self.columns):
             column.set_data(SlotVM(i, "—"))
 
     def _show_advice(self, event: AdviceReady) -> None:
+        for api, image in event.card_icons.items():
+            icons.remember(api, image)
         strip, verdict, slots = build_view(event, rarity_of=self._rarity_of)
+        plans = build_plans(event)
         self._last_strip = strip
         self.strip.set_data(strip, self._status_line(event))
-        self.verdict.set_data(verdict)
+        target = next((s.api_name for s in slots if s.slot == verdict.slot), "")
+        self.verdict.set_data(verdict, target)
+        self.plans.set_data(plans)
         for column, slot in zip(self.columns, slots):
             column.set_data(slot)
-        self._set_overlay((slots, verdict))
+        self._set_overlay((slots, verdict, plans))
         self.timeline.set_position(event.t)
 
     def _set_overlay(self, value: tuple[list, Any] | None) -> None:

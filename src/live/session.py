@@ -178,11 +178,12 @@ class LiveSession:
                           tuple(f"ô {c.slot + 1}: {c.reason}" for c in cards))
 
         state = self.game_tracker.state(traits=traits)
+        # Icon cat tu the o khung vua doc (the da on dinh `stable_frames`): mau so
+        # sanh cho dai lo da chon, va icon de ve khi CDragon khong co.
+        icons = {a: card_icon(frame.image, c.slot) for c in choices if c.slot is not None
+                 for a in c.api_names}
         if self.held_tracker is not None:
-            # Lan chao CUOI truoc khi man dong la lan nguoi choi chon tu do. Icon
-            # tren the la mau so sanh dang tin nhat (icon CDragon co the khac).
-            icons = {a: card_icon(frame.image, c.slot) for c in choices if c.slot is not None
-                     for a in c.api_names}
+            # Lan chao CUOI truoc khi man dong la lan nguoi choi chon tu do.
             self.held_tracker.offer_seen(
                 [a for c in choices for a in c.api_names], state.stage, t, icons
             )
@@ -214,6 +215,7 @@ class LiveSession:
             never_seen=self.game_tracker.never_seen,
             state_note=note,
             latency_ms=latency,
+            card_icons=icons,
         )
 
     # -- ben ngoai man chon augment ----------------------------------------

@@ -33,8 +33,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="số lần đọc mỗi giây video khi đang phát")
     ap.add_argument("--patch", default="auto",
                     help="patch dữ liệu: auto = theo data/eval/split.json (video ngoài split dùng dữ liệu hiện tại)")
-    ap.add_argument("--palette", default="neon",
-                    help="bảng màu: neon, ember, citrus, magenta, hextech, geist, linear, semi, teal, violet")
+    ap.add_argument("--palette", default="arena",
+                    help="bảng màu: arena (mặc định), neon, ember, citrus, magenta, hextech, geist, linear, semi, teal, violet")
     args = ap.parse_args(argv)
 
     from PyQt6 import QtWidgets  # noqa: PLC0415 - nap tre de --help khong can Qt

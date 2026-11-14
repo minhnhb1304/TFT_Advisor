@@ -20,6 +20,16 @@ from dataclasses import dataclass
 # --- token ---------------------------------------------------------------
 
 PALETTES: dict[str, dict[str, object]] = {
+    # MAC DINH tu 2026-11-14 (ui-ux-pro-max + mau Blitz): nen than lanh gan den,
+    # be mat tach bang do sang + vien 6% trang, ngoc = so cua minh / hanh dong
+    # CHON, vang = bac va canh bao/DOI. Khong neon, khong tim.
+    "arena": {
+        "BG": "#0a0d13", "SURFACE_1": "#10141c", "SURFACE_2": "#151b26", "SURFACE_3": "#1d2533",
+        "BORDER": "#222b3a", "BORDER_STRONG": "#303c51",
+        "ACCENT": "#2ee6c5", "WARN": "#f5b544", "DANGER": "#ff6b81", "OK": "#5ee09a",
+        "TIER_COLORS": {"S": "#f5b544", "A": "#2ee6c5", "B": "#7aa2ff", "C": "#9aa4b2",
+                        "D": "#5c6676", "": "#5c6676"},
+    },
     # --- nhom "song dong": mau nhan bao hoa cao tren nen gan trung tinh -------
     # Tim dien + hong: nang luong cao nhat, nen van giu bao hoa thap de mau nhan
     # khong bi nen tranh cho.
@@ -115,7 +125,7 @@ PALETTES: dict[str, dict[str, object]] = {
     },
 }
 
-ACTIVE = "neon"
+ACTIVE = "arena"
 
 BG = SURFACE_1 = SURFACE_2 = SURFACE_3 = BORDER = BORDER_STRONG = ""
 ACCENT = WARN = DANGER = OK = ""
@@ -134,6 +144,18 @@ RARITY = {
     3: ("ngọc sắc", "#9b8cff", "#5ecfd6"),
 }
 
+# Mau theo HUONG di (directional). Co dinh qua moi bang mau: nguoi choi hoc mau
+# cua huong mot lan roi nhan ra no o panel, overlay tren video va overlay trong
+# tran. Vang = giu tien, do = danh ngay, ngoc = reroll, xanh la = thieu tien.
+PLAN_COLORS = {
+    "fast9": "#ffb547", "fast8": "#ff6b81", "reroll": "#3fd5ff", "cash": "#9be15d",
+}
+PLAN_FALLBACK = "#a6acb9"
+
+
+def plan_color(key: str) -> str:
+    return PLAN_COLORS.get(key, PLAN_FALLBACK)
+
 
 def apply(name: str) -> str:
     """Doi bang mau dang dung. Tra ve ten da ap dung."""
@@ -151,12 +173,31 @@ def toggle() -> str:
     return apply(names[(names.index(ACTIVE) + 1) % len(names)])
 
 
-FONT = "Inter, 'Segoe UI', system-ui, sans-serif"
-MONO = "'Cascadia Mono', Consolas, monospace"
+# Be Vietnam Pro: chu than, thiet ke cho tieng Viet. Chakra Petch: tieu de, so,
+# nhan viet hoa - kieu esports, co dau tieng Viet. Dong goi o assets/fonts (OFL),
+# nap bang `load_fonts()`; thieu file thi roi ve Segoe UI.
+FONT = "'Be Vietnam Pro', 'Segoe UI', sans-serif"
+DISPLAY = "'Chakra Petch', 'Segoe UI', sans-serif"
+MONO = DISPLAY
+# Ban dung TRONG rich text: style='...' bao bang nhay don, nen ten font phai dung nhay kep.
+DISPLAY_HTML = DISPLAY.replace("'", '"')
+FONT_HTML = FONT.replace("'", '"')
+FONT_DIR = __import__("pathlib").Path(__file__).resolve().parents[2] / "assets" / "fonts"
+
+
+def load_fonts() -> list[str]:
+    """Dang ky font dong goi voi Qt. Goi sau khi co QApplication. Tra ve ho font da nap."""
+    from PyQt6 import QtGui  # noqa: PLC0415
+
+    families: list[str] = []
+    for path in sorted(FONT_DIR.glob("*.ttf")):
+        font_id = QtGui.QFontDatabase.addApplicationFont(str(path))
+        families += QtGui.QFontDatabase.applicationFontFamilies(font_id) if font_id >= 0 else []
+    return sorted(set(families))
 # Blitz chi dung 7 co chu trong toan bo UI du lieu, khong co gi lon hon 22px.
-SIZES = {"xs": 11, "sm": 12, "md": 13, "base": 14, "lg": 16, "xl": 20, "xxl": 22}
+SIZES = {"xs": 11, "sm": 12, "md": 13, "base": 14, "lg": 16, "xl": 20, "xxl": 24}
 SPACE = (4, 8, 12, 16, 20)
-RADIUS = 6
+RADIUS = 10
 
 # Danh dau lua chon nen chon: nen accent 15% + chu accent, hoac vien 2px.
 # Blitz KHONG dung thanh ben trai, khong sao, khong vien day.
@@ -199,28 +240,47 @@ def qss() -> str:
     """QSS goc cua cua so. Widget rieng tu bo sung style cuc bo."""
     return f"""
 QWidget {{ background: {BG}; color: {TEXT}; font-family: {FONT}; font-size: {SIZES['base']}px; }}
+QScrollArea, QScrollArea > QWidget > QWidget {{ background: transparent; border: none; }}
 QFrame#card {{ background: {SURFACE_2}; border: 1px solid {BORDER}; border-radius: {RADIUS}px; }}
 QFrame#bar {{ background: {SURFACE_1}; border: 1px solid {BORDER}; border-radius: {RADIUS}px; }}
+QFrame#header {{ background: {SURFACE_1}; border: 1px solid {BORDER}; border-radius: {RADIUS}px; }}
+QLabel {{ background: transparent; }}
 QLabel[role="mono"] {{ font-family: {MONO}; }}
 QLabel[role="muted"] {{ color: {TEXT_MUTED}; font-size: {SIZES['sm']}px; }}
 QLabel[role="secondary"] {{ color: {TEXT_2}; font-size: {SIZES['md']}px; }}
 QLabel[role="warn"] {{ color: {WARN}; font-size: {SIZES['sm']}px; }}
 QPushButton {{
-    background: {SURFACE_2}; color: {TEXT_2}; border: 1px solid {BORDER};
-    border-radius: {RADIUS}px; padding: 6px 12px; font-size: {SIZES['md']}px;
+    background: transparent; color: {TEXT_2}; border: 1px solid {BORDER_STRONG};
+    border-radius: 8px; padding: 7px 14px; font-family: {DISPLAY}; font-weight: 600;
+    font-size: {SIZES['md']}px; letter-spacing: 0.3px;
 }}
-QPushButton:hover {{ background: {SURFACE_3}; color: {TEXT}; border-color: {BORDER_STRONG}; }}
+QPushButton:hover {{ background: {SURFACE_3}; color: {TEXT}; border-color: {_alpha(ACCENT, 0.5)}; }}
+QPushButton:pressed {{ background: {_alpha(ACCENT, 0.12)}; }}
 QPushButton:disabled {{ color: {TEXT_FAINT}; border-color: {BORDER}; }}
-QPushButton[role="marker"] {{ font-family: {MONO}; padding: 4px 10px; }}
+QPushButton[role="primary"] {{
+    background: {ACCENT}; color: #06110f; border: 1px solid {ACCENT};
+}}
+QPushButton[role="primary"]:hover {{ background: {_alpha(ACCENT, 0.85)}; color: #06110f; }}
+QPushButton[role="marker"] {{
+    font-family: {MONO}; padding: 5px 12px; border-radius: 14px; color: {TEXT_2};
+    background: {SURFACE_2}; border-color: {BORDER};
+}}
+QPushButton[role="marker"]:hover {{ color: {ACCENT}; border-color: {_alpha(ACCENT, 0.6)}; }}
 QComboBox {{
-    background: {SURFACE_2}; color: {TEXT_2}; border: 1px solid {BORDER};
-    border-radius: {RADIUS}px; padding: 4px 8px;
+    background: {SURFACE_2}; color: {TEXT_2}; border: 1px solid {BORDER_STRONG};
+    border-radius: 8px; padding: 5px 10px; font-family: {MONO};
 }}
+QComboBox QAbstractItemView {{ background: {SURFACE_2}; color: {TEXT}; selection-background-color: {SURFACE_3}; }}
 QSlider::groove:horizontal {{ height: 4px; background: {SURFACE_3}; border-radius: 2px; }}
+QSlider::sub-page:horizontal {{ background: {ACCENT}; border-radius: 2px; }}
 QSlider::handle:horizontal {{
-    width: 10px; background: {TEXT_2}; border-radius: 5px; margin: -4px 0;
+    width: 14px; background: {TEXT}; border: 3px solid {ACCENT}; border-radius: 7px; margin: -6px 0;
 }}
-QToolTip {{ background: {SURFACE_3}; color: {TEXT}; border: 1px solid {BORDER_STRONG}; }}
+QScrollBar:vertical {{ background: transparent; width: 8px; margin: 2px; }}
+QScrollBar::handle:vertical {{ background: {BORDER_STRONG}; border-radius: 4px; min-height: 30px; }}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{ height: 0; }}
+QToolTip {{ background: {SURFACE_3}; color: {TEXT}; border: 1px solid {BORDER_STRONG};
+    padding: 6px 8px; border-radius: 6px; }}
 """
 
 

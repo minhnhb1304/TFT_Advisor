@@ -93,11 +93,52 @@ class StripVM:
     shared: list[str] = field(default_factory=list)     # cau ly do chung cua ca ba the
     sources: list[str] = field(default_factory=list)    # xuat xu bang diem - noi MOT lan
     warnings: list[str] = field(default_factory=list)
+    held: list[str] = field(default_factory=list)       # apiName lo da chon (dai icon)
 
     @property
     def line(self) -> str:
         return (f"{self.stage}  ·  Cấp {self.level} ({self.xp} XP)  ·  {self.gold} vàng  "
                 f"·  HP {self.hp}  ·  chuỗi {self.streak}")
+
+
+@dataclass
+class PlanLineVM:
+    """Mot dong "<huong> -> <lo>" (directional). Nhieu huong cung lo da gop san."""
+
+    label: str
+    plans: list[str]
+    api_name: str
+    name: str
+    slot: int | None = None
+    kind: str = ""                   # eco | combat | "" - cai gia: full bai hay full form
+    warnings: list[str] = field(default_factory=list)
+
+    @property
+    def cost(self) -> str:
+        return {"eco": "cần full bài", "combat": "full form là đủ"}.get(self.kind, "")
+
+
+def build_plans(event: Any) -> list[PlanLineVM]:
+    """Cac dong theo huong tu `bundle.plans`. Ten lay theo CHU TREN THE nhu cot."""
+    bundle = getattr(event, "bundle", None)
+    plans = getattr(bundle, "plans", None)
+    titles = {a: c for c in getattr(event, "cards", []) for a in c.api_names}
+    out: list[PlanLineVM] = []
+    for line in getattr(plans, "lines", None) or []:
+        api = line.entry.api_name
+        card = titles.get(api)
+        detail = line.plan_fit.detail or {}
+        eco, power = bool(detail.get("eco")), bool(detail.get("power"))
+        out.append(PlanLineVM(
+            label=line.label,
+            plans=[p.key for p in line.plans],
+            api_name=api,
+            name=(card.title if card and card.title else line.entry.name),
+            slot=card.slot if card else None,
+            kind="eco" if eco and not power else ("combat" if power and not eco else ""),
+            warnings=list(line.warnings),
+        ))
+    return out
 
 
 def build_view(
@@ -252,6 +293,7 @@ def _strip(event, bundle, shared: list[str]) -> StripVM:
         streak=show("streak", getattr(state, "streak", None)),
         unknown=unknown,
         shared=shared,
+        held=list(getattr(state, "augments", None) or []),
     )
     economy = list(getattr(bundle, "economy", None) or [])
     strip.econ = " · ".join(str(getattr(a, "message", a)) for a in economy[:2])

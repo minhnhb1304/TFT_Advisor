@@ -22,7 +22,7 @@ import cv2
 import numpy as np
 
 from ..capture.regions import ScreenRegions
-from .viewmodel import SlotVM, VerdictVM
+from .viewmodel import PlanLineVM, SlotVM, VerdictVM
 
 Rect = tuple[int, int, int, int]                 # left, top, right, bottom
 
@@ -80,8 +80,20 @@ def badge_text(slot: SlotVM) -> str:
     return f"{rank}{slot.score_text}{mark}"
 
 
-def paint(painter, lay: Layout, slots: Sequence[SlotVM], verdict: VerdictVM) -> None:
-    """Ve huy hieu, vien o duoc khuyen, vong nut doi va widget ket luan."""
+def plan_pills(plans: Sequence[PlanLineVM]) -> dict[int, list[tuple[str, str]]]:
+    """O -> [(ten huong, khoa huong)] cua cac huong chon o do. Thuan, test duoc."""
+    out: dict[int, list[tuple[str, str]]] = {}
+    for line in plans:
+        if line.slot is None:
+            continue
+        labels = [part.strip() for part in line.label.split("/")]
+        out.setdefault(line.slot, []).extend(zip(labels, line.plans))
+    return out
+
+
+def paint(painter, lay: Layout, slots: Sequence[SlotVM], verdict: VerdictVM,
+          plans: Sequence[PlanLineVM] = ()) -> None:
+    """Ve huy hieu, vien o duoc khuyen, vong nut doi, nhan huong va widget ket luan."""
     from PyQt6 import QtCore, QtGui
 
     from . import theme
@@ -141,6 +153,31 @@ def paint(painter, lay: Layout, slots: Sequence[SlotVM], verdict: VerdictVM) -> 
         painter.setPen(accent if chosen else QtGui.QColor(255, 255, 255, 220 if slot.score is not None else 140))
         painter.drawText(QtCore.QRectF(x, box.top(), text_w + 4, bh),
                          QtCore.Qt.AlignmentFlag.AlignVCenter | QtCore.Qt.AlignmentFlag.AlignLeft, text)
+
+    # Nhan huong neo NGAY TREN THE (mau Blitz): duoi o chu, moi huong mot vien.
+    for slot_index, pills in plan_pills(plans).items():
+        if slot_index >= len(lay.cards):
+            continue
+        left, top, right, bottom = lay.cards[slot_index]
+        ph = max(10, int(bh * 0.8))
+        painter.setFont(font(int(ph * 0.58), QtGui.QFont.Weight.Bold))
+        metrics = painter.fontMetrics()
+        widths = [metrics.horizontalAdvance(label) + ph for label, _ in pills]
+        gap = 4
+        total = sum(widths) + gap * (len(widths) - 1)
+        x = (left + right) / 2 - total / 2
+        y = bottom + 3                               # ngay duoi o chu, khong de len mo ta
+        for (label, key), w in zip(pills, widths):
+            color = QtGui.QColor(theme.plan_color(key))
+            fill = QtGui.QColor(color)
+            fill.setAlpha(235)
+            painter.setPen(QtCore.Qt.PenStyle.NoPen)
+            painter.setBrush(fill)
+            rect = QtCore.QRectF(x, y, w, ph)
+            painter.drawRoundedRect(rect, ph / 2, ph / 2)
+            painter.setPen(QtGui.QColor(12, 12, 16))
+            painter.drawText(rect, QtCore.Qt.AlignmentFlag.AlignCenter, label)
+            x += w + gap
 
     if reroll and verdict.slot is not None and verdict.slot < len(lay.rerolls):
         left, top, right, bottom = lay.rerolls[verdict.slot]
