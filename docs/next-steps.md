@@ -10,6 +10,8 @@ Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần 
 > Mọi mục **§1–§7 bên dưới là LỊCH SỬ** (09-09). Chúng ghi lại phép đo đã làm, giữ để tra cứu —
 > nhưng kế hoạch hiện hành là mục này.
 
+> **2026-11-14: `minh_01`, `minh_02` chuyển held-out → development** (đã dùng chỉnh bộ đọc thẻ ở M0–M2, đo 2026-09-18). Split nay 9 development / 6 held-out (`minh_09`, `minh_10`, `dat_02`–`dat_05`) + mọi video 18.6.
+
 ### Phiên 2026-11-13: dừng ở thiết kế directional — làm tiếp từ đây
 
 **Đã xong:** duyệt 18.6, Heart of Steel `live=false`, `econ_type` (gold/xp/reroll, khoá bằng test),

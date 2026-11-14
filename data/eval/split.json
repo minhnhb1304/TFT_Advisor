@@ -6,7 +6,7 @@
     {
       "video_id": "minh_01",
       "player_id": "minh",
-      "role": "heldout",
+      "role": "development",
       "video_sha256": "66855315bf10f80375b26e3d3a86151c086de2cf6af54cb8767e8d0714266a9e",
       "final_placement": null,
       "capture_profile": {
@@ -20,12 +20,13 @@
         "original_name": "Screen recorder_09-16-2026_17-43-52-150-001.mp4"
       },
       "game_patch": "18.2",
-      "data_patch": "18.2"
+      "data_patch": "18.2",
+      "note": "held-out -> development (2026-11-14): da dung de chinh bo doc the o M0-M2 (do 2026-09-18, docs/playtest-fixes/eval-dataset.md), truoc khi co split.json"
     },
     {
       "video_id": "minh_02",
       "player_id": "minh",
-      "role": "heldout",
+      "role": "development",
       "video_sha256": "81488b403765b4902e446c2bbd752d8919abfc02641b54cb48d816527a559068",
       "final_placement": null,
       "capture_profile": {
@@ -39,7 +40,8 @@
         "original_name": "Screen recorder_09-16-2026_22-26-36-983-002.mp4"
       },
       "game_patch": "18.2",
-      "data_patch": "18.2"
+      "data_patch": "18.2",
+      "note": "held-out -> development (2026-11-14): da dung de chinh bo doc the o M0-M2 (do 2026-09-18, docs/playtest-fixes/eval-dataset.md), truoc khi co split.json"
     },
     {
       "video_id": "minh_03",
