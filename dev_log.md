@@ -717,7 +717,22 @@ Bộ ghi giờ **luôn quan sát** dải khi còn một lần chọn đang chờ
 - dựng `scripts/bench_card_titles.py`, chạy RapidOCR, indra-ocr (ONNX, CPU) và chandra-ocr-2 (transformers, CPU, môi trường riêng `.venv-bench`) trên cùng các thẻ development, dùng chung hàm khớp tên;
 - ghi kết quả vào `research/261115-ocr-bench.md`.
 
-Máy đo có Ryzen 9 8945H, 28 GB RAM, không có GPU NVIDIA, nên độ trễ của Chandra trên CPU không đại diện cho khi chạy GPU. Kết quả sẽ bổ sung vào mục này.
+Máy đo có Ryzen 9 8945H, 28 GB RAM, không có GPU NVIDIA.
+
+**Kết quả** (`research/261115-ocr-bench.md`, `scripts/bench_card_titles.py`).
+- Tập đo: mọi offer verified có snapshot của 7 video development, gồm 225 lượt đọc, 117 ô khác nhau, 94 lõi khác nhau.
+- Mọi cách đọc dùng chung `resolve_name`, ngưỡng 0,82.
+
+| Cách đọc | Mọi offer: đúng / sai / sót | Offer cuối (63) | p50 / p95 mỗi thẻ (CPU) |
+|---|---|---|---|
+| RapidOCR + khớp danh mục | **225 / 0 / 0** | 63 / 0 / 0 | 315 / 461 ms |
+| indra-ocr 1.1.2 | 222 / **2** / 1 | 62 / 0 / 1 | **169 / 266 ms** |
+| chandra-ocr-2 | chưa đo: tải trọng số dừng ở 8,2/10,6 GB khi chuyển sang đo trên Modal | — | — |
+
+- **Hai lỗi sai của indra đều ở hậu tố số La Mã:** đọc "lI" thay vì "II", và rơi một chữ "I" khiến bậc III thành II. Đây là loại lỗi tệ nhất vì người chơi không phát hiện được. Riêng dấu tiếng Việt và hậu tố `+`/`++` thì indra đọc tốt.
+- **Kết luận theo số đo:** giữ RapidOCR. indra nhanh hơn gần 2 lần, nhưng chỉ đáng cân nhắc nếu chặn được lỗi lẫn I/II/III.
+- **Giới hạn:** đây là tập development nơi RapidOCR đã được chỉnh, nên RapidOCR có lợi thế sân nhà; ảnh là JPG nén.
+- **Chandra:** đo tiếp trên Modal bằng `CHANDRA_URL`.
 
 ## Dự kiến triển khai
 
