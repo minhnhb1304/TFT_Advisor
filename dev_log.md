@@ -615,7 +615,7 @@ Giới hạn phải ghi trong báo cáo: `picked` là lựa chọn của **một
 **Dải icon.** Người chơi chỉ ra vị trí: hướng 10 giờ so với tâm màn hình. Các thông số đo trên 15 màn dev:
 - Mỗi icon khoảng 37 px trên nền đen. Cả dải canh giữa quanh x≈511, y≈245 ở 1080p, xếp trái sang phải theo thứ tự chọn, nở ra hai bên khi có thêm icon.
 - Bản 16:10 (`dat_01`) lệch trái khoảng 100 px so với phép neo giữa, nên vùng tìm được đặt rộng.
-- Vị trí giữ nguyên cả khi camera đang ở bàn người khác. Lúc đó dải hiện là của **họ**.
+- Vị trí giữ nguyên cả khi camera đang ở bàn người khác. Dải 10 giờ **luôn là lõi của mình**; lõi của đối thủ hiện ở hướng 2 giờ, mỗi lúc một nhà (người chơi đính chính 2026-11-14; ghi chú ban đầu "lúc đó dải là của họ" là sai).
 
 | Phần | Nội dung |
 |---|---|

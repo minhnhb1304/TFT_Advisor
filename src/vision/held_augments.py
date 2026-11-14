@@ -3,8 +3,9 @@
 Sau moi man chon augment, client hien lo vua chon thanh mot icon ~37 px (o
 1080p) tren nen den, xep trai -> phai theo thu tu chon, ca dai nam giua quanh
 x~511, y~245 va no ra hai ben khi them icon. Do tren 15 man development
-(2026-11-14): vi tri on dinh, ke ca khi camera dang o ban nguoi khac (dai khi
-do la CUA HO - phan loai phai biet dieu nay, xem HeldAugmentTracker).
+(2026-11-14): vi tri on dinh. Dai 10 gio LUON la lo CUA MINH, ke ca khi dang
+xem nha khac hay dang giao tranh; lo cua doi thu hien o huong 2 GIO (nguoi choi
+xac nhan 2026-11-14).
 
 Bo doc nay KHONG nhan dien giua 250 lo. No:
   1. tim dai nen den, dem so icon (`find_strip`);
@@ -209,8 +210,8 @@ class HeldAugmentTracker:
 
     Ba cach chong ghi sai:
       - Chi nhan khi so icon TANG va icon moi nhat khop mot lo vua chao. Man
-        bi an (chua chon) thi so icon chua doi; ban nguoi khac thi icon khong
-        khop - ca hai deu bo qua.
+        bi an (chua chon) thi so icon chua doi nen khong ghi. Icon khong khop
+        lo nao vua chao (doc sai dai) cung bi bo qua - lop an toan.
       - Chi phan loai giua cac lo vua chao, loc them theo `offer_rounds` cua
         stage (ban +/++ ra o vong khac nhau).
       - Het `window_s` ma chua chac thi ghi None ("chua ro"), khong doan.

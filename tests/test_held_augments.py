@@ -72,7 +72,7 @@ def test_tracker_records_one_pick_per_offer(bank):
 
 
 def test_other_players_strip_is_ignored(bank):
-    """Dang xem ban nguoi khac: so icon tang nhung icon khong khop lo vua chao."""
+    """So icon tang nhung icon khong khop lo vua chao (doc sai dai): khong ghi."""
     tracker = HeldAugmentTracker(bank)
     tracker.offer_seen(["A", "B"], "2-1", t=0)
     assert tracker.observe(frame(["D"]), 5) is None
