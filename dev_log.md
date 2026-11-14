@@ -4,7 +4,7 @@
 > Kế hoạch hiện hành và việc tồn đọng giữa các phiên:
 > [`docs/next-steps.md`](docs/next-steps.md).
 >
-> Cập nhật: **2026-11-14** · 1135 test xanh. Mục 1–13 và "Dự kiến triển khai"
+> Cập nhật: **2026-11-14** · 1139 test xanh. Mục 1–13 và "Dự kiến triển khai"
 > viết lúc 2026-09-07, giữ làm lịch sử.
 
 ---
@@ -688,6 +688,24 @@ Chưa kiểm: ảnh chụp chỉ ở một màn (`minh_06` 4-2), tua thẳng t�
 Lỗi gặp khi làm: luồng phân tích và luồng giao diện cùng đọc video OpenCV, gây `Assertion fctx->async_lock failed` (libavcodec). Sửa bằng khoá trong `VideoClockSource`.
 
 Thử trên `minh_06` 4-2 ở chế độ mô phỏng: overlay đúng vị trí, tắt khi màn đóng; đọc HUD trung vị 41 ms sau lần đầu (1,5 s, do nạp OCR) trên máy rảnh. **Chưa chạy với game thật**: cần chạy trên máy chơi để đo độ trễ HUD khi game chạy (trước đây 15–26 s), kiểm toạ độ khi Windows scale ≠ 100%, và xem Vanguard có phản ứng gì không. Test 1126 → 1135 (`tests/test_live_shell.py`).
+
+### 20. Màn chọn lõi đóng theo dấu hiệu, không theo thời gian ẩn; lõi Vận Mệnh
+
+2026-11-14. Người chơi giải thích hai điều:
+- **Màn chọn lõi bật tắt được.** Người chơi ẩn màn để đi xem nhà khác, rồi mở lại để xem 3 lựa chọn của mình, nhiều lần trong một vòng.
+- **Lõi của đối thủ hiện ở hướng 2 giờ**, mỗi lúc một nhà. Dải 10 giờ **luôn** là lõi của mình. Ghi chú ở §17 "lúc đó dải là của họ" là sai, đã sửa.
+
+Trước bản này, `LiveSession` coi "ẩn quá `grace_s` = 30 s" là đã rời màn. Đi xem 7 nhà dễ vượt 30 s, và khi vượt thì phải đọc lại thẻ. Người chơi chốt: **dùng dấu hiệu, không dùng ngưỡng**, và đếm số lần chọn khớp với từng vòng 2-1, 3-2, 4-2.
+
+| Dấu hiệu | Xử lý |
+|---|---|
+| Dải 10 giờ có thêm icon khớp lõi vừa chào | `HeldAugmentTracker.closed` → `LiveSession` đóng màn (`Cleared`) |
+| **Lõi Vận Mệnh** (7 lõi `DA_{Silver,Gold,Prismatic}Destiny[Plus[Plus]]`): chọn 1 lõi nhưng được 2, vì kèm một lõi ngẫu nhiên cùng bậc | Dải thêm **2 icon**. Icon kề cuối khớp lõi Vận Mệnh vừa chào → ghi là lần chọn của vòng. Icon cuối là lõi tặng, nhận diện giữa các lõi cùng bậc bằng icon CDragon, không chắc thì `None`. `picks` (mỗi vòng một phần tử) tách khỏi `held` (mọi icon) |
+| Stage sang vòng khác | Đóng màn (dự phòng khi không đọc được dải) |
+| Stage qua ≥ 2 vòng mà chưa có icon mới | Ghi lần chọn là `None`, không đoán. Thay cho `window_s` = 120 s |
+| Không có bộ đọc dải (`held_tracker = None`) | Giữ ngưỡng `grace_s` cũ |
+
+Bộ ghi giờ **luôn quan sát** dải khi còn một lần chọn đang chờ, kể cả sau khi màn đã đóng vì stage đổi, để không mất icon hiện muộn. Đọc lõi đã chọn trên dev vẫn 15/15 (dev không có ván nào chọn Vận Mệnh). Test 1136 → 1139.
 
 ## Dự kiến triển khai
 

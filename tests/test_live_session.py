@@ -457,12 +457,13 @@ class FakeHeldTracker:
         self.observed: list[float] = []
         self.resets = 0
         self.known = ["DA_Held"]
+        self.closed = False
 
     def offer_seen(self, candidates, stage, t, card_icons=None) -> None:
         self.offers.append((list(candidates), stage))
         self.card_icons = card_icons
 
-    def observe(self, image, t) -> None:
+    def observe(self, image, t, stage=None) -> None:
         self.observed.append(t)
 
     def reset(self) -> None:
@@ -499,3 +500,15 @@ def test_idle_says_whether_the_augment_screen_is_on_screen():
     reroll.present = False
     idle_outside = s.step(frame(2.0))
     assert isinstance(idle_outside, Idle) and not idle_outside.screen_visible
+
+
+def test_hiding_the_screen_for_long_does_not_end_it_while_no_pick_is_seen():
+    """Nguoi choi an man di xem 7 nha: bao lau cung la CUNG mot man."""
+    held = FakeHeldTracker()
+    s, reroll, _, _ = session(held_tracker=held)
+    feed(s, 0.0, 5)
+    reroll.present = False
+    events = [s.step(frame(t)) for t in (10.0, 60.0, 120.0)]
+    assert not any(isinstance(e, Cleared) for e in events)
+    held.closed = True                                 # dai 10 gio co icon moi -> da chon
+    assert isinstance(s.step(frame(121.0)), Cleared)

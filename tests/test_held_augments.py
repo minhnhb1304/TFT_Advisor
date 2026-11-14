@@ -79,11 +79,14 @@ def test_other_players_strip_is_ignored(bank):
     assert tracker.held == []
 
 
-def test_window_expiry_records_unknown_not_a_guess(bank):
-    tracker = HeldAugmentTracker(bank, window_s=60)
+def test_stage_moving_on_without_a_new_icon_records_unknown_not_a_guess(bank):
+    """Het han theo VONG, khong theo giay: an man bao lau cung khong bi ghi."""
+    tracker = HeldAugmentTracker(bank)
     tracker.offer_seen(["A", "B"], "2-1", t=0)
-    tracker.observe(frame([]), 61)
-    assert tracker.held == [None] and tracker.known == []
+    tracker.observe(frame([]), 500, stage="2-1")       # an man rat lau, cung vong
+    assert tracker.held == [] and not tracker.closed
+    tracker.observe(frame([]), 600, stage="2-3")       # qua 2 vong ma khong co icon
+    assert tracker.picks == [None] and tracker.known == [] and tracker.closed
 
 
 def test_offer_rounds_split_plus_variants(bank):
@@ -111,3 +114,26 @@ def test_sixteen_by_ten_frame():
         image[227:227 + CELL, 358 + k * CELL:358 + (k + 1) * CELL] = cell
     strip = find_strip(image)
     assert strip is not None and strip.count == 3
+
+
+def test_destiny_adds_two_icons_and_counts_as_one_pick(bank):
+    """Van Menh: chon MOT lo, dai them HAI icon (no + lo cung bac duoc tang)."""
+    tracker = HeldAugmentTracker(bank, tiers={"DA_GoldDestiny": 2, "B": 2, "C": 2, "D": 1})
+    bank._cache["DA_GoldDestiny"] = bank.get("A")      # icon cua lo Van Menh = mau A
+    tracker.offer_seen(["DA_GoldDestiny", "D"], "2-1", t=0)
+    assert tracker.observe(frame(["A", "C"]), 5) == "DA_GoldDestiny"
+    assert tracker.picks == ["DA_GoldDestiny"]
+    assert tracker.held == ["DA_GoldDestiny", "C"]     # lo tang nhan dien trong bac vang
+    assert tracker.closed
+    # Vong sau: dai dem tiep tu 2 icon, khong lech.
+    tracker.offer_seen(["B", "D"], "3-2", t=600)
+    assert tracker.observe(frame(["A", "C", "B"]), 605) == "B"
+    assert tracker.picks == ["DA_GoldDestiny", "B"]
+
+
+def test_unrecognised_destiny_bonus_is_unknown_not_a_guess(bank):
+    tracker = HeldAugmentTracker(bank, tiers={"DA_SilverDestiny": 1, "D": 1})
+    bank._cache["DA_SilverDestiny"] = bank.get("A")
+    tracker.offer_seen(["DA_SilverDestiny", "B"], "2-1", t=0)
+    assert tracker.observe(frame(["A", "C"]), 5) == "DA_SilverDestiny"
+    assert tracker.held == ["DA_SilverDestiny", None]  # C khong o bac bac -> chua ro

@@ -33,7 +33,7 @@ from ..decision.reroll_policy import RerollState
 from ..eval.scenario_logger import derive_game_id
 from ..game_state.state_tracker import GameStateTracker
 from ..vision.augment_reader import CardRead
-from ..vision.held_augments import HeldAugmentTracker, card_icon
+from ..vision.held_augments import HeldAugmentTracker, card_icon, rounds_between
 from ..vision.hud_reader import HudReading
 from .card_reader import SLOTS, CardReader
 from .events import AdviceReady, Cleared, Idle, LiveEvent, Status
@@ -84,6 +84,7 @@ class LiveSession:
         # man an tam (< grace_s) thi `_in_screen` van True nhung man khong hien -
         # overlay trong tran phai thoi ve len ban co luc do.
         self.screen_visible = False
+        self._screen_stage = "1-1"
         # Thoi gian lan doc HUD gan nhat (ms) - vo live ghi log de do NFR trong tran.
         self.last_hud_ms: float | None = None
 
@@ -158,6 +159,9 @@ class LiveSession:
             self._cards = [None] * SLOTS
             self._last_emit = None
             self._read_stage_in_screen(frame, latency)
+            self._screen_stage = self.game_tracker.state().stage
+            if self.held_tracker is not None:
+                self.held_tracker.closed = False
         if reading.settled:
             self._rerolls = reading.to_reroll_state(self._rerolls)
 
@@ -229,12 +233,14 @@ class LiveSession:
 
     def _step_outside(self, frame: Frame, latency: dict[str, float]) -> LiveEvent:
         t = frame.t
-        left_screen = self._in_screen and t - self._last_present_t > self.grace_s
+        stage = self.game_tracker.state().stage
+        if self.held_tracker is not None:
+            # LUON quan sat khi con mot lan chon dang cho, ke ca sau khi man da dong
+            # vi stage doi (icon co the hien muon). Re: ~1 ms, khong lam gi neu khong cho.
+            self.held_tracker.observe(frame.image, t, stage=stage)
+        left_screen = self._in_screen and self._screen_done(frame, stage)
         if left_screen:
             self._reset_screen()
-        if self.held_tracker is not None:
-            # Re (~1 ms: cat + hinh thai hoc), va chi lam viec khi dang cho mot lan chon.
-            self.held_tracker.observe(frame.image, t)
 
         if t - self._last_hud_t >= self.hud_every_s:
             self._last_hud_t = t
@@ -251,6 +257,20 @@ class LiveSession:
             self.last_hud_ms = latency["hud"]
 
         return Cleared(t) if left_screen else Idle(t)
+
+    def _screen_done(self, frame: Frame, stage: str) -> bool:
+        """Man chon loi nay DA XONG chua - theo dau hieu, khong theo thoi gian an man.
+
+        Nguoi choi an man de di xem nha khac roi mo lai, nhieu lan, bao lau tuy y;
+        nhu vay van la CUNG mot man. Man xong khi:
+          - dai lo da chon (huong 10 gio) co them icon khop lo vua chao, ke ca lo
+            Van Menh them HAI icon (HeldAugmentTracker.closed); hoac
+          - stage da sang vong khac (du phong khi khong doc duoc dai).
+        Khong co bo doc dai (held_tracker = None) thi dung nguong `grace_s` cu.
+        """
+        if self.held_tracker is None:
+            return frame.t - self._last_present_t > self.grace_s
+        return self.held_tracker.closed or rounds_between(self._screen_stage, stage) >= 1
 
     def _read_stage_in_screen(self, frame: Frame, latency: dict[str, float]) -> None:
         """Man chon loi che vang/cap/mau nhung VAN hien stage: lay rieng stage.

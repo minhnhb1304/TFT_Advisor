@@ -69,7 +69,9 @@ def _held_tracker(settings: Any) -> HeldAugmentTracker:
     path = settings.path("augment_features")
     features = FeatureTable.load(path) if path.exists() else FeatureTable.empty()
     return HeldAugmentTracker(
-        IconBank(icons), {a: f.offer_rounds for a, f in features.features.items()}
+        IconBank(icons),
+        {a: f.offer_rounds for a, f in features.features.items()},
+        {a: f.tier for a, f in features.features.items()},
     )
 
 

@@ -199,47 +199,77 @@ def read_newest(
     return strip, classify(strip.icons[-1], candidates, bank)
 
 
+# Lo "Van Menh" (Silver/Gold/Prismatic Destiny, ca ban +/++): chon MOT lo nhung
+# dai co them HAI icon - chinh no va mot lo ngau nhien CUNG BAC no tang (mo ta
+# CDragon: "Nhan 1 Nang Cap <bac> ngau nhien va vang"). Nguoi choi chi ra 2026-11-14.
+GRANTS_SAME_TIER = ("DA_SilverDestiny", "DA_GoldDestiny", "DA_PrismaticDestiny")
+# Vong chon lo cua van dau (moi vong dung MOT lan chon; lo tang khong tinh).
+PICK_ROUNDS = ("2-1", "3-2", "4-2")
+# Stage da qua vong chon nay tu chung nay vong tro len ma dai chua co icon moi
+# -> coi la bo lo, ghi "chua ro". Dem theo VONG, khong theo giay.
+EXPIRE_AFTER_ROUNDS = 2
+
+
+def grants_same_tier(api_name: str | None) -> bool:
+    return bool(api_name) and str(api_name).startswith(GRANTS_SAME_TIER)
+
+
+def rounds_between(a: str, b: str) -> int:
+    """So vong tu stage `a` toi `b` ("2-1" -> "2-3" = 2). Doc khong duoc -> 0."""
+    try:
+        sa, ra = (int(x) for x in a.split("-"))
+        sb, rb = (int(x) for x in b.split("-"))
+    except (ValueError, AttributeError):
+        return 0
+    return (sb - sa) * 7 + (rb - ra)
+
+
 class HeldAugmentTracker:
-    """Nho lo da chon trong van, tu dai icon. Dung chung cho replay va live.
+    """Nho lo da chon trong van, tu dai icon huong 10 gio. Dung chung replay va live.
 
-    Vong doi mot lan chon:
-      1. `offer_seen()` - dang o man chon lo: nho cac lo DANG CHAO (lan cuoi
-         cung la lan nguoi choi chon tu do) va stage.
-      2. `observe()`    - ngoai man: khi dai co dung `len(held) + 1` icon thi
-         phan loai icon moi nhat trong cac lo vua chao.
+    Dai 10 gio LUON la lo cua minh (lo doi thu o huong 2 gio). Vong doi mot lan chon:
+      1. `offer_seen()` - trong man chon lo: nho cac lo DANG CHAO (lan cuoi cung
+         la lan nguoi choi chon tu do), stage va icon cat tu the.
+      2. `observe()`    - ngoai man (ke ca khi man chi bi AN de di xem nha khac):
+         khi dai co THEM icon thi phan loai trong cac lo vua chao. Ghi duoc ->
+         `closed` = True: man chon lo nay da xong (LiveSession dong man theo co
+         nay, khong theo nguong thoi gian).
 
-    Ba cach chong ghi sai:
-      - Chi nhan khi so icon TANG va icon moi nhat khop mot lo vua chao. Man
-        bi an (chua chon) thi so icon chua doi nen khong ghi. Icon khong khop
-        lo nao vua chao (doc sai dai) cung bi bo qua - lop an toan.
-      - Chi phan loai giua cac lo vua chao, loc them theo `offer_rounds` cua
-        stage (ban +/++ ra o vong khac nhau).
-      - Het `window_s` ma chua chac thi ghi None ("chua ro"), khong doan.
+    Truong hop dac biet: lo Van Menh them HAI icon (chinh no + lo tang cung bac).
+    Lo tang nhan dien giua cac lo cung bac bang icon CDragon; khong chac -> None.
+
+    Chong ghi sai: chi nhan khi so icon TANG va icon khop mot lo vua chao (loc
+    them theo `offer_rounds` de tach ban +/++); stage qua `EXPIRE_AFTER_ROUNDS`
+    vong ma chua thay icon moi thi ghi None ("chua ro"), khong doan.
     """
 
     def __init__(
         self,
         bank: IconBank | None = None,
         offer_rounds: dict[str, Sequence[str]] | None = None,
-        window_s: float = 120.0,
+        tiers: dict[str, int] | None = None,
     ) -> None:
         self.bank = bank or IconBank()
         self.offer_rounds = offer_rounds or {}
-        self.window_s = window_s
-        self.held: list[str | None] = []
+        self.tiers = tiers or {}
+        self.held: list[str | None] = []          # moi icon tren dai, ke ca lo tang
+        self.picks: list[str | None] = []         # moi VONG chon mot phan tu
         self._pending: tuple[tuple[str, ...], str, float] | None = None
         self._templates: dict[str, np.ndarray] = {}
         self.last_match: IconMatch | None = None
+        self.closed = False
 
     def reset(self) -> None:
         self.held.clear()
+        self.picks.clear()
         self._pending = None
         self._templates = {}
         self.last_match = None
+        self.closed = False
 
     @property
     def known(self) -> list[str]:
-        """Lo da chon doc chac duoc - thu di vao `GameState.augments`."""
+        """Lo dang cam doc chac duoc (ke ca lo tang) - thu di vao `GameState.augments`."""
         return [a for a in self.held if a]
 
     def offer_seen(
@@ -256,33 +286,53 @@ class HeldAugmentTracker:
             self._templates = {
                 a: _prep(img) for a, img in (card_icons or {}).items() if img is not None and img.size
             }
+            self.closed = False
 
     def _filter_round(self, candidates: tuple[str, ...], stage: str) -> tuple[str, ...]:
         kept = tuple(c for c in candidates if stage in (self.offer_rounds.get(c) or (stage,)))
         return kept or candidates
 
-    def observe(self, image: np.ndarray, t: float) -> str | None:
-        """Doc dai ngoai man chon lo. Tra ve lo vua ghi nhan (neu co)."""
+    def _close(self, pick: str | None, icons: list[str | None], strip_count: int) -> None:
+        # Bo lo mot doan (mo app giua van, tua video): cac o truoc ghi None.
+        missing = max(0, strip_count - len(icons) - len(self.held))
+        self.held.extend([None] * missing)
+        self.held.extend(icons)
+        self.picks.append(pick)
+        self._pending = None
+        self.closed = True
+
+    def _bonus(self, icon: np.ndarray, destiny: str) -> str | None:
+        tier = self.tiers.get(destiny)
+        pool = [a for a, t in self.tiers.items() if t == tier and not grants_same_tier(a)]
+        match = classify(icon, pool, self.bank) if pool else None
+        return match.api_name if match else None
+
+    def observe(self, image: np.ndarray, t: float, stage: str | None = None) -> str | None:
+        """Doc dai ngoai man chon lo. Tra ve lo vua chon (neu ghi duoc)."""
         if self._pending is None:
             return None
-        candidates, stage, seen_t = self._pending
-        if t - seen_t > self.window_s:
-            self.held.append(None)
-            self._pending = None
+        candidates, offer_stage, _ = self._pending
+        if stage and rounds_between(offer_stage, stage) >= EXPIRE_AFTER_ROUNDS:
+            self._close(None, [None], len(self.held) + 1)
             return None
         strip = find_strip(image)
-        # count == len+1: lan chon vua roi. count > len+1: bo lo mot doan (mo
-        # app giua van, tua video) - van nhan neu icon moi KHOP lo vua chao,
-        # cac o bo lo ghi None. count <= len: chua chon, hoac dang xem ban khac.
         if strip is None or strip.count <= len(self.held):
-            return None
-        match = classify(
-            strip.icons[-1], self._filter_round(candidates, stage), self.bank, self._templates
-        )
+            return None                     # chua chon (man dang an), hoac khong thay dai
+        cands = self._filter_round(candidates, offer_stage)
+
+        match = classify(strip.icons[-1], cands, self.bank, self._templates)
         self.last_match = match
-        if match.api_name is None:
-            return None
-        self.held.extend([None] * (strip.count - 1 - len(self.held)))
-        self.held.append(match.api_name)
-        self._pending = None
-        return match.api_name
+        if match.api_name is not None:
+            self._close(match.api_name, [match.api_name], strip.count)
+            return match.api_name
+
+        # Van Menh: dai them HAI icon - lo da chon roi lo tang cung bac.
+        destinies = tuple(c for c in cands if grants_same_tier(c))
+        if destinies and strip.count >= len(self.held) + 2:
+            match = classify(strip.icons[-2], destinies, self.bank, self._templates)
+            self.last_match = match
+            if match.api_name is not None:
+                bonus = self._bonus(strip.icons[-1], match.api_name)
+                self._close(match.api_name, [match.api_name, bonus], strip.count)
+                return match.api_name
+        return None

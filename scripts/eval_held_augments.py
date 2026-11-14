@@ -5,7 +5,7 @@
 
 Mo phong dung vong doi cua HeldAugmentTracker tren video: o moi man verified,
 `offer_seen` voi offer CUOI cua nhan tai `close_s`, roi `observe` cac khung
-moi `--step` giay trong `window_s`. Ung vien lay tu NHAN chu khong tu bo doc
+moi `--step` giay trong `SCAN_S` giay sau khi man dong. Ung vien lay tu NHAN chu khong tu bo doc
 the: o day chi do bo doc DAI ICON, loi doc the da co thuoc do rieng
 (eval_playtest.py).
 """
@@ -31,6 +31,9 @@ from src.knowledge.augment_features import FeatureTable  # noqa: E402
 from src.vision.held_augments import HeldAugmentTracker, IconBank, card_icon  # noqa: E402
 
 VIDEO_DIR = Path("D:/workspace/tft_record")
+# Quet bao lau sau khi man dong (tracker khong con nguong thoi gian; day chi la
+# gioi han cua script).
+SCAN_S = 120.0
 
 
 def development_ids(split_path: Path) -> list[str]:
@@ -66,20 +69,21 @@ def run(
         tracker.offer_seen(cards, screen.stage, screen.close_s, icons)
         got, at = None, None
         t = screen.close_s
-        while t <= screen.close_s + tracker.window_s + step:
+        while t <= screen.close_s + SCAN_S + step:
             image = frame_at(cap, t)
             if image is not None:
                 got = tracker.observe(image, t)
-                if got or len(tracker.held) > len(rows):
+                if tracker.closed:
                     at = t - screen.close_s
                     break
             t += step
-        if len(tracker.held) == len(rows):
-            tracker.held.append(None)           # het video truoc khi het cua so
+        if not tracker.closed:                  # het khoang quet ma chua thay icon moi
+            tracker.picks.append(None)
+            tracker.held.append(None)
             tracker._pending = None
         m = tracker.last_match
         rows.append({
-            "stage": screen.stage, "picked": screen.picked, "read": tracker.held[-1],
+            "stage": screen.stage, "picked": screen.picked, "read": tracker.picks[-1],
             "after_s": at, "score": round(m.score, 3) if m else None,
             "margin": round(m.margin, 3) if m else None,
         })
@@ -102,7 +106,8 @@ def main(argv: list[str] | None = None) -> int:
     ]
     features = FeatureTable.load(ROOT / "data/augment_features.json")
     rounds = {a: f.offer_rounds for a, f in features.features.items()}
-    tracker = HeldAugmentTracker(IconBank(ROOT / "data/augment_icons"), rounds)
+    tiers = {a: f.tier for a, f in features.features.items()}
+    tracker = HeldAugmentTracker(IconBank(ROOT / "data/augment_icons"), rounds, tiers)
 
     total = hits = unknown = 0
     for path in paths:
