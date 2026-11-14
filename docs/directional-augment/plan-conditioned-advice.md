@@ -22,7 +22,7 @@ vì gộp bằng belief, nên không cần ước lượng `b(φ)` và tránh lu
 | Từ màn nào | **Từ 2-1.** Chốt hướng sớm thì dễ đánh và dễ tìm đường lui dự phòng |
 | Bổ trợ | 3 lõi bổ trợ nhau thì càng mạnh → điểm ở 3-2/4-2 tính cả lõi **đã cầm** (`state.augments`) |
 | Phạt ở 2-1 | **Không phạt** lõi cam kết hướng |
-| Lõi chỉ gold | Trung tính về hướng |
+| Lõi chỉ gold | Thiết kế cũ (EconFit) coi là trung tính. Theo hướng thì **không** trung tính: fast9/cash cộng, fast8 trừ (`eco` × sức mạnh) |
 | Game state | Để hiểu cách game vận hành và cảnh báo, **không** dùng để chọn hộ hướng |
 
 ## Màn hình mẫu (4-2)
@@ -83,14 +83,14 @@ phải trả bằng bàn cờ.
 |---|---|
 | `PlanFitScorer` + `rank_by_plan()` + 4 hướng trong `tuning.plan_fit` | Xong, `rank()` không đổi |
 | `scripts/eval_plan_advice.py` trên dev | Vòng 1: tắt 6/15 → bật 8/15 ([dev_log §16](../../dev_log.md)) |
-| Overlay hiện các dòng theo hướng | Chưa (`enabled: false`) |
+| Overlay hiện các dòng theo hướng | Xong 2026-11-14 (`tuning.plan_fit.enabled: true`), [dev_log §18](../../dev_log.md) |
 | Cân bằng hai chiều + `by_stage` (reroll từ stage 4) | Xong: 9/15, số trong mẫu |
 | Ghi lõi đã chọn khi chơi thật (dải icon 10 giờ) · bảng combo lõi | Chưa |
 
 ## Đo lường
 
 - Mỗi màn: lấy dòng của **hướng thật** (`plan.route`) và so với lõi người chơi chọn; báo top-1 /
-  top-3 khớp, bật vs tắt (cờ `econ_fit.directional`, giữ ràng buộc ablation).
+  top-3 khớp, bật vs tắt (cờ `tuning.plan_fit.enabled`, giữ ràng buộc ablation).
 - Dev có 5 ván / 15 màn — chỉ để chỉnh; số báo cáo lấy từ held-out (video 18.6).
 - Hạn chế phải ghi: ván đổi hướng giữa chừng cần `plan.since`/`plan.notes`.
 

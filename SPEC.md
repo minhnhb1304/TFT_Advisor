@@ -1,10 +1,10 @@
-# 🎮 TFT Advisory Agent — Project Specification (v3)
+# 🎮 TFT Advisory Agent — Project Specification (v4)
 
 > **Repository**: [github.com/minhnhb1304/TFT_Agent](https://github.com/minhnhb1304/TFT_Agent)  
 > **Author**: minhnhb1304  
 > **Created**: 2026-08-06  
-> **Updated**: 2026-08-29 (v3 — Thesis Edition)  
-> **Status**: 📋 Planning (Spec v3)  
+> **Updated**: 2026-11-14 (v4 — khớp với code tại `84ccbb3`; v3 Thesis Edition 2026-08-29)  
+> **Status**: 🛠️ Đang triển khai — kế hoạch hiện hành ở [`docs/next-steps.md`](docs/next-steps.md)  
 > **Loại dự án**: **Đồ án tốt nghiệp** — chạy cục bộ, single-user, **KHÔNG phát hành** (§11)  
 > **Language**: Python 3.11+  
 > **Platform**: Windows (PC — League Client)  
@@ -15,7 +15,30 @@
 
 ---
 
-## 0. Changelog v3 — Đổi Hướng Thành Đồ Án Nghiên Cứu
+## 0. Changelog v4 (2026-11-14) — Khớp SPEC với code
+
+v4 **không đổi hướng đồ án**. Nó sửa các chỗ SPEC v3 mô tả một kiến trúc dự kiến mà code thực tế đã đi
+khác, sau ba lần rà soát đối chiếu SPEC với code (commit `84ccbb3`). Chỗ nào v3 còn giá trị tra cứu
+thì giữ lại và đánh dấu *(lịch sử)*.
+
+| # | Thay đổi v3 → v4 | Mục |
+|---|---|---|
+| 1 | Lõi dùng chung `src/live/LiveSession`: `Frame` → `LiveEvent` (`Idle` / `Status` / `AdviceReady` / `Cleared`), không Qt. Hai vỏ: replay (`run_replay.py` + `src/replay/`) và panel trong trận (mới chạy qua `scripts/demo_overlay.py`). **Vỏ live trong ván thật chưa có**; chụp WGC mới ở `tools/` | §2.1, §2.2, §3.6 |
+| 2 | Không có `preflight.py`, `session_detector.py`, `economy.py`, `pool_tracker.py`, `template_matcher.py`, `board_reader.py`, `shop_reader.py`, `item_guide.py`, `screen_capture.py`, `region_detector.py`. Màn chọn lõi được nhận ra bằng **bộ đọc nút đổi** (`reroll_buttons.py`, `screen_present`) | §3.0–§3.4, §5 |
+| 3 | Bộ đọc thẻ `src/live/card_reader.py`: OCR / Gemini / Hybrid. Replay mặc định `hybrid` (OCR trước, Gemini cho ô OCR không chắc); Gemini **không còn** là primary | §3.2, §9.3 |
+| 4 | Đọc **lõi đã chọn** từ dải icon (`src/vision/held_augments.py`) → `state.augments` | §2.2, §3.2, §3.3 |
+| 5 | **Gợi ý theo hướng**: `PlanFitScorer` + `AugmentAdvisor.rank_by_plan()`, 4 hướng trong `tuning.plan_fit`, `AdviceBundle.plans`. `rank()` không đổi | §3.5.6 (mới) |
+| 6 | Bảng đặc trưng: **258** lõi; trích tất định → LLM chỉ sửa 4 trường → duyệt tay; schema thêm `econ_type`, `trait_count_reward`, `live`, `tier`, `extraction_method`, `confidence` | §3.4.1 |
+| 7 | `Base`: lõi không có trong bảng tier nhận `unknown_score` 0,35, không phải trung tính. `BoardFit` không đọc `CompSelector`. Pool đổi lõi theo bậc **và** lượt chào | §3.4.2, §3.5, §3.5.4, §3.5.5 |
+| 8 | Thước đo thực tế: `eval_playtest.py`, `eval_held_augments.py`, `eval_plan_advice.py`; scenario schema 3 | §12 |
+| 9 | §7 là lịch sử; kế hoạch hiện hành ở `docs/next-steps.md` | §7 |
+
+Tài liệu chi tiết của các thay đổi 4–5: [plan-conditioned-advice](docs/directional-augment/plan-conditioned-advice.md),
+[implementation-plan](docs/directional-augment/implementation-plan.md), [`dev_log.md`](dev_log.md) §16–§18.
+
+> ✅ **Không đổi tuyệt đối**: §1.3. v4 chỉ sửa mô tả cho đúng code, không nới lỏng dòng nào.
+
+### Changelog v3 — Đổi Hướng Thành Đồ Án Nghiên Cứu *(lịch sử)*
 
 v2 thiết kế quanh **Riot TFT developer policy**. v3 xác định lại: đây là **đồ án tốt nghiệp cá nhân,
 chạy cục bộ, không phát hành**. Developer policy ràng buộc sản phẩm *đăng ký và phân phối* — đồ án này
@@ -114,51 +137,93 @@ overlay được focus → dùng `RegisterHotKey` qua Qt, **không cần hook**.
 ### 2.1 Sơ Đồ Tổng Thể
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                      TFT Advisory Agent                      │
-├─────────────────────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐ │
-│  │ Preflight    │  │ Screen       │  │ Knowledge Sources  │ │
-│  │ Self-Checks  │─▶│ Capture      │  │ CDragon + OP.GG MCP│ │
-│  │ (§3.0)       │  │ (dxcam/WGC)  │  │ + Riot API (post)  │ │
-│  └──────────────┘  └──────┬───────┘  └────────┬───────────┘ │
-│                            │                    │             │
-│                    ┌───────▼────────┐           │             │
-│                    │ Session/Phase  │           │             │
-│                    │ Detector       │           │             │
-│                    │ (in-game?)     │           │             │
-│                    └───────┬────────┘           │             │
-│  ┌─────────────────────────▼───────────────────────────────┐ │
-│  │              Vision & Extraction Layer                   │ │
-│  │  RapidOCR │ Template Match │ Board/Shop/Augment Reader   │ │
-│  └─────────────────────────┬───────────────────────────────┘ │
-│  ┌─────────────────────────▼───────────────────────────────┐ │
-│  │                 Game State Engine                        │ │
-│  │  State Tracker │ Economy Tracker │ Pool Tracker          │ │
-│  └─────────────────────────┬───────────────────────────────┘ │
-│  ┌─────────────────────────▼───────────────────────────────┐ │
-│  │       Decision Engine (§3.5)                             │ │
-│  │  ▸ AUGMENT SCORING ENGINE  ← augment_features.json       │ │
-│  │                            ← StatsProvider (§3.4.2)      │ │
-│  │  ▸ Comp Selector │ Economy │ Item │ Position             │ │
-│  │  ▸ LLM Reasoner — TÙY CHỌN, sau hard timeout             │ │
-│  └───────────┬─────────────────────────────┬───────────────┘ │
-│              │                             │                  │
-│  ┌───────────▼──────────────────┐  ┌───────▼───────────────┐ │
-│  │ PyQt6 Overlay — 2 windows    │  │ ScenarioLogger (§12)  │ │
-│  │ + WDA_EXCLUDEFROMCAPTURE     │  │ ghi mọi quyết định →  │ │
-│  │ xếp hạng + LÝ DO từng mục    │  │ dataset đánh giá      │ │
-│  └──────────────────────────────┘  └───────────────────────┘ │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                       TFT Advisory Agent                          │
+├──────────────────────────────────────────────────────────────────┤
+│  Nguồn khung hình (src/capture/)        Knowledge (src/knowledge/)│
+│  ▸ VideoFrameSource — bản record ✅      CDragon · bảng tier ·    │
+│  ▸ chụp WGC theo cửa sổ — CHỈ ở tools/   augment_features.json ·  │
+│    probe, chưa thành FrameSource ⏳       name_index · meta comps  │
+│                 │ Frame                                           │
+│  ┌──────────────▼─────────────────────────────────────────────┐  │
+│  │  LiveSession (src/live/) — LÕI DÙNG CHUNG, không Qt         │  │
+│  │  ▸ RerollButtonReader → screen_present: có màn chọn lõi?    │  │
+│  │  ▸ ngoài màn: HudReader → GameStateTracker;                 │  │
+│  │               HeldAugmentTracker (dải icon lõi đã chọn)     │  │
+│  │  ▸ trong màn: AugmentScreenTracker → CardReader             │  │
+│  │               (Ocr / Gemini / Hybrid) → AugmentChoice       │  │
+│  └──────────────┬─────────────────────────────────────────────┘  │
+│  ┌──────────────▼─────────────────────────────────────────────┐  │
+│  │  Advisor (src/decision/advisor.py) → AdviceBundle           │  │
+│  │  ▸ AugmentAdvisor.rank()          — 5 thành phần (§3.5.4)   │  │
+│  │  ▸ AugmentAdvisor.rank_by_plan()  — theo hướng (§3.5.6)     │  │
+│  │  ▸ reroll_policy (§3.5.5) · Comp · Economy · Item · Position│  │
+│  │  ▸ LLM Reasoner — TÙY CHỌN, sau hard timeout                │  │
+│  └──────┬───────────────────────────────────────┬─────────────┘  │
+│         │ LiveEvent: Idle/Status/AdviceReady/Cleared             │
+│  ┌──────▼───────────────────────────┐  ┌────────▼─────────────┐  │
+│  │ Vỏ replay ✅ run_replay.py +      │  │ ScenarioLogger (§12) │  │
+│  │   src/replay/ (panel + overlay   │  │ schema 3 →           │  │
+│  │   vẽ trên video)                 │  │ data/scenarios/      │  │
+│  │ Panel trong trận ⏳ augment_panel │  └──────────────────────┘  │
+│  │   (chỉ qua scripts/demo_overlay) │                            │
+│  │ Vỏ live trong ván thật ❌ chưa có │                            │
+│  └──────────────────────────────────┘                            │
+└──────────────────────────────────────────────────────────────────┘
 
-        ┌──────────────── OFFLINE, chạy 1 lần mỗi set ────────────────┐
+        ┌──────────────── OFFLINE, chạy 1 lần mỗi patch ──────────────┐
         │ scripts/build_augment_features.py                            │
-        │   254 augment `desc` ──▶ Gemini ──▶ data/augment_features.json│
-        │   (commit vào repo, audit tay được — xem §3.4.1)              │
+        │   258 lõi: tất định → Gemini sửa 4 trường → duyệt tay        │
+        │   ──▶ data/augment_features.json (commit, audit được §3.4.1) │
         └──────────────────────────────────────────────────────────────┘
 ```
 
+> *(lịch sử)* Sơ đồ v3 có các khối **Preflight**, **Session/Phase Detector**, **Template Match**,
+> **Board/Shop Reader**, **Economy Tracker**, **Pool Tracker** và overlay bật
+> `WDA_EXCLUDEFROMCAPTURE`. Không khối nào trong số đó tồn tại trong code: việc "có đang ở màn chọn
+> lõi không" do bộ đọc nút đổi đảm nhận, chưa có bộ đọc bàn cờ/cửa hàng, và capture protection mặc
+> định tắt (§3.6).
+
 ### 2.2 Luồng Dữ Liệu
+
+Luồng thực tế trong `LiveSession.step(frame)` (`src/live/session.py`), giống hệt nhau trên bản record
+và trong trận — hai vỏ chỉ khác nguồn khung hình và cách hiện:
+
+```
+1. Frame (VideoFrameSource khi replay; ~5 lần đọc/giây video, `--analysis-fps`)
+             │
+             ▼
+2. RerollButtonReader (src/vision/reroll_buttons.py) — đọc 3 nút đổi thẻ
+      └── `screen_present` = False → nhánh NGOÀI màn chọn lõi:
+            ├── HudReader (có cổng "HUD có đổi không") → GameStateTracker
+            │     gold / level / xp / xp_needed / hp / stage / streak
+            ├── HeldAugmentTracker.observe → lõi vừa chọn → state.augments
+            └── trả Idle hoặc Cleared (vừa rời màn)
+             │ screen_present = True
+             ▼
+3. AugmentScreenTracker — chờ thẻ ổn định (`stable_frames`), chỉ đọc lại ô vừa đổi
+             │
+             ▼
+4. CardReader (src/live/card_reader.py) — đọc TỪNG Ô: Ocr / Gemini / Hybrid
+      → AugmentChoice(api_names, confidence, slot); không đọc được ô nào → Status
+             │
+             ▼
+5. GameStateTracker.state() + state.augments (HeldAugmentTracker.known)
+             │
+             ▼
+6. Advisor.advise → AdviceBundle
+      ├── ranking  = AugmentAdvisor.rank()          (§3.5.4)
+      ├── plans    = AugmentAdvisor.rank_by_plan()  (§3.5.6, khi plan_fit.enabled)
+      ├── reroll   = advise_reroll()                 (§3.5.5)
+      ├── comp / economy / items / position (mỗi cái được phép hỏng riêng)
+      └── ScenarioLogger ghi data/scenarios/ (§12.0)
+             │
+             ▼
+7. AdviceReady(state, cards, bundle, rerolls, card_icons, latency_ms) → vỏ hiển thị
+```
+
+> *(lịch sử)* Luồng dự kiến của v3, giữ để đối chiếu — bước 0 (Preflight) và bước 2 (Session/Phase
+> Detector) chưa từng được viết; Template Matching cho champion/item/trait cũng chưa có:
 
 ```
 0. Preflight (1 lần khi khởi động)
@@ -204,7 +269,14 @@ overlay được focus → dùng `RegisterHotKey` qua Qt, **không cần hook**.
 
 ## 3. Module Specifications
 
-### 3.0 Preflight (`src/utils/preflight.py`) — **MỚI ở v2**
+### 3.0 Preflight — **chưa có module runtime; phần thăm dò nằm ở `tools/`**
+
+> 🔄 **v4**: `src/utils/preflight.py` **không tồn tại**. Các câu hỏi môi trường dưới đây được trả lời
+> một lần bằng công cụ thăm dò chạy tay — `tools/probe_environment.py` (Q1–Q7 của
+> [phase-0-spike](docs/live-mode/phase-0-spike.md): WGC có chạy, khung có đen, cửa sổ, OS build…) và
+> `tools/probe_quick.py` — ghi kết quả ra `data/live_probe/<timestamp>/` (xem `dev_log.md` §14). Kiểm
+> độ mới dữ liệu chạy trong `src/knowledge/data_freshness.py` (Advisor gắn `stale_data`), không phải
+> trong preflight. Bảng dưới là thiết kế v2 *(lịch sử)*, giữ làm danh sách việc cho vỏ live.
 
 Mọi giả định của v1 về môi trường đều **chưa được kiểm chứng**. Preflight biến chúng thành runtime check
 fail loudly, thay vì để pipeline im lặng trả về rác.
@@ -221,8 +293,14 @@ fail loudly, thay vì để pipeline im lặng trả về rác.
 
 | File | Mô tả |
 |---|---|
-| `screen_capture.py` | **WGC theo cửa sổ game** (`windows-capture`, mặc định) → `dxcam` DXGI desktop-scoped (fallback) → `mss` (fallback cuối) |
-| `region_detector.py` | Auto-detect resolution, tính ROI theo tỉ lệ client rect |
+| `frame_source.py` | Hợp đồng giữa capture và vision: `Frame` (ảnh numpy BGR, `t`, `ref`) + Protocol `FrameSource`. Mọi nguồn khung hình đều trả về `Frame` |
+| `video_source.py` | `VideoFrameSource` — đọc file video qua ffmpeg. **Nguồn duy nhất đang dùng** (replay, eval, gán nhãn) |
+| `regions.py` | `ScreenRegions` — đọc `config/screen_regions.yaml`; ROI lưu **tỉ lệ 0..1**, mỗi vùng có **điểm neo** `stretch` / `left` / `center` / `right` để chạy đúng trên khung khác 16:9 (đo trên record 16:10, 1728×1080) |
+
+> 🔄 **v4**: `screen_capture.py` và `region_detector.py` **không tồn tại**. Chụp WGC theo cửa sổ mới
+> chạy trong `tools/probe_environment.py` (~49,9 fps, không hộp thoại, `dev_log.md` §14), **chưa**
+> được bọc thành một `FrameSource` trong `src/capture/`. Phần dưới đây là quyết định thiết kế cho vỏ
+> live, vẫn còn hiệu lực.
 
 > 🔄 **Đổi quyết định (2026-09-04) — chụp THEO CỬA SỔ, không chụp desktop.** Cờ
 > `capture.window_scoped` trong `settings.yaml`. Hai lý do độc lập cùng chỉ về một hướng:
@@ -247,7 +325,7 @@ fail loudly, thay vì để pipeline im lặng trả về rác.
 **Ứng viên đáng đánh giá**: `windows-capture>=2.0.1` (WGC) capture theo **window** thay vì desktop — nếu
 dùng được thì bài toán overlay tự chụp chính mình biến mất hoàn toàn.
 
-**ROI (Region of Interest)** — toạ độ chuẩn 1920×1080:
+**ROI (Region of Interest)** — toạ độ chuẩn 1920×1080 *(lịch sử — ROI thật ở `config/screen_regions.yaml`, dạng tỉ lệ, xem `src/capture/regions.py`)*:
 
 > ⚠️ **TẤT CẢ toạ độ dưới đây là tạm thời và thuộc thời Set 17 (Hextech engine).**
 > Chúng **không sống sót** qua 2026-08-26. Không hardcode — sinh ra bằng `tools/calibrate.py` (§5).
@@ -269,11 +347,28 @@ dùng được thì bài toán overlay tự chụp chính mình biến mất ho�
 
 | File | Mô tả |
 |---|---|
-| `ocr_engine.py` | **RapidOCR** (PP-OCRv6 — model duy nhất list `vi`) |
-| `template_matcher.py` | OpenCV template matching cho icons |
-| `board_reader.py` | Đọc champion trên board (hex positions) |
-| `shop_reader.py` | Đọc 5 champion cards trong shop |
-| `augment_reader.py` | Đọc augment choices (Gemini Vision primary — §9.3) |
+| `ocr_engine.py` | **RapidOCR** (PP-OCRv6). Đọc chữ số tốt; **không** sinh được phần lớn ký tự tiếng Việt chồng dấu (`dev_log.md` §10) |
+| `preprocess.py` | Tiền xử lý trước OCR (Otsu cho ô số nhỏ, vd `stage`) + đọc đầu ra OCR an toàn |
+| `hud_reader.py` | Đọc HUD: `stage`, `gold`, `level`, `xp` (kèm `xp_needed` từ cùng thanh XP), `hp`, `streak`. Có cổng "thanh HUD có hiện không"; sai khoảng giá trị thì trả `None` kèm lý do, **không** clamp |
+| `player_row.py` | Tìm dòng của người chơi trong bảng 8 người (vòng tròn vàng quanh avatar) để đọc máu đúng người |
+| `reroll_buttons.py` | `RerollButtonReader` — trạng thái 3 nút đổi thẻ → `RerollState`; thuộc tính `screen_present` là **bộ phát hiện màn chọn lõi** của cả hệ thống |
+| `augment_reader.py` | `AugmentReader` — đọc thẻ bằng Gemini Vision (cache aHash), trả `CardRead`. Được bọc bởi `GeminiCardReader` |
+| `held_augments.py` | Đọc **lõi đã chọn** từ dải icon ~37 px ở hướng 10 giờ (x≈511, y≈245 ở 1080p): `find_strip` đếm icon, `classify` so icon mới nhất **chỉ với các lõi vừa chào** (mẫu cắt từ chính thẻ, icon CDragon ở `data/augment_icons/` là dự phòng). `HeldAugmentTracker` → `state.augments`; không chắc thì ghi `None`, không đoán |
+| `frame_reader.py` | Bộ đọc hợp nhất HUD + thẻ + nút đổi cho script/eval; một chân hỏng chỉ ghi vào `degraded` |
+
+Bộ đọc **tên thẻ** dùng trong vòng lặp nằm ở `src/live/card_reader.py` (cùng một giao diện `read_slot`):
+
+| Lớp | Cách đọc |
+|---|---|
+| `OcrCardReader` (`ocr`) | OCR → chuẩn hoá (bỏ dấu) → khớp `data/name_index.json`: chính xác → theo gốc → **gần đúng** `difflib` với ngưỡng chặt `FUZZY_CUTOFF = 0.82`. Chạy cục bộ, không mạng |
+| `GeminiCardReader` (`gemini`) | Bọc `AugmentReader` (Gemini Vision) |
+| `HybridCardReader` (`hybrid`) | OCR trước; chỉ gọi Gemini khi OCR không ra đúng **một** apiName; Gemini lỗi thì giữ kết quả OCR |
+
+Mặc định: `run_replay.py --card-reader` = **`hybrid`**; `src/replay/window.build_session(card_reader=…)` = **`ocr`**.
+
+> 🔄 **v4**: `template_matcher.py`, `board_reader.py`, `shop_reader.py` **không tồn tại** — hệ thống
+> chưa đọc champion, item, bàn cờ hay cửa hàng. Trong `LiveSession`, `state.board` / `bench` / `shop` /
+> `item_components` vì thế luôn rỗng; `active_traits` lấy từ `CardReader.read_traits` (bảng tộc).
 
 **Quy tắc matching bắt buộc** (chi tiết: [`research/vision-stack/ocr.md`](research/vision-stack/ocr.md)):
 
@@ -282,7 +377,7 @@ dùng được thì bài toán overlay tự chụp chính mình biến mất ho�
 | Normalize cả 2 phía | NFD + bỏ Mn + `đ→d`, lowercase, **trước** mọi so sánh |
 | Tách tier token trước | Bỏ hậu tố `I`/`II`/`III`/`+`/`++`, fuzzy match phần **gốc** |
 | Tier tra từ `apiName`/`name` | ⚠️ **ĐẢO so với v2**: icon art dùng lại giữa các tier — **19/254** icon path mâu thuẫn với tên augment. Icon chỉ là fallback. Regex phải bắt cả `_` lẫn `-`: `[-_](i{1,3})\.tex$`. Ladder đầy đủ: [augments](research/vision-stack/augments.md) |
-| Chấp nhận nhập nhằng | **5 cặp augment trùng cả tên lẫn icon** — không phương pháp nào tách được. Hiển thị cả hai, gắn nhãn, **không đoán** |
+| Chấp nhận nhập nhằng | **5 cặp augment trùng tên** (sau chuẩn hoá, trên 258 lõi — `data/name_index.json` `meta.ambiguous_group_counts`, cả EN lẫn VI) — tên không tách được. Hiển thị cả hai, gắn nhãn, **không đoán** |
 | Giới hạn charset | Chỉ nhận ký tự xuất hiện trong tên của set hiện tại |
 
 > ⚠️ **Không copy threshold của prior art.** `jfd02` dùng `SequenceMatcher >= 0.85` cho item. Áp lên
@@ -302,14 +397,17 @@ dùng được thì bài toán overlay tự chụp chính mình biến mất ho�
 
 | File | Mô tả |
 |---|---|
-| `models.py` | Data classes cho game entities |
-| `session_detector.py` | **MỚI v2** — xác định đang in-game / lobby / carousel / alt-tab |
-| `state_tracker.py` | Track state qua thời gian, detect events |
-| `economy.py` | Economy logic & predictions |
-| `pool_tracker.py` | Champion pool tracking |
+| `models.py` | Data classes cho game entities (`GameState`, `Champion`, `OpponentBoard`, `GameEvent`) |
+| `state_tracker.py` | `GameStateTracker` — gộp các lần đọc HUD qua thời gian, giữ giá trị tốt gần nhất (`stale` / `never_seen`), xuất `GameState` |
 
-> **Vì sao `session_detector` là bắt buộc**: v1 không có module nào quyết định "có đang trong trận không".
-> Mọi reader đều ngầm giả định có board sống. Đây là chỗ các project tương tự vỡ đầu tiên.
+> 🔄 **v4**: `session_detector.py`, `economy.py`, `pool_tracker.py` **không tồn tại**. Câu hỏi "có
+> đang ở màn chọn lõi không" do `RerollButtonReader.screen_present` trả lời (§3.2); còn phân biệt
+> lobby / carousel / alt-tab thì chưa có module nào làm. Hai trường `round_phase` và `session_state`
+> vẫn nằm trong `GameState` nhưng **không được gán khi chạy** — luôn là giá trị mặc định
+> (`"planning"`, `"in_game"`). Lõi đã chọn (`augments`) do `HeldAugmentTracker` điền (§3.2).
+>
+> *(lịch sử)* Lý do v2 đặt `session_detector` là bắt buộc — "mọi reader đều ngầm giả định có board
+> sống" — vẫn đúng; trong code nó được giải bằng cổng `screen_present` và cổng "thanh HUD có hiện".
 
 **Core Data Models:**
 ```python
@@ -329,6 +427,7 @@ class GameState:
     level: int
     hp: int
     xp: int
+    xp_needed: int | None            # mẫu số thanh XP ("12/56" → 56); None = chưa đọc được
     stage: str                       # e.g. "3-2"
     streak: int
 
@@ -339,11 +438,11 @@ class GameState:
     item_components: list[str]
     completed_items: list[str]
     active_traits: dict[str, int]
-    augments: list[str]
+    augments: list[str]              # lõi đã chọn — HeldAugmentTracker (dải icon)
 
     timestamp: float
-    round_phase: str                 # "planning", "combat", "carousel", "augment"
-    session_state: str               # "in_game", "lobby", "not_running", "occluded"
+    round_phase: str                 # mặc định "planning" — chưa được gán khi chạy
+    session_state: str               # mặc định "in_game" — chưa được gán khi chạy
 
     # Phase 7, feature-flag `enable_scouting` — MẶC ĐỊNH TẮT
     opponents: list["OpponentBoard"] = field(default_factory=list)
@@ -384,9 +483,17 @@ class GameEvent(Enum):
 | `augment_features.py` | **MỚI v3** — loader cho `data/augment_features.json` (§3.4.1) |
 | `stats_provider.py` | **MỚI v3** — interface stats cắm-rút + các implementation (§3.4.2) |
 | `comp_database.py` | Comp tier list & database |
-| `item_guide.py` | Item combinations & BiS |
-| `roll_odds.py` | Roll probability tables |
+| `roll_odds.py` | Roll probability tables (có gate, xem dưới) |
 | `riot_api.py` | Riot API client — `tft-match-v1`, **chỉ** dùng cho crawl meta comp offline. Back-fill placement đã bỏ (2026-09-30, xem §12.0) |
+| `augment_catalog.py` | Catalog lõi: giải tier, chuẩn hoá tên, đánh dấu cặp mập mờ |
+| `name_index.py` | Tên hiển thị (OCR) → `apiName`, đọc `data/name_index.json` |
+| `data_freshness.py` · `data_refresh.py` | Dữ liệu còn khớp patch không (→ `AdviceBundle.stale_data`) · logic của `scripts/refresh_data.py` |
+| `tftacademy.py` · `metatft.py` | Bảng tier lõi (TFT Academy; MetaTFT dự phòng) |
+| `tftacademy_comps.py` · `metatft_comps.py` · `tactics_tools.py` | Đội hình meta + stats unit/trait/item |
+| `lolchess_guide.py` | Cơ chế game Set 18 (XP, thu nhập, chuỗi, vòng đấu…) → `data/lolchess_guide.json` |
+
+> 🔄 **v4**: `item_guide.py` **không tồn tại**. Công thức ghép đồ nằm ở `data/item_recipes.json`
+> (sinh bởi `scripts/build_game_tables.py` từ CDragon), `Advisor` nạp rồi truyền cho `CompSelector`.
 
 #### 3.4.1 Bảng đặc trưng Augment — **vì sao phải sinh offline**
 
@@ -403,30 +510,48 @@ class GameEvent(Enum):
 > **Kết luận: KHÔNG thể xây scorer bằng rule từ field có cấu trúc của CDragon.** Chỉ 40% augment
 > resolve đủ số. Đặc trưng phải trích từ **văn bản `desc`**.
 
-**Giải pháp — trích đặc trưng offline bằng LLM, cache lại, audit được:**
+> *(lịch sử)* Bảng đo trên là metadata CDragon lúc n = 254 (đầu Set 18). Bảng đặc trưng hiện tại có
+> **258** lõi (`meta.n`): 253 lõi của CDragon 18.5b + 5 lõi CDragon đã bỏ nhưng client live vẫn có, giữ
+> lại qua `data/augment_overrides.json` (xem `docs/next-steps.md`). Cờ `live` cho biết lõi còn trong game.
+
+**Giải pháp — trích đặc trưng offline, ba tầng, cache lại, audit được:**
 
 ```
-scripts/build_augment_features.py   (chạy 1 LẦN mỗi set, không phải mỗi trận)
-  input : 254 × {apiName, name, tier, desc_en}
+scripts/build_augment_features.py   (chạy offline khi set/patch đổi, không phải mỗi trận)
+  input : 258 × {apiName, name, tier, desc_en}  (CDragon + data/augment_overrides.json)
   output: data/augment_features.json   ← COMMIT vào repo, sửa tay được
 
+  Tầng 1 — TẤT ĐỊNH (mặc định, không cần key): luật trên `desc` → mọi trường
+  Tầng 2 — LLM (--llm, Gemini): CHỈ được sửa 4 trường LLM_REFINABLE
+           = carry_type, tempo, econ_value, board_condition; ghi `extraction_method = "llm:…"`
+  Tầng 3 — DUYỆT TAY (scripts/review_augment_features.py → apply_manual_review.py):
+           ghi `extraction_method = "manual-audit:<trường,…> (from <method gốc>)"`;
+           build lại (--write / --migrate) GIỮ các dòng duyệt tay
+  Hiện tại (meta 2026-11-13): manual-audit 169 · llm 67 · deterministic-v2 22
+
   mỗi augment →
+    api_name, name  : định danh
+    tier            : bậc lõi (1/2/3) — xem §9.3
     categories      : 1-3 nhãn ⊂ {econ, combat, trait, item, utility, reroll}, nhãn chính đầu tiên
     category        : = categories[0] (giữ cho chỗ đọc cũ)
     carry_type      : AD | AP | both | none   (carry SÁT THƯƠNG; chống chịu nằm ở frontline)
     frontline       : bool — giá trị chủ yếu là chống chịu (máu, giáp, kháng, khiên, hồi máu)
     trait_affinity  : [trait_id, ...]
-    econ_value      : 0-3
+    trait_count_reward : vertical | wide | null — thưởng theo SỐ tộc, tách khỏi trait_affinity
+    econ_value      : 0-3 (chỉ vàng/XP/reroll; item nằm ở item_grants)
+    econ_type       : ⊂ {gold, xp, reroll} — loại tài nguyên lõi kinh tế cho (dùng ở §3.5.6)
     tempo           : immediate | scaling   (xét TẠI LƯỢT lõi được chào; nhiều lượt → lượt muộn nhất)
     offer_rounds    : ⊂ {2-1, 3-2, 4-2} — lượt lõi được chào; rỗng = chưa biết. Nguồn datatft (máy chủ CN), sửa tay được
     item_grants     : [component, ...]
     board_condition : điều kiện board cần có để augment phát huy
+    live            : true | false | null — còn trong client live; pool reroll chỉ lấy true
+    extraction_method, confidence : xuất xứ của dòng (tầng nào ghi) và độ tin
 ```
 
 | Vì sao thiết kế thế này | |
 |---|---|
 | **LLM không nằm trên critical path** | Runtime chỉ đọc JSON — deterministic, nhanh, không tốn quota |
-| **Audit được** | 254 dòng JSON, người đọc và sửa tay được. Hội đồng kiểm tra được |
+| **Audit được** | 258 dòng JSON, người đọc và sửa tay được; mỗi dòng ghi tầng nào sinh ra nó. Hội đồng kiểm tra được |
 | **Tái sinh mỗi set** | Per-set churn là thứ đã giết mọi TFT overlay open-source. Sinh tự động thì sống |
 | **Là đóng góp phương pháp** | Không phải workaround — đây là cách hợp lệ để cấu trúc hoá dữ liệu phi cấu trúc |
 
@@ -448,7 +573,7 @@ class AugmentStats:
 
 | Implementation | Ghi chú |
 |---|---|
-| `NullProvider` | Base = trung tính. **Cho phép chạy toàn hệ thống trước khi có bất kỳ số liệu nào** |
+| `NullProvider` | Không trả số liệu nào. **Cho phép chạy toàn hệ thống trước khi có bất kỳ số liệu nào**. ⚠️ v4: khi provider trả `None`, `Base` **không** trung tính 0,5 mà nhận `tuning.base.unknown_score` = **0,35** (dưới bậc B) — xem §3.5.4 |
 | `CsvProvider` | Nạp file CSV tự chuẩn bị — mặc định hiện tại |
 | `RiotApiProvider` | ❌ **Bất khả thi cho Set 18** — đo 2026-09-01 với key thật: participant của `tft-match-v1` **không còn trường `augments`**, cả payload không có chuỗi `"augment"` nào. Lớp code vẫn giữ (có test) và sẽ chạy ngay khi Riot trả trường này về. Xem [set-data](research/set-data.md) |
 | `OpggMcpProvider` | `https://mcp-api.op.gg/mcp`. Nhanh nhưng là hộp đen — xem [prior-art](research/prior-art.md) |
@@ -506,7 +631,10 @@ play_rate, core_units, flex_units, core_items, best_augments, level_timing, earl
 | File | Mô tả | Ưu tiên v3 |
 |---|---|---|
 | `augment_advisor.py` | **Xếp hạng đầy đủ theo board state + lý do** (§3.5.4) | **1 — trọng tâm đồ án** |
-| `comp_selector.py` | Comp selection algorithm — cấp dữ liệu cho `BoardFit` | **2** |
+| `scoring/plan_fit.py` | **v4** — `PlanFitScorer`: độ hợp của lõi với MỘT hướng đi (§3.5.6). Không nằm trong `AugmentAdvisor.scorers` | 1 |
+| `reroll_policy.py` | Đổi hay chốt, đổi ô nào (§3.5.5) | 1 |
+| `margin.py` · `state_effect.py` | Vì sao #1 hơn #2 (hiện trên panel) · đo trạng thái trận có đổi được xếp hạng không | — |
+| `comp_selector.py` · `comp_signals.py` | Comp selection algorithm (§3.5.2). ⚠️ v4: **`BoardFit` không đọc `CompSelector`** — `BoardFit` chỉ nhìn `state.active_traits` và carry suy từ item; `CompSelector` chỉ cấp `AdviceBundle.comp` | **2** |
 | `rules_engine.py` | Economy, leveling, rolling | 3 |
 | `item_advisor.py` | Item crafting recommendations | 4 |
 | `position_advisor.py` | Unit positioning | 5 |
@@ -630,7 +758,7 @@ Score(a | S) = w₁·Base(a)        stats tĩnh, từ StatsProvider (§3.4.2)
 
 | Thành phần | Nguồn dữ liệu | Trả về |
 |---|---|---|
-| `Base` | `StatsProvider.get(api_name)` | Điểm chuẩn hoá + `source` + `sample_n`. Không có stats → trung tính |
+| `Base` | `StatsProvider.get(api_name)` | Điểm chuẩn hoá + `source` + `sample_n`. Không có stats (lõi không có trong bảng tier) → **`unknown_score` = 0,35**, *không* phải trung tính 0,5: dưới bậc B (0,37) để phạt rủi ro thiếu thông tin và tạo động cơ đổi thẻ (`tuning.base.unknown_score`) |
 | `BoardFit` | `augment_features.trait_affinity` ∩ `state.active_traits`; `carry_type` suy từ item (fallback: `Champion.role`) vs carry hiện tại | Điểm + *"khớp 2/3 unit Thần Rừng đang có"* |
 | `EconFit` | `augment_features.econ_value` × hệ số theo `state.stage` | Điểm + *"augment econ ở 2-1 còn kịp sinh lời"* |
 | `ItemFit` | `augment_features.item_grants` vs `state.item_components` | Điểm + *"cho 1 Kiếm, đang thiếu đúng Kiếm"* |
@@ -642,7 +770,7 @@ Score(a | S) = w₁·Base(a)        stats tĩnh, từ StatsProvider (§3.4.2)
 - Ablation study (§12.4) tắt từng `wᵢ` → đo đóng góp thật của từng thành phần.
 - Khi 2 augment điểm sát nhau, lý do là thứ giúp người chơi tự quyết.
 
-**Xử lý 5 cặp augment không phân biệt được** (số đo thực tế 5 cặp, xem data/name_index.json; xem [augments](research/vision-stack/augments.md)):
+**Xử lý 5 cặp augment không phân biệt được** (5 nhóm trùng tên sau chuẩn hoá trên 258 lõi, cả EN lẫn VI — `data/name_index.json` `meta.ambiguous_group_counts`; xem [augments](research/vision-stack/augments.md)):
 khi nhận diện ra một cặp mập mờ → **chấm điểm và hiển thị CẢ HAI, gắn nhãn "không phân biệt được"**,
 tuyệt đối không đoán bừa một tier. Đây là giới hạn dữ liệu có thật, phải báo cáo trong đồ án chứ
 không giấu đi.
@@ -674,9 +802,14 @@ Ba kết quả chứng minh được, đều bị khoá bằng test:
 **Ràng buộc kiến trúc:**
 
 - `rank()` và `score_one()` **không đổi**. Module này chỉ **cộng thêm**.
+- 🔄 **v4 — pool của `F_S`**: `reroll_policy.pool_by_offer_round: true` (mặc định từ 2026-10-06) —
+  pool là lõi **cùng bậc VÀ được chào ở lượt hiện tại** (2-1 / 3-2 / 4-2, trường `offer_rounds`), chỉ
+  lấy lõi `live: true`. Pool theo lượt nhỏ hơn `min_round_pool` (12) thì lùi về pool cùng bậc.
+  `false` = pool "mọi lõi cùng bậc" như trước, giữ làm nhánh đối chứng ablation
+  ([offer-round-pool](docs/augment-reroll/offer-round-pool.md)).
 - `F_S` là hàm phân bố thực nghiệm **có trọng số tailoring** của cả một bậc, dựng **một lần**
   mỗi màn chọn (đo được: 2,18 ms p95 cho bậc lớn nhất), sau đó mỗi quyết định là `O(log N)`.
-  **Không bao giờ chấm cả 254 augment** — đó là 12,24 ms p95, vỡ ngân sách §3.5.3.
+  **Không bao giờ chấm cả bảng lõi** — đo lúc bảng có 254 lõi: 12,24 ms p95, vỡ ngân sách §3.5.3.
 - Số lượt đổi còn lại **không hiển thị trên màn hình**, nên `RerollState` là tham số truyền vào.
 - Mức độ tin cậy của số liệu **KHÔNG chặn hành động**: `B` và `F_S` cùng sinh từ một hàm điểm nên
   phép so sánh bất biến qua mọi hiệu chỉnh đơn điệu. Trường `evidence` hạ giọng *câu chữ*, không
@@ -685,16 +818,70 @@ Ba kết quả chứng minh được, đều bị khoá bằng test:
 > Tham số nằm ở khối `reroll_policy:` trong `config/scoring_weights.yaml`, cùng lý do với `w₁..w₅`.
 > Phân tích đầy đủ + trạng thái kiểm chứng cơ chế: [docs/augment-reroll/](docs/augment-reroll/overview.md).
 
+#### 3.5.6 Gợi ý theo hướng (`src/decision/scoring/plan_fit.py`) — **MỚI v4**
+
+Đóng góp #3 (directional augment). Hệ thống **không đoán** người chơi đi hướng nào — chưa có bộ đọc
+bàn cờ, và ở 4-2 fast8 với fast9 trông giống hệt nhau trên HUD. Thay vào đó, **từ 2-1**, mỗi màn chọn
+lõi được chấm **một lần cho mỗi hướng**, và người chơi tự chọn dòng của mình.
+
+```
+Score(a | φ) = Score(a | S) + w · (plan_fit(a, φ) − 0,5)        w = tuning.plan_fit.weight = 0,15
+```
+
+`Score(a | S)` là tổng của `rank()` (§3.5.4). Cộng **độ lệch khỏi trung tính** thay vì thêm một trọng
+số mới: hướng không có ý kiến (0,5) thì thứ tự y như `rank()`.
+
+| Thành phần | Nội dung |
+|---|---|
+| Hướng (`config/scoring_weights.yaml` → `tuning.plan_fit.plans`) | `fast9` "Muốn lên 9" · `fast8` "Mạnh ngay, chơi ở 8" (gồm route `standard`) · `reroll` (reroll1/2/3) · `cash` "Thiếu tiền lên cấp". Mỗi hướng có `eco`, `power`, `econ_type` (gold/xp/reroll), tuỳ chọn `min_hp`, `by_stage`. Thêm hướng = thêm một khối config, không sửa code |
+| Loại lõi | eco = `econ_value > 0` hoặc có nhãn `econ`/`reroll`; power = có `combat`/`item`/`trait`. Loại lõi **trực giao** với hướng |
+| `plan_fit` | 0,5 + `eco` × sức mạnh (`max(econ_value,1)/3`) + tổng `econ_type` của hướng × sức mạnh + `power` + phần cân bằng, kẹp [0, 1] |
+| Cân bằng **hai chiều** theo lõi đã cầm (`state.augments`) | `debt` = số lõi chỉ-eco − số lõi chỉ-combat đã cầm. Lệch eco → lõi chỉ-combat được + `debt_bonus` × lệch; lệch combat → lõi chỉ-eco được cộng tương tự (`debt_bonus` = 0,05) |
+| `by_stage` | Một hướng đổi trọng số từ một stage. `reroll` từ stage 4: eco −0,10, power +0,20 (bài reroll đã roll xong) |
+| Cảnh báo máu | `hp < min_hp` (fast9: 40) → dòng kèm cảnh báo, **không đổi điểm** |
+| Gộp dòng | Các hướng ra cùng một lõi gộp thành một `PlanLine` ("Muốn lên 9 / Thiếu tiền lên cấp → …") |
+| Bật/tắt | `tuning.plan_fit.enabled: true` (từ 2026-11-14). `Advisor.advise` gọi `rank_by_plan()` qua `_safe` → `AdviceBundle.plans` (`PlanAdvice`); hỏng thì bảng xếp hạng vẫn hiện |
+
+**Ràng buộc kiến trúc:** `PlanFitScorer` **không** nằm trong `AugmentAdvisor.scorers` và **không**
+nằm trong `weights`. `rank()` và `score_one()` không đổi một byte — đó chính là dòng đối chứng
+(tắt) của phép đo. Mọi số trong `tuning.plan_fit` là **giả định tiên nghiệm** từ luật của người chơi,
+chưa fit trên dữ liệu.
+
+> Kết quả trên dev (5 ván, 15 màn, **số trong mẫu**, chỉ để chỉnh): top-1 khớp lựa chọn người chơi,
+> tắt 6/15 → bật 9/15 (`scripts/eval_plan_advice.py`). Số báo cáo lấy từ held-out (video 18.6).
+> Thiết kế: [plan-conditioned-advice](docs/directional-augment/plan-conditioned-advice.md) ·
+> kế hoạch: [implementation-plan](docs/directional-augment/implementation-plan.md) · nhật ký:
+> [`dev_log.md`](dev_log.md) §16–§18. Còn mở: bảng combo lõi (việc B).
+
 ### 3.6 Overlay UI (`src/overlay/`)
 
 | File | Mô tả |
 |---|---|
-| `overlay_window.py` | **2 cửa sổ**: một click-through, một nhận click |
-| `widgets/advice_panel.py` | Primary action recommendation |
-| `widgets/comp_tracker.py` | Target comp progress |
-| `widgets/econ_widget.py` | Economy dashboard |
-| `widgets/item_widget.py` | Item crafting guide |
+| `overlay_window.py` | **2 cửa sổ**: một click-through, một nhận click (`create_windows(capture_protection=False)`) |
+| `widgets/augment_panel.py` | Panel trong trận: xếp hạng lõi **kèm lý do** + khuyến nghị đổi thẻ + **các dòng theo hướng** (`build_plan_rows`, viên màu theo hướng, cảnh báo máu). Nền kính tối, cùng bảng màu `arena` với replay. `build_rows()` tách khỏi Qt để test |
 | `styles.py` | UI theme & styling |
+
+> 🔄 **v4**: `widgets/advice_panel.py`, `comp_tracker.py`, `econ_widget.py`, `item_widget.py`
+> **không tồn tại**; `augment_panel.py` là widget duy nhất. Panel này **mới chạy qua
+> `scripts/demo_overlay.py`** (các tình huống dựng sẵn, phím `1`/`2`/`3`/`Esc`), **chưa** được nối vào
+> một vòng lặp đọc game thật — vỏ live trong ván thật chưa có (§2.1).
+
+**Vỏ replay (`run_replay.py` + `src/replay/`) — vỏ duy nhất đang chạy trên dữ liệu thật**
+
+`python run_replay.py --video <file> [--card-reader ocr|gemini|hybrid] [--palette arena] [--patch auto]`.
+Phát lại bản record, chạy **cùng `LiveSession`** với vỏ live tương lai (`build_session`), nên hành vi
+trên record bằng hành vi trong trận. Chỉ đọc file video — không chạy cùng game.
+
+| File | Vai trò |
+|---|---|
+| `window.py` | `ReplayWindow` + `build_session()`: dựng `LiveSession` (card reader, `HudReader`, `RerollButtonReader`, `Advisor`, `HeldAugmentTracker` luôn bật) |
+| `worker.py` · `scan.py` | Chạy session ngoài luồng UI · quét trước video để tìm các màn chọn lõi (mốc tua) |
+| `viewmodel.py` | `LiveEvent` → view model (`SlotVM`, `VerdictVM`, `StripVM`, `PlanLineVM`) — không Qt |
+| `widgets.py` | Dải trạng thái (VÒNG / CẤP / VÀNG / MÁU / CHUỖI / ĐỔI THẺ + hàng lõi đã cầm), thẻ kết luận, cột từng ô, khối **THEO HƯỚNG ĐI** (`PlanPanel`) |
+| `overlay.py` | Vẽ đè lên khung video: huy hiệu từng ô, viên hướng neo dưới ô chữ của thẻ được chọn cho hướng đó |
+| `theme.py` · `icons.py` | Bảng màu (mặc định **`arena`**; màu hướng cố định qua mọi bảng màu) + font **Chakra Petch** (tiêu đề, số) và **Be Vietnam Pro** (chữ thân), đóng gói ở `assets/fonts/` (OFL), nạp bằng `load_fonts()` · icon lõi: CDragon (`data/augment_icons/`) → icon cắt từ thẻ → chữ cái |
+
+Ảnh và chi tiết UI: [`dev_log.md`](dev_log.md) §18.
 
 > ❌ **Bỏ `widgets/minimap_widget.py`** — nó tồn tại để hiển thị scouting info. Riot cấm (§11).
 > Ngoài ra minimap đã bị **deprecated** trong bản Unreal.
@@ -736,7 +923,12 @@ SetProcessDpiAwareness(2)   # TRƯỚC khi khởi tạo QApplication
 > **Hai cửa sổ, ngay từ đầu**: `WS_EX_TRANSPARENT` là all-or-nothing — một cửa sổ không thể vừa
 > click-through vừa có widget bấm được. Retrofit sau rất đau.
 
-**Hotkey Controls:**
+**Hotkey Controls** *(thiết kế — chưa gắn)*:
+
+> 🔄 **v4**: các phím F1–F4 / Ctrl+Q dưới đây **chưa được gắn vào vỏ nào**. `src/utils/hotkeys.py`
+> (`RegisterHotKey`, §1.3) đã có và có test, nhưng chưa vỏ nào dùng. Vỏ replay chỉ có phím cục bộ
+> của cửa sổ Qt (vd `F3` = "Đọc lại thẻ", gọi `LiveSession.force_refresh()`), không phải hotkey toàn cục.
+
 | Hotkey | Action |
 |---|---|
 | `F1` | Toggle overlay visibility |
@@ -768,108 +960,90 @@ SetProcessDpiAwareness(2)   # TRƯỚC khi khởi tạo QApplication
 
 ## 5. Cấu Trúc Thư Mục
 
+> 🔄 **v4**: cây dưới đây liệt kê theo `git ls-files` tại `84ccbb3` (rút gọn; bỏ `__init__.py`,
+> `__pycache__`). Cây dự kiến của v3 có `src/main.py`, `utils/preflight.py`, `capture/screen_capture.py`,
+> `vision/{template_matcher,board_reader,shop_reader}.py`, `game_state/{session_detector,economy,pool_tracker}.py`,
+> `knowledge/item_guide.py`, `overlay/widgets/{advice_panel,comp_tracker,econ_widget,item_widget}.py`,
+> `scripts/sync_assets.py` — **không file nào trong số đó tồn tại**.
+
 ```
-tft_agent/
-├── SPEC.md                      # ← file này
-├── README.md
-├── requirements.txt
-├── .gitignore
+TFT_Agent/
+├── SPEC.md · README.md · dev_log.md · requirements.txt · .env.example
+├── run_replay.py                # vỏ replay — entry point duy nhất ở gốc repo (§3.6)
 │
-├── research/                    # ← MỚI v2: báo cáo research
-│   ├── overview.md
-│   ├── vanguard-risk.md
-│   ├── set-data.md
-│   ├── vision-stack/
-│   │   ├── overview.md
-│   │   ├── ocr.md
-│   │   └── augments.md          # ← MỚI v2.1
-│   ├── prior-art.md
-│   └── open-questions.md
+├── research/                    # báo cáo research — mục lục: research/overview.md
+├── docs/                        # thiết kế chi tiết; kế hoạch hiện hành: docs/next-steps.md
+│   ├── directional-augment/     # §3.5.6 — plan-conditioned-advice.md, implementation-plan.md
+│   ├── augment-reroll/ · offer-rounds/ · expert-prior/ · category-multilabel/
+│   └── live-mode/ · playtest-fixes/ · vision/
+├── reports/                     # augment-classification.{html,json}
 │
 ├── config/
-│   ├── settings.yaml            # có flag enable_scouting (mặc định false)
-│   ├── scoring_weights.yaml     # ← MỚI v3: w₁..w₅ cho §3.5.4 (ablation đọc file này)
-│   ├── screen_regions.yaml      # SINH RA bởi tools/calibrate.py — không sửa tay
-│   └── set_data/
-│       └── current_set.json
+│   ├── settings.yaml            # đường dẫn dữ liệu, enable_scouting (mặc định false), capture.*
+│   ├── scoring_weights.yaml     # weights w₁..w₅ + tuning (gồm tuning.plan_fit) + comp_selector + reroll_policy
+│   ├── data_sources.yaml
+│   └── screen_regions*.yaml     # ROI tỉ lệ + anchor; bản theo video được commit, bản chính bị gitignore
 │
-├── tools/                       # ← MỚI v2
-│   └── calibrate.py             # Chụp frame, khoanh ROI, ghi screen_regions.yaml
+├── tools/                       # chạy tay, không nằm trong vòng lặp
+│   ├── calibrate.py · build_frame_labels.py · bench_hud_latency.py · ui_prototype.py
+│   └── probe_environment.py · probe_quick.py    # thăm dò máy game, chụp WGC (§3.0, §3.1)
 │
 ├── scripts/
-│   ├── sync_assets.py           # Regenerate icon templates từ CommunityDragon
-│   └── build_augment_features.py # ← MỚI v3: sinh augment_features.json (§3.4.1)
+│   ├── build_augment_features.py · review_augment_features.{py,html} · apply_manual_review.py  # §3.4.1
+│   ├── build_name_index.py · build_game_tables.py · fetch_locale.py · fetch_augment_icons.py
+│   ├── crawl_*.py · import_augment_tiers.py · refresh_data.py · build_mock_*.py
+│   ├── eval_playtest.py · eval_held_augments.py · eval_plan_advice.py · run_evaluation.py   # §12
+│   ├── draft_playtest_labels.py · review_playtest_labels.{py,html} · directional_baseline.py
+│   ├── scan_vod.py · qualify_vod.py · extract_frames.py · evaluate_recognition.py
+│   ├── advise_from_frame.py · read_reroll_buttons.py · build_reroll_template.py · demo_overlay.py
+│   └── state_effect_report.py · reason_quality_report.py · measure_offer_round_pool.py · compare_metatft_tags.py
 │
 ├── src/
-│   ├── main.py
-│   ├── capture/
-│   │   ├── screen_capture.py
-│   │   └── region_detector.py
-│   ├── vision/
-│   │   ├── ocr_engine.py
-│   │   ├── template_matcher.py
-│   │   ├── board_reader.py
-│   │   ├── shop_reader.py
-│   │   └── augment_reader.py
-│   ├── game_state/
-│   │   ├── models.py
-│   │   ├── session_detector.py  # ← MỚI v2
-│   │   ├── state_tracker.py
-│   │   ├── economy.py
-│   │   └── pool_tracker.py
-│   ├── knowledge/
-│   │   ├── cdragon_client.py
-│   │   ├── augment_features.py  # ← MỚI v3: loader bảng đặc trưng (§3.4.1)
-│   │   ├── stats_provider.py    # ← MỚI v3: Protocol + Null/Csv/RiotApi/Opgg/Composite
-│   │   ├── comp_database.py
-│   │   ├── item_guide.py
-│   │   ├── roll_odds.py
-│   │   └── riot_api.py
+│   ├── capture/                 # frame_source.py · video_source.py · regions.py (§3.1)
+│   ├── vision/                  # ocr_engine · preprocess · hud_reader · player_row · reroll_buttons
+│   │                            # augment_reader · held_augments · frame_reader (§3.2)
+│   ├── live/                    # session.py (LiveSession) · events.py · card_reader.py · screen_tracker.py
+│   ├── replay/                  # window · worker · scan · viewmodel · widgets · overlay · theme · icons (§3.6)
+│   ├── game_state/              # models.py · state_tracker.py (§3.3)
+│   ├── knowledge/               # cdragon_client · augment_catalog · augment_features · name_index
+│   │                            # stats_provider · comp_database · roll_odds · riot_api · data_freshness
+│   │                            # data_refresh · tftacademy(_comps) · metatft(_comps) · tactics_tools · lolchess_guide
 │   ├── decision/
-│   │   ├── advisor.py
-│   │   ├── augment_advisor.py   # ← ƯU TIÊN 1 (§3.5.4)
-│   │   ├── scoring/             # ← MỚI v3: 5 thành phần điểm, mỗi cái trả (score, reason)
-│   │   │   ├── base.py · board_fit.py · econ_fit.py
-│   │   │   └── item_fit.py · tempo_fit.py
-│   │   ├── comp_selector.py
-│   │   ├── rules_engine.py
-│   │   ├── item_advisor.py
-│   │   ├── position_advisor.py
-│   │   ├── contest_analyzer.py  # ← MỚI v3, Phase 7, feature-flag
-│   │   └── llm_reasoner.py
-│   ├── eval/                    # ← MỚI v3 (§12)
-│   │   ├── scenario_logger.py   # Ghi mọi quyết định — SHIP Ở PHASE 3, không phải cuối
-│   │   ├── recognition.py       # §12.1 precision/recall/F1 + latency
-│   │   ├── correlation.py       # §12.2 Spearman vs placement
-│   │   ├── expert_study.py      # §12.3 export scenario + tính Cohen's κ
-│   │   └── ablation.py          # §12.4 tắt từng wᵢ, đo delta
-│   ├── overlay/
-│   │   ├── overlay_window.py
-│   │   ├── widgets/             # + widgets/augment_panel.py (xếp hạng + lý do)
-│   │   └── styles.py
-│   └── utils/
-│       ├── preflight.py
-│       ├── logger.py · hotkeys.py · performance.py
+│   │   ├── advisor.py · augment_advisor.py · reroll_policy.py · margin.py · state_effect.py
+│   │   ├── comp_selector.py · comp_signals.py · rules_engine.py · item_advisor.py
+│   │   ├── position_advisor.py · contest_analyzer.py · llm_reasoner.py
+│   │   └── scoring/             # types · base · board_fit · econ_fit · item_fit · tempo_fit · plan_fit
+│   ├── eval/                    # scenario_logger · recognition · correlation · expert_study · ablation
+│   │                            # reroll_ablation · dataset_split · playtest_{labels,metrics,draft,review} · metatft_tags
+│   ├── overlay/                 # overlay_window.py · styles.py · widgets/augment_panel.py
+│   └── utils/                   # env.py · settings.py · hotkeys.py
 │
-├── assets/                      # SINH RA bởi scripts/sync_assets.py
-│   ├── champions/ · items/ · traits/ · ui_elements/
+├── assets/fonts/                # Chakra Petch + Be Vietnam Pro (OFL) — font của replay/panel
 │
 ├── data/
-│   ├── augment_features.json    # ← MỚI v3: COMMIT vào repo, audit tay được
-│   ├── augment_stats.csv        # ← nguồn cho CsvProvider (sẽ chốt sau)
-│   ├── meta_cache/ · game_logs/
-│   └── scenarios/               # ← MỚI v3: dataset đánh giá do ScenarioLogger sinh
+│   ├── augment_features.json    # 258 lõi, COMMIT, audit tay được (§3.4.1)
+│   ├── augment_icons/           # icon CDragon (172 file) — mẫu dự phòng cho held_augments + icon replay
+│   ├── augment_overrides.json · augment_tier_overrides.json · augment_tiers*.json · augment_rounds.datatft.json
+│   ├── name_index.json · item_recipes.json · champion_costs.json · lolchess_guide.json
+│   ├── meta_comps*.json · tactics_tools_stats.json · augment_stats.csv (MOCK) · patch_state.json
+│   ├── patches/<patch>/         # dữ liệu theo patch để chấm video bằng đúng patch của nó
+│   ├── templates/               # reroll_glyph.{png,json} cho reroll_buttons
+│   ├── eval/                    # split.json · playtest/*.json (nhãn) · nhãn duyệt lõi · runs/ (gitignore)
+│   ├── live_probe/ · vod_index/ · cdragon_cache/ (gitignore)
+│   └── scenarios/               # dataset do ScenarioLogger sinh (§12.0) — gitignore
 │
-└── tests/
-    ├── test_capture.py · test_vision.py · test_game_state.py
-    ├── test_decision.py · test_scoring.py
-    ├── test_readonly_invariant.py   # ← MỚI v3: thi hành §1.3 bằng test (§11)
-    └── test_data/
+└── tests/                       # test_*.py (gồm test_readonly_invariant.py — §1.3, §11.4) + fixtures/
 ```
 
 > **Nguyên tắc**: `config/screen_regions.yaml` và `assets/` đều là **sản phẩm sinh ra**, không phải
 > nguồn. Per-set churn là thứ đã giết mọi TFT overlay open-source trước đây — asset curate tay đảm bảo
 > chết theo cách y hệt.
+>
+> 🔄 **v4**: nguyên tắc vẫn giữ, nhưng chỗ áp dụng đã đổi. `assets/` giờ chỉ chứa font (commit kèm giấy
+> phép OFL); dữ liệu sinh ra theo set/patch nằm ở `data/` (`augment_icons/` do
+> `scripts/fetch_augment_icons.py` sinh, `name_index.json`, `item_recipes.json`, `augment_features.json`…)
+> và được sinh lại bằng script (riêng bảng đặc trưng có tầng duyệt tay, được giữ lại qua mỗi lần sinh
+> lại — §3.4.1). `scripts/sync_assets.py` không tồn tại.
 
 ---
 
@@ -913,6 +1087,11 @@ pywin32>=306
 ---
 
 ## 7. Kế Hoạch Phát Triển
+
+> 📌 **v4 — mục này là LỊCH SỬ.** Kế hoạch hiện hành (trạng thái, việc tiếp theo, hạn) nằm ở
+> [`docs/next-steps.md`](docs/next-steps.md); kế hoạch directional augment ở
+> [implementation-plan](docs/directional-augment/implementation-plan.md). Các ô đánh dấu dưới đây
+> không được cập nhật thêm.
 
 > ⏱️ **Số tuần là ước lượng, thứ tự mới là thứ quan trọng.** Thứ tự dưới đây được sắp theo **phụ
 > thuộc**: không có bước nào cần kết quả của bước sau nó.
@@ -1095,7 +1274,7 @@ response = client.models.generate_content(
 |---|---|---|
 | Champion / Item / Trait recognition | Template matching (icon) | ❌ Không |
 | Gold / HP / Level / Stage | OCR allowlist `0123456789-` | ❌ Không |
-| Augment recognition | Gemini Vision (§9.3) | ⚠️ Có — đã xử lý |
+| Augment recognition | OCR + khớp tên bỏ dấu; Gemini cho ô OCR không chắc (§9.3) | ⚠️ Có — đã xử lý |
 
 > ✅ **Rủi ro dấu tiếng Việt đã được ĐO và BÁC BỎ.** Re-verify 2026-08-28 trên `/latest/`: bỏ
 > **toàn bộ** dấu (NFD + Mn + `đ→d`) vẫn cho **0 collision** trên 36 traits và 249 augment names.
@@ -1105,7 +1284,25 @@ response = client.models.generate_content(
 > augment chỉ còn **249** tên VI duy nhất (EN: 250) — tiếng Việt **tệ hơn** EN một chút.
 > Xem [augments](research/vision-stack/augments.md).
 
-### 9.3 Augment Recognition — Gemini Vision là PRIMARY
+### 9.3 Augment Recognition — OCR + khớp danh mục trước, Gemini cho ô không chắc
+
+> 🔄 **v4 — Gemini KHÔNG còn là primary.** Đọc tên thẻ giờ là `src/live/card_reader.py` (§3.2):
+>
+> | Bằng chứng | Số đo |
+> |---|---|
+> | OCR **không** sinh được ký tự chồng dấu (`dev_log.md` §10) | Vẫn đúng: 33/35 ký tự thiếu trong charset PP-OCRv6 |
+> | Nhưng OCR **không cần** đọc đúng dấu: chuẩn hoá bỏ dấu cả hai phía rồi khớp `data/name_index.json` (chính xác → theo gốc → gần đúng `difflib`, ngưỡng **0,82**) | — |
+> | `LiveSession` + `OcrCardReader`, 2 ván / 33 ô có nhãn (2026-09-18) | `card_acc` **1,00**, `wrong_silent` 0 ([eval-dataset](docs/playtest-fixes/eval-dataset.md)) |
+> | OCR + khớp danh mục trên 111 thẻ development (2026-11-07, docstring `HybridCardReader`) | đúng 107, **sai 0**, ~15 ms/dòng |
+> | Gemini trên 6 ván dev (`dev_log.md` §15) | trung vị 2,2 s, p90 2,9 s; khoá free hay dính 503/429 |
+>
+> Vì vậy: replay mặc định **`hybrid`** (OCR trước, chỉ gọi Gemini khi OCR không ra đúng một
+> `apiName`, Gemini lỗi thì giữ OCR); `build_session` mặc định `ocr` (không mạng). Dòng `Fallback` bên
+> dưới ("không dùng RapidOCR đoán bừa") là kết luận cũ khi OCR còn đọc tên thô, **trước** khi có bước
+> khớp danh mục.
+>
+> *(lịch sử)* Phần dưới là thiết kế v3. Ladder tier, luật cặp mập mờ và ranh giới trách nhiệm
+> recognizer/scorer vẫn còn hiệu lực.
 
 > 🔄 **Đổi so với v1**: Approach A (Gemini Vision) từ fallback lên **primary**.
 
@@ -1249,9 +1446,25 @@ tình huống đó — nghiên cứu đó vẫn đúng, chỉ là hiện không 
 > ⚠️ **Phụ thuộc quan trọng**: §12.2, §12.3, §12.4 dùng **chung một dataset** do
 > `eval/scenario_logger.py` sinh ra. Vì thế logger **phải ship ở Phase 3**, không phải Phase cuối.
 
+> 🔄 **v4 — thước đo đang dùng thực tế.** Bốn phương pháp dưới đây vẫn là khung của chương kết quả,
+> nhưng số đang được đo hằng ngày đến từ các script chạy trên **nhãn playtest đã duyệt**
+> (`data/eval/playtest/*.json`, chia dev/held-out cố định ở `data/eval/split.json`; mỗi video chấm
+> bằng dữ liệu patch của chính nó):
+>
+> | Script | Đo gì | Chỉ số |
+> |---|---|---|
+> | `scripts/eval_playtest.py` | Cả vòng đọc (`--mode session` = `LiveSession`) so với nhãn | `card_acc`, `wrong_silent`, `missing`, `reroll_recall`, `hud_acc[gold/level/xp/xp_needed/hp/streak]`, latency p95 |
+> | `scripts/eval_held_augments.py` | Bộ đọc dải icon lõi đã chọn (ứng viên lấy từ nhãn) | đúng / chưa rõ / sai so với `picked` |
+> | `scripts/eval_plan_advice.py` | Gợi ý theo hướng (§3.5.6) | top-1 khớp `picked`: tắt (`rank()`) vs bật (dòng của `plan.route`) |
+>
+> `picked` là lựa chọn của **một** người chơi → đây là độ khớp với chuyên gia, không phải độ chính xác.
+> Dev chỉ để chỉnh; số báo cáo lấy từ held-out (video 18.6).
+
 ### 12.0 ScenarioLogger — nền của ba phương pháp sau
 
-Mỗi lần màn hình chọn augment xuất hiện, ghi 1 file JSON vào `data/scenarios/`:
+Mỗi lần màn hình chọn augment xuất hiện, ghi 1 file JSON vào `data/scenarios/` (hiện là
+**`schema_version` 3**: schema 2 thêm `game_id`, schema 3 thêm khuyến nghị đổi thẻ của §3.5.5; file
+schema cũ vẫn đọc được — xem `src/eval/scenario_logger.py`). Ví dụ rút gọn:
 
 ```json
 {
@@ -1293,6 +1506,11 @@ Mỗi lần màn hình chọn augment xuất hiện, ghi 1 file JSON vào `data/
 | Latency | p50 / p95, đo **khi game đang chạy** — không đo trên máy rảnh |
 | Ghi chú | Báo cáo riêng độ chính xác trên 5 cặp mập mờ; đây là **giới hạn dữ liệu**, không phải lỗi model |
 
+> 🔄 **v4**: hệ thống **chưa có bộ đọc champion / item** (§3.2), nên mục tiêu P/R/F1 cho champion và
+> item **chưa áp dụng**. Phần đo được hiện nay: thẻ lõi (`card_acc`, `wrong_silent`), HUD (`hud_acc`),
+> nút đổi (`reroll_recall`), lõi đã chọn (`eval_held_augments.py`) — trên nhãn playtest, không phải
+> bộ 200–500 frame. `src/eval/recognition.py` (P/R/F1 + latency) vẫn có và dùng được khi có nhãn frame.
+
 ### 12.2 Tương quan với kết quả thật
 
 Trên N trận đã log: tính **Spearman ρ** giữa *thứ hạng advisor gán cho augment người chơi đã chọn* và
@@ -1331,6 +1549,12 @@ delta ở §12.2 và §12.3.
 | `w₄ = 0` (bỏ ItemFit) | — |
 | `w₅ = 0` (bỏ TempoFit) | — |
 | **Chỉ `w₁`** (chỉ stats tĩnh) | **Quan trọng nhất** — chứng minh v3 thực sự hơn v2 |
+
+> 🔄 **v4**: `src/eval/ablation.py` chấm lại bằng `rank()` và **chưa có trục `plan_fit`** — gợi ý
+> theo hướng nằm ngoài `weights` (§3.5.6). Bật/tắt theo hướng hiện được đo riêng bằng
+> `scripts/eval_plan_advice.py` (cờ `tuning.plan_fit.enabled`). Ngoài các `wᵢ`, config còn các trục
+> ablation khác: `comp_selector.adaptive`, `reroll_policy.pool_by_offer_round`, `tailoring_beta`,
+> `ordinal_trust` (`src/eval/reroll_ablation.py` cho §3.5.5).
 
 > Dòng cuối chính là câu trả lời định lượng cho câu hỏi "vì sao phải làm advisor động thay vì bảng
 > stats tĩnh". Nếu delta ≈ 0 thì đó cũng là **một kết quả nghiên cứu hợp lệ** và phải báo cáo trung

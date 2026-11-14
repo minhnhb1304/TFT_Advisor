@@ -59,7 +59,7 @@ def power_only(feature: AugmentFeature) -> bool:
 
 @dataclass(frozen=True)
 class PlanProfile:
-    """Mot huong di va cach no dinh gia augment. Doc tu `plan_advice.plans`."""
+    """Mot huong di va cach no dinh gia augment. Doc tu `tuning.plan_fit.plans`."""
 
     key: str
     label: str
@@ -111,7 +111,7 @@ class PlanProfile:
 
 @dataclass(frozen=True)
 class PlanSettings:
-    """Khoi `plan_advice` trong scoring_weights.yaml."""
+    """Khoi `tuning.plan_fit` trong scoring_weights.yaml."""
 
     enabled: bool = False
     weight: float = DEFAULT_WEIGHT
