@@ -707,6 +707,18 @@ Trước bản này, `LiveSession` coi "ẩn quá `grace_s` = 30 s" là đã r�
 
 Bộ ghi giờ **luôn quan sát** dải khi còn một lần chọn đang chờ, kể cả sau khi màn đã đóng vì stage đổi, để không mất icon hiện muộn. Đọc lõi đã chọn trên dev vẫn 15/15 (dev không có ván nào chọn Vận Mệnh). Test 1136 → 1139.
 
+### 21. Vỏ live dùng bộ đọc hybrid; đo thật indra-ocr và Chandra thay cho kết luận trên giấy
+
+2026-11-14.
+
+**`run_live.py` mặc định `--card-reader hybrid`**, giống replay (`f369e00`). Lý do: chạy thử ở chế độ OCR trên `minh_06` 4-2 thì sót thẻ "Là Ta Đây". Theo lần đo 2026-11-07, OCR cộng khớp danh mục đọc đúng 107/111 thẻ development, sai 0, sót 4. Hybrid gọi Gemini cho đúng những ô OCR không chắc. Máy không có khoá Gemini vẫn chạy được: lỗi gọi Gemini bị bắt và kết quả OCR được giữ lại (`test_gemini_error_keeps_ocr_result`).
+
+**Chandra và indra-ocr chưa từng được đo.** Báo cáo `research/261107-chandra-modal.md` kết luận "không nên", nhưng chỉ dựa trên tài liệu: bảng điểm tiếng Việt của Datalab đo trên trang tài liệu, các issue GitHub, giá Modal. Chính báo cáo ghi "chưa chạy thử", và còn ghi indra-ocr là "đáng thử". Sau đó kết luận này bị nhắc lại như một quyết định loại. Người chơi chỉ ra điều này. Đang làm:
+- dựng `scripts/bench_card_titles.py`, chạy RapidOCR, indra-ocr (ONNX, CPU) và chandra-ocr-2 (transformers, CPU, môi trường riêng `.venv-bench`) trên cùng các thẻ development, dùng chung hàm khớp tên;
+- ghi kết quả vào `research/261115-ocr-bench.md`.
+
+Máy đo có Ryzen 9 8945H, 28 GB RAM, không có GPU NVIDIA, nên độ trễ của Chandra trên CPU không đại diện cho khi chạy GPU. Kết quả sẽ bổ sung vào mục này.
+
 ## Dự kiến triển khai
 
 ### Chặn mọi thứ — Track B, Phase 0 (§7)

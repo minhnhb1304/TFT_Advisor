@@ -1,7 +1,7 @@
 """TFT Advisor - vo LIVE: tu van chon loi ngay trong tran.
 
     .venv\\Scripts\\python run_live.py                       # tim cua so game, overlay de len
-    .venv\\Scripts\\python run_live.py --card-reader hybrid  # ocr (mac dinh) | gemini | hybrid
+    .venv\\Scripts\\python run_live.py --card-reader ocr     # hybrid (mac dinh) | ocr | gemini
     .venv\\Scripts\\python run_live.py --video D:\\tft_record\\minh_06.mp4 --start 1090
                                                             # mo phong: phat video theo dong ho that
 
@@ -37,7 +37,9 @@ if str(ROOT) not in sys.path:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Tư vấn chọn lõi ngay trong trận (overlay)")
     ap.add_argument("--regions", default="config/screen_regions.yaml")
-    ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="ocr")
+    # hybrid: OCR truoc, Gemini chi doc bu o OCR khong chac. Khong co khoa Gemini thi
+    # loi goi do bi bat va giu ket qua OCR (test_card_reader) - chay duoc moi may.
+    ap.add_argument("--card-reader", choices=("ocr", "gemini", "hybrid"), default="hybrid")
     ap.add_argument("--fps", type=float, default=4.0, help="số lần phân tích mỗi giây")
     ap.add_argument("--title", help="ép tiêu đề cửa sổ game nếu client đổi tên")
     ap.add_argument("--video", help="mô phỏng: phát video này thay cho game")
