@@ -4,7 +4,7 @@
 > Kế hoạch hiện hành và việc tồn đọng giữa các phiên:
 > [`docs/next-steps.md`](docs/next-steps.md).
 >
-> Cập nhật: **2026-11-14** · 1126 test xanh. Mục 1–13 và "Dự kiến triển khai"
+> Cập nhật: **2026-11-14** · 1135 test xanh. Mục 1–13 và "Dự kiến triển khai"
 > viết lúc 2026-09-07, giữ làm lịch sử.
 
 ---
@@ -671,6 +671,23 @@ Giới hạn: đây là 15 màn dev, ứng viên lấy từ nhãn. Khi chơi th�
 Lỗi gặp khi làm: tên font có dấu nháy đơn làm vỡ thuộc tính `style='...'` trong rich text, nên font không áp dụng. Sửa bằng `theme.DISPLAY_HTML`.
 
 Chưa kiểm: ảnh chụp chỉ ở một màn (`minh_06` 4-2), tua thẳng tới đó nên hàng lõi đã cầm còn trống. Panel trong trận mới chạy qua `demo_overlay.py`, chưa chạy trong một ván thật. Test 1119 → 1126 (`tests/test_plan_display.py`).
+
+### 19. Vỏ live: overlay ngay trong trận (`run_live.py`)
+
+2026-11-14, bắt đầu hàng 4 của kế hoạch đã duyệt ("nhận diện và gợi ý thời gian thực, overlay"). Trước đó mọi thứ chỉ chạy trên video replay; panel trong trận mới chạy qua `demo_overlay.py` với tình huống viết tay.
+
+| Phần | Nội dung |
+|---|---|
+| `src/capture/game_window.py` | Tìm cửa sổ game (tiêu đề `TFT  ` + lớp `UnrealWindow`, rút từ probe 10-13), toạ độ vùng client trên màn hình |
+| `src/capture/wgc_source.py` | Chụp **theo cửa sổ game** bằng WGC (`windows-capture`, `window_hwnd`), chỉ giữ khung mới nhất, cắt viền khi game chạy ở chế độ có cửa sổ. Không lấy overlay của chính ta, nên không cần `WDA_EXCLUDEFROMCAPTURE` |
+| `src/live/runner.py` | `AnalysisLoop`: luồng riêng, tối đa `fps` lần/giây, mỗi lần lấy khung mới nhất cho `LiveSession.step`; khung cũ bị bỏ; lỗi một khung không làm chết vòng lặp. `VideoClockSource` phát video theo đồng hồ thật để thử khi không có game |
+| `src/overlay/live_window.py` | Cửa sổ trong suốt, click xuyên qua, phủ khít vùng client. Dùng **cùng bộ vẽ** với overlay trên video của replay (huy hiệu, viền ô, viên hướng, widget kết luận), cộng nền tối sau widget kết luận vì không có pixel game để làm mờ |
+| `LiveSession.screen_visible` | Màn chọn lõi có đang hiện ở khung vừa xử lý không. `LiveSession` chờ 30 s mới coi là rời màn (để giữ lượt đổi khi người chơi ẩn màn), nên trước khi có cờ này overlay vẫn vẽ huy hiệu lên bàn cờ sau khi màn đã đóng |
+| Log độ trễ | `data/live_logs/<phiên>.jsonl`: thời gian từng bước, đọc thẻ, đọc HUD. In tóm tắt khi thoát |
+
+Lỗi gặp khi làm: luồng phân tích và luồng giao diện cùng đọc video OpenCV, gây `Assertion fctx->async_lock failed` (libavcodec). Sửa bằng khoá trong `VideoClockSource`.
+
+Thử trên `minh_06` 4-2 ở chế độ mô phỏng: overlay đúng vị trí, tắt khi màn đóng; đọc HUD trung vị 41 ms sau lần đầu (1,5 s, do nạp OCR) trên máy rảnh. **Chưa chạy với game thật**: cần chạy trên máy chơi để đo độ trễ HUD khi game chạy (trước đây 15–26 s), kiểm toạ độ khi Windows scale ≠ 100%, và xem Vanguard có phản ứng gì không. Test 1126 → 1135 (`tests/test_live_shell.py`).
 
 ## Dự kiến triển khai
 

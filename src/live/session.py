@@ -80,6 +80,12 @@ class LiveSession:
         # cung goi `new_game()` de reset state, ma tua lui khong phai van moi -
         # tang o day thi cung mot van doi khoa khoi moi lan tua.
         self._game_index = 1
+        # Man chon loi CO DANG HIEN o khung vua xu ly khong. Khac `_in_screen`:
+        # man an tam (< grace_s) thi `_in_screen` van True nhung man khong hien -
+        # overlay trong tran phai thoi ve len ban co luc do.
+        self.screen_visible = False
+        # Thoi gian lan doc HUD gan nhat (ms) - vo live ghi log de do NFR trong tran.
+        self.last_hud_ms: float | None = None
 
     # -- dieu khien tu vo --------------------------------------------------
 
@@ -141,6 +147,7 @@ class LiveSession:
             return Status(t, f"không đọc được nút đổi thẻ: {exc}")
         latency["gate"] = (time.perf_counter() - t0) * 1000.0
 
+        self.screen_visible = bool(reading.screen_present)
         if not reading.screen_present:
             return self._step_outside(frame, latency)
 
@@ -241,6 +248,7 @@ class LiveSession:
             except Exception as exc:                  # noqa: BLE001
                 return Status(t, f"không đọc được HUD: {exc}")
             latency["hud"] = (time.perf_counter() - t0) * 1000.0
+            self.last_hud_ms = latency["hud"]
 
         return Cleared(t) if left_screen else Idle(t)
 
