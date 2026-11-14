@@ -488,3 +488,14 @@ def test_no_held_tracker_keeps_augments_empty():
     s, _, _, _ = session()
     feed(s, 0.0, 5)
     assert s.advisor.states[-1].augments == []
+
+
+def test_idle_says_whether_the_augment_screen_is_on_screen():
+    """Vo thoi ve len ban co ngay khi man dong, du phien con giu man `grace_s` giay."""
+    s, reroll, _, _ = session()
+    feed(s, 0.0, 5)                                   # trong man, da khuyen
+    idle_inside = s.step(frame(1.2))
+    assert isinstance(idle_inside, Idle) and idle_inside.screen_visible
+    reroll.present = False
+    idle_outside = s.step(frame(2.0))
+    assert isinstance(idle_outside, Idle) and not idle_outside.screen_visible

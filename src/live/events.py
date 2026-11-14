@@ -25,6 +25,10 @@ class Idle:
     """Khong co gi moi o khung nay."""
 
     t: float
+    # Man chon loi co dang hien o khung nay khong. Man dong (hoac an tam) thi
+    # vo phai thoi ve loi khuyen len ban co, du `LiveSession` con giu man them
+    # `grace_s` giay de khong mat luot doi khi nguoi choi chi an man.
+    screen_visible: bool = False
 
 
 @dataclass(frozen=True)

@@ -163,7 +163,7 @@ class LiveSession:
 
         ready = self.screen_tracker.update(frame.image, [r.state for r in reading.reads])
         if not ready:
-            return Idle(t)
+            return Idle(t, screen_visible=True)
 
         t0 = time.perf_counter()
         for slot in ready:
@@ -208,7 +208,7 @@ class LiveSession:
         note = self._state_note(choices, state, bundle)
         key = self._emit_key(cards, state)
         if key == self._last_emit:
-            return Idle(t)
+            return Idle(t, screen_visible=True)
         self._last_emit = key
 
         return AdviceReady(

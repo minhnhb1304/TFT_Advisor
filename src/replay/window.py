@@ -112,6 +112,7 @@ class ReplayWindow(QtWidgets.QMainWindow):
         # Overlay ve len video: (cot the, ket luan) cua lan khuyen gan nhat.
         self.show_overlay = True
         self._overlay: tuple[list, Any] | None = None
+        self._screen_visible = False
         self._frame = None
 
         self._init_ui()
@@ -393,7 +394,7 @@ class ReplayWindow(QtWidgets.QMainWindow):
         resized = cv2.resize(image, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_LINEAR)
         rgb = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
         lay = None
-        if self.show_overlay and self._overlay is not None:
+        if self.show_overlay and self._overlay is not None and self._screen_visible:
             lay = overlay.layout(self.regions, rgb.shape[1], rgb.shape[0])
             if self._overlay[1].action:
                 overlay.frost(rgb, lay.verdict)
@@ -409,6 +410,11 @@ class ReplayWindow(QtWidgets.QMainWindow):
 
     def _on_event(self, event: Any) -> None:
         if isinstance(event, Idle):
+            # Man dong / an: thoi ve len video ngay, giu panel ben phai de doc lai.
+            if event.screen_visible != self._screen_visible:
+                self._screen_visible = event.screen_visible
+                if self._frame is not None:
+                    self._paint(self._frame, self.frame_index / self.fps)
             return
         if isinstance(event, Cleared):
             self._clear_panel("Đã rời màn chọn lõi.")
@@ -431,6 +437,7 @@ class ReplayWindow(QtWidgets.QMainWindow):
             column.set_data(SlotVM(i, "—"))
 
     def _show_advice(self, event: AdviceReady) -> None:
+        self._screen_visible = True
         for api, image in event.card_icons.items():
             icons.remember(api, image)
         strip, verdict, slots = build_view(event, rarity_of=self._rarity_of)
