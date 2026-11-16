@@ -40,7 +40,7 @@ một vỏ mỏng khác nhau ở nguồn khung hình và giao diện.
 | [B. Game state](game-state-value.md) | HUD priming, `tracker.state(traits)`, `bundle.economy` trong `LiveEvent` |
 | [C. Commentary](augment-commentary.md) | Trong `Advisor`/scorer — vỏ chỉ hiển thị |
 | [D. Expert knowledge](expert-knowledge.md) | `ExpertRuleScorer` trong `Advisor`; công cụ gắn nhãn là vỏ replay |
-| [Live mode phase 2](../live-mode/phase-2-session.md) | Chính là lõi này — bổ sung `CardReader` protocol và `seek(t)` |
+| Live mode phase 2 (đã xoá 2026-11-16) | Chính là lõi này — bổ sung `CardReader` protocol và `seek(t)` |
 
 ## Thứ tự làm
 
@@ -52,4 +52,4 @@ Xem roadmap M0–M6 trong [overview.md](overview.md#roadmap). Chi tiết lõi:
 
 - [Overview](overview.md)
 - [Live mode overview](../live-mode/overview.md)
-- [Live mode phase 2](../live-mode/phase-2-session.md)
+- Live mode phase 2 (đã xoá 2026-11-16)

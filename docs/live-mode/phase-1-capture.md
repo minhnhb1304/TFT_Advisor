@@ -62,4 +62,4 @@ produces the same frames as Phase 0.
 
 - [Overview](overview.md)
 - [Phase 0 — Spike](phase-0-spike.md)
-- [Phase 2 — Live session core](phase-2-session.md)
+- [Core session (thay cho phase 2)](../playtest-fixes/core-session.md)

@@ -54,7 +54,7 @@ VOD. Three pieces are missing for live play:
 |---|---|---|---|---|
 | 0 | [Spike + preflight](phase-0-spike.md) | `tools/probe_environment.py`, go/no-go on WGC | **Yes** (minutes) | 0.5 d |
 | 1 | [Capture source](phase-1-capture.md) | `src/capture/game_window.py`, `screen_capture.py` | No (fake backend) | 1 d |
-| 2 | [Live session core](phase-2-session.md) | `src/live/session.py` + extracted glue | No | 1.5 d |
+| 2 | Live session core (đã xoá 2026-11-16; thay bằng [core-session](../playtest-fixes/core-session.md)) | `src/live/session.py` + extracted glue | No | 1.5 d |
 | 3 | [App shell](phase-3-app.md) | `src/live/app.py`, `scripts/run_live.py` | No (replay) | 1.5 d |
 | 4 | [Live validation](phase-4-validation.md) | checklist run, latency p50/p95, ROI fixes | **Yes** | 1 d |
 

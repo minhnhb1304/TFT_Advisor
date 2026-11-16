@@ -58,7 +58,7 @@ Nút reroll là tín hiệu chính xác hơn nội dung thẻ — bài học tr�
 
 - Ngưỡng hash và cutoff **phải đo**, không đặt tay (giống cách đã làm cho nút reroll).
 - Bước 3–5 nên nằm trong module thuần (không Qt) để dùng chung cho live mode
-  (`LiveSession` trong [live mode phase 2](../live-mode/phase-2-session.md)).
+  (`LiveSession` trong live mode phase 2 (đã xoá 2026-11-16)).
 - Nghi vấn aHash 8×8 trong `AugmentReader` vẫn đúng cho đường Gemini — sửa khi live mode dùng nó.
 
 ## Related

@@ -3,7 +3,7 @@
 > Mốc M1 xong; bộ đọc mặc định nay là `HybridCardReader`.
 
 Mốc **M1** (phần lõi) của [playtest fixes](overview.md). Hiện thực [shared-core.md](shared-core.md)
-và thay thế thiết kế `LiveSession` trong [live mode phase 2](../live-mode/phase-2-session.md).
+và thay thế thiết kế `LiveSession` trong live mode phase 2 (đã xoá 2026-11-16).
 
 ## Cấu trúc module
 

@@ -11,7 +11,7 @@ Track **L** và mốc **M5** của [playtest fixes](overview.md). Chạy song so
 |---|---|---|
 | [Phase 0 — Spike](../live-mode/phase-0-spike.md) | **L0**, song song M0 | Không đổi. Cần máy game |
 | [Phase 1 — Capture](../live-mode/phase-1-capture.md) | **L1**, song song M1–M2 | Không đổi. `WindowCaptureSource` trả `Frame` như `VideoFrameSource` |
-| [Phase 2 — Session](../live-mode/phase-2-session.md) | **Thay bằng** [core-session.md](core-session.md) (M1) | Thêm `CardReader` protocol, `seek`, `stable_frames`, `AdviceReady.state/cards` |
+| Phase 2 — Session (đã xoá 2026-11-16) | **Thay bằng** [core-session.md](core-session.md) (M1) | Thêm `CardReader` protocol, `seek`, `stable_frames`, `AdviceReady.state/cards` |
 | [Phase 3 — App shell](../live-mode/phase-3-app.md) | **M5a** | Worker gọi đúng `LiveSession` của replay; panel dùng chung widget với replay |
 | [Phase 4 — Validation](../live-mode/phase-4-validation.md) | **M5b** | Thêm check reroll + dòng trạng thái; ghi thêm video để gắn nhãn |
 

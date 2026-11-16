@@ -74,4 +74,3 @@ bằng chứng về placement. Xem [evaluation.md](evaluation.md).
 - [offer-round-pool.md](offer-round-pool.md) — pool theo lượt chào (2-1 / 3-2 / 4-2), số trước/sau
 - [SPEC.md](../../SPEC.md) — §3.5.4 scoring engine, §3.5.5 chính sách reroll, §12 đánh giá
 - [dev_log.md](../../dev_log.md) — mục 2 (số liệu augment), mục 9 (VOD Set 18)
-- [augment-reroll-plan.md](../augment-reroll-plan.md) — kế hoạch đã duyệt

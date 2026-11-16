@@ -1,7 +1,7 @@
 # Review Findings
 
 Mười một chỗ mà [research synthesis](../../research/260930-directional-augment/synthesis.md) §3 yêu
-cầu sửa so với bản đầu của tài liệu (`docs/directional-augment-evaluation.md`, 2026-09-30), kèm
+cầu sửa so với bản đầu của tài liệu (`docs/directional-augment-evaluation.md`, 2026-09-30; đã xoá 2026-11-16, xem git `46d2a92`), kèm
 trạng thái.
 
 Giữ file này để **không mất dấu** phán quyết nào — và để biết chỗ nào là quyết định nội dung còn
