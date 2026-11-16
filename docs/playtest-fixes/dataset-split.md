@@ -98,7 +98,7 @@ held-out: **6/14**.
 
 | Chiều | Được không | Vì sao |
 |---|---|---|
-| held-out → development | **Được, một lần, phải ghi lại** | Chỉ thu nhỏ tập niêm phong, không làm số cuối đẹp lên |
+| held-out → development | **Được**, nhưng chỉ (1) trước lần chạy held-out duy nhất, (2) khi video **đã bị dùng để chỉnh** hệ thống, **không bao giờ vì kết quả của nó**, (3) ghi lý do vào `note` | Chỉ thu nhỏ tập niêm phong, không làm số cuối đẹp lên. Chuyển vì kết quả (video "khó" sang development) là chọn lọc: held-out còn lại dễ hơn thật. Đã dùng 2 lần, đều vì video đã nhiễm: `dat_01` (gắn nhãn thử, sửa 16:10), `minh_01`/`02` (chỉnh bộ đọc thẻ tháng 9) |
 | development → held-out | **TUYỆT ĐỐI KHÔNG** | Video đã dùng để chỉnh ngưỡng thì nhiễm vĩnh viễn, không "làm sạch" được |
 
 ## Thứ tự bắt buộc
