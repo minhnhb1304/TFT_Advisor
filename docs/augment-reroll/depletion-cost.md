@@ -1,5 +1,7 @@
 # Giá Của Một Lần Đổi
 
+> Số N và sd đo 2026-09-07, trước khi sửa bậc; pool hiện tại ở [offer-round-pool](offer-round-pool.md).
+
 `c` **không phải** một hằng số để chỉnh cho ra kết quả đẹp. Dưới giả định
 [burn-on-reveal](mechanics-assumptions.md), nó là **phần giá trị quyền chọn tương lai bị
 huỷ** khi ta để lộ thêm một thẻ.

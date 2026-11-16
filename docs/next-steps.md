@@ -2,15 +2,17 @@
 
 > Đọc mục này trước khi bắt đầu phiên mới. Lịch sử dự án: [`dev_log.md`](../dev_log.md).
 
-## ⏱️ Trạng thái 2026-10-26 — đọc mục này trước
+## ⏱️ Trạng thái 2026-11-16 — đọc mục này trước
 
 Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần cuối viết luận văn**, **tuần 12
-đóng băng số**. 1043 test xanh.
+đóng băng số**. 1139 test xanh.
 
 > Mọi mục **§1–§7 bên dưới là LỊCH SỬ** (09-09). Chúng ghi lại phép đo đã làm, giữ để tra cứu —
 > nhưng kế hoạch hiện hành là mục này.
 
 > **2026-11-14: có vỏ live `run_live.py`** ([dev_log §19](../dev_log.md)). Việc của bạn trên máy chơi: `git pull`, mở TFT ở chế độ Borderless, chạy `.venv\Scripts\python run_live.py` (mặc định `hybrid`; có khoá Gemini thì đọc bù thẻ OCR sót), chơi qua ít nhất một màn chọn lõi, Ctrl+C để thoát, rồi gửi lại file `data/live_logs/*.jsonl` và ảnh chụp màn hình.
+
+> **18.6: 8 ván `maris_01`–`maris_08` (VOD giải, cắt 2026-11-16) → held-out, chưa ghi vào `split.json`.**
 
 > **2026-11-14: `minh_01`, `minh_02` chuyển held-out → development** (đã dùng chỉnh bộ đọc thẻ ở M0–M2, đo 2026-09-18). Split nay 9 development / 6 held-out (`minh_09`, `minh_10`, `dat_02`–`dat_05`) + mọi video 18.6.
 
@@ -108,21 +110,20 @@ Probe đã chạy 2026-10-13 và 10-15 (`data/live_probe/`, chi tiết ở `dev_
 
 | # | Việc còn mở | Ghi chú |
 |---|---|---|
-| 1 | **Độ trễ HUD khi game chạy: 15–26 s** | Lần đọc 2–4 (OCR đã nạp) vẫn chậm; CPU 97% trong ảnh. Máy rảnh ~1,1 s. **Đo tách khâu 2026-10-31** (`tools/bench_hud_latency.py`, kết quả ở `data/live_probe/bench/`): 6 lượt OCR mỗi lần đọc, **khâu phát hiện chữ chiếm ~85%**. Chỉ chạy nhận dạng (`use_det=False, use_cls=False`, vì ROI đã cắt sẵn): **1,1 s → 54 ms** (máy rảnh), 1,5 s → 80 ms (giả lập CPU bận 15 tiến trình). Độ chính xác trên 20 khung gán nhãn không đổi (stage 20/20, máu 3/20 ở cả hai); khung probe `165242` stage rỗng → đọc đúng `3-3`. Giả lập CPU bận **không tái hiện được 15–26 s**. **Đã chuyển (2026-11-01):** `read_digits` và `_read_stage` gọi `ocr_engine.recognize` (cờ `RECOGNIZE_ONLY`, mặc định bật; `card_reader` vẫn OCR đầy đủ vì cần phát hiện dòng chữ). Kiểm trên `dat_01` (development): 420/420 lượt đọc HUD giống hệt chế độ cũ. Còn mở: **chạy `tools\bench_hud_latency.py` trên máy test khi game mở** để xác nhận 15–26 s đã giảm |
+| 1 | **Độ trễ HUD khi game chạy: 15–26 s** (đo cũ, chế độ det+rec) | Lần đọc 2–4 (OCR đã nạp) vẫn chậm; CPU 97% trong ảnh. Máy rảnh ~1,1 s. **Đo tách khâu 2026-10-31** (`tools/bench_hud_latency.py`, kết quả ở `data/live_probe/bench/`): 6 lượt OCR mỗi lần đọc, **khâu phát hiện chữ chiếm ~85%**. Chỉ chạy nhận dạng (`use_det=False, use_cls=False`, vì ROI đã cắt sẵn): **1,1 s → 54 ms** (máy rảnh), 1,5 s → 80 ms (giả lập CPU bận 15 tiến trình). Độ chính xác trên 20 khung gán nhãn không đổi (stage 20/20, máu 3/20 ở cả hai); khung probe `165242` stage rỗng → đọc đúng `3-3`. Giả lập CPU bận **không tái hiện được 15–26 s**. **Đã chuyển (2026-11-01):** `read_digits` và `_read_stage` gọi `ocr_engine.recognize` (cờ `RECOGNIZE_ONLY`, mặc định bật; `card_reader` vẫn OCR đầy đủ vì cần phát hiện dòng chữ). Kiểm trên `dat_01` (development): 420/420 lượt đọc HUD giống hệt chế độ cũ. Còn mở: **chạy `run_live.py` trên ván thật** rồi `tools\live_latency_report.py --game-only` để xác nhận 15–26 s đã giảm |
 | 2 | Màn chọn lõi ẩn thanh HUD | Giữ vàng, cấp, máu từ khung trước khi màn chọn lõi hiện |
-| 3 | Máy test chưa có khoá Gemini | Cần cho `augment_reader` khi chạy live |
-| 4 | [live-mode/phase-0-spike.md](live-mode/phase-0-spike.md), [live-mode/probe-runbook.md](live-mode/probe-runbook.md) còn ghi tên cửa sổ cũ | Sửa tài liệu |
+| 3 | Máy test chưa có khoá Gemini | Không cần: hybrid chạy không khoá (giữ OCR khi Gemini lỗi) |
+| 4 | ~~[live-mode/phase-0-spike.md](live-mode/phase-0-spike.md), [live-mode/probe-runbook.md](live-mode/probe-runbook.md) còn ghi tên cửa sổ cũ~~ | Xong 2026-11-16 |
 
 Probe lại: `tools\probe_environment.py --seconds 5` trên máy test rồi push `data/live_probe/`.
 
 ### Bộ dữ liệu — đường găng của cả đồ án
 
-Có **20 video tự chơi chưa dùng** + dự kiến **10–20 video từ người khác** (Outplayed → Drive).
-≈ 30–40 ván × 3 màn chọn lõi = **90–120 quyết định / 30–40 cụm độc lập**.
+Split hiện tại: **9 development** (`minh_01`–`08`, `dat_01`) / held-out `minh_09`–`10`, `dat_02`–`05` + mọi video 18.6.
 
 | # | Việc | File hướng dẫn |
 |---|---|---|
-| 1 | Chốt `data/eval/split.json` **trước khi gắn nhãn video đầu tiên** — 6 development / 14 held-out, chia bằng seed | [playtest-fixes/dataset-split.md](playtest-fixes/dataset-split.md) |
+| 1 | ~~Chốt `data/eval/split.json` **trước khi gắn nhãn video đầu tiên**~~ Xong 2026-11-06 — 9 development (minh_01–08, dat_01) / held-out minh_09–10, dat_02–05 + mọi video 18.6 | [playtest-fixes/dataset-split.md](playtest-fixes/dataset-split.md) |
 | 2 | Gửi giao thức ghi cho người tham gia; **thử 1 video trước** khi xin 20 cái | [playtest-fixes/recording-protocol.md](playtest-fixes/recording-protocol.md) |
 | 3 | Gắn nhãn 6 ván development (tuần 1–3) → tinh chỉnh (3–8) → gắn nhãn held-out (9–11) → chạy **một lần** (tuần 12) | [playtest-fixes/labeling-guide.md](playtest-fixes/labeling-guide.md) |
 
@@ -139,7 +140,7 @@ Có **20 video tự chơi chưa dùng** + dự kiến **10–20 video từ ngư�
 | 3 | Vùng cắt ở 16:10 lệch (ROI lưu theo bề ngang 16:9). Đã sửa: mỗi vùng có điểm neo `center`/`left`/`right` (`DEFAULT_ANCHORS` trong `src/capture/regions.py`, vì `screen_regions.yaml` bị gitignore). 16:9 không lệch pixel nào; `dat_01`: số offer 3/4/3 đúng, tên lõi 28/30, vàng/cấp/XP đúng | Xong |
 | 4 | Ở 16:10 còn sai: **stage** màn chọn lõi (chữ tối, đọc 3-1 thay vì 3-2), **máu** 4-2, **chuỗi thắng/thua** — lỗi OCR, chỉ có 1 video để thử | Mở — người gắn nhãn sửa tay |
 | 5 | Bảng tên phụ: client đang dùng "Phình Đại", cdragon vi_vn ghi "Hóa Lớn" (`DA_18_FaeTraitAugment`) | Mở |
-| 6 | Chờ video của mình tải xong → đổi tên `<player>_NN`, tạo `split.json` (seed) | Mở |
+| 6 | Chờ video của mình tải xong → đổi tên `<player>_NN`, tạo `split.json` (seed) | Xong (2026-11-06) |
 
 Quy tắc HUD khi gắn nhãn: điền **giá trị cuối cùng nhìn thấy trước khi màn chọn lõi hiện**, không tự tính.
 
@@ -189,7 +190,7 @@ Danh sách soát lại:
 - **4 đóng góp**, không thêm mục thứ năm. Directional **phát biểu lại đóng góp #3** chứ không phải
   Future Work.
 - **Bỏ hẳn Riot API** khỏi đường `final_placement`. `riot_api.py` **vẫn dùng** cho crawl meta comp.
-- Chia **6/14** development/held-out, chia theo **người** trước rồi theo video.
+- Chia **9 development** (minh_01–08, dat_01) / held-out minh_09–10, dat_02–05 + mọi video 18.6, chia theo **người** trước rồi theo video.
 - Mọi thay đổi scorer phải **tắt được bằng cờ** trong `config/scoring_weights.yaml`.
 - **Bỏ luật "`utility` chỉ đi một mình"** (10-11): `utility` được làm nhãn phụ. [category-multilabel/definition.md](category-multilabel/definition.md)
 - **Mã `type` của datatft** (từ `DatabaseView-*.js`): 1 kinh tế, 2 chiến đấu, 3 trang bị, 4 tộc hệ, 5 độc quyền, 6 khác.
@@ -215,8 +216,8 @@ Danh sách soát lại:
 - Tách lõi trùng tên theo lượt (offer-rounds P5): 3/5 nhóm có lượt giống hệt nhau.
 - Đưa `categories` vào chấm điểm (category-multilabel P6): dễ đếm hai lần; mặc định đóng.
 
-Việc của bạn: hai artifact trên claude.ai ("Duyệt phân loại lõi", "Bảng phân loại lõi") **chưa
-xoá**: gõ `/artifacts` rồi bấm `d`.
+Trang xem/duyệt chạy cục bộ (không dùng claude.ai): `scripts/review_augment_features.py`,
+`scripts/review_playtest_labels.py` (máy chủ `127.0.0.1`, lưu thẳng JSON trong repo); bảng phân loại ở `reports/augment-classification.{html,json}`.
 
 ---
 

@@ -54,7 +54,7 @@ MetaTFT là nguồn chủ quan, không tài liệu hoá — chỉ là tín hiệ
 
 ## Hook cho scorer — CHƯA nối
 
-Chưa có scorer hướng nào trong code (xem [architecture.md](architecture.md)); nối vào `BoardFit`
+`PlanFitScorer` (2026-11-13) chưa đọc trường này; `BoardFit` cũng chưa (xem [architecture.md](architecture.md)); nối vào `BoardFit`
 sẽ đổi điểm *current-fit* và số "TRƯỚC" ở [baseline.md](baseline.md). Nên **chỉ để hook**:
 
 | chỗ nối | dạng đề xuất | ràng buộc |

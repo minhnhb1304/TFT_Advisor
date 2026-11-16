@@ -1,6 +1,6 @@
 # Blind Spots
 
-Bốn điểm nghẽn kiến trúc chặn việc đánh giá lõi theo hướng. Số đo:
+Năm điểm nghẽn kiến trúc chặn việc đánh giá lõi theo hướng. Số đo:
 [baseline.md](baseline.md).
 
 ## 1. `EconFitScorer` mù hình thái kinh tế
@@ -14,7 +14,7 @@ Rolling For Days  econ=2 -> 0.8333  (giống từng ký tự)
 Epic Rolldown     econ=2 -> 0.8333  (giống)
 ```
 
-Thang này còn **bão hoà**: 75/254 lõi ở mức 3, 39 ở mức 2 → **114 lõi (45%)** không phân biệt
+Thang này còn **bão hoà**: 75/254 lõi ở mức 3 (sau audit 2026-10-05: 56), 39 ở mức 2 → **114 lõi (45%)** không phân biệt
 được nhau bằng thành phần này.
 
 > ⚠️ Đính chính so với bản đầu: ví dụ *"lõi XP và lõi reroll cùng `econ_value = 2`"* **sai**. Đo
@@ -100,6 +100,9 @@ Advisor đang nói *"nhiều kinh tế hơn thì tốt hơn"*, trong khi khác b
 Hiện trạng này đúng như bản đầu mô tả. Nhưng cách gỡ thì **không** phải truyền archetype về —
 xem [architecture.md](architecture.md): ở 2-1 `CompSelector` tự báo `evidence = 0.000` cho mọi
 comp, và nó còn **lệch sẵn theo archetype** với chênh lệch sàn điểm 0.15 > `lock_margin` 0.12.
+
+Đã sửa 2026-11-10 ([centering-fix](centering-fix.md)); luồng một chiều được gỡ bằng
+[plan-conditioned-advice](plan-conditioned-advice.md).
 
 ## Related
 

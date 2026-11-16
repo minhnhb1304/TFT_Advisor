@@ -66,8 +66,7 @@ Chi tiết và ngày đo: `config/data_sources.yaml`.
 
 Hai điều phải nói rõ, không được để người đọc tự suy:
 
-1. w₁ (**30%** điểm) chạy trên **tiên nghiệm chuyên gia**, không phải số đo — và hiện tại
-   còn chưa có cả tiên nghiệm đó, nên `Base` trung tính ở mọi augment. Chính sách reroll
+1. w₁ (**30%** điểm) chạy trên **bảng tier chuyên gia (18.6)**, không phải số đo. Chính sách reroll
    vẫn hợp lệ vì nó chỉ dùng **thứ tự tương đối** trong cùng một hàm điểm (xem
    [architecture.md](architecture.md)), nhưng ngưỡng **không** quy ra placement được.
    Xem [expert-prior/overview.md](../expert-prior/overview.md).

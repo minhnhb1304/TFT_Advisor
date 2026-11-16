@@ -1,5 +1,7 @@
 # Expert Knowledge
 
+> Không hiện thực; thay bằng gợi ý theo hướng ([plan-conditioned-advice](../directional-augment/plan-conditioned-advice.md)). Giữ làm lịch sử hướng đã bỏ.
+
 Hạng mục D — bước 1–5 thuộc mốc **M4**, bước 6 thuộc **M6** của [playtest fixes](overview.md). Nhãn dùng chung định dạng [eval-dataset.md](eval-dataset.md). Chuyển giao kiến thức của người chơi
 (Thách Đấu/Đại Cao Thủ, Cao Thủ+ mọi mùa đủ game) vào advisor.
 

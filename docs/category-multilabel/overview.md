@@ -2,7 +2,7 @@
 
 Kế hoạch đổi `category` của lõi từ **một nhãn** sang **1–3 nhãn**, lập 2026-10-05. Cùng đợt đổi
 schema: `carry_type` bỏ giá trị `tank`, thêm `both`, và thêm trường `frontline`. Trạng thái:
-**đang triển khai** (Q1–Q4 đã chốt 2026-10-05).
+**P1–P4 xong (2026-10-12); P5 số tạm ở [next-steps](../next-steps.md); P6: chưa mở cho cộng điểm theo nhãn, nhưng `plan_fit` dùng `categories` để phân eco/power** (Q1–Q4 đã chốt 2026-10-05).
 
 ## Vấn đề
 
@@ -16,7 +16,7 @@ tank, nên "tank" không phải một hướng carry; lõi buff cả AD lẫn AP
 
 ## Sự thật phải nói trước
 
-**Hôm nay không scorer nào đọc `category`.** Sức mạnh lõi đi vào điểm qua các trường khác:
+**Không scorer nào cộng điểm theo `category`.** Ngoại lệ duy nhất: `src/decision/scoring/plan_fit.py` đọc `categories` để phân lõi eco/power cho gợi ý theo hướng. Sức mạnh lõi đi vào điểm qua các trường khác:
 
 | Phần sức mạnh | Trường scorer đọc |
 |---|---|
@@ -26,8 +26,8 @@ tank, nên "tank" không phải một hướng carry; lõi buff cả AD lẫn AP
 | Thời điểm | `tempo` → TempoFit |
 | Kiểu carry | `carry_type` |
 
-Đọc runtime duy nhất là `_pick_demo_augments` (`src/decision/augment_advisor.py`). Vậy
-multi-label **tự nó không đổi một điểm số nào**. Nó có giá trị ở ba chỗ:
+Ngoài `plan_fit`, đọc runtime còn lại là `_pick_demo_augments` (`src/decision/augment_advisor.py`). Vậy
+multi-label **không cộng thẳng vào điểm theo nhãn**. Nó có giá trị ở ba chỗ:
 
 1. **Mô tả đúng** lõi: dữ liệu thô cho luận văn (đóng góp #1: trích feature).
 2. **Đo đúng**: so tập-với-tập với MetaTFT (Jaccard, P/R/F1 từng nhãn) và với nhãn tay.
@@ -56,7 +56,7 @@ rất dễ **đếm hai lần** cùng một phần sức mạnh.
 | # | Câu hỏi | Chốt |
 |---|---|---|
 | Q1 | Trần 3 nhãn/lõi? | **Có** (`MAX_CATEGORIES = 3`). Khớp MetaTFT |
-| Q2 | `reroll` riêng hay gộp vào `econ`? | **Giữ riêng** tới khi có `econ_type` (next-steps #2), rồi quyết lại |
+| Q2 | `reroll` riêng hay gộp vào `econ`? | **Giữ riêng** tới khi có `econ_type` (next-steps #2), rồi quyết lại. `econ_type` xong 2026-11-13 |
 | Q3 | Nhãn phụ cần "đáng kể" tới mức nào? | Cơ chế **nêu rõ** trong mô tả, có giá trị **độc lập**. Ngưỡng ở [definition.md](definition.md) |
 | Q4 | Làm trước hay sau directional (#3)? | **P1–P5 trước** directional; P6 để sau |
 

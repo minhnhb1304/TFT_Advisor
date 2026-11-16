@@ -50,8 +50,23 @@ Còn lỗi thì **không ghi gì cả** và trang liệt kê lỗi — sửa r�
 mọi quyết định là độc lập, đúng cái bẫy [dev_log §8c](../../dev_log.md) đã sửa. Vì thế cả công
 cụ gắn nhãn và runtime phải dùng **một hàm dẫn xuất duy nhất**.
 
-> ⏳ Bốn trường này **chưa có** trong `src/eval/playtest_labels.py` (schema 1). Cần thêm ở cấp
-> `PlaytestLabels` trước khi gắn nhãn video đầu tiên — xem [eval-dataset.md](eval-dataset.md).
+File nhãn của `minh_01`, `minh_02` vẫn giữ tên gốc `Screen-recorder_09-16-2026_*.json` (khớp
+`original_name` trong `split.json`), không đổi thành `minh_01.json`.
+
+### Trường hướng chơi — schema 2, tuỳ chọn
+
+Khuyết = chưa gắn, không phải lỗi. Giá trị hợp lệ ở `PLANS` / `ENCOUNTERS` trong
+`src/eval/playtest_labels.py`.
+
+| Trường | Giá trị |
+|---|---|
+| `plan.route` | `reroll1`, `reroll2`, `reroll3`, `standard`, `fast8`, `fast9` |
+| `plan.carry` | Tướng chủ lực của hướng đi |
+| `plan.since` | Màn bắt đầu theo hướng này, ví dụ `"3-2"` |
+| `plan.notes` | Ghi chú tự do |
+| `encounter` | Kỳ Ngộ Khai Cuộc: `none`, `teemo`, `leona`, `elder_dragon`, `amumu`, `morgana`, `ivern`, `karma`, `sivir`, `yunara`, `ornn`, `lux`, `kayle`, `kobuko`, `ashe`, `draven`, `leblanc`, `azir`, `warwick`, `tristana`, hoặc `other` (ghi rõ ở `plan.notes`) |
+
+Với maris_*: người gắn nhãn suy `plan.route` từ diễn biến ván (không có lời người chơi); không chắc thì ghi không rõ.
 
 ### Năm việc cho mỗi màn
 

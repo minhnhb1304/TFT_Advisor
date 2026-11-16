@@ -15,12 +15,14 @@ here runs on the test machine, script-and-exit, in a Normal game.
 | Q6 | Frame rate and CPU cost while the game runs | none measured | ≥5 fps, CPU note recorded |
 | Q7 | Does the 2.0.1 API still use `@capture.event on_frame_arrived` + `start_free_threaded()`? | 1.x API knowledge | Confirmed or new API noted |
 
+> Đã trả lời 10-13 và 10-15 (dev_log §14): cửa sổ `'TFT  '` (có khoảng trắng đuôi), lớp `UnrealWindow`; WGC ~49,9 fps, không hộp thoại, không viền vàng.
+
 ## Deliverable: `tools/probe_environment.py`
 
 Runs, prints a report, writes `data/live_probe/<timestamp>/` (report JSON + 3 PNG frames), exits.
 
 ```
-probe_environment.py [--seconds 5] [--title "League of Legends (TM) Client"]
+probe_environment.py [--seconds 5] [--title "TFT"]
   1. Windows build (>= 19041), DWM on, DPI scale of the game monitor
   2. FindWindow(title/class) -> hwnd; GetClientRect + ClientToScreen -> client rect
   3. Borderless check: client rect == monitor rect, no WS_CAPTION

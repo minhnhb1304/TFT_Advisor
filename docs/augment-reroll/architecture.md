@@ -2,7 +2,7 @@
 
 ## Câu trả lời đến từ phép đo, không phải phỏng đoán
 
-Đo trên máy này (`.venv`, Python 3.14.7, 50 lần lặp):
+Đo trên máy này (`.venv`, Python 3.14.7, 50 lần lặp) (số đo 09-07, trước khi sửa bậc):
 
 | Đường | p50 | p95 |
 |---|---|---|
@@ -69,7 +69,8 @@ màn hình. Nên lớp nhận dạng không thể suy ra số lượt còn lại
 
 `RerollState` là tham số tường minh, mặc định `(True, True, True)` — tức trạng thái vừa vào
 màn chọn. Nhờ vậy toàn bộ chính sách test được offline ngay hôm nay, còn lớp thị giác
-(ROI nút đổi + bộ phân loại trạng thái sáng/mờ) là việc của Track B.
+(ROI nút đổi + bộ phân loại trạng thái sáng/mờ) nằm ở `src/vision/reroll_buttons.py`
+(`RerollButtonReader.read()` → `RerollButtonReading.to_reroll_state()`).
 
 ## Mức bằng chứng KHÔNG chặn hành động
 

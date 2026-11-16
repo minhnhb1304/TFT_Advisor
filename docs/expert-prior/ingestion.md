@@ -1,7 +1,6 @@
 # Nạp Bảng Tier
 
-> **TRẠNG THÁI: đang chờ dữ liệu.** Toàn bộ đường ống đã xong và có test. Thiếu đúng một
-> thứ: bảng tier thật. Phần "Cần gì" dưới đây là danh sách để dán vào.
+> Đã nạp: TFT Academy patch 18.6 (2026-11-10). Phần dưới là quy trình để nạp lại.
 
 ## Cần gì — chính xác
 

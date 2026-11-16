@@ -28,7 +28,7 @@ Không có baseline thì không biết M2 sửa được bao nhiêu, và không 
   cả video. `game_id` là khoá khối của phép hoán vị (§8c) và phải khớp đúng giá trị
   `ScenarioLogger` ghi ở runtime. `player_id` là **tầng khối thứ hai**: nhiều người chơi thì
   kỹ năng thành confound của §12.2, nên hoán vị phải nằm **trong** từng người.
-  ⏳ Bốn trường này chưa có trong `playtest_labels.py` (schema 1) — cần nâng lên schema 2.
+  Schema 2 (`src/eval/playtest_labels.py`): thêm `plan` {route ∈ `PLANS`, carry, since, notes} và `encounter` ∈ `ENCOUNTERS`.
 - `final_placement` do **người chơi tự khai**, không back-fill từ Riot API: key hết hạn 24h,
   cần PUUID tức danh tính tài khoản người khác, và trận tuỳ chỉnh không lên `tft-match-v1`.
 - `expert` bỏ trống ở M0; điền ở [expert-knowledge.md](expert-knowledge.md) (`blind` = gắn
@@ -44,7 +44,6 @@ Không có baseline thì không biết M2 sửa được bao nhiêu, và không 
 | Bộ chấm | `src/eval/playtest_metrics.py` |
 | Tách offer + gợi ý tên | `src/eval/playtest_draft.py` |
 | Sinh nhãn nháp | `scripts/draft_playtest_labels.py` |
-.venv\Scripts\python scripts\review_playtest_labels.py data\eval\playtest\<id>.json --video "<record>.mp4"
 | Đo tầng đọc | `scripts/eval_playtest.py` (`--mode baseline \| session \| dense`) |
 | Đo ảnh hưởng trạng thái | `scripts/state_effect_report.py` (`--ablate` để lấy số trước M3) |
 | Đo chất lượng câu lý do (G3) | `scripts/reason_quality_report.py` |

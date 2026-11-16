@@ -1,5 +1,7 @@
 # Playtest Fixes Risks
 
+> Rủi ro của kế hoạch M0–M6 (2026-09); lịch sử. P5 nay do `split.json` thực thi.
+
 Xếp theo khả năng × tác động. Rủi ro riêng của capture live xem
 [live mode risks](../live-mode/risks.md).
 

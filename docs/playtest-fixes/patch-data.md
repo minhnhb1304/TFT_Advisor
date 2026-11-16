@@ -15,7 +15,7 @@ mà người chơi chưa từng chơi. Chuyển sang 18.6 mà không tách theo 
 |---|---|---|---|
 | minh_01–03, dat_01–05 | 16–21/09 | 18.2 (ra 10/09) | 18.2 |
 | minh_04–10 | 24–25/09 | 18.3 (ra 23/09) | **18.2**: repo chưa từng có dữ liệu 18.3 |
-| Video mới (mọi người chơi) | từ 11/2026 | 18.6 | 18.6 |
+| Video mới (mọi người chơi); maris_01–08 (VOD giải, 2026-11-15) | từ 11/2026 | 18.6 | 18.6 |
 
 `game_patch` suy từ ngày quay trong tên file gốc. 18.3 chỉ buff vài lõi chiến đấu và tướng, nên
 dùng 18.2 là xấp xỉ gần nhất; phải ghi giới hạn này trong chương đánh giá.
@@ -42,7 +42,7 @@ Giới hạn còn lại: cờ `live` (pool đổi lõi) theo bản hiện tại,
 
 ## Quy tắc chia tập cho 18.6
 
-- **Mọi video 18.6 → held-out**, của mọi người chơi. 6 video development giữ nguyên.
+- **Mọi video 18.6 → held-out**, của mọi người chơi. 9 video development (minh_01–08, dat_01) giữ nguyên.
 - **18.6 là patch cuối cùng**: không đưa patch mới vào bộ đánh giá, kể cả khi Riot ra 18.7.
 - Quy tắc nằm ở `patch_rule` trong `split.json`, ghi trước khi quay video 18.6 đầu tiên.
 

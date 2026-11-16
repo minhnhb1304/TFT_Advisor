@@ -7,7 +7,7 @@ Khung đóng góp luận văn cho tính năng directional, sau thẩm định re
 | | Phát biểu |
 |---|---|
 | Trước | Thuật toán xếp hạng augment **có điều kiện theo board state**, có giải thích |
-| Sau | Thuật toán xếp hạng augment **có điều kiện theo các đội hình còn với tới được**, có giải thích |
+| Sau | Thuật toán xếp hạng augment **có điều kiện theo từng hướng đi (plan), người chơi tự chọn dòng của mình**, có giải thích |
 
 Bản sau mạnh hơn và khó bác hơn, vì nó đúng là cách người chơi hạng cao quyết định ở 2-1/3-2.
 
@@ -59,6 +59,8 @@ việc trình bày nó như kiến thức phổ thông.
 > phán quyết ZH đọc là *"chưa xác nhận"*, không phải *"đã bác bỏ"*.
 
 ### 3. Nói luôn cái giá của lookahead
+
+> Mục "cái giá của lookahead" viết cho thiết kế CompSelector (đã thay 2026-11-13).
 
 Efroni et al. ghi rõ: lookahead **đổi một nguồn sai số lấy một nguồn khác** — giảm sai số horizon
 ngắn, tăng phụ thuộc vào một model có thể sai.

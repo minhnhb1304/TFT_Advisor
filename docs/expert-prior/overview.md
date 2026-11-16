@@ -62,11 +62,10 @@ là một **lựa chọn**, chưa fit trên dữ liệu nào — nó là một t
 
 ## Trạng thái hôm nay
 
-`data/augment_tiers.json` **chưa tồn tại**. Hệ thống suy giảm đúng như thiết kế: provider
-rỗng → `Base` trung tính ở cả 254 augment → `evidence = uncalibrated`.
+`data/augment_tiers.json`: TFT Academy (Dishsoap & Frodan), patch 18.6, nạp 2026-11-10, 248
+lõi; `evidence = ordinal`.
 
-Phần đường ống đã xong; thiếu **dữ liệu**. Cần gì và định dạng ra sao:
-[ingestion.md](ingestion.md).
+Quy trình nạp lại: [ingestion.md](ingestion.md).
 
 ## Bẫy đã bịt
 

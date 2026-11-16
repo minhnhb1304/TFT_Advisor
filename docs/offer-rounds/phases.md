@@ -1,7 +1,7 @@
 # Phases
 
 Các pha theo thứ tự. P1–P3 phục vụ ngay việc duyệt tay đang làm; P4–P6 đổi hành vi nên mỗi pha
-một commit riêng, có cờ. **P1 và P2 đã xong** (2026-10-06); các pha sau chưa.
+một commit riêng, có cờ. **P1–P4 xong; P5 bỏ; P6 chưa vào repo** (P1–P2 2026-10-06, P3–P4 2026-10-08).
 
 ## P1: Crawler và snapshot
 

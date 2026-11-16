@@ -1,5 +1,7 @@
 # Tailoring
 
+> Số N và sd đo 2026-09-07, trước khi sửa bậc; pool hiện tại ở [offer-round-pool](offer-round-pool.md).
+
 TFT **không** chào augment đều tay. Cơ chế tailoring ưu tiên những thẻ ăn khớp với trait
 đang bật trên bàn. Coi pool là đều là một sai lệch **có hướng biết trước**.
 

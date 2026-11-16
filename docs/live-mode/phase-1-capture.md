@@ -1,5 +1,7 @@
 # Phase 1 — Capture Source
 
+> Đã làm (2026-11-14): `WgcFrameSource` trong `src/capture/wgc_source.py` (giữ khung mới nhất) + tìm cửa sổ ở `src/capture/game_window.py`. Không có backend `mss`. Phần dưới là kế hoạch lịch sử.
+
 A `FrameSource` over the live game window, so every vision module written against VODs runs
 unchanged (`src/capture/frame_source.py` docstring promised exactly this).
 

@@ -5,6 +5,8 @@
 bậc, bậc mới là 70/115/69, còn **0 lõi** lệch với datatft. Mọi số liệu theo bậc đo trước ngày
 này dùng bậc sai.
 
+Patch 18.6: 71/117/70 trên 258 lõi (catalog hiện tại, gồm 5 lõi giữ lại qua `data/augment_overrides.json`).
+
 ## Phán quyết
 
 | Nhóm | Số lõi | Luật | Thực hiện |

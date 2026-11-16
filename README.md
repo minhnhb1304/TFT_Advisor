@@ -8,7 +8,7 @@ rồi xếp hạng và giải thích lựa chọn augment tốt nhất.
 
 | Tài liệu | Nội dung |
 |---|---|
-| [`SPEC.md`](SPEC.md) | Đặc tả v3 — kiến trúc, thuật toán, phương pháp đánh giá |
+| [`SPEC.md`](SPEC.md) | Đặc tả v4 — kiến trúc, thuật toán, phương pháp đánh giá |
 | [`dev_log.md`](dev_log.md) | **Trạng thái thực tế** — đã làm gì, còn gì, nợ kỹ thuật |
 | [`research/`](research/overview.md) | Báo cáo nghiên cứu, đã re-verify 2026-08-28 trên Set 18 live |
 
@@ -25,6 +25,9 @@ pip install -r requirements.txt
 ```
 
 Toàn bộ dependency đã xác nhận có wheel cho cp314 (PyQt6 và OpenCV dùng wheel `abi3`).
+
+> Chế độ live (`run_live.py`) cần thêm `pip install windows-capture` — dòng này đang để comment trong
+> `requirements.txt` vì replay không cần.
 
 > ⚠️ `opencv-python` ghim `<5`. OpenCV 5.0 đã phát hành nhưng đổi API; mọi prior art đều dùng 4.x.
 
@@ -62,11 +65,14 @@ ngoài đều có fixture trong `tests/fixtures/`.
 | A13 Meta comp **đo thật** | ✅ | `scripts/crawl_meta_comps.py` → `data/meta_comps.json` (VN2 hạng cao, kèm `match_id`) |
 | A14 Tinh chỉnh đặc trưng bằng LLM | ✅ | `build_augment_features.py --llm` trên `gemini-3.5-flash-lite` |
 | A15 Nguồn bên thứ ba | ✅ | `scripts/crawl_tactics_tools.py` → `data/meta_comps_tactics.json` + `data/tactics_tools_stats.json` |
-| A16 Bảng tier do người xếp | ✅ | `scripts/import_augment_tiers.py` → `data/augment_tiers.json` (thứ tự, **không** phải số đo) |
+| A16 Bảng tier do người xếp | ✅ | `scripts/crawl_tftacademy_tiers.py` + `scripts/crawl_metatft_tiers.py` → `data/augment_tiers.json` (crawl TFT Academy + MetaTFT ở 18.6; thứ tự, **không** phải số đo) |
 
-**Track B — cần máy có game đang chạy**: capture, calibrate ROI, OCR, đọc `OpponentBoard`, và chạy
-overlay thật. Bắt đầu bằng `tools/probe_environment.py` (chưa viết). Phần quyết định của overlay
-(`overlay_window.apply_capture_protection`) đã có test; phần vẽ chỉ kiểm chứng được khi có màn hình.
+**Trạng thái hiện tại** (thị giác, replay, live): xem [`docs/next-steps.md`](docs/next-steps.md). Hai lệnh chạy chính:
+
+```bash
+python run_replay.py --video <file>   # mặc định --card-reader hybrid (RapidOCR trước, Gemini chỉ cho ô chưa chắc)
+python run_live.py                    # theo cửa sổ game, log ở data/live_logs/; tổng hợp bằng tools/live_latency_report.py
+```
 
 ---
 
@@ -172,7 +178,7 @@ Mỗi con số trong báo cáo đều có một test dẫn xuất lại từ d�
 pytest tests/test_augment_catalog.py -v
 ```
 
-Ví dụ: ladder giải tier augment đạt **254/254** với phân bố 75/28/135/16; **19/254** đường dẫn icon
+Ví dụ: ladder giải tier augment đạt **258/258**, bậc 71/117/70; **19/254** đường dẫn icon
 mâu thuẫn với tên augment (bằng chứng định lượng cho quy tắc "tên là chính, icon là phụ"); **0** va
 chạm khi bỏ dấu tiếng Việt.
 
@@ -195,3 +201,9 @@ augment — hỏng hoàn toàn im lặng.
 
 Bẫy này **không lộ ra ở fixture trimmed** (fixture chỉ giữ đúng một khối), nên nó xanh hết test cho
 đến ngày chạy trên dữ liệu thật. Đã khoá bằng `cdragon_client.select_set_data()` + test.
+
+## Related
+
+- [`SPEC.md`](SPEC.md) — đặc tả v4
+- [`docs/next-steps.md`](docs/next-steps.md) — trạng thái hiện tại và việc tiếp theo
+- [`dev_log.md`](dev_log.md) — nhật ký phát triển

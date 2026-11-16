@@ -71,7 +71,7 @@ commit message của nhánh tương ứng.
 ## Đợt duyệt tay 2026-10-12
 
 Nhãn tay 254/254 (`data/eval/augment_feature_review.json`) được áp bằng
-`python scripts/apply_manual_review.py --write`: 122 dòng đổi, bảng có 161 dòng `manual-audit`.
+`python scripts/apply_manual_review.py --write`: 122 dòng đổi, bảng có 161 dòng `manual-audit` (10-12), nay 169.
 
 | Quy tắc | Chi tiết |
 |---|---|

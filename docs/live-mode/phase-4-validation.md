@@ -6,32 +6,28 @@ The only phase that needs real matches. Timeboxed: one Normal game, run-and-exit
 ## Before the match
 
 - [ ] `git pull`; old agent-made `run_live.py` removed
-- [ ] `pip install -r requirements.txt` (adds `windows-capture`)
+- [ ] `pip install -r requirements.txt`, rồi `pip install windows-capture` (đang comment trong requirements)
 - [ ] Game in **Borderless**; note resolution and Windows display scale
 - [ ] `python tools/probe_environment.py` — all checks pass
 - [ ] `python scripts/refresh_data.py --check` — no stale tables (or knowingly accepted)
-- [ ] Replay smoke: `run_live.py --source frames:...` shows a ranking on screen
+- [ ] Replay smoke: `run_live.py --video <file> --start <s>` shows a ranking on screen
 
 ## During the match
 
 | Check | Pass |
 |---|---|
 | Overlay visible over the game, top-right, not covering cards/HUD | Yes at 2-1, 3-2, 4-2 |
-| F1 / F2 / F4 / Ctrl+Q work while the game has focus | All respond |
-| F2 on: mouse passes through; off: panel clickable | Both |
-| Ranking appears within budget after screen opens | p95 < 8 s (Gemini ~3 s + HUD ~1.2 s + slack) |
+| Mouse passes through the overlay (click-through, không có hotkey) | Yes |
+| Ranking appears within budget after screen opens | Đọc thẻ `hybrid` (OCR trước, không còn Gemini trước): ~1,6 s khi mô phỏng (1 màn); số game thật chưa có |
 | Rerolling one card updates the ranking | New ranking after the card changes |
 | Leaving the augment screen clears the panel | Within ~1 s |
 | Game FPS impact | Note before/after, no stutter |
 
 ## Recorded output
 
-`data/live_sessions/<timestamp>/`:
-
-- `events.jsonl` — every emitted event with the latency record from Phase 2
-- `frames/` — the frame behind each `AdviceReady` (only with `logging.save_frames: true`)
-- `summary.json` — p50/p95 per stage (capture, gate, augment, hud, advise), machine info,
-  **capture path = `wgc-native`** (not VOD) so §12.1 numbers are not mixed with lossy sources
+`data/live_logs/*.jsonl` — dòng đầu là `Session` (nguồn game / mô phỏng, card reader, fps), sau đó
+mỗi sự kiện kèm latency từng khâu. Tổng hợp p50/p95: `tools/live_latency_report.py --game-only`
+(bỏ phiên mô phỏng video) để số §12.1 không lẫn với nguồn video.
 
 ## After the match
 
@@ -42,8 +38,8 @@ The only phase that needs real matches. Timeboxed: one Normal game, run-and-exit
 
 ## Done when
 
-Three augment rounds in one game produce a visible, correct-slot ranking with working hotkeys,
-and `summary.json` exists with p95 inside budget.
+Three augment rounds in one game produce a visible, correct-slot ranking, and
+`tools/live_latency_report.py --game-only` reports the session with p95 inside budget.
 
 ## Related
 

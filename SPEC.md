@@ -8,7 +8,7 @@
 > **Loại dự án**: **Đồ án tốt nghiệp** — chạy cục bộ, single-user, **KHÔNG phát hành** (§11)  
 > **Language**: Python 3.11+  
 > **Platform**: Windows (PC — League Client)  
-> **Target Set**: Set 18 — Enchanted Wilds (**ĐÃ LIVE từ 2026-08-26**, patch 18.1 / Unreal)  
+> **Target Set**: Set 18 — Enchanted Wilds (**ĐÃ LIVE từ 2026-08-26**, patch 18.1 / Unreal); dữ liệu patch 18.6 (2026-11-10); video cũ chấm theo patch của nó  
 > **Game Language**: Tiếng Việt  
 > **LLM Provider**: Gemini Flash (`google-genai` SDK)  
 > **Resolution**: 1920×1080
@@ -23,7 +23,7 @@ thì giữ lại và đánh dấu *(lịch sử)*.
 
 | # | Thay đổi v3 → v4 | Mục |
 |---|---|---|
-| 1 | Lõi dùng chung `src/live/LiveSession`: `Frame` → `LiveEvent` (`Idle` / `Status` / `AdviceReady` / `Cleared`), không Qt. Hai vỏ: replay (`run_replay.py` + `src/replay/`) và panel trong trận (mới chạy qua `scripts/demo_overlay.py`). **Vỏ live trong ván thật chưa có**; chụp WGC mới ở `tools/` | §2.1, §2.2, §3.6 |
+| 1 | Lõi dùng chung `src/live/LiveSession`: `Frame` → `LiveEvent` (`Idle` / `Status` / `AdviceReady` / `Cleared`), không Qt. Hai vỏ: replay (`run_replay.py` + `src/replay/`) và live (`run_live.py`, xem v4.1). **Vỏ live đã có nhưng chưa chạy trên ván thật** | §2.1, §2.2, §3.6 |
 | 2 | Không có `preflight.py`, `session_detector.py`, `economy.py`, `pool_tracker.py`, `template_matcher.py`, `board_reader.py`, `shop_reader.py`, `item_guide.py`, `screen_capture.py`, `region_detector.py`. Màn chọn lõi được nhận ra bằng **bộ đọc nút đổi** (`reroll_buttons.py`, `screen_present`) | §3.0–§3.4, §5 |
 | 3 | Bộ đọc thẻ `src/live/card_reader.py`: OCR / Gemini / Hybrid. Replay mặc định `hybrid` (OCR trước, Gemini cho ô OCR không chắc); Gemini **không còn** là primary | §3.2, §9.3 |
 | 4 | Đọc **lõi đã chọn** từ dải icon (`src/vision/held_augments.py`) → `state.augments` | §2.2, §3.2, §3.3 |
@@ -32,6 +32,14 @@ thì giữ lại và đánh dấu *(lịch sử)*.
 | 7 | `Base`: lõi không có trong bảng tier nhận `unknown_score` 0,35, không phải trung tính. `BoardFit` không đọc `CompSelector`. Pool đổi lõi theo bậc **và** lượt chào | §3.4.2, §3.5, §3.5.4, §3.5.5 |
 | 8 | Thước đo thực tế: `eval_playtest.py`, `eval_held_augments.py`, `eval_plan_advice.py`; scenario schema 3 | §12 |
 | 9 | §7 là lịch sử; kế hoạch hiện hành ở `docs/next-steps.md` | §7 |
+
+**v4.1 (2026-11-16)**
+
+| # | Thay đổi | Mục |
+|---|---|---|
+| 10 | Vỏ live `run_live.py` (gốc repo): chụp WGC theo cửa sổ (`src/capture/game_window.py` + `wgc_source.py`), `src/live/runner.py` (`AnalysisLoop`, luôn lấy khung mới nhất), overlay click-through `src/overlay/live_window.py`, log `data/live_logs/*.jsonl`. Không hotkey (Ctrl+C). **Chưa chạy ván thật** | §2.1, §3.1, §3.6, §5 |
+| 11 | `hybrid` mặc định cả replay lẫn live. OCR + khớp danh mục đúng 225/225 lượt đọc thẻ dev; indra-ocr 222/2/1 → loại ([`research/261115-ocr-bench.md`](research/261115-ocr-bench.md)) | §9.3 |
+| 12 | Màn chọn lõi đóng theo dấu hiệu (thấy lõi vừa chọn hoặc sang vòng mới), không theo thời gian ẩn; đọc được lõi Vận Mệnh | §3.2 |
 
 Tài liệu chi tiết của các thay đổi 4–5: [plan-conditioned-advice](docs/directional-augment/plan-conditioned-advice.md),
 [implementation-plan](docs/directional-augment/implementation-plan.md), [`dev_log.md`](dev_log.md) §16–§18.
@@ -167,7 +175,8 @@ overlay được focus → dùng `RegisterHotKey` qua Qt, **không cần hook**.
 │  │   vẽ trên video)                 │  │ data/scenarios/      │  │
 │  │ Panel trong trận ⏳ augment_panel │  └──────────────────────┘  │
 │  │   (chỉ qua scripts/demo_overlay) │                            │
-│  │ Vỏ live trong ván thật ❌ chưa có │                            │
+│  │ Vỏ live ⏳ run_live.py (chưa     │                            │
+│  │   chạy ván thật)                 │                            │
 │  └──────────────────────────────────┘                            │
 └──────────────────────────────────────────────────────────────────┘
 
@@ -297,10 +306,11 @@ fail loudly, thay vì để pipeline im lặng trả về rác.
 | `video_source.py` | `VideoFrameSource` — đọc file video qua ffmpeg. **Nguồn duy nhất đang dùng** (replay, eval, gán nhãn) |
 | `regions.py` | `ScreenRegions` — đọc `config/screen_regions.yaml`; ROI lưu **tỉ lệ 0..1**, mỗi vùng có **điểm neo** `stretch` / `left` / `center` / `right` để chạy đúng trên khung khác 16:9 (đo trên record 16:10, 1728×1080) |
 
-> 🔄 **v4**: `screen_capture.py` và `region_detector.py` **không tồn tại**. Chụp WGC theo cửa sổ mới
-> chạy trong `tools/probe_environment.py` (~49,9 fps, không hộp thoại, `dev_log.md` §14), **chưa**
-> được bọc thành một `FrameSource` trong `src/capture/`. Phần dưới đây là quyết định thiết kế cho vỏ
-> live, vẫn còn hiệu lực.
+> 🔄 **v4**: `screen_capture.py` và `region_detector.py` **không tồn tại**. Chụp WGC theo cửa sổ đã
+> được bọc thành `WgcFrameSource` (`src/capture/wgc_source.py`, giữ khung mới nhất) + tìm cửa sổ ở
+> `src/capture/game_window.py` (tiêu đề `'TFT  '`, lớp `UnrealWindow`); probe đo ~49,9 fps, không hộp
+> thoại (`dev_log.md` §14). Vỏ live dùng nó **chưa chạy trên ván thật** (v4.1). Phần dưới đây là quyết
+> định thiết kế cho vỏ live, vẫn còn hiệu lực.
 
 > 🔄 **Đổi quyết định (2026-09-04) — chụp THEO CỬA SỔ, không chụp desktop.** Cờ
 > `capture.window_scoped` trong `settings.yaml`. Hai lý do độc lập cùng chỉ về một hướng:
@@ -863,8 +873,9 @@ chưa fit trên dữ liệu.
 
 > 🔄 **v4**: `widgets/advice_panel.py`, `comp_tracker.py`, `econ_widget.py`, `item_widget.py`
 > **không tồn tại**; `augment_panel.py` là widget duy nhất. Panel này **mới chạy qua
-> `scripts/demo_overlay.py`** (các tình huống dựng sẵn, phím `1`/`2`/`3`/`Esc`), **chưa** được nối vào
-> một vòng lặp đọc game thật — vỏ live trong ván thật chưa có (§2.1).
+> `scripts/demo_overlay.py`** (các tình huống dựng sẵn, phím `1`/`2`/`3`/`Esc`). Vỏ live (`run_live.py`)
+> **đã có** nhưng dùng `live_window.py` (overlay click-through, vẽ cùng bộ vẽ với replay), **chưa chạy
+> trên ván thật** (v4.1).
 
 **Vỏ replay (`run_replay.py` + `src/replay/`) — vỏ duy nhất đang chạy trên dữ liệu thật**
 
@@ -969,7 +980,8 @@ SetProcessDpiAwareness(2)   # TRƯỚC khi khởi tạo QApplication
 ```
 TFT_Agent/
 ├── SPEC.md · README.md · dev_log.md · requirements.txt · .env.example
-├── run_replay.py                # vỏ replay — entry point duy nhất ở gốc repo (§3.6)
+├── run_replay.py                # vỏ replay (§3.6)
+├── run_live.py                  # vỏ live: WGC theo cửa sổ → AnalysisLoop → overlay (§3.6)
 │
 ├── research/                    # báo cáo research — mục lục: research/overview.md
 ├── docs/                        # thiết kế chi tiết; kế hoạch hiện hành: docs/next-steps.md
@@ -986,7 +998,8 @@ TFT_Agent/
 │
 ├── tools/                       # chạy tay, không nằm trong vòng lặp
 │   ├── calibrate.py · build_frame_labels.py · bench_hud_latency.py · ui_prototype.py
-│   └── probe_environment.py · probe_quick.py    # thăm dò máy game, chụp WGC (§3.0, §3.1)
+│   ├── probe_environment.py · probe_quick.py    # thăm dò máy game, chụp WGC (§3.0, §3.1)
+│   └── live_latency_report.py   # tổng hợp latency từ data/live_logs/*.jsonl
 │
 ├── scripts/
 │   ├── build_augment_features.py · review_augment_features.{py,html} · apply_manual_review.py  # §3.4.1
@@ -999,10 +1012,10 @@ TFT_Agent/
 │   └── state_effect_report.py · reason_quality_report.py · measure_offer_round_pool.py · compare_metatft_tags.py
 │
 ├── src/
-│   ├── capture/                 # frame_source.py · video_source.py · regions.py (§3.1)
+│   ├── capture/                 # frame_source.py · video_source.py · regions.py · wgc_source.py · game_window.py (§3.1)
 │   ├── vision/                  # ocr_engine · preprocess · hud_reader · player_row · reroll_buttons
 │   │                            # augment_reader · held_augments · frame_reader (§3.2)
-│   ├── live/                    # session.py (LiveSession) · events.py · card_reader.py · screen_tracker.py
+│   ├── live/                    # session.py (LiveSession) · events.py · card_reader.py · screen_tracker.py · runner.py (AnalysisLoop)
 │   ├── replay/                  # window · worker · scan · viewmodel · widgets · overlay · theme · icons (§3.6)
 │   ├── game_state/              # models.py · state_tracker.py (§3.3)
 │   ├── knowledge/               # cdragon_client · augment_catalog · augment_features · name_index
@@ -1015,7 +1028,7 @@ TFT_Agent/
 │   │   └── scoring/             # types · base · board_fit · econ_fit · item_fit · tempo_fit · plan_fit
 │   ├── eval/                    # scenario_logger · recognition · correlation · expert_study · ablation
 │   │                            # reroll_ablation · dataset_split · playtest_{labels,metrics,draft,review} · metatft_tags
-│   ├── overlay/                 # overlay_window.py · styles.py · widgets/augment_panel.py
+│   ├── overlay/                 # overlay_window.py · live_window.py · styles.py · widgets/augment_panel.py
 │   └── utils/                   # env.py · settings.py · hotkeys.py
 │
 ├── assets/fonts/                # Chakra Petch + Be Vietnam Pro (OFL) — font của replay/panel
@@ -1077,7 +1090,7 @@ loguru>=0.7.0
 pywin32>=306
 
 # Đánh giá (chưa commit)
-# windows-capture>=2.0.1   # WGC, capture theo window — xem §3.1
+# windows-capture>=2.0.1   # WGC, capture theo window — xem §3.1; CẦN cho run_live.py (pip install riêng)
 # keyboard>=0.13.5         # CHỈ nếu cần hotkey in-game; đọc §1.3 trước
 ```
 
@@ -1295,8 +1308,10 @@ response = client.models.generate_content(
 > | `LiveSession` + `OcrCardReader`, 2 ván / 33 ô có nhãn (2026-09-18) | `card_acc` **1,00**, `wrong_silent` 0 ([eval-dataset](docs/playtest-fixes/eval-dataset.md)) |
 > | OCR + khớp danh mục trên 111 thẻ development (2026-11-07, docstring `HybridCardReader`) | đúng 107, **sai 0**, ~15 ms/dòng |
 > | Gemini trên 6 ván dev (`dev_log.md` §15) | trung vị 2,2 s, p90 2,9 s; khoá free hay dính 503/429 |
+> | OCR + khớp danh mục trên 225 lượt đọc thẻ của 7 video development (2026-11-15) | đúng **225/225** |
+> | indra-ocr trên cùng 225 thẻ ([`research/261115-ocr-bench.md`](research/261115-ocr-bench.md)) | 222 đúng / 2 sai / 1 trống → **loại** |
 >
-> Vì vậy: replay mặc định **`hybrid`** (OCR trước, chỉ gọi Gemini khi OCR không ra đúng một
+> Vì vậy: replay **và live** (`run_live.py`) mặc định **`hybrid`** (OCR trước, chỉ gọi Gemini khi OCR không ra đúng một
 > `apiName`, Gemini lỗi thì giữ OCR); `build_session` mặc định `ocr` (không mạng). Dòng `Fallback` bên
 > dưới ("không dùng RapidOCR đoán bừa") là kết luận cũ khi OCR còn đọc tên thô, **trước** khi có bước
 > khớp danh mục.
@@ -1458,7 +1473,7 @@ tình huống đó — nghiên cứu đó vẫn đúng, chỉ là hiện không 
 > | `scripts/eval_plan_advice.py` | Gợi ý theo hướng (§3.5.6) | top-1 khớp `picked`: tắt (`rank()`) vs bật (dòng của `plan.route`) |
 >
 > `picked` là lựa chọn của **một** người chơi → đây là độ khớp với chuyên gia, không phải độ chính xác.
-> Dev chỉ để chỉnh; số báo cáo lấy từ held-out (video 18.6).
+> Dev chỉ để chỉnh; số báo cáo lấy từ held-out (minh_09, minh_10, dat_02–dat_05 + mọi video 18.6).
 
 ### 12.0 ScenarioLogger — nền của ba phương pháp sau
 

@@ -1,5 +1,7 @@
 # Playtest Fixes
 
+> Kế hoạch 2026-09-17, M0–M5 đã xong; lịch sử. Hiện trạng: [next-steps](../next-steps.md).
+
 Plan triển khai sau buổi test **1 game do chính người chơi đánh và record** (2026-09-16),
 chạy bằng `run_replay.py` (commit `d537eb0`). Soạn 2026-09-17. Trạng thái: **draft**.
 
@@ -11,7 +13,7 @@ chạy bằng `run_replay.py` (commit `d537eb0`). Soạn 2026-09-17. Trạng th�
 | G2 | Tiền/cấp/XP đúng và **đổi được** lời khuyên | Sai số HUD ở mốc; % màn mà state đổi thứ hạng | Đúng ≥ 90%; > 0% đo được |
 | G3 | Nhận xét có thông tin, không lặp | Câu trùng giữa 3 thẻ; người chơi chấm "có ích" | 0 câu trùng; ≥ 70% có ích |
 | G4 | Kiến thức chuyên gia vào được advisor | Số luật đã duyệt; đồng thuận top-1 trên tập giữ lại | ≥ 30 luật; tăng so baseline |
-| G5 | Replay và live cho **cùng kết quả** trên cùng video | Diff ranking `run_replay` vs `run_live --source video:` | 0 khác biệt |
+| G5 | Replay và live cho **cùng kết quả** trên cùng video | Diff ranking `run_replay.py` vs `run_live.py --video` | 0 khác biệt |
 
 ## Vấn đề gốc (đã kiểm trong code)
 
@@ -68,9 +70,9 @@ Tổng ≈ **11 ngày công** cho M0–M5; M6 sau khi có đủ nhãn.
 
 | Câu hỏi | Mặc định nếu chưa trả lời |
 |---|---|
-| Live dùng OCR hay Gemini để đọc thẻ? | OCR mặc định (không mạng); Gemini bật bằng config để so |
+| Live dùng OCR hay Gemini để đọc thẻ? | `hybrid` (RapidOCR + khớp danh mục, Gemini dự phòng) |
 | Đọc chuỗi thắng/thua bằng ROI hay suy từ thay đổi HP? | Thêm ROI nếu HUD hiện số chuỗi; nếu không thì suy |
-| ~~Có người chơi thứ hai gắn nhãn độc lập?~~ | **Đã chốt 2026-09-30**: nhận bản ghi từ nhiều người chơi (Outplayed → Drive). Chia **6 development / 14 held-out**, held-out chứa toàn bộ bản ghi của người khác — xem [dataset-split.md](dataset-split.md) |
+| ~~Có người chơi thứ hai gắn nhãn độc lập?~~ | **Đã chốt 2026-09-30**: nhận bản ghi từ nhiều người chơi (Outplayed → Drive). Chia development = minh_01–08 + dat_01; held-out = minh_09–10, dat_02–05, mọi video 18.6 (gồm maris_01–08) — xem [dataset-split.md](dataset-split.md) |
 
 ## Bộ dữ liệu (chốt 2026-09-30)
 

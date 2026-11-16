@@ -35,7 +35,7 @@ Thiếu tiền lên cấp  → Lấy C   (vàng/XP ngay để hoàn thành độ
 
 Nếu nhiều hướng cùng ra một lõi thì gộp dòng: *"Lấy A — hợp mọi hướng"*.
 
-## Danh sách hướng (nháp, chờ bạn chốt)
+## Danh sách hướng (đã chốt trong `tuning.plan_fit.plans`: fast9 / fast8 / reroll / cash)
 
 Bạn nói có thêm "vài hướng điển hình, không quá nhiều". Nháp dựa trên `PLANS` của nhãn và
 [luật nhịp cấp](../../research/261113-tft-leveling-rules.md):
@@ -85,7 +85,8 @@ phải trả bằng bàn cờ.
 | `scripts/eval_plan_advice.py` trên dev | Vòng 1: tắt 6/15 → bật 8/15 ([dev_log §16](../../dev_log.md)) |
 | Overlay hiện các dòng theo hướng | Xong 2026-11-14 (`tuning.plan_fit.enabled: true`), [dev_log §18](../../dev_log.md) |
 | Cân bằng hai chiều + `by_stage` (reroll từ stage 4) | Xong: 9/15, số trong mẫu |
-| Ghi lõi đã chọn khi chơi thật (dải icon 10 giờ) · bảng combo lõi | Chưa |
+| Ghi lõi đã chọn (dải icon 10 giờ) | Xong 2026-11-14, 15/15 dev ([dev_log §17](../../dev_log.md)) |
+| Bảng combo lõi | Chưa |
 
 ## Đo lường
 

@@ -1,5 +1,7 @@
 # Live Track
 
+> Track L đã hiện thực: `run_live.py --video` mô phỏng, WGC `src/capture/wgc_source.py`, `src/live/runner.py`; probe đã chạy (`data/live_probe/`, 2026-10-01 → 2026-10-15).
+
 Track **L** và mốc **M5** của [playtest fixes](overview.md). Chạy song song với track R theo
 [live mode plan](../live-mode/overview.md), với các điều chỉnh do có lõi chung.
 
@@ -25,10 +27,10 @@ Track **L** và mốc **M5** của [playtest fixes](overview.md). Chạy song so
 
 | # | Việc | Phụ thuộc | Kiểm chứng |
 |---|---|---|---|
-| L0 | ✅ `tools/probe_environment.py` đã viết (2026-09-19) — **chờ chạy trên máy game** | Máy game | Q1–Q7 có câu trả lời |
-| L1 | `src/capture/game_window.py`, `screen_capture.py` theo phase 1 | L0 | Test fake backend; probe dùng source mới |
-| M5a.1 | `src/live/app.py` + `scripts/run_live.py` dùng `LiveSession` | M1, L1 | `--source video:<record>` chạy được |
-| M5a.2 | **Kiểm G5**: `run_live --source video` vs `run_replay --headless` cùng record | M5a.1, M2 | `replay_live_diff = 0` |
+| L0 | ✅ `tools/probe_environment.py` (2026-09-19), đã chạy — kết quả ở `data/live_probe/` | Máy game | Q1–Q7 có câu trả lời |
+| L1 | ✅ `src/capture/game_window.py`, `src/capture/wgc_source.py` (`WgcFrameSource`) theo phase 1 | L0 | Test fake backend; probe dùng source mới |
+| M5a.1 | ✅ `src/live/runner.py` + `run_live.py` dùng `LiveSession` | M1, L1 | `run_live.py --video <record>` chạy được |
+| M5a.2 | **Kiểm G5**: `run_live.py --video` vs `run_replay.py` cùng record | M5a.1, M2 | `replay_live_diff = 0` |
 | M5a.3 | Hotkey F1–F4, Ctrl+Q theo phase 3 | M5a.1 | Test dispatch |
 | M5b.1 | Checklist phase 4 + các dòng dưới | M5a | 1 game Normal |
 | M5b.2 | Record màn hình song song khi test live → thêm vào bộ nhãn | M5b.1 | File nhãn mới trong `data/eval/playtest/` |

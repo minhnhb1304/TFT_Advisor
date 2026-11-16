@@ -1,5 +1,7 @@
 # Phản hồi cho danh sách các vấn đề còn thiếu (Tier 1-5)
 
+> Lịch sử (2026-09-01). Quyết định còn hiệu lực đã vào SPEC §1.3/§9; Tier 4 đã chạy (dev_log §14); Tier 5 đổi sang Brennan–Prediger S (dev_log §8b).
+
 Dưới đây là các quyết định và phản hồi dành cho Claude để tiếp tục triển khai dự án TFT Agent:
 
 ## 1. Phản hồi cho Tier 1 (Dữ liệu & API)
@@ -21,3 +23,8 @@ Dưới đây là các quyết định và phản hồi dành cho Claude để t
 ## 4. Tier 4 & 5 (Việc cần làm của User)
 *   **Tier 4:** Chạy script `tools/probe_environment.py` (nếu có) trên máy đang mở game TFT thật để đo các thông số thực (Windows Build >= 19041, process name, window class...).
 *   **Tier 5:** Lên kế hoạch nhờ 3-5 người chơi (rank khá trở lên) tham gia đánh giá khoảng 50 scenarios để lấy chỉ số đồng thuận (Cohen's κ) cho báo cáo đồ án.
+
+## Related
+
+- [SPEC.md](SPEC.md) — §1.3, §9
+- [dev_log.md](dev_log.md) — §8b, §14

@@ -77,6 +77,8 @@ cho từng ô thay vì chỉ cho ô đầu.
 
 ## Mức B — dữ liệu soạn trước
 
+Mức B/C chưa làm; ngoài phạm vi từ 2026-10-31 (tập trung lõi).
+
 | # | Bước | Kiểm chứng |
 |---|---|---|
 | B1 | **Gắn đội hình**: "Nằm trong best augments của *[comp gần board nhất]*", "lệch hướng fast 8" | Dùng `comp_selector` + `data/meta_comps.json` |

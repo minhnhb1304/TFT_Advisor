@@ -8,8 +8,9 @@ làm **trước** directional (#3).
 | Pha | Trạng thái |
 |---|---|
 | P0 chốt định nghĩa | Xong 2026-10-05 |
-| P1–P3 schema, trích, trang duyệt | Đang triển khai |
-| P4–P6 | Chưa bắt đầu |
+| P1–P4 | Xong (2026-10-12) |
+| P5 | Số tạm ở [next-steps](../next-steps.md) |
+| P6 | Xem [overview](overview.md) |
 
 ## P0: Chốt định nghĩa (xong)
 

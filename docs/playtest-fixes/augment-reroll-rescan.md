@@ -1,5 +1,7 @@
 # Augment Reroll Rescan
 
+> Mốc M2 xong; kết quả ở [eval-dataset](eval-dataset.md).
+
 Hạng mục A — mốc **M2** của [playtest fixes](overview.md). Bước 1–2 thuộc **M0** ([eval-dataset.md](eval-dataset.md)); bước 3–9 nằm trong lõi `src/live/screen_tracker.py` và `card_reader.py`. Sửa lỗi **quét sót lõi sau khi reroll**.
 Buổi test chạy bằng `run_replay.py` (commit `d537eb0`) — script này dùng OCR + fuzzy riêng
 (`DynamicCardRecognizer`), **không** đi qua `AugmentReader`/Gemini/aHash.

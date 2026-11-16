@@ -1,8 +1,8 @@
 # Offer Rounds
 
 Kế hoạch thêm thông tin **lõi xuất hiện ở lượt nào** (2-1 / 3-2 / 4-2) vào bảng feature, lấy từ
-datatft.com. Lập 2026-10-06. Trạng thái: **P1 + P2 xong** (crawler, snapshot, trường `offer_rounds`
-254/254); P3–P6 xem [phases.md](phases.md).
+datatft.com. Lập 2026-10-06. Trạng thái: **P1–P4 xong (2026-10-08); P5 bỏ (3/5 nhóm cùng lượt); P6 số tạm: Jaccard 0,818**
+([next-steps](../next-steps.md)); chi tiết pha ở [phases.md](phases.md). Snapshot hiện tại (crawl 2026-10-26): 258 lõi, datatft khớp 253.
 
 ## Vấn đề
 
@@ -43,7 +43,7 @@ Pool cùng bậc lớn hơn pool thật **1,8–2,6 lần**; pool thật nhỏ n
 
 | Tín hiệu | Dùng cho | Lưu ý |
 |---|---|---|
-| `type`: 1–2 mã/lõi (57 lõi 2 mã) | Nguồn ngoài **thứ hai** để so `categories`, cạnh MetaTFT | Ý nghĩa mã **suy từ mẫu** (1 econ, 2 combat, 3 item, 4 trait, 6 khác); mã 5 chỉ 1 lõi. **Chưa xác nhận được** (xem dưới), P6 vẫn bị chặn |
+| `type`: 1–2 mã/lõi (57 lõi 2 mã) | Nguồn ngoài **thứ hai** để so `categories`, cạnh MetaTFT | Ý nghĩa mã **đã xác nhận** (từ `DatabaseView-*.js`, xem [next-steps](../next-steps.md)): 1 kinh tế, 2 chiến đấu, 3 trang bị, 4 tộc hệ, 5 độc quyền, 6 khác |
 | 49 lõi đang `immediate` mà **chỉ có ở 2-1** | Danh sách ưu tiên xem lại `tempo` khi duyệt tay | Không tự đổi nhãn: nhiều lõi trong đó đúng là `immediate` |
 
 ## Kết quả điều tra ở P1
@@ -51,7 +51,7 @@ Pool cùng bậc lớn hơn pool thật **1,8–2,6 lần**; pool thật nhỏ n
 | Việc | Kết luận |
 |---|---|
 | 38 lõi lệch bậc | Ba danh sách của họ xếp theo **bậc của icon** (số `_1_/_2_/_3_` trong tên ảnh, khớp 256/257). **Người dùng phán quyết 2026-10-06: datatft đúng ở cả 38.** `+`/`++` cùng bậc bản gốc, số La Mã chỉ là thứ hạng trong họ (31 lõi, sửa bằng luật); 7 lõi icon CDragon sai (sửa bằng `data/augment_tier_overrides.json`). Bậc mới 70/115/69, còn 0 lõi lệch. Chi tiết: [tier-mismatch.md](tier-mismatch.md) |
-| Ý nghĩa mã `type` 1–6 | **Không xác nhận được.** Bundle `index-*.js` mà trang tham chiếu chỉ là bộ nạp (91 KB), không chứa nhãn bộ lọc; nhãn nằm trong chunk nạp trễ, cần thêm ≥ 2 request nên dừng. Ánh xạ ở bảng trên vẫn là **đoán**; xác nhận bằng mắt trên bộ lọc của trang trước khi làm P6 |
+| Ý nghĩa mã `type` 1–6 | **Sau đó đã xác nhận** từ `DatabaseView-*.js` (ánh xạ ở bảng trên). Lúc P1: **không xác nhận được.** Bundle `index-*.js` mà trang tham chiếu chỉ là bộ nạp (91 KB), không chứa nhãn bộ lọc; nhãn nằm trong chunk nạp trễ, cần thêm ≥ 2 request nên dừng. Ánh xạ ở bảng trên vẫn là **đoán**; xác nhận bằng mắt trên bộ lọc của trang trước khi làm P6 |
 
 ## Điều vẫn chưa chắc
 

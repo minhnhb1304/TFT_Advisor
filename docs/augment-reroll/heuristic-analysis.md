@@ -46,8 +46,8 @@ ro, điểm chính xác}. Mỗi lỗi là một giả thiết bị vi phạm:
 
 ## Về mục 3, nói thẳng
 
-`Base` (w1) chiếm **30% điểm** và hiện đang chạy trên `MOCK-NOT-REAL` ở cả 254 augment.
-Nghĩa là `Score` hiện có nhiễu **không đo được**, và chính sách này lấy max trên tối đa 6
+`Base` (w1, 30%) chạy trên tiên nghiệm thứ tự (bảng tier TFT Academy 18.6, `ordinal_trust`
+0,65), không phải số đo — nhiễu vẫn không đo được. Chính sách này lấy max trên tối đa 6
 lần rút.
 
 Đó là điều kiện chuẩn của lời nguyền người tối ưu: giá trị thật của thẻ được chọn thấp

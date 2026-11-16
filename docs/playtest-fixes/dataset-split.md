@@ -3,6 +3,19 @@
 Chia bộ record thành **development** và **held-out**, và kỷ luật giữ tập held-out sạch.
 Quyết định 2026-09-30, trước khi gắn nhãn video đầu tiên.
 
+## Trạng thái hiện tại (2026-11-16)
+
+`data/eval/split.json` chốt 2026-11-06, seed `20260930`.
+
+| Vai trò | Video |
+|---|---|
+| development | `minh_01`–`minh_08`, `dat_01` |
+| held-out | `minh_09`, `minh_10`, `dat_02`–`dat_05` + mọi video 18.6 |
+| held-out (nhóm thứ ba) | `maris_01`–`maris_08`: 8 ván VOD stream của một tuyển thủ VN (chung kết giải 2026-11-15, patch 18.6). **Chưa có trong `split.json`** |
+
+Đã chuyển held-out → development 3 video: `dat_01` (2026-10-26), `minh_01` và `minh_02`
+(2026-11-14). Mỗi lần ghi lý do ở trường `note` của video đó.
+
 ## Vấn đề nó giải quyết
 
 Dùng cùng một bộ dữ liệu để **chỉnh** hệ thống và để **đo** hệ thống thì con số đo được không
@@ -46,16 +59,19 @@ Chia **bằng quy tắc, không bằng cảm tính**. Chọn "6 video tôi thấ
 held-out toàn ca khó và số cuối tệ oan. Dùng seed ghi lại được.
 
 ```json
-{ "seed": 20260930, "decided_at": "2026-09-30",
+{ "seed": 20260930, "decided_at": "2026-11-06",
   "videos": [
-    { "video_id": "duc_01", "player_id": "duc", "role": "development",
-      "video_sha256": "…", "final_placement": 3,
-      "capture_profile": {"tool": "obs-display", "size": [1920,1080], "lang": "vi",
-                          "fps": 60, "original_name": "2026-09-16 21-14-02.mkv"} },
-    { "video_id": "nam_01", "player_id": "nam", "role": "heldout",
-      "video_sha256": "…", "final_placement": 7,
-      "capture_profile": {"tool": "outplayed", "size": [1920,1080], "lang": "vi",
-                          "fps": 30, "original_name": "TFT_2026-09-28_21-14-02.mp4"} }
+    { "video_id": "minh_01", "player_id": "minh", "role": "development",
+      "video_sha256": "…", "final_placement": null,
+      "capture_profile": {"tool": "windows-screen-recorder", "size": [1920,1080], "lang": "vi",
+                          "fps": 60, "original_name": "Screen recorder_09-16-2026_17-43-52-150-001.mp4"},
+      "game_patch": "18.2", "data_patch": "18.2",
+      "note": "held-out -> development (2026-11-14): …" },
+    { "video_id": "dat_02", "player_id": "dat", "role": "heldout",
+      "video_sha256": "…", "final_placement": 2,
+      "capture_profile": {"tool": "outplayed", "size": [1728,1080], "lang": "vi",
+                          "fps": 60, "original_name": "TiennDat-Teamfight Tactics_09-16-2026_22-57-39-866-005.mp4"},
+      "game_patch": "18.2", "data_patch": "18.2" }
   ] }
 ```
 

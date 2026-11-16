@@ -47,9 +47,20 @@ Ngưỡng timeout 12.0 s cho ~4× headroom và đảm bảo an toàn cho cả ch
 
 ## Ứng xử khi mất kết nối hoặc lỗi
 
-Khi Gemini không khả dụng (thiếu API key, quá hạn ngạch, timeout 12.0s), hệ thống trả về
-`AugmentReading` với `api_names = ()` và chuỗi lý do chi tiết. Tuyệt đối **không fallback
-sang RapidOCR** do 82% tên lõi Set 18 chứa ký tự thiếu trong bảng mã PP-OCRv6.
+> Cập nhật 2026-11-16: đường mặc định (replay lẫn live) là **`hybrid`** trong
+> `src/live/card_reader.py`; `augment_reader.py` giờ chỉ là nhánh Gemini của nó.
+
+`HybridCardReader` đọc mỗi ô bằng RapidOCR trước, rồi chuẩn hoá bỏ dấu và khớp `name_index`:
+chính xác → theo gốc → gần đúng `difflib` (ngưỡng **0,82**). Charset PP-OCRv6 vẫn thiếu ký tự dấu
+chồng tầng, nhưng bước khớp danh mục không cần đọc đúng dấu.
+
+- Ô OCR ra **đúng một** `apiName` → dùng luôn, không gọi Gemini.
+- Ô còn lại (không ra hoặc ra nhiều `apiName`) → gọi Gemini cho ô đó.
+- Gemini lỗi hoặc không có khoá → **giữ kết quả OCR** kèm lý do; chạy được trên máy không có khoá.
+
+Trên development: đúng **225/225** lượt đọc thẻ ([../../research/261115-ocr-bench.md](../../research/261115-ocr-bench.md)).
+Khi gọi Gemini mà lỗi (quá hạn ngạch, timeout 12.0s), `AugmentReading` vẫn trả `api_names = ()`
+và chuỗi lý do chi tiết.
 
 ## Related
 

@@ -1,6 +1,6 @@
 # Replay Shell
 
-Mốc **M1** (phần vỏ) của [playtest fixes](overview.md). Biến `run_replay.py` (819 dòng) thành
+Mốc **M1** (phần vỏ) của [playtest fixes](overview.md). Biến `run_replay.py` (819 dòng trước M1; nay 69 dòng) thành
 **vỏ mỏng** trên [core-session.md](core-session.md), đồng thời thành công cụ gắn nhãn.
 
 ## Hiện trạng cần bỏ
@@ -42,12 +42,12 @@ Mốc **M1** (phần vỏ) của [playtest fixes](overview.md). Biến `run_repl
 ## CLI
 
 ```
-python run_replay.py [video] [--card-reader ocr|gemini|hybrid] (mặc định hybrid) [--speed 1.0] [--start 600]
-python run_replay.py --headless video.mp4 --out data/eval/runs/<ts>.jsonl   # cho eval_playtest
+python run_replay.py [--video <file>] [--card-reader ocr|gemini|hybrid] (mặc định hybrid)
+                     [--analysis-fps 5.0] [--patch auto] [--palette arena] [--regions config/screen_regions.yaml]
 ```
 
-`--headless` chạy cùng lõi không mở cửa sổ — nền của `scripts/eval_playtest.py` và của so
-sánh replay/live (G5).
+Không có `--video` thì mở hộp chọn file. Headless: `scripts/eval_playtest.py --mode session`
+(cùng lõi, không mở cửa sổ) — nền của bảng đo và của so sánh replay/live (G5).
 
 ## Việc
 

@@ -34,6 +34,7 @@ Cặp **navy + vàng** là công thức dashboard 2016–2019. Kiểm cả clien
 
 | Tên | Nhấn | Nguồn |
 |---|---|---|
+| `arena` (mặc định) | `#2ee6c5` ngọc | tự phối theo mẫu Blitz (2026-11-14), `src/replay/theme.py` |
 | `neon` | `#a855f7` tím điện | tự phối, theo quy tắc trên |
 | `ember` | `#ff4655` đỏ | tông Valorant |
 | `citrus` | `#a3e635` chanh | tự phối (12,9:1 — vượt dải, sáng chói) |

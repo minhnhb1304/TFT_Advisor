@@ -95,6 +95,6 @@ Mọi quyết định lật ở bước 1 đều theo một chiều: **REROLL �
 
 ## Related
 
-- [ablation-results.md](ablation-results.md): số Monte-Carlo gốc (pool cùng bậc)
+- [ablation-results.md](ablation-results.md): số Monte-Carlo chính (pool theo lượt; cột đối chứng = pool cùng bậc)
 - [depletion-cost.md](depletion-cost.md): `c` và `cost_matrix`
 - [../offer-rounds/overview.md](../offer-rounds/overview.md): nguồn `offer_rounds`

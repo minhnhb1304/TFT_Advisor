@@ -5,8 +5,9 @@
 | Chân | Đọc ra | Trạng thái | Module |
 |------|--------|-----------|--------|
 | OCR HUD | chặng, máu (pixel); vàng, cấp, xp (qua tracker) | **xong** | `src/vision/hud_reader.py` + `src/game_state/state_tracker.py` |
-| Vision đa phương thức | tên ba lõi đang chào + tộc hệ | **xong** | `src/vision/augment_reader.py` |
+| Bộ đọc thẻ `hybrid` | tên ba lõi đang chào + tộc hệ | **xong** | `src/live/card_reader.py` (RapidOCR + khớp danh mục trước, Gemini — `src/vision/augment_reader.py` — chỉ cho ô chưa chắc) |
 | Bộ phân loại nút | vector `r = (r₀, r₁, r₂)` | **xong** | `src/vision/reroll_buttons.py` |
+| Lõi đã chọn | lõi đang giữ, từ dải icon | **xong** (15/15 dev) | `src/vision/held_augments.py` |
 
 Ba chân này hợp nhất tại `src/vision/frame_reader.py` (`FrameReader`) và được chuyển vào
 `Advisor.advise(state, choices, rerolls=...)`. Một chân hỏng chỉ làm chân đó suy giảm
@@ -38,7 +39,7 @@ và [không cần mạng, không cần LLM, không cần OCR](reroll-buttons.md)
 ## Related
 
 - [hud-reader.md](hud-reader.md) — bộ đọc thông số HUD và bộ theo dõi trạng thái
-- [augment-reader.md](augment-reader.md) — bộ nhận diện thẻ bài và tộc hệ qua Gemini Vision
+- [augment-reader.md](augment-reader.md) — bộ đọc thẻ `hybrid`: RapidOCR + khớp danh mục, Gemini cho ô chưa chắc
 - [reroll-buttons.md](reroll-buttons.md) — bộ phân loại ba nút đổi thẻ, số đo và ngưỡng
 - [../augment-reroll/overview.md](../augment-reroll/overview.md) — thứ tiêu thụ vector `r`
 - [../vod_pipeline_sop.md](../vod_pipeline_sop.md) — cách sinh lại khung hình từ VOD

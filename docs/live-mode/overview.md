@@ -1,5 +1,7 @@
 # Live Mode
 
+> Trạng thái 2026-11-16: đã làm, khác thiết kế — vỏ `run_live.py` (gốc repo), `src/capture/{game_window,wgc_source}.py`, `src/live/runner.py`, `src/overlay/live_window.py`, không hotkey (Ctrl+C), log `data/live_logs/`. Chưa chạy ván thật. Phase 0–3 dưới đây là kế hoạch lịch sử; xem dev_log §19–§21.
+
 Plan for running the advisor against a live TFT game on the **same machine**. Scope of v1:
 **augment-select screen only** — ranking + reroll advice on a click-through overlay, driven by
 global hotkeys. Comp/economy panels come after v1. Drafted 2026-09-15.

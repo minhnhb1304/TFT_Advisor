@@ -42,7 +42,7 @@ state = tracker.state(traits=augment_reading.traits)
 
 ## Giới hạn và đo đạc
 
-- **Độ trễ**: Đo được 1,05–1,20 s cho 5 crop HUD trên máy rảnh — gấp ~3,7× so với ngân sách ước tính 300 ms ban đầu. Con số chính thức cần đo khi game đang chạy (SPEC §12.1).
+- **Độ trễ**: Chế độ chỉ nhận dạng (`use_det=False, use_cls=False`, từ 2026-11-01): **54 ms** máy rảnh, 80 ms CPU bận (trước đó 1,05–1,20 s); 420/420 lượt đọc HUD trên `dat_01` giống hệt chế độ cũ. Con số 15–26 s của probe trong game là chế độ det+rec cũ; trong game chưa đo lại (SPEC §12.1).
 - **RapidOCR**: Sử dụng process-wide singleton (`ocr_engine.py`) để tránh chi phí khởi tạo.
 - Khung hình đơn lẻ không có video đi kèm bắt buộc phải chấp nhận `never_seen` cho vàng/cấp/xp.
 

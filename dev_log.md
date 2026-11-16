@@ -14,8 +14,8 @@
 | | |
 |---|---|
 | **Track A** — lõi offline, không cần game | ✅ **Xong** |
-| **Track B** — cần máy đang chạy TFT | ✅ Đường ống vision chạy trên VOD (09-09). Probe client standalone xong (10-13, 10-15), xem [mục 14](#14-probe-client-standalone-wgc-chạy-hud-chậm-khi-game-chạy) |
-| Nút thắt hiện tại | Tập đánh giá tự quay chưa có: mọi số nhận diện vẫn đo trên tập phát triển. Đọc HUD khi game chạy mất 15–26 s |
+| **Track B** — cần máy đang chạy TFT | ✅ Đường ống vision chạy trên VOD (09-09). Probe client standalone xong (10-13, 10-15), xem [mục 14](#14-probe-client-standalone-wgc-chạy-hud-chậm-khi-game-chạy). Tập tự quay đã có: 9 ván development có nhãn. Đọc HUD chỉ nhận dạng: 54 ms (máy rảnh). Vỏ live `run_live.py` đã có (mục 19–21) |
+| Nút thắt hiện tại | Chưa chạy `run_live.py` trên ván thật; held-out 18.6 (maris_01–08) chưa vào `split.json` |
 
 ---
 
@@ -42,6 +42,12 @@
 | 10-08 | `410af32`…`e982018` | `categories` đa nhãn, `carry_type` both, `frontline`; `offer_rounds` từ datatft; pool reroll theo lượt chào; duyệt tay 254/254 |
 | 10-11 → 10-12 | `463de63`…`4446f40` | Duyệt vòng 2 (47/47); áp nhãn tay vào bảng đặc trưng (122 dòng đổi) |
 | 10-13 → 10-15 | `4153624`…`b2b7544` | Probe client standalone: dò cửa sổ, WGC, độ trễ HUD; kết quả ván đấu máy và ván Normal (mục 14) |
+| 10-26 → 10-27 | `4cd3108`…`1849955` | ROI neo theo UI co giãn theo chiều cao (khung 16:10); nhãn `dat_01`; dữ liệu 18.5b, ghi đè từ client live → 258 lõi |
+| 11-01 | `f12aa46`…`77ada9f` | Đọc HUD chỉ nhận dạng (1,1 s → 54 ms máy rảnh); Gemini trả theo schema |
+| 11-04 → 11-06 | `a42bf67`…`7f51157` | Overlay kiểu Blitz trên video; chốt split development/held-out; 4 lỗi replay trên 6 ván dev (mục 15) |
+| 11-10 | `790828f`…`a5c5424` | Bộ đọc thẻ hybrid (OCR trước, Gemini cho ô chưa chắc), replay mặc định hybrid; chấm mỗi video theo patch của nó; dữ liệu 18.6 |
+| 11-13 → 11-14 | `fbb019c`…`a14b64a` | Duyệt lại 18.6, `econ_type`, nhãn hướng; gợi ý theo hướng (mục 16); đọc lõi đã chọn 15/15 (mục 17); hiện gợi ý theo hướng (mục 18); SPEC v4 |
+| 11-14 → 11-16 | `c58e68d`…`9edabfb` | Vỏ live `run_live.py` (mục 19); màn chọn lõi đóng theo dấu hiệu, lõi Vận Mệnh (mục 20); live mặc định hybrid, đo indra-ocr 222/2/1 → loại (mục 21); log gắn nguồn + `tools/live_latency_report.py` |
 
 ---
 
@@ -58,7 +64,7 @@
 | Đội hình meta | **Đo thật** — 249 trận, 1988 participant, 12 đội hình |
 | Đội hình meta (bên thứ ba) | tactics.tools — 456.572 ván, 12 đội hình, cỡ mẫu 819–46.091. Ghi ra **file riêng** |
 | Stats unit/trait/item | tactics.tools — 74 unit · 91 trait · 131 item. **Chưa nối vào scoring engine** |
-| Bảng tier augment | **Nguồn chính của w₁** (mục 13). Khung + importer đã có, `ordinal_trust: 0.65`. **Repo không kèm dữ liệu — đang chờ bảng thật** |
+| Bảng tier augment | **Nguồn chính của w₁** (mục 13). Crawl TFT Academy + MetaTFT, 18.6; `ordinal_trust: 0.65` |
 | Stats augment | ⚠️ **Không có** — mọi nguồn đo được đều đóng. w₁ chuyển sang tiên nghiệm chuyên gia (mục 13); bộ giả lập nay bị `default_provider` chặn |
 
 ### Thuật toán (trọng tâm đồ án)
@@ -72,7 +78,7 @@ Phụ trợ: comp selector · economy rules · item · position · contest score
 ### Đánh giá (SPEC §12)
 
 Harness đủ 4 phương pháp — logger, P/R/F1, Spearman, **Brennan–Prediger S** (không phải Cohen's κ,
-xem mục 8b), ablation. **Chạy được nhưng `n = 0`**: chưa có dataset thật.
+xem mục 8b), ablation. Số nhận diện và gợi ý đo trên nhãn playtest của 9 ván development (`scripts/eval_playtest.py`, `eval_held_augments.py`, `eval_plan_advice.py`).
 
 Ngoại lệ: đối chứng phản thực cho chính sách reroll (mục 12) **chạy được ngay** ở cỡ mẫu tuỳ ý —
 nó đo chính sách so với chính sách trên cùng hàm điểm nên không cần nhãn của người chơi.
@@ -797,7 +803,7 @@ owner-window. PBE báo cáo ~09-09. **Đây là lý do việc #1 ở trên phả
 
 ## Liên quan
 
-[`SPEC.md`](SPEC.md) — đặc tả v3 · [`README.md`](README.md) — cài đặt & cảnh báo dữ liệu ·
+[`SPEC.md`](SPEC.md) — đặc tả v4 · [`README.md`](README.md) — cài đặt & cảnh báo dữ liệu ·
 [`research/`](research/overview.md) — báo cáo nghiên cứu ·
 [`research/vanguard/`](research/vanguard/overview.md) — đánh giá rủi ro Vanguard + quy trình test ·
 [`claude_feedback.md`](claude_feedback.md) — quyết định Tier 1–5

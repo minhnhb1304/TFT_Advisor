@@ -60,11 +60,13 @@ video, không nên bị chặn.
 
 | # | Việc | Kiểm chứng |
 |---|---|---|
-| 1 | `src/replay/theme.py`: token màu/chữ, sinh QSS từ đó | Không hex rời rạc trong widget |
-| 2 | `src/replay/widgets/slot_column.py`: cột thẻ (sọc độ hiếm, tier, thanh điểm, lý do, chân) | Test dựng dữ liệu → nhãn, không cần Qt vẽ |
-| 3 | `verdict_bar.py`, `state_strip.py` | Hiện `?` đúng chỗ khi thiếu số |
-| 4 | `timeline.py`: mốc vòng + reroll, bước offer | Số mốc = số vòng; ▲ = số lần reroll |
-| 5 | Ráp vào `window.py`, bỏ panel cũ | Ảnh chụp trước/sau |
+| 1 | ✅ `src/replay/theme.py`: token màu/chữ, sinh QSS từ đó | Không hex rời rạc trong widget |
+| 2 | ✅ `src/replay/widgets.py` (`SlotColumn`): cột thẻ (sọc độ hiếm, tier, thanh điểm, lý do, chân) | Test dựng dữ liệu → nhãn, không cần Qt vẽ |
+| 3 | ✅ `src/replay/widgets.py` (`VerdictBar`, `StateStrip`) | Hiện `?` đúng chỗ khi thiếu số |
+| 4 | ✅ `src/replay/widgets.py` (`Timeline`): mốc vòng + reroll, bước offer | Số mốc = số vòng; ▲ = số lần reroll |
+| 5 | ✅ Ráp vào `window.py`, bỏ panel cũ | Ảnh chụp trước/sau |
+
+Thêm sau: `PlanPanel` (2026-11-14, lời khuyên theo hướng) trong `src/replay/widgets.py`.
 
 ## Related
 

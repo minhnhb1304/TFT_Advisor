@@ -48,7 +48,7 @@ Hai request GET, không hơn:
 |---|---|
 | "Cửa sổ ẩn danh" (Q4) | Mỗi lần chạy dùng `requests.get` **mới**, không `Session`, không cookie, không lưu gì giữa các lần. Server thấy đúng như một cửa sổ ẩn danh mới mở. Không cần mở trình duyệt thật vì dữ liệu là file tĩnh |
 | Lịch sự | 2 request/lần chạy, `User-Agent` trình duyệt thường, không vòng lặp, không chạy định kỳ tự động |
-| Hỏng thì báo to | Regex không khớp, thiếu `hexs18`, hoặc khớp < 250/254 `api_name` → thoát mã lỗi, **không ghi đè** snapshot cũ |
+| Hỏng thì báo to | Regex không khớp, thiếu `hexs18`, hoặc khớp < `MIN_MATCHED` (245) `api_name` → thoát mã lỗi, **không ghi đè** snapshot cũ |
 | Tái lập | `--from-file <json>` để dựng snapshot từ file đã tải, không gọi mạng (như `crawl_metatft_tags.py`) |
 
 Nếu bạn muốn nói "secret windows" theo nghĩa khác (ví dụ kho bí mật của Windows để giữ khoá),
@@ -60,8 +60,8 @@ thì nguồn này không có khoá nào để giữ; báo tôi nếu ý bạn l�
 
 ```json
 {"meta": {"source": "datatft.com", "server": "CN", "asset_url": "…", "crawled_at": "…",
-          "database_updated_at": "…", "matched": 254, "n_catalog": 254,
-          "missing_from_datatft": [], "set": "TFTSet18"},
+          "database_updated_at": "…", "matched": 253, "n_catalog": 258,
+          "missing_from_datatft": ["DA_KnowYourEnemy", "…"], "set": "TFTSet18"},
  "augments": {"DA_HedgeFund": {"rounds": ["2-1"], "types": [1], "list_index": 2}}}
 ```
 

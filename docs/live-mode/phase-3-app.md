@@ -1,5 +1,7 @@
 # Phase 3 — App Shell
 
+> Đã làm khác thiết kế (2026-11-14): `run_live.py` ở **gốc repo** (không phải `scripts/`). CLI thực tế: `--card-reader {hybrid,ocr,gemini}` (mặc định `hybrid`) `--fps 4` `--title` `--video <file>` `--start <s>` `--shot <png>` `--after <s>`. **Không có hotkey** — thoát bằng Ctrl+C. Phần dưới là kế hoạch lịch sử.
+
 `scripts/run_live.py` — the one command the test machine runs. Wires capture, session,
 overlay and hotkeys. Fully runnable against a replay source, so it is debugged without a game.
 

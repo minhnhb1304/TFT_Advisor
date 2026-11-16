@@ -46,6 +46,8 @@ giữ thẻ tốt nhất, nên nó trả lại gần hết phần lợi của ha
 | **tuần tự (module này)** | **0,60113** | **2,20** | **+0,01722** |
 | biết trước (trần) | 0,60301 | 0,91 | +0,01911 |
 
+Số đo 2026-10-07, bảng tier patch 18.2; chưa chạy lại ở 18.6.
+
 Chính sách tuần tự lấy được **90,2%** khoảng cách tới trần biết trước. Bảng đầy đủ cả ba bậc:
 [ablation-results.md](ablation-results.md).
 
@@ -62,7 +64,7 @@ bằng chứng về placement. Xem [evaluation.md](evaluation.md).
 | [tailoring.md](tailoring.md) | Vì sao pool đều là sai, và sai theo hướng nào |
 | [heuristic-analysis.md](heuristic-analysis.md) | Khi nào trực giác của cao thủ đúng, khi nào hỏng |
 | [architecture.md](architecture.md) | Hợp đồng dữ liệu, cache, ngân sách 5 ms |
-| [evaluation.md](evaluation.md) | Đối chứng phản thực + phần bị chặn bởi Track B |
+| [evaluation.md](evaluation.md) | Đối chứng phản thực; phép đo đồng thuận chuyên gia trên held-out ở tuần 12 |
 | [ablation-results.md](ablation-results.md) | Kết quả D.2: bảng ba bậc, KTC, trần giải tích |
 | [tailoring-beta-sweep.md](tailoring-beta-sweep.md) | Nhánh β = 1 vs β = 0 |
 | [mechanics-assumptions.md](mechanics-assumptions.md) | Cái gì đã kiểm chứng, cái gì là giả định |

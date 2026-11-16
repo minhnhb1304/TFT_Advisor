@@ -2,8 +2,8 @@
 
 ## Cái chạy được hôm nay: đối chứng phản thực
 
-`src/eval/reroll_ablation.py`. Ba phương pháp còn lại của SPEC §12 đều cần dataset thật và
-đều bị chặn bởi Track B. Phương pháp này thì không: nó đo **một chính sách so với một
+`src/eval/reroll_ablation.py`. Ba phương pháp còn lại của SPEC §12 đều cần dataset thật
+có nhãn (đo ở tuần 12, xem dưới). Phương pháp này thì không: nó đo **một chính sách so với một
 chính sách khác trên cùng một hàm điểm**. Không cần nhãn của người chơi, cỡ mẫu tuỳ ý.
 
 ```
@@ -51,21 +51,23 @@ sai thì cả hai chính sách cùng sai và số delta này vẫn đẹp như t
 bằng chứng về placement. Câu này được in ngay trong bảng kết quả, không chỉ nằm trong
 docstring.
 
-## Cái KHÔNG chạy được: đồng thuận chuyên gia
+## Đồng thuận chuyên gia: chưa có số, đo một lần ở tuần 12
 
-Đường code có thể viết, nhưng **không có kết quả nào để tuyên bố**. Bị chặn bởi:
+Các khâu từng chặn nay đã có:
 
-- `augment_reader` (nhận dạng augment qua Gemini Vision, SPEC §9.3) — **chưa tồn tại**
-- `player_pick` — chưa đọc được
-- `final_placement` — chưa đọc được; trận tuỳ chỉnh không lên `tft-match-v1`
+- Đọc thẻ lõi: `src/vision/augment_reader.py`, và bộ đọc hybrid `src/live/card_reader.py`
+- Lõi người chơi đã chọn: `src/vision/held_augments.py` (dải icon 10 giờ), 15/15 trên dev
 
-Kể cả khi có, giới hạn cỡ mẫu vẫn đứng nguyên:
+Phép đo đồng thuận là `scripts/eval_plan_advice.py`, chạy **một lần** ở tuần 12 trên bản
+held-out (`minh_09–10`, `dat_02–05` trong `data/eval/split.json`, cùng các video 18.6). Bản
+development chỉ để chỉnh, không lấy số báo cáo.
 
-- 18 cửa sổ augment trên **6 ván độc lập**. Mỗi cửa sổ tối đa 4 điểm quyết định (≤3 lần đổi
-  + 1 lần chọn), tức ~72 quyết định nhưng vẫn chỉ **6 cụm**.
+Giới hạn cỡ mẫu vẫn đứng nguyên:
+
+- Mỗi ván tối đa 3 cửa sổ augment, mỗi cửa sổ tối đa 4 điểm quyết định (≤3 lần đổi
+  + 1 lần chọn), nhưng số cụm độc lập vẫn chỉ là **số ván held-out**.
 - Phải báo cáo **cả** `n_windows` **lẫn** `n_games`.
-- Cả hai VOD đều mang nhãn `role: development` ⟹ **không hợp lệ** làm dữ liệu đánh giá
-  §12.1. Đây là thử nghiệm mồi, không phải phép đo.
+- `picked` là lựa chọn của **một** người chơi: đo độ khớp với chuyên gia, không phải độ chính xác.
 
 ### Thống kê: Brennan–Prediger S, không phải Cohen kappa
 
@@ -89,7 +91,7 @@ Dùng lại `expert_study.chance_corrected_agreement` và `correlation.permutati
    được thiên lệch sợ-reroll ra khỏi việc pool đổi.
 2. Đo độ nhạy theo `cost_matrix` — thứ tự đã kiểm chứng, độ lớn thì chưa.
 3. Đo độ trễ **khi game đang chạy** (SPEC §12.1), không đo trên máy rảnh.
-4. Khi Track B xong: nhật ký `reroll_trace` → đồng thuận chuyên gia.
+4. Tuần 12: nhật ký `reroll_trace` → đồng thuận chuyên gia trên held-out.
 
 ## Related
 

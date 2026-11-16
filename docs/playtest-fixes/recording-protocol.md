@@ -64,8 +64,8 @@ thì dùng để **đối chiếu**, không phải để suy ra.
 3. Tải về, rồi **đổi tên theo quy ước** khi nạp vào bộ dữ liệu:
 
 ```
-duc_01.mp4  duc_02.mp4  ...      # người chơi chính
-nam_01.mp4  nam_02.mp4  ...      # người tham gia "nam"
+minh_01.mp4  minh_02.mp4  ...    # người chơi chính
+dat_01.mp4   dat_02.mp4   ...    # người tham gia "dat"
 ```
 
 `VideoFrameSource.video_id` dẫn từ tên file, nên hai người cùng gửi `van1.mp4` sẽ **trùng id**.
@@ -73,13 +73,15 @@ nam_01.mp4  nam_02.mp4  ...      # người tham gia "nam"
 
 Ghi tên file gốc vào `capture_profile.original_name` — đừng để mất mốc thời gian.
 
+VOD stream (maris_01–08): cắt từng ván vào `D:\workspace	ft_record`, ghi nguồn ở `maris_segments.tsv`.
+
 > ⚠️ **Đừng parse `player_id` ra từ tên file.** Ghi tường minh vào
 > [`data/eval/split.json`](dataset-split.md). Tên file là dữ liệu người nhập, không phải schema —
 > đúng lớp lỗi của bug 11g (`"[]"` → `""` làm mọi VOD đổ chung một thư mục).
 
 ## Chuỗi capture là một biến, phải ghi lại
 
-Bản ghi của người chơi chính đi qua **OBS Display Capture**; của người tham gia đi qua
+Bản ghi của người chơi chính đi qua **Windows screen recorder (minh_01–03) rồi Outplayed (minh_04–10)**; của người tham gia đi qua
 **Overwolf/Outplayed**. Hai đường nén khác nhau có thể cho số §12.1 lệch nhau **có hệ thống**.
 
 `dev_log` đã đặt ra nguyên tắc này: *"phải ghi rõ mỗi số đo lấy từ đường nào, nếu không luận

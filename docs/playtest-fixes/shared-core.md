@@ -7,7 +7,7 @@ một vỏ mỏng khác nhau ở nguồn khung hình và giao diện.
 ## Kiến trúc
 
 ```
- Vỏ replay (run_replay.py)              Vỏ live (scripts/run_live.py)
+ Vỏ replay (run_replay.py)              Vỏ live (run_live.py)
   video player, nút mốc, tua              overlay click-through, hotkey F1–F4
   VideoFrameSource (seek được)            WindowCaptureSource (WGC)
             │                                        │
@@ -17,7 +17,7 @@ một vỏ mỏng khác nhau ở nguồn khung hình và giao diện.
                    ├─ gate: RerollButtonReader (screen_present, settled)
                    ├─ HUD priming ngoài màn chọn lõi → GameStateTracker
                    ├─ AugmentScreenTracker: theo dõi từng ô, reroll, khung ổn định
-                   ├─ CardReader (protocol): OcrCardReader | GeminiCardReader
+                   ├─ CardReader (protocol): OcrCardReader | GeminiCardReader | HybridCardReader (mặc định)
                    └─ Advisor.advise(tracker.state(traits), choices, rerolls)
 ```
 
@@ -27,7 +27,7 @@ một vỏ mỏng khác nhau ở nguồn khung hình và giao diện.
 |---|---|
 | `src/live/` **không import Qt** | Test headless; dùng chung cho cả hai vỏ |
 | Vỏ **không** tự dựng `GameState`, không tự đọc thẻ | Lỗi #3 hiện tại chính là do replay tự dựng state |
-| `CardReader` là protocol, chọn bằng config | Replay đang dùng OCR, live plan dùng Gemini — so được trên cùng record |
+| `CardReader` là protocol, chọn bằng config | Replay và live đều mặc định `hybrid` (`--card-reader`); đổi sang `ocr`/`gemini` để so trên cùng record |
 | Replay chạy **cùng `step()` như live**, tuần tự theo thời gian | Hành vi trên record = hành vi trong trận |
 | Tua/nhảy mốc trong replay → `session.seek(t)`: reset theo dõi màn, **giữ** tracker nếu tua tới | Không đọc lại HUD từ đầu mỗi lần tua |
 | Mốc tự động = kết quả của `LiveSession` chạy nhanh trên video, không phải scanner riêng | Một nguồn sự thật cho "đang ở màn chọn lõi" |

@@ -7,6 +7,8 @@ bootstrap 2.000 vòng trên chênh lệch **đã ghép cặp**. Phương pháp: 
 > ([tier-mismatch](../offer-rounds/tier-mismatch.md), pool cùng bậc nay là 70/115/69), **pool lọc
 > theo lượt chào** ([offer-round-pool.md](offer-round-pool.md), `pool_by_offer_round: true`), và
 > bảng tier lên **patch 18.2**. Số cũ không còn so trực tiếp được với số dưới đây.
+>
+> Chưa chạy lại ở 18.6.
 
 ```powershell
 .\.venv\Scripts\python -m src.eval.reroll_ablation --tier 2 --stage 2 --trials 10000

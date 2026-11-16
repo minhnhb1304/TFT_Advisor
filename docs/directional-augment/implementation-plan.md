@@ -1,7 +1,7 @@
 # Implementation Plan
 
 Kế hoạch 2026-11-14 cho phần còn lại của [plan-conditioned advice](plan-conditioned-advice.md).
-Mốc cứng: **tuần 12 (từ 2026-12-16) đóng băng số**, tuần 9–11 gắn nhãn held-out.
+Mốc cứng: **tuần 12 (từ 2026-12-21) đóng băng số**, tuần 9–11 gắn nhãn held-out.
 
 ## Thứ tự và lý do
 

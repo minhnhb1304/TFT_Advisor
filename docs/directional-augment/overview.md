@@ -4,6 +4,10 @@
 2026-09-30, thẩm định bằng 5 báo cáo research cùng ngày
 ([synthesis](../../research/260930-directional-augment/synthesis.md)).
 
+> **2026-11-13:** thiết kế hiện hành là [plan-conditioned-advice.md](plan-conditioned-advice.md):
+> hệ thống không suy hướng mà hiện lõi tốt nhất cho từng hướng. architecture / blind-spots /
+> contribution ghi lại quá trình đi tới quyết định đó.
+
 > **Trạng thái: TÍNH NĂNG BẮT BUỘC.** Bản đầu xếp phần này vào chương *Hạn chế & Hướng phát
 > triển*. Quyết định lại 2026-09-30: đây là tính năng phải có, và nó **phát biểu lại đóng góp
 > #3** chứ không thêm đóng góp thứ năm — xem [contribution.md](contribution.md).

@@ -4,6 +4,10 @@ Ba giải pháp sau khi thẩm định bằng research
 ([synthesis](../../research/260930-directional-augment/synthesis.md) §4). Vấn đề:
 [blind-spots.md](blind-spots.md).
 
+> **Lịch sử (2026-09-30).** Bước 1 đã xong ([centering-fix](centering-fix.md), sàn = 0). Bước 2–3
+> và `econ_type` đã cài trong `PlanFitScorer`. Bước 4 bị thay bằng
+> [plan-conditioned-advice](plan-conditioned-advice.md): hiện từng φ, không gộp bằng belief.
+
 ## Ràng buộc: phải là một trục ablation ngay từ đầu
 
 Chốt 2026-09-30, **trước** thiết kế chi tiết. Mọi thay đổi dưới đây phải **tắt được bằng một cờ**

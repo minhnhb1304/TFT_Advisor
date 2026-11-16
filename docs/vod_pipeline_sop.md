@@ -1,5 +1,7 @@
 # Quy Trình Chuẩn Hóa Thu Thập & Xử Lý VOD (VOD Pipeline SOP)
 
+> Lịch sử (09-2026): chỉ dùng cho 3 VOD streamer của tập phát triển khung. Bản ghi tự quay theo [playtest-fixes/recording-protocol.md](playtest-fixes/recording-protocol.md).
+
 > **Mục tiêu**: Các bước để tải, nghiệm thu, phân đoạn ván và trích xuất tập frame từ livestream TFT Set 18 mới, phục vụ SPEC §12.
 > **Đã đối chiếu với CLI thực tế ngày 2026-09-07** — mọi lệnh dưới đây đã chạy thử.
 
@@ -15,7 +17,7 @@
 
 * **Người chơi**: mỗi VOD một cao thủ khác nhau. Dồn vào một người ⇒ board state tương quan ⇒ cỡ mẫu hiệu dụng của `BoardFit` **thấp hơn nhiều** con số danh nghĩa.
 * **Phiên bản**: TFT Set 18, client tiếng Việt.
-* **Vùng cấm che** — webcam / donate bar / banner **không** được đè lên (toạ độ tỉ lệ, xem [`config/screen_regions.yaml`](../config/screen_regions.yaml)):
+* **Vùng cấm che** — webcam / donate bar / banner **không** được đè lên (toạ độ tỉ lệ, xem [`src/capture/regions.py`](../src/capture/regions.py)):
 
 | Vùng | Tỉ lệ (x, y, w, h) | Pixel @1080p |
 |---|---|---|
@@ -147,7 +149,7 @@ blockers:
 ## Bẫy đã biết (đọc trước khi tin số liệu)
 
 * **`stage` bị chat che.** Khung chat rộng ~880px, ô stage ở x 768–815 → tin nhắn dài đè lên. Phân đoạn ván dùng tương quan ảnh thu nhỏ nên không ảnh hưởng, nhưng **đừng OCR ô stage** rồi tin kết quả.
-* **RapidOCR không đọc được tên augment.** Charset thiếu 33/35 ký tự dấu chồng tầng; 82% tên augment Set 18 có ít nhất một ký tự như vậy. Sai **kể cả trên ảnh sạch 96px** — không phải lỗi bitrate. Tên augment phải đi đường **Gemini Vision** (SPEC §9.3).
+* **Tên augment: RapidOCR + khớp danh mục, Gemini chỉ cho ô chưa chắc** (`hybrid`, SPEC §9.3). Charset vẫn thiếu 33/35 ký tự dấu chồng tầng, nhưng chuẩn hoá bỏ dấu rồi khớp `name_index` (chính xác → theo gốc → `difflib` 0,82) nên không cần đọc đúng dấu: đúng 225/225 lượt đọc thẻ dev ([research/261115-ocr-bench.md](../research/261115-ocr-bench.md)).
 * **Trận tuỳ chỉnh không lên `tft-match-v1`.** `final_placement` phải đọc từ màn kết trận, không back-fill được qua Riot API.
 * **VOD này là tập PHÁT TRIỂN.** Số §12.1 phải đo trên bản **tự quay** — xem [`research/vanguard/testing-protocol.md`](../research/vanguard/testing-protocol.md) bước 3.
 

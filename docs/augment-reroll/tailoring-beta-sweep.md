@@ -1,5 +1,7 @@
 # Quét Tham Số Tailoring β
 
+> Đo trên pool cũ (N=132, trước khi sửa bậc 10-06); chưa chạy lại.
+
 Nhánh đối chứng thứ hai của D.2: `β = 1,0` (có tính đến Tailoring) so với `β = 0,0` (rút
 ngẫu nhiên đồng đều). `β` chỉ tác động **một chỗ**: trọng số rút của augment trùng trait đang
 bật, `w = 1 + β` nếu trùng, `1` nếu không (`reroll_policy.tailoring_weight`).

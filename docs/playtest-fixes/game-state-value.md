@@ -42,12 +42,12 @@ Phần lớn câu lặp ở [augment-commentary.md](augment-commentary.md) ("HP 
 
 | # | Bước | Kiểm chứng |
 |---|---|---|
-| 0a | HUD priming trong `LiveSession` (~3 s, dày hơn trước vòng lõi); dùng `tracker.state(traits=…)`; bỏ `or 0/1/100` | `hud_acc` ≥ 90% trên nhãn M0 |
-| 0b | `OcrCardReader.read_traits` đọc bảng tộc/hệ qua `NameIndex` | So nhãn `traits` |
-| 0c | **R1**: `hud/hp` theo dòng có vòng vàng, không theo toạ độ cố định | `hud_acc[hp]` ≥ 0.9 trên nhãn |
-| 0d | **R2**: ROI `hud/streak` + dấu theo màu biểu tượng | `hud_acc[streak]` ≥ 0.9 |
-| 0e | **R3**: đọc được HUD cả khi Team Planner làm tối màn | Khung 1126 s của game 2 ra đủ gold/level/xp |
-| 0f | Bỏ qua lần đọc HUD nếu các ô HUD không đổi (hash nhỏ) — đo được **~1 s mỗi lần đọc**, nên quét một video 36 phút mất ~12 phút chỉ vì HUD | Thời gian `--mode session` giảm; giá trị không đổi |
+| 0a | ✅ HUD priming trong `LiveSession` (~3 s, dày hơn trước vòng lõi); dùng `tracker.state(traits=…)`; bỏ `or 0/1/100` | `hud_acc` ≥ 90% trên nhãn M0 |
+| 0b | ✅ `OcrCardReader.read_traits` đọc bảng tộc/hệ qua `NameIndex` | So nhãn `traits` |
+| 0c | ✅ **R1**: `hud/hp` theo dòng có vòng vàng, không theo toạ độ cố định | `hud_acc[hp]` ≥ 0.9 trên nhãn |
+| 0d | ✅ (đạt 0,82, xem [eval-dataset](eval-dataset.md)) **R2**: ROI `hud/streak` + dấu theo màu biểu tượng | `hud_acc[streak]` ≥ 0.9 |
+| 0e | ✅ **R3**: đọc được HUD cả khi Team Planner làm tối màn | Khung 1126 s của game 2 ra đủ gold/level/xp |
+| 0f | ✅ cache theo ô ([eval-dataset](eval-dataset.md)). Bỏ qua lần đọc HUD nếu các ô HUD không đổi (hash nhỏ) — đo được **~1 s mỗi lần đọc**, nên quét một video 36 phút mất ~12 phút chỉ vì HUD | Thời gian `--mode session` giảm; giá trị không đổi |
 | 1 | ✅ **Đo trước**: `scripts/state_effect_report.py --ablate` → **0/22 offer** đổi thứ hạng | đúng như dự đoán |
 | 2 | ✅ **Dòng trạng thái**: `StripVM.line` (`src/replay/viewmodel.py`) → `StateStrip.main` (`src/replay/widgets.py`) | hiện trên vỏ replay |
 | 3 | ✅ Câu từ `EconomyRules.evaluate()` (XP lẻ, lãi, mốc tiền) qua `bundle.economy` → `strip.econ` | hiện dưới dòng trạng thái |

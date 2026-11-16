@@ -1,5 +1,7 @@
 # Probe Runbook — chạy trên máy game
 
+> Đã chạy 10-13, 10-15 (dev_log §14); dùng lại khi cần probe lại.
+
 Trình tự chạy `tools/probe_environment.py` trên **máy case** (máy có TFT) để trả lời Q1–Q7 của
 [phase-0-spike.md](phase-0-spike.md). Script-and-exit, chỉ đọc, ván **Normal**.
 
