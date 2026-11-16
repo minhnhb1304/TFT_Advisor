@@ -100,7 +100,11 @@ def main(argv: list[str] | None = None) -> int:
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{session.source_id}.jsonl"
     log = log_path.open("a", encoding="utf-8")
-    stats = {"advice": 0, "hud_ms": [], "cards_ms": [], "step_ms": []}
+    # Dong dau phien: tach do tre game that voi mo phong video (tools/live_latency_report.py).
+    log.write(json.dumps({"type": "Session", "source": f"video:{Path(args.video).name}" if preview
+                          else "game", "card_reader": args.card_reader, "fps": args.fps},
+                         ensure_ascii=False) + "\n")
+    stats ={"advice": 0, "hud_ms": [], "cards_ms": [], "step_ms": []}
 
     def on_event(event) -> None:
         record = {"type": type(event).__name__, "t": round(getattr(event, "t", 0.0), 3),
