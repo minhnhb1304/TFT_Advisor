@@ -1,4 +1,4 @@
-# TFT Advisory Agent
+# TFT Advisory 
 
 Hệ hỗ trợ ra quyết định cho Teamfight Tactics — đọc trạng thái bàn cờ **chỉ bằng thị giác máy tính**,
 rồi xếp hạng và giải thích lựa chọn augment tốt nhất.
