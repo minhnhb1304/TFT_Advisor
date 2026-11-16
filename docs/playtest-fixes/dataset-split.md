@@ -11,7 +11,7 @@ Quyết định 2026-09-30, trước khi gắn nhãn video đầu tiên.
 |---|---|
 | development | `minh_01`–`minh_08`, `dat_01` |
 | held-out | `minh_09`, `minh_10`, `dat_02`–`dat_05` + mọi video 18.6 |
-| held-out (nhóm thứ ba) | `maris_01`–`maris_08`: 8 ván VOD stream của một tuyển thủ VN (chung kết giải 2026-11-15, patch 18.6). **Chưa có trong `split.json`** |
+| held-out (nhóm thứ ba) | `maris_01`–`maris_08`: 8 ván VOD stream của một tuyển thủ VN (chung kết giải 2026-11-15, patch 18.6). Đã ghi vào `split.json` 2026-11-16 (`maris_rule`) |
 
 Đã chuyển held-out → development 3 video: `dat_01` (2026-10-26), `minh_01` và `minh_02`
 (2026-11-14). Mỗi lần ghi lý do ở trường `note` của video đó.

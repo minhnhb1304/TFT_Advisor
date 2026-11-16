@@ -59,7 +59,7 @@ Các khâu từng chặn nay đã có:
 - Lõi người chơi đã chọn: `src/vision/held_augments.py` (dải icon 10 giờ), 15/15 trên dev
 
 Phép đo đồng thuận là `scripts/eval_plan_advice.py`, chạy **một lần** ở tuần 12 trên bản
-held-out (`minh_09–10`, `dat_02–05` trong `data/eval/split.json`, cùng các video 18.6). Bản
+held-out (`minh_09–10`, `dat_02–05`, `maris_01–08` trong `data/eval/split.json`). Bản
 development chỉ để chỉnh, không lấy số báo cáo.
 
 Giới hạn cỡ mẫu vẫn đứng nguyên:

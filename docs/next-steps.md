@@ -12,7 +12,7 @@ Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần 
 
 > **2026-11-14: có vỏ live `run_live.py`** ([dev_log §19](../dev_log.md)). Việc của bạn trên máy chơi: `git pull`, mở TFT ở chế độ Borderless, chạy `.venv\Scripts\python run_live.py` (mặc định `hybrid`; có khoá Gemini thì đọc bù thẻ OCR sót), chơi qua ít nhất một màn chọn lõi, Ctrl+C để thoát, rồi gửi lại file `data/live_logs/*.jsonl` và ảnh chụp màn hình.
 
-> **18.6: 8 ván `maris_01`–`maris_08` (VOD giải, cắt 2026-11-16) → held-out, chưa ghi vào `split.json`.**
+> **18.6: 8 ván `maris_01`–`maris_08` (VOD giải, cắt 2026-11-16) → held-out, đã ghi vào `split.json` (2026-11-16).**
 
 > **2026-11-14: `minh_01`, `minh_02` chuyển held-out → development** (đã dùng chỉnh bộ đọc thẻ ở M0–M2, đo 2026-09-18). Split nay 9 development / 6 held-out (`minh_09`, `minh_10`, `dat_02`–`dat_05`) + mọi video 18.6.
 
@@ -203,7 +203,7 @@ Danh sách soát lại:
 | Giữ hay bỏ hình ảnh "la bàn" trong §1 | [review-findings.md](directional-augment/review-findings.md) |
 | Có dùng khung *Evaluative AI* cho ca hoà điểm | [explainability.md](directional-augment/explainability.md) |
 | Có dẫn `tft.ninja` không (nguồn không nhãn set) | [review-findings.md](directional-augment/review-findings.md) |
-| Xoá `docs/directional-augment-evaluation.md` (bản phẳng đã bị thay thế) chưa | — |
+| ~~Xoá `docs/directional-augment-evaluation.md` (bản phẳng đã bị thay thế) chưa~~ | Xoá 2026-11-16 |
 | Giữ `pool_by_offer_round: true`? | Mục tiêu tăng ở 7/9 ô, **giảm nhẹ ở Kim cương 3-2** (−0,00014). [augment-reroll/offer-round-pool.md](augment-reroll/offer-round-pool.md) |
 | `both_match = 0.8` có hợp lý? | Điểm BoardFit của lõi `both` trên board AD/AP. Lựa chọn thiết kế, chưa chỉnh theo dữ liệu |
 | Tách `tempo` thành 3 mức (`immediate / mixed / scaling`)? | Quyết bằng số: đếm lõi có chữ "lai" trong Ghi chú |

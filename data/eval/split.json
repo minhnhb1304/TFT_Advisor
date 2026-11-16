@@ -290,7 +290,168 @@
       },
       "game_patch": "18.2",
       "data_patch": "18.2"
+    },
+    {
+      "video_id": "maris_01",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "0c1538a8b8822cb4908e89164033c937939670e263e3ff8d91893440031ab0f0",
+      "final_placement": 3,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 0:12:11-0:47:40"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_02",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "ffe1cce1e19019eb412445529e8879f2be62c55d9ae54fa20aa839f63bd90574",
+      "final_placement": 4,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 0:54:35-1:30:00"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_03",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "7218eef6eaa14cbb1722d23c8048588c089f360d34e75f17a732e00818eeddc1",
+      "final_placement": 5,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 1:39:26-2:15:50"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_04",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "bd930fc177747898c4401866d51f1ec697b04e1165e7b6bb1b9577c34d3d87af",
+      "final_placement": 3,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 2:23:53-3:00:40"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_05",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "92babc72088504e7d1c4f9fcf66938595603e217d5d1de82222943b7fb5f600d",
+      "final_placement": 5,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 3:08:37-3:46:40"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_06",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "ac875c8b21ccddfc0605a53e2665786a8a8c1170fe15a46a2dddaa3af513235e",
+      "final_placement": 8,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 4:02:33-4:37:30"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_07",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "1b6aeaac747dc68b8a6c4fc47eea2c029bc664cb2bc735a621f1db1e253f49f5",
+      "final_placement": 7,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 4:42:27-5:19:20"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
+    },
+    {
+      "video_id": "maris_08",
+      "player_id": "maris",
+      "role": "heldout",
+      "video_sha256": "bf2aa961eda82818ec16634bd8372d4465683435bc7d79272183f785c05ded94",
+      "final_placement": 2,
+      "capture_profile": {
+        "tool": "youtube-vod",
+        "size": [
+          1920,
+          1080
+        ],
+        "lang": "vi",
+        "fps": 60,
+        "original_name": "CHUNG KẾT THẾ GIỚI DAY3 [8XjXWDQD8dA] 5:24:27-6:02:00"
+      },
+      "game_patch": "18.6",
+      "data_patch": "18.6",
+      "note": "VOD stream giai dau (chung ket 2026-11-15), tuyen thu VN; plan.route do nguoi gan nhan suy tu dien bien van; nguon: D:/workspace/tft_record/maris_segments.tsv"
     }
   ],
-  "patch_rule": "2026-11-10: game_patch suy tu ngay quay (18.2 ra 2026-09-10, 18.3 ra 2026-09-23). data_patch = ban du lieu dung de cham (data/patches/<data_patch>, Settings.for_patch); repo khong co du lieu 18.3 nen video 18.3 cham bang 18.2. Moi video quay tren 18.6 (moi nguoi choi) -> heldout, data_patch 18.6; 6 video development giu nguyen. 18.6 la patch cuoi: khong them patch moi vao bo danh gia."
+  "patch_rule": "2026-11-10: game_patch suy tu ngay quay (18.2 ra 2026-09-10, 18.3 ra 2026-09-23). data_patch = ban du lieu dung de cham (data/patches/<data_patch>, Settings.for_patch); repo khong co du lieu 18.3 nen video 18.3 cham bang 18.2. Moi video quay tren 18.6 (moi nguoi choi) -> heldout, data_patch 18.6; 6 video development giu nguyen. 18.6 la patch cuoi: khong them patch moi vao bo danh gia.",
+  "maris_rule": "2026-11-16: lay TOAN BO 8 van ngay chung ket 15/11 cua Maris (VOD YouTube 8XjXWDQD8dA, patch 18.6), chon truoc khi xem noi dung -> heldout, nhom thu ba (VOD ngoai doi). Mot nguoi choi, mot ngay: khong doc lap nhu 8 nguoi."
 }

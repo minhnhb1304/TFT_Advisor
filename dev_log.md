@@ -15,7 +15,7 @@
 |---|---|
 | **Track A** — lõi offline, không cần game | ✅ **Xong** |
 | **Track B** — cần máy đang chạy TFT | ✅ Đường ống vision chạy trên VOD (09-09). Probe client standalone xong (10-13, 10-15), xem [mục 14](#14-probe-client-standalone-wgc-chạy-hud-chậm-khi-game-chạy). Tập tự quay đã có: 9 ván development có nhãn. Đọc HUD chỉ nhận dạng: 54 ms (máy rảnh). Vỏ live `run_live.py` đã có (mục 19–21) |
-| Nút thắt hiện tại | Chưa chạy `run_live.py` trên ván thật; held-out 18.6 (maris_01–08) chưa vào `split.json` |
+| Nút thắt hiện tại | Chưa chạy `run_live.py` trên ván thật |
 
 ---
 
