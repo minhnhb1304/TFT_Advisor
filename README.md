@@ -26,8 +26,7 @@ pip install -r requirements.txt
 
 Toàn bộ dependency đã xác nhận có wheel cho cp314 (PyQt6 và OpenCV dùng wheel `abi3`).
 
-> Chế độ live (`run_live.py`) cần thêm `pip install windows-capture` — dòng này đang để comment trong
-> `requirements.txt` vì replay không cần.
+> Chế độ live (`run_live.py`) dùng `windows-capture` (WGC), đã có trong `requirements.txt` (chỉ cài trên Windows).
 
 > ⚠️ `opencv-python` ghim `<5`. OpenCV 5.0 đã phát hành nhưng đổi API; mọi prior art đều dùng 4.x.
 

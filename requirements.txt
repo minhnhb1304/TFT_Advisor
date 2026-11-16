@@ -28,9 +28,8 @@ loguru>=0.7.0
 
 # --- Windows --------------------------------------------------------------
 pywin32>=306             # SetWindowDisplayAffinity, client rect
+windows-capture>=2.0.1; sys_platform == "win32"  # WGC, chup theo cua so cho run_live.py - xem SPEC 3.1
 
 # --- Dev / Test -----------------------------------------------------------
 pytest>=8.0.0
 
-# --- Danh gia (chua commit) -----------------------------------------------
-# windows-capture>=2.0.1  # WGC, capture theo window - xem SPEC 3.1

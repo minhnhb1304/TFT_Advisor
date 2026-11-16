@@ -1088,9 +1088,9 @@ loguru>=0.7.0
 
 # Windows
 pywin32>=306
+windows-capture>=2.0.1; sys_platform == "win32"   # WGC theo cửa sổ, cho run_live.py — xem §3.1
 
 # Đánh giá (chưa commit)
-# windows-capture>=2.0.1   # WGC, capture theo window — xem §3.1; CẦN cho run_live.py (pip install riêng)
 # keyboard>=0.13.5         # CHỈ nếu cần hotkey in-game; đọc §1.3 trước
 ```
 

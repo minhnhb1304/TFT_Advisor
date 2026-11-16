@@ -6,7 +6,7 @@ The only phase that needs real matches. Timeboxed: one Normal game, run-and-exit
 ## Before the match
 
 - [ ] `git pull`; old agent-made `run_live.py` removed
-- [ ] `pip install -r requirements.txt`, rồi `pip install windows-capture` (đang comment trong requirements)
+- [ ] `pip install -r requirements.txt` (đã gồm `windows-capture`)
 - [ ] Game in **Borderless**; note resolution and Windows display scale
 - [ ] `python tools/probe_environment.py` — all checks pass
 - [ ] `python scripts/refresh_data.py --check` — no stale tables (or knowingly accepted)
