@@ -104,7 +104,9 @@ def main(argv: list[str] | None = None) -> int:
     log.write(json.dumps({"type": "Session", "source": f"video:{Path(args.video).name}" if preview
                           else "game", "card_reader": args.card_reader, "fps": args.fps},
                          ensure_ascii=False) + "\n")
-    stats ={"advice": 0, "hud_ms": [], "cards_ms": [], "step_ms": []}
+    stats ={"advice": 0, "hud_ms": [], "cards_ms": [], "step_ms": [], "gemini": 0}
+    reader = session.card_reader
+    gemini = getattr(reader, "gemini", reader if getattr(reader, "name", "") == "gemini" else None)
 
     def on_event(event) -> None:
         record = {"type": type(event).__name__, "t": round(getattr(event, "t", 0.0), 3),
@@ -116,13 +118,26 @@ def main(argv: list[str] | None = None) -> int:
         if type(event).__name__ == "AdviceReady":
             stats["advice"] += 1
             record["stage"] = event.stage
+            # Doc gi va khuyen gi - de cham dung/sai sau tran, khong chi do tre.
+            record["cards"] = [list(c.api_names) for c in event.cards]
+            bundle = event.bundle
+            top = bundle.ranking.top if bundle.ranking else None
+            record["top"] = top.api_name if top else None
+            if bundle.reroll:
+                record["reroll"] = {"action": bundle.reroll.action,
+                                    "slot": bundle.reroll.target_slot}
+            if bundle.plans:
+                record["plans"] = {line.label: line.entry.api_name for line in bundle.plans.lines}
+        if gemini is not None and gemini.calls != stats["gemini"]:
+            record["gemini_calls"] = gemini.calls - stats["gemini"]
+            stats["gemini"] = gemini.calls
         hud_ms = getattr(session, "last_hud_ms", None)
         new_hud = bool(hud_ms) and hud_ms != stats.get("last_hud")
         if new_hud:
             stats["last_hud"] = hud_ms
             stats["hud_ms"].append(hud_ms)
             record["hud_ms"] = round(hud_ms, 1)
-        if record["type"] != "Idle" or new_hud:
+        if record["type"] != "Idle" or new_hud or "gemini_calls" in record:
             log.write(json.dumps(record, ensure_ascii=False) + "\n")
             log.flush()
         bridge.event.emit(event, bool(session.screen_visible))

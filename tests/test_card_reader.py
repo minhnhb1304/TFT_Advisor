@@ -6,8 +6,8 @@ from typing import Any
 
 import numpy as np
 
-from src.live.card_reader import HybridCardReader
-from src.vision.augment_reader import CardRead
+from src.live.card_reader import GeminiCardReader, HybridCardReader
+from src.vision.augment_reader import AugmentReading, CardRead
 
 FRAME = np.zeros((4, 4, 3), dtype=np.uint8)
 
@@ -85,3 +85,18 @@ def test_gemini_refusal_keeps_ocr_reason() -> None:
     card = _hybrid(ocr, gemini).read_slot(FRAME, 2)
     assert card.api_names == ()
     assert "OCR không đọc được" in card.reason and "429" in card.reason
+
+
+def test_gemini_calls_count_network_reads_only() -> None:
+    class Reader:
+        def __init__(self, sources: list[str]) -> None:
+            self.sources = sources
+
+        def read(self, frame: np.ndarray) -> AugmentReading:
+            return AugmentReading((_card(0, "A"),), {}, self.sources.pop(0), 0.0)
+
+    gemini = GeminiCardReader(Reader(["gemini:flash", "cache"]))  # type: ignore[arg-type]
+    gemini.read_slot(FRAME, 0)
+    gemini.read_slot(FRAME, 0)              # cung khung: khong goi lai reader
+    gemini.read_slot(FRAME + 1, 0)          # khung moi nhung trung cache aHash
+    assert gemini.calls == 1

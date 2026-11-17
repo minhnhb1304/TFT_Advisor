@@ -190,6 +190,9 @@ class GeminiCardReader:
         self.reader = reader
         self._last_key: int | None = None
         self._last: Any = None
+        # So lan THUC SU goi mang (khong tinh trung cache aHash) - vo live ghi vao log
+        # de biet do tre doc the den tu Gemini hay tu OCR.
+        self.calls = 0
 
     def _reading(self, frame: np.ndarray) -> Any:
         key = int(frame.sum())      # dinh danh re cho "van la khung vua roi"
@@ -198,6 +201,8 @@ class GeminiCardReader:
             self._last = self.reader.read(frame)
             self._last_key = key
             self.last_latency_ms = (time.perf_counter() - t0) * 1000.0
+            if getattr(self._last, "source", "") != "cache":
+                self.calls += 1
         return self._last
 
     def read_slot(self, frame: np.ndarray, slot: int) -> CardRead:
