@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nhãn đồ trên tướng</title>
+<style>
+  :root { --bg:#14161a; --card:#1e2127; --line:#333843; --text:#e6e6e6; --dim:#9aa0aa;
+          --ok:#3fb950; --warn:#d29922; --bad:#f85149; --accent:#58a6ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.4 system-ui, sans-serif; }
+  header { position:sticky; top:0; z-index:5; background:#0d0f12; border-bottom:1px solid var(--line);
+           padding:10px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:16px; }
+  button { background:#2a2f38; color:var(--text); border:1px solid var(--line); border-radius:6px;
+           padding:4px 10px; cursor:pointer; font:inherit; }
+  button:hover { border-color:var(--accent); }
+  button.primary { background:#1f6feb; border-color:#1f6feb; }
+  main { padding:16px; max-width:1500px; margin:0 auto; }
+  .frame { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:16px; }
+  .frame.verified { border-color:var(--ok); }
+  .frame h3 { margin:0 0 8px; font-size:15px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .overview { width:100%; max-width:960px; border-radius:4px; cursor:zoom-in; }
+  .overview.big { max-width:none; cursor:zoom-out; }
+  .units { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .unit { border:1px solid var(--line); border-radius:6px; padding:8px; }
+  .unit canvas.zoom { display:block; image-rendering:pixelated; margin-bottom:6px; }
+  .cell { display:flex; gap:8px; align-items:center; padding:4px 0; border-top:1px dashed var(--line); }
+  .cell canvas { image-rendering:pixelated; border:1px solid var(--line); }
+  .cell.unsure .cur { color:var(--warn); }
+  .cell.changed .cur { color:var(--accent); }
+  .cur { min-width:170px; }
+  .cands { display:flex; gap:4px; flex-wrap:wrap; }
+  .cands button { padding:2px; display:flex; align-items:center; gap:4px; font-size:12px; }
+  .cands img, .cur img { width:28px; height:28px; vertical-align:middle; }
+  input[list] { width:190px; background:#0d0f12; color:var(--text); border:1px solid var(--line); border-radius:4px; padding:3px 6px; }
+  .dim { color:var(--dim); font-size:12px; }
+  .err { color:var(--bad); }
+  label { cursor:pointer; }
+</style>
+</head>
+<body>
+<header>
+  <b>Nhãn đồ trên tướng</b>
+  <span id="progress" class="dim"></span>
+  <label><input type="checkbox" id="onlyTodo"> chỉ khung chưa kiểm</label>
+  <button class="primary" id="save">Lưu (Ctrl+S)</button>
+  <span id="status" class="dim"></span>
+</header>
+<main>
+  <p class="dim">Mỗi ô: bấm một gợi ý, hoặc gõ tên (Việt/Anh) vào ô tìm. Vàng = máy không chắc. <b>Không phải đồ</b> = máy bắt nhầm ô.
+  <b>Đồ khác</b> = đồ không có trong danh sách (đồ tạo tác, đồ ánh sáng...). Ô có đồ mà máy <b>không bắt được</b>: ghi số vào "Bỏ sót".
+  Kiểm xong một khung thì tích <b>Đã kiểm</b>.</p>
+  <div id="list"></div>
+</main>
+<datalist id="items"></datalist>
+<script>
+let state, byApi = {}, SPECIAL;
+const ZOOM = 4;
+const $ = (s, el = document) => el.querySelector(s);
+
+function labelText(api) {
+  if (!api) return "— chưa có nhãn —";
+  if (api === SPECIAL.not_item) return "✗ Không phải đồ";
+  if (api === SPECIAL.other) return "? Đồ khác";
+  const o = byApi[api];
+  return o ? `${o.vi || o.en}` : api;
+}
+function iconTag(api) {
+  const o = byApi[api];
+  return o ? `<img src="/file/${o.icon}" alt="">` : "";
+}
+
+function cropCanvas(img, x, y, w, h, zoom, boxes = []) {
+  const c = document.createElement("canvas");
+  c.width = w * zoom; c.height = h * zoom;
+  const g = c.getContext("2d");
+  g.imageSmoothingEnabled = false;
+  g.drawImage(img, x, y, w, h, 0, 0, w * zoom, h * zoom);
+  for (const [bx, by, bw, bh, color] of boxes) {
+    g.strokeStyle = color; g.lineWidth = 2;
+    g.strokeRect((bx - x) * zoom, (by - y) * zoom, bw * zoom, bh * zoom);
+  }
+  return c;
+}
+
+function renderCell(frame, cell, img, row) {
+  const div = document.createElement("div");
+  const unsure = !cell.pred;
+  div.className = "cell" + (unsure ? " unsure" : "") + (cell.label !== cell.pred ? " changed" : "");
+  const [x, y, s] = cell.box;
+  div.appendChild(cropCanvas(img, x, y, s, s, 3));
+  const cur = document.createElement("div");
+  cur.className = "cur";
+  cur.innerHTML = `${iconTag(cell.label)} ${labelText(cell.label)}<div class="dim">máy: ${cell.pred ? labelText(cell.pred) : "không chắc"} (${cell.score})</div>`;
+  div.appendChild(cur);
+  const right = document.createElement("div");
+  const cands = document.createElement("div");
+  cands.className = "cands";
+  const set = api => { cell.label = api; dirty(); rerender(frame); };
+  for (const [api, sc] of cell.candidates) {
+    const b = document.createElement("button");
+    b.innerHTML = `${iconTag(api)}${labelText(api)} <span class="dim">${sc}</span>`;
+    b.onclick = () => set(api);
+    cands.appendChild(b);
+  }
+  for (const [api, txt] of [[SPECIAL.not_item, "Không phải đồ"], [SPECIAL.other, "Đồ khác"]]) {
+    const b = document.createElement("button");
+    b.textContent = txt; b.onclick = () => set(api);
+    cands.appendChild(b);
+  }
+  right.appendChild(cands);
+  const inp = document.createElement("input");
+  inp.setAttribute("list", "items");
+  inp.placeholder = "gõ tên đồ…";
+  inp.onchange = () => {
+    const v = inp.value.trim().toLowerCase();
+    const hit = state.options.find(o => [o.api, o.vi, o.en].some(n => n && n.toLowerCase() === v));
+    if (hit) set(hit.api); else inp.style.borderColor = "var(--bad)";
+  };
+  right.appendChild(inp);
+  div.appendChild(right);
+  row.appendChild(div);
+}
+
+function renderFrame(frame) {
+  const card = document.createElement("section");
+  card.className = "frame" + (frame.verified ? " verified" : "");
+  card.id = "f-" + frame.id;
+  const cells = frame.units.reduce((n, u) => n + u.cells.length, 0);
+  card.innerHTML = `<h3>${frame.id} <span class="dim">${frame.units.length} thanh máu · ${cells} ô</span>
+    <label><input type="checkbox" class="ver" ${frame.verified ? "checked" : ""}> Đã kiểm</label>
+    <label>Bỏ sót <input type="number" class="missed" min="0" value="${frame.missed || 0}" style="width:50px"></label>
+    <input class="note" placeholder="ghi chú" value="${frame.note || ""}" style="width:220px"></h3>`;
+  $(".ver", card).onchange = e => { frame.verified = e.target.checked; dirty(); card.classList.toggle("verified", frame.verified); progress(); };
+  $(".missed", card).onchange = e => { frame.missed = Math.max(0, +e.target.value || 0); dirty(); };
+  $(".note", card).onchange = e => { frame.note = e.target.value; dirty(); };
+  const img = new Image();
+  img.onload = () => {
+    const boxes = [];
+    for (const u of frame.units) {
+      boxes.push([...u.bar, "#3fb950"]);
+      for (const c of u.cells) boxes.push([c.box[0], c.box[1], c.box[2], c.box[2], c.pred ? "#58a6ff" : "#d29922"]);
+    }
+    const ov = cropCanvas(img, 0, 0, img.width, img.height, 1, boxes);
+    ov.className = "overview";
+    ov.onclick = () => ov.classList.toggle("big");
+    card.insertBefore(ov, card.children[1]);
+    const units = document.createElement("div");
+    units.className = "units";
+    frame.units.forEach(u => {
+      if (!u.cells.length) return;
+      const box = document.createElement("div");
+      box.className = "unit";
+      const [bx, by] = u.bar;
+      const z = cropCanvas(img, Math.max(0, bx - 20), Math.max(0, by - 8), 110, 46, ZOOM);
+      z.className = "zoom";
+      box.appendChild(z);
+      u.cells.forEach(c => renderCell(frame, c, img, box));
+      units.appendChild(box);
+    });
+    if (!units.children.length) units.innerHTML = `<span class="dim">Máy không thấy ô đồ nào — nếu ảnh có đồ, ghi vào "Bỏ sót".</span>`;
+    card.appendChild(units);
+  };
+  img.src = "/file/" + frame.image;
+  return card;
+}
+
+function rerender(frame) {
+  const old = document.getElementById("f-" + frame.id);
+  old.replaceWith(renderFrame(frame));
+}
+
+function renderAll() {
+  const list = $("#list");
+  list.innerHTML = "";
+  const todo = $("#onlyTodo").checked;
+  for (const f of state.labels.frames) if (!todo || !f.verified) list.appendChild(renderFrame(f));
+  progress();
+}
+
+function progress() {
+  const fr = state.labels.frames;
+  const v = fr.filter(f => f.verified).length;
+  const cells = fr.reduce((n, f) => n + f.units.reduce((m, u) => m + u.cells.length, 0), 0);
+  $("#progress").textContent = `${v}/${fr.length} khung đã kiểm · ${cells} ô · ${state.path}`;
+}
+
+let unsaved = false;
+function dirty() { unsaved = true; $("#status").textContent = "chưa lưu"; }
+
+async function save() {
+  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify(state.labels) });
+  const j = await r.json();
+  if (j.ok) { unsaved = false; $("#status").textContent = `đã lưu · ${j.verified} khung đã kiểm`; }
+  else $("#status").innerHTML = `<span class="err">${j.errors.join("; ")}</span>`;
+}
+
+$("#save").onclick = save;
+$("#onlyTodo").onchange = renderAll;
+document.addEventListener("keydown", e => { if (e.ctrlKey && e.key === "s") { e.preventDefault(); save(); } });
+window.addEventListener("beforeunload", e => { if (unsaved) { e.preventDefault(); e.returnValue = ""; } });
+
+fetch("/api/state").then(r => r.json()).then(s => {
+  state = s; SPECIAL = s.special;
+  for (const o of s.options) byApi[o.api] = o;
+  $("#items").innerHTML = s.options.map(o => `<option value="${o.vi || o.en}">${o.en} · ${o.api}</option>`).join("");
+  renderAll();
+});
+</script>
+</body>
+</html>

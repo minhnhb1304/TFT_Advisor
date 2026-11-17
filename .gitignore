@@ -75,3 +75,6 @@ data/eval/runs/
 # Tai lieu ca nhan (ke hoach do an...), chi luu tren may
 local_docs/
 data/live_logs/
+
+# Anh khung cho nhan do (tai tao duoc bang scripts/review_item_labels.py build)
+data/eval/items/frames/

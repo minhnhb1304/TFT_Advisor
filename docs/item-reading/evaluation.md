@@ -12,6 +12,10 @@ Hiện **không có nhãn đồ nào**: nhãn playtest chỉ có HUD + thẻ lõ
 | Nhãn mảnh trên băng ghế | Khung tìm được ở [bench-components](bench-components.md) I2.0 | ≥ 30 khung | Như trên |
 | Kiểm cuối | Cùng cách lấy, trên video **held-out** | ~30 khung | Chỉ chấm một lần sau khi đóng băng ngưỡng |
 
+Công cụ: `scripts/review_item_labels.py` (`build` chọn khung + máy điền trước, `serve` mở trang 127.0.0.1, `templates` cắt ô đã kiểm làm mẫu). Nhãn ở `data/eval/items/unit_items.json`.
+
+**Tránh rò rỉ:** mẫu icon cắt từ chính các khung dev. Khi đo precision trên dev thì đo chéo theo video: `templates --exclude <video>` rồi chấm video đó, lặp cho từng video.
+
 Quy tắc split giữ như cũ: chỉnh ngưỡng chỉ trên development; held-out chỉ để báo số. Bảng core 18.6 dùng được trên dev 18.2/18.3 vì đồ hợp tướng không đổi theo bản (xem [core-items](core-items.md)).
 
 ## Chỉ số

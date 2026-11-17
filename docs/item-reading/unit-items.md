@@ -19,6 +19,13 @@ Bước I1: đọc đồ trên tướng (3 icon dưới thanh máu). Thuộc [it
 | I1.5 | `LiveSession`: đọc đồ **ở đầu mỗi vòng** (khi HUD báo đổi vòng, vào pha chuẩn bị), vì vòng nào cũng có thể nhận thêm đồ từ lõi / sự kiện. Thanh máu chồng nhau thì đọc lại vài khung sau trong cùng pha. Giữ lần đọc gần nhất cho màn chọn lõi (màn này che bàn cờ) | Test máy trạng thái; log `item_ms` trong `data/live_logs` |
 | I1.6 | Điền `Champion(items=…, position=…)` vào `state.board`. Tên tướng để trống: không cần, vì carry suy theo hướng ([plan-item-fit](plan-item-fit.md) I3.2) | `state.carries` không còn rỗng trên dev |
 
+## Trạng thái (2026-11-17)
+
+- I1.1 xong: 65 icon trong `data/item_icons/`. I1.2–I1.4 có bản đầu: `src/vision/unit_items.py`, ~60–80 ms/khung 1080p.
+- Ô neo theo **mép trái** phần xanh (mất máu thì phần xanh ngắn từ bên phải), xê dịch ±3 px; gặp ô trống đầu tiên thì dừng (đồ lắp từ trái sang).
+- Thanh máu phải có khung tối trên/dưới, loại vết xanh lẻ trên sàn.
+- NCC với icon CDragon: đồ đúng đạt 0,72–0,79; đồ viền olive (tạo tác/ánh sáng?) không có trong bảng → "chưa rõ". Trên 63 khung dev: 282/482 ô máy chắc. Ngưỡng chốt sau khi có nhãn.
+
 ## Quy tắc
 
 - **Không chắc thì không đoán**: thanh máu chồng nhau, thiếu thanh, ô bị hiệu ứng đè → đánh dấu "chưa rõ", không ghi "không có đồ".
