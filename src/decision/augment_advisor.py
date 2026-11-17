@@ -29,6 +29,7 @@ from typing import Any, Iterable, Sequence
 from ..game_state.models import GameState
 from ..knowledge.augment_catalog import MatchResult
 from ..knowledge.augment_features import AugmentFeature, FeatureTable
+from ..knowledge.core_items import CoreTable
 from ..knowledge.stats_provider import AugmentStatsProvider, NullProvider
 from .reroll_policy import (
     EvidenceLevel,
@@ -54,6 +55,8 @@ from .scoring import (
     ScoringConfig,
     TempoFitScorer,
 )
+from .scoring.core_fit import NAME as CORE_FIT
+from .scoring.core_fit import CoreFit, CoreFitSettings
 
 
 @dataclass
@@ -175,6 +178,8 @@ class PlanLine:
     entry: ScoredAugment
     plan_fit: ComponentScore
     warnings: list[str] = field(default_factory=list)
+    # Thuong manh core / chap loi cua huong dau tien (None = CoreFit tat).
+    core_fit: ComponentScore | None = None
 
     @property
     def label(self) -> str:
@@ -189,6 +194,8 @@ class PlanLine:
             "total": round(self.entry.total, 4),
             "plan_fit": {"score": round(self.plan_fit.score, 4), "reason": self.plan_fit.reason},
             "warnings": self.warnings,
+            **({"core_fit": {"score": round(self.core_fit.score, 4), "reason": self.core_fit.reason,
+                             "detail": self.core_fit.detail}} if self.core_fit else {}),
         }
 
 
@@ -216,10 +223,14 @@ class AugmentAdvisor:
         features: FeatureTable | None = None,
         stats: AugmentStatsProvider | None = None,
         config: ScoringConfig | None = None,
+        core_table: CoreTable | None = None,
     ) -> None:
         self.features = features or FeatureTable.empty()
         self.stats = stats or NullProvider()
         self.config = config or ScoringConfig.default()
+        # Bang do core (docs/item-reading/plan-item-fit.md). None = CoreFit tat,
+        # rank_by_plan() nhu truoc.
+        self.core_table = core_table
 
         self.scorers = {
             "base": BaseScorer(self.stats, self.config),
@@ -288,10 +299,17 @@ class AugmentAdvisor:
         khoi trung tinh thay vi them mot trong so moi: huong khong co y kien
         (0.5) thi thu tu dung bang `rank()`, va `rank()` khong doi mot byte.
         Lo da cam (`state.augments`) di vao plan_fit qua luat "no suc manh".
+
+        Co bang do core thi cong them w_core * thuong manh core cua huong; lose
+        "chap loi" (lech AD/AP voi moi comp ung vien) thi diem huong nhan
+        `off_damage_factor`.
         """
         settings = PlanSettings.from_config(self.config)
         plans = list(plans if plans is not None else settings.plans)
         scorer = PlanFitScorer(settings)
+        core_settings = CoreFitSettings.from_config(self.config)
+        core = (CoreFit(self.core_table, core_settings)
+                if self.core_table is not None and core_settings.enabled else None)
         base = self.rank(choices, state)
         held = [f for f in (self.features.get(a) for a in state.augments) if f is not None]
 
@@ -300,21 +318,34 @@ class AugmentAdvisor:
             fits: dict[str, ComponentScore] = {}
             entries: list[ScoredAugment] = []
             for e in base.entries:
-                fit = scorer(e.api_name, self.features.get(e.api_name), state, plan, held)
+                feature = self.features.get(e.api_name)
+                fit = scorer(e.api_name, feature, state, plan, held)
                 fits[e.api_name] = fit
+                total = e.total + settings.weight * (fit.score - 0.5)
+                components = {**e.components, fit.name: fit}
+                if core is not None:
+                    cf = core(e.api_name, feature, state, plan.key, plan.label)
+                    components[cf.name] = cf
+                    if cf.detail.get("off_damage"):
+                        total *= core_settings.off_damage_factor
+                    else:
+                        total += core_settings.weight * float(cf.detail.get("bonus") or 0.0)
                 entries.append(
                     ScoredAugment(
                         api_name=e.api_name,
                         name=e.name,
-                        total=e.total + settings.weight * (fit.score - 0.5),
-                        components={**e.components, fit.name: fit},
+                        total=total,
+                        components=components,
                         ambiguous=e.ambiguous,
                         choice_index=e.choice_index,
                         confidence=e.confidence,
                     )
                 )
             entries.sort(key=lambda x: (-x.total, x.api_name))
-            advice.rankings[plan.key] = Ranking(entries, {**base.weights, "plan_fit": settings.weight})
+            weights = {**base.weights, "plan_fit": settings.weight}
+            if core is not None:
+                weights["core_fit"] = core_settings.weight
+            advice.rankings[plan.key] = Ranking(entries, weights)
             advice.plan_fits[plan.key] = fits
 
         by_api: dict[str, PlanLine] = {}
@@ -326,7 +357,8 @@ class AugmentAdvisor:
             warning = str(fit.detail.get("warning") or "")
             line = by_api.get(top.api_name)
             if line is None:
-                line = by_api[top.api_name] = PlanLine([plan], top, fit)
+                line = by_api[top.api_name] = PlanLine([plan], top, fit,
+                                                       core_fit=top.components.get(CORE_FIT))
                 advice.lines.append(line)
             else:
                 line.plans.append(plan)

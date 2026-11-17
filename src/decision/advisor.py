@@ -20,6 +20,7 @@ from ..eval.scenario_logger import ScenarioLogger
 from ..game_state.models import GameState
 from ..knowledge.augment_features import FeatureTable
 from ..knowledge.comp_database import CompDatabase
+from ..knowledge.core_items import CoreTable
 from ..knowledge.data_freshness import stale_warnings
 from ..knowledge.stats_provider import AugmentStatsProvider, default_provider
 from ..utils.settings import Settings
@@ -101,7 +102,10 @@ class Advisor:
             s.path("augment_tiers"),
             s.path("augment_tiers_backup"),
         )
-        self.augment_advisor = AugmentAdvisor(self.features, self.stats, config)
+        self.augment_advisor = AugmentAdvisor(
+            self.features, self.stats, config,
+            core_table=CoreTable.load(s.path("core_items"), s.path("item_recipes")),
+        )
         self.plan_settings = PlanSettings.from_config(config)
 
         primary_comps_path = s.path("meta_comps")

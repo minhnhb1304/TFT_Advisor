@@ -118,6 +118,18 @@ tuning:
         eco: 0.20
         power: 0.0
         econ_type: {gold: 0.10, xp: 0.10}
+  # Thuong manh core + chap loi THEO HUONG - docs/item-reading/plan-item-fit.md.
+  # Cung kieu plan_fit: KHONG nam trong `weights`, chi rank_by_plan() dung, va
+  # chi khi co bang data/core_items.json + doc duoc it nhat mot mon do.
+  # Moi so la LUA CHON chua fit tren du lieu; chinh tren dev truoc tuan 12.
+  core_fit:
+    enabled: true
+    weight: 0.10           # w_core: cong w_core * thuong (0-1) vao diem huong
+    anvil_extra: 0.15      # lo ren nhinh hon mot manh bat ky (nguoi choi, 2026-11-17)
+    off_damage_factor: 0.15  # chap loi: diem huong con ~15% (nguoi choi: mat 80-90%)
+    public_only: true      # ung vien = comp TFT Academy dang cong khai (mau chuan)
+    # Gia carry chinh moi huong - chi dung khi khong comp nao khop do dang cam.
+    plan_costs: {fast9: [5], fast8: [4], reroll: [1, 2, 3]}
 
 # Comp Selection Algorithm - SPEC 3.5.2. De o day (khong hardcode) vi cung ly
 # do voi `weights`: phai doi duoc tu file khi hieu chinh hoac khi ablation.

@@ -45,6 +45,7 @@ DEFAULTS: dict[str, Any] = {
         "meta_comps": "data/meta_comps.tftacademy.json",
         "meta_comps_backup": "data/meta_comps.metatft.json",
         "item_recipes": "data/item_recipes.json",
+        "core_items": "data/core_items.json",
         "champion_costs": "data/champion_costs.json",
         "item_stats": "data/tactics_tools_stats.json",
         "name_index": "data/name_index.json",
