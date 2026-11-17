@@ -33,7 +33,7 @@ Quy tắc split giữ như cũ: chỉnh ngưỡng chỉ trên development; held-
 
 | Đo | Số |
 |---|---|
-| Màn đọc được đồ trước khi mở màn chọn lõi | 10/15. **Cả 5 màn 2-1 không có đồ trên tướng**: mảnh vẫn nằm trên băng ghế đồ (I2) |
+| Màn đọc được đồ trước khi mở màn chọn lõi | 10/15. **Cả 5 màn 2-1 không có đồ**: trên tướng lẫn băng ghế đều trống ([bench-components](bench-components.md)) |
 | Tỷ lệ lùi (có đồ ghép nhưng không comp nào khớp) | 1/10 (`dat_01` 3-2) |
 | CoreFit đổi top-1 của hướng thật | 0/15. Chấp lõi kích hoạt 0 màn |
 | Top-1 khớp lựa chọn người chơi | tắt 9/15 · bật 9/15 |
