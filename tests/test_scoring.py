@@ -306,6 +306,22 @@ def test_item_fit_prefers_completing_an_odd_component(config) -> None:
     assert "ghép được ngay" in has_one.reason
 
 
+def test_item_fit_matches_cdragon_api_names(config) -> None:
+    """Bo doc do tra `DA_Component_BFSword`, feature table ghi `BFSword` - phai khop."""
+    scorer = ItemFitScorer(config)
+    feat = feature(item_grants=["BFSword"])
+    read = scorer("A", feat, GameState(item_components=["DA_Component_BFSword"]))
+    assert "ghép được ngay" in read.reason
+
+
+def test_infer_carry_type_reads_cdragon_api_names() -> None:
+    state = GameState(board=[
+        Champion(name="X", cost=4, items=["DA_Component_NeedlesslyLargeRod",
+                                          "TFT_Item_TearOfTheGoddess"], position=(1, 1)),
+    ])
+    assert infer_carry_type(state)[0] == "AP"
+
+
 def test_item_fit_falls_when_board_is_item_rich(config) -> None:
     scorer = ItemFitScorer(config)
     feat = feature(item_grants=["AnyComponent"])

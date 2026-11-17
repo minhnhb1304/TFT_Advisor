@@ -16,6 +16,7 @@ from collections import Counter
 
 from ...game_state.models import GameState
 from ...knowledge.augment_features import AugmentFeature
+from .board_fit import component_key
 from .types import ComponentScore, ScoringConfig, clamp01, neutral
 
 NAME = "item_fit"
@@ -52,7 +53,7 @@ class ItemFitScorer:
         if not feature.item_grants:
             return neutral(NAME, "Không tặng trang bị — không tính điểm trang bị")
 
-        held = Counter(state.item_components)
+        held = Counter(component_key(c) for c in state.item_components)
         best_value = 0.0
         best_reason = ""
 
@@ -61,7 +62,7 @@ class ItemFitScorer:
                 value, reason = self.completed, "Tặng item hoàn chỉnh"
             elif grant in GENERIC_GRANTS:
                 value, reason = self.generic, f"Tặng trang bị dạng {grant}"
-            elif held.get(grant, 0) % 2 == 1:
+            elif held.get(component_key(grant), 0) % 2 == 1:
                 # Dang le loi mot cai - them cai nua la ghep duoc ngay.
                 value = self.exact
                 reason = f"Tặng {grant} — đang lẻ đúng 1 cái, ghép được ngay"

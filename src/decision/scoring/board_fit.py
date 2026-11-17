@@ -45,6 +45,15 @@ COMPLETED_ITEM_HINTS: dict[str, list[str]] = {
 }
 
 
+def component_key(component: str) -> str:
+    """`DA_Component_BFSword` / `TFT_Item_BFSword` / `BFSword` -> `BFSword`.
+
+    Bo doc do tra apiName CDragon, con feature table va map o tren dung ten
+    ngan - khong chuan hoa thi khong bao gio khop.
+    """
+    return re.sub(r"^(DA_Component_|TFT_Item_)", "", str(component))
+
+
 def trait_key(trait: str) -> str:
     """Chuan hoa dinh danh trait de so sanh duoc giua cac cach viet.
 
@@ -80,7 +89,7 @@ def infer_carry_type(state: GameState, legacy_tank: bool = False) -> tuple[str, 
 
     for champ in state.carries:
         for item in champ.items:
-            direct = COMPONENT_CARRY_TYPE.get(item)
+            direct = COMPONENT_CARRY_TYPE.get(component_key(item))
             if direct:
                 # Map van giu "tank" cho position_advisor/comp_signals; o day bo qua
                 if direct in votes:

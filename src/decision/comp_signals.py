@@ -28,7 +28,7 @@ from typing import Any, Iterable, Mapping
 from ..game_state.models import RE_STAGE, GameState
 from ..knowledge.comp_database import ARCHETYPES, MetaComp
 from .item_advisor import ItemRecipes
-from .scoring.board_fit import COMPONENT_CARRY_TYPE, trait_key
+from .scoring.board_fit import COMPONENT_CARRY_TYPE, component_key, trait_key
 from .scoring.types import clamp01
 
 FAST_ARCHETYPES = ("fast8", "fast9")
@@ -54,8 +54,7 @@ def resolve_archetype(comp: MetaComp) -> str:
 
 def component_type(component: str) -> str | None:
     """`DA_Component_BFSword` / `BFSword` -> "AD". Manh khong chi huong -> None."""
-    key = re.sub(r"^(DA_Component_|TFT_Item_)", "", component)
-    return COMPONENT_CARRY_TYPE.get(key)
+    return COMPONENT_CARRY_TYPE.get(component_key(component))
 
 
 def is_emblem(item: str) -> bool:
