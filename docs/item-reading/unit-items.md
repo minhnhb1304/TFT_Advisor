@@ -24,7 +24,10 @@ Bước I1: đọc đồ trên tướng (3 icon dưới thanh máu). Thuộc [it
 - I1.1 xong: 65 icon trong `data/item_icons/`. I1.2–I1.4 có bản đầu: `src/vision/unit_items.py`, ~60–80 ms/khung 1080p.
 - Ô neo theo **mép trái** phần xanh (mất máu thì phần xanh ngắn từ bên phải), xê dịch ±3 px; gặp ô trống đầu tiên thì dừng (đồ lắp từ trái sang).
 - Thanh máu phải có khung tối trên/dưới, loại vết xanh lẻ trên sàn.
-- NCC với icon CDragon: đồ đúng đạt 0,72–0,79; đồ viền olive (tạo tác/ánh sáng?) không có trong bảng → "chưa rõ". Trên 63 khung dev: 282/482 ô máy chắc. Ngưỡng chốt sau khi có nhãn.
+- Chỉ đọc đồ thường. Đồ ánh sáng / tạo tác ngoài phạm vi: phải ra "chưa rõ", gắn nhãn "Đồ đặc biệt".
+- Bộ nhãn chỉ lấy khung **chuẩn bị**: bỏ khung có thanh máu đỏ (giao tranh / xem nhà khác). Thanh shop không dùng được vì người chơi mở shop cả lúc giao tranh.
+- Ô đè lên thanh máu tướng khác (tướng đứng sát) bị bỏ.
+- NCC với icon CDragon: 327/536 ô máy chắc trên 63 khung dev. Phần lớn ô còn lại máy **đoán đúng nhưng điểm 0,4–0,55** (icon trong game khác hình gốc). Icon TFT Academy / MetaTFT là cùng hình gốc (lệch 4–5/255), thử trên 482 ô không hơn (283–284 vs 284). Cách sửa: mẫu cắt từ game sau khi có nhãn.
 
 ## Quy tắc
 

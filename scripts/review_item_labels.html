@@ -49,7 +49,7 @@
 </header>
 <main>
   <p class="dim">Mỗi ô: bấm một gợi ý, hoặc gõ tên (Việt/Anh) vào ô tìm. Vàng = máy không chắc. <b>Không phải đồ</b> = máy bắt nhầm ô.
-  <b>Đồ khác</b> = đồ không có trong danh sách (đồ tạo tác, đồ ánh sáng...). Ô có đồ mà máy <b>không bắt được</b>: ghi số vào "Bỏ sót".
+  <b>Đồ đặc biệt</b> = đồ ánh sáng, đồ tạo tác… (ngoài phạm vi, máy phải để "không chắc"). Ô có đồ mà máy <b>không bắt được</b>: ghi số vào "Bỏ sót".
   Kiểm xong một khung thì tích <b>Đã kiểm</b>.</p>
   <div id="list"></div>
 </main>
@@ -62,7 +62,7 @@ const $ = (s, el = document) => el.querySelector(s);
 function labelText(api) {
   if (!api) return "— chưa có nhãn —";
   if (api === SPECIAL.not_item) return "✗ Không phải đồ";
-  if (api === SPECIAL.other) return "? Đồ khác";
+  if (api === SPECIAL.other) return "? Đồ đặc biệt";
   const o = byApi[api];
   return o ? `${o.vi || o.en}` : api;
 }
@@ -104,7 +104,7 @@ function renderCell(frame, cell, img, row) {
     b.onclick = () => set(api);
     cands.appendChild(b);
   }
-  for (const [api, txt] of [[SPECIAL.not_item, "Không phải đồ"], [SPECIAL.other, "Đồ khác"]]) {
+  for (const [api, txt] of [[SPECIAL.not_item, "Không phải đồ"], [SPECIAL.other, "Đồ đặc biệt"]]) {
     const b = document.createElement("button");
     b.textContent = txt; b.onclick = () => set(api);
     cands.appendChild(b);

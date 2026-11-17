@@ -11,6 +11,7 @@ Kế hoạch 2026-11-17: đọc đồ từ pixel để **ItemFit trong điểm l
 | Trong | Ngoài |
 |---|---|
 | Đồ trên tướng mình (3 icon dưới thanh máu xanh) | Panel "ghép gì" trên overlay |
+| **Chỉ đồ thường**: 10 mảnh, đồ ghép, ấn (65 món trong `item_recipes.json`) | Đồ ánh sáng, đồ tạo tác, đồ đặc biệt khác: bộ đọc để "chưa rõ" (bạn chốt 2026-11-17) |
 | Mảnh đồ trên băng ghế đồ | Nhận diện tên tướng trên bàn (để Future Work) |
 | Bảng đồ core theo tướng (có nhóm thay thế), 4 vai carry/tank chính/phụ | Đồ trên tướng địch |
 | ItemFit dùng "mảnh đang thiếu để ghép core cho vai ưu tiên nhất" | Chọn đồ ở băng chuyền / kho đồ |

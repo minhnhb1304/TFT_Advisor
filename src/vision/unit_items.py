@@ -23,12 +23,16 @@ import cv2
 import numpy as np
 
 # Nguong mau thanh mau xanh (BGR), do tren minh_06; giong TFT-Copilot / Agente-TFT.
+# Thanh do cua dich dung cung nguong, doi vai tro kenh G va R.
 GREEN_MIN = 110
 GREEN_OVER_RED = 1.65
 GREEN_OVER_BLUE = 1.5
 # Kich thuoc o 1080p, nhan voi chieu cao khung / 1080.
 BAR_H = (3, 6)
 BAR_MIN_W = 6
+# Khung toi quanh thanh mau day: lui trai (o bieu tuong sao/bac) va tren/duoi.
+BAR_PAD = (14, 4)
+BAR_FULL_W = 66
 # Do sang trung binh toi da cua khung toi quanh phan xanh.
 FRAME_DARK_MAX = 70
 CELL = 23
@@ -94,12 +98,17 @@ def scale_of(frame: np.ndarray) -> float:
     return frame.shape[0] / 1080.0
 
 
-def find_health_bars(frame: np.ndarray) -> list[Bar]:
-    """Phan xanh cua moi thanh mau tuong minh, tren -> duoi, trai -> phai."""
+def find_health_bars(frame: np.ndarray, own: bool = True) -> list[Bar]:
+    """Phan mau cua moi thanh mau, tren -> duoi, trai -> phai.
+
+    own=True: thanh XANH (tuong minh). own=False: thanh DO (tuong dich / quai) -
+    co thanh do tren man hinh nghia la dang giao tranh hoac dang xem nha khac.
+    """
     s = scale_of(frame)
     b, g, r = (frame[..., i].astype(np.int32) for i in range(3))
-    mask = ((g > GREEN_MIN) & (g * 100 > GREEN_OVER_RED * 100 * r)
-            & (g * 100 > GREEN_OVER_BLUE * 100 * b)).astype(np.uint8)
+    main, other = (g, r) if own else (r, g)
+    mask = ((main > GREEN_MIN) & (main * 100 > GREEN_OVER_RED * 100 * other)
+            & (main * 100 > GREEN_OVER_BLUE * 100 * b)).astype(np.uint8)
     n, _, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     bars = [Bar(int(x), int(y), int(w), int(h)) for x, y, w, h, _ in stats[1:n]
@@ -162,6 +171,18 @@ def find_item_cells(frame: np.ndarray, bar: Bar) -> list[tuple[int, int, int]]:
     return cells
 
 
+def _hits_other_bar(bar: Bar, bars: list[Bar], x: int, y: int, size: int, s: float) -> bool:
+    """O icon co cat vung thanh mau (ca khung toi) cua tuong khac khong."""
+    for o in bars:
+        if o is bar:
+            continue
+        x0, x1 = o.x - BAR_PAD[0] * s, o.x + BAR_FULL_W * s
+        y0, y1 = o.y - BAR_PAD[1] * s, o.y + o.h + BAR_PAD[1] * s
+        if x < x1 and x + size > x0 and y < y1 and y + size > y0:
+            return True
+    return False
+
+
 def _unit(x: np.ndarray) -> np.ndarray:
     x = x - x.mean()
     n = float(np.linalg.norm(x))
@@ -219,9 +240,14 @@ class UnitItemReader:
 
     def read(self, frame: np.ndarray) -> list[UnitItems]:
         units = []
-        for bar in find_health_bars(frame):
+        bars = find_health_bars(frame)
+        for bar in bars:
             cells = []
             for x, y, size in find_item_cells(frame, bar):
+                if _hits_other_bar(bar, bars, x, y, size, scale_of(frame)):
+                    # Tuong dung sat nhau: o nay de len thanh mau tuong khac,
+                    # icon bi che - khong doc, cung khong tinh la o can doc.
+                    continue
                 name, score, margin, top3 = self.classify(frame[y:y + size, x:x + size])
                 cells.append(ItemCell(x, y, size, name, round(score, 3), round(margin, 3), top3))
             units.append(UnitItems(bar, tuple(cells)))

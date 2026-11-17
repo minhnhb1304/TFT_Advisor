@@ -120,3 +120,24 @@ def test_real_frame_minh_06_planning_empty_unit():
     read = {(u.bar.x, u.bar.y): u.items for u in units}
     assert read[(496, 683)] == ["DA_GargoyleStoneplate"]
     assert read[(376, 705)] == []
+
+
+def test_red_bars_mark_combat():
+    """Thanh do (dich) chi bat khi own=False; thanh xanh khong lan sang."""
+    image = blank()
+    draw_unit(image, 700, 500, [])
+    cv2.rectangle(image, (1000, 300), (1062, 303), (30, 20, 200), -1)
+    cv2.rectangle(image, (988, 297), (1066, 308), (30, 20, 10), -1)
+    cv2.rectangle(image, (1000, 300), (1062, 303), (30, 20, 200), -1)
+    assert [(b.x, b.y) for b in find_health_bars(image, own=False)] == [(1000, 300)]
+    assert [(b.x, b.y) for b in find_health_bars(image)] == [(700, 500)]
+
+
+def test_cell_under_another_units_bar_is_skipped(icon_dir):
+    """Hai tuong dung sat: o cua tuong tren de len thanh mau tuong duoi -> bo."""
+    image = blank()
+    draw_unit(image, 700, 500, [0, 1, 2])
+    draw_unit(image, 740, 520, [])
+    units = UnitItemReader(icon_dir, icon_dir / "none").read(image)
+    top = next(u for u in units if u.bar.y == 500)
+    assert len(top.cells) < 3

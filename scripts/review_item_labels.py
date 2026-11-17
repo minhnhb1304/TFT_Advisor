@@ -8,7 +8,7 @@
     .venv\\Scripts\\python scripts\\review_item_labels.py templates
 
 Chi lay video role=development trong split.json. Khung chon theo nhip `--step` giay,
-giu khung co >= `--min-cells` o icon, roi lay deu theo thoi gian `--per-video` khung.
+bo khung co thanh mau do (giao tranh / xem nha khac), giu khung co >= `--min-cells` o icon, roi lay deu theo thoi gian `--per-video` khung.
 Anh khung luu o data/eval/items/frames/ (khong commit); file nhan thi commit.
 """
 
@@ -31,14 +31,15 @@ for _stream in (sys.stdout, sys.stderr):
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.vision.unit_items import UnitItemReader  # noqa: E402
+from src.vision.unit_items import UnitItemReader, find_health_bars  # noqa: E402
 
 LABELS = ROOT / "data/eval/items/unit_items.json"
 FRAMES = ROOT / "data/eval/items/frames"
 TEMPLATES = ROOT / "data/item_templates"
 VIDEO_DIR = Path(r"D:\workspace\tft_record")
 PAGE = Path(__file__).with_suffix(".html")
-# Nhan dac biet ngoai apiName: o bat nham (khong phai icon) / do khong co trong bang.
+# Nhan dac biet ngoai apiName: o bat nham (khong phai icon) / do dac biet ngoai pham vi
+# (do anh sang, do tao tac... - chi doc do thuong, bo doc phai tra "chua ro").
 NOT_ITEM, OTHER = "__not_item__", "__other__"
 
 
@@ -89,6 +90,12 @@ def build(args) -> int:
             ok, frame = cap.read()
             if not ok:
                 break
+            # Chi khung CHUAN BI (luc bo doc that chay): co thanh mau do = dang
+            # giao tranh hoac xem nha khac. Thanh shop khong dung duoc vi nguoi
+            # choi mo shop ca luc giao tranh (minh_06 giay 1085).
+            if find_health_bars(frame, own=False):
+                t += args.step
+                continue
             units = reader.read(frame)
             n = sum(len(u.cells) for u in units)
             if n >= args.min_cells:
