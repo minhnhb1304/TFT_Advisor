@@ -128,6 +128,9 @@ def main(argv: list[str] | None = None) -> int:
                                     "slot": bundle.reroll.target_slot}
             if bundle.plans:
                 record["plans"] = {line.label: line.entry.api_name for line in bundle.plans.lines}
+            # Do doc duoc luc khuyen (CoreFit): de cham sau tran doc dung chua.
+            record["items"] = {"completed": list(event.state.completed_items),
+                               "components": list(event.state.item_components)}
         if gemini is not None and gemini.calls != stats["gemini"]:
             record["gemini_calls"] = gemini.calls - stats["gemini"]
             stats["gemini"] = gemini.calls
@@ -137,7 +140,15 @@ def main(argv: list[str] | None = None) -> int:
             stats["last_hud"] = hud_ms
             stats["hud_ms"].append(hud_ms)
             record["hud_ms"] = round(hud_ms, 1)
-        if record["type"] != "Idle" or new_hud or "gemini_calls" in record:
+        tracker = getattr(session, "item_tracker", None)
+        item_ms = getattr(tracker, "last_ms", None)
+        new_items = bool(item_ms) and item_ms != stats.get("last_items")
+        if new_items:
+            # Do tre doc do (NFR) + so mon doc duoc, ngoai man chon loi.
+            stats["last_items"] = item_ms
+            record["item_ms"] = round(item_ms, 1)
+            record["items_read"] = len(tracker.completed) + len(tracker.components)
+        if record["type"] != "Idle" or new_hud or new_items or "gemini_calls" in record:
             log.write(json.dumps(record, ensure_ascii=False) + "\n")
             log.flush()
         bridge.event.emit(event, bool(session.screen_visible))

@@ -29,6 +29,17 @@ Quy tắc split giữ như cũ: chỉnh ngưỡng chỉ trên development; held-
 | `item_ms` p50/p95 trong `data/live_logs` | p95 < 200 ms | Đọc ngoài màn chọn lõi nên không cộng vào độ trễ khuyên |
 | Ảnh hưởng lên tư vấn lõi | báo số | Chạy `scripts/eval_plan_advice.py` có/không có đồ trên 15 quyết định dev. Có thể **không đổi** nếu ít lõi tặng đồ được chào — phải báo thật |
 
+## Kết quả dev 2026-11-18 (`scripts/eval_core_fit.py`, chưa có mẫu cắt từ game)
+
+| Đo | Số |
+|---|---|
+| Màn đọc được đồ trước khi mở màn chọn lõi | 10/15. **Cả 5 màn 2-1 không có đồ trên tướng**: mảnh vẫn nằm trên băng ghế đồ (I2) |
+| Tỷ lệ lùi (có đồ ghép nhưng không comp nào khớp) | 1/10 (`dat_01` 3-2) |
+| CoreFit đổi top-1 của hướng thật | 0/15. Chấp lõi kích hoạt 0 màn |
+| Top-1 khớp lựa chọn người chơi | tắt 9/15 · bật 9/15 |
+
+Đúng như rủi ro đã ghi: ít lõi tặng đồ được chào ở các màn dev. Số trên vẫn gồm lỗi đọc đồ, vì precision chưa đo (chờ nhãn).
+
 ## Câu hỏi cần trả lời trong chương kết quả
 
 1. Đọc đồ trên tướng từ pixel đạt precision bao nhiêu trên client VN?

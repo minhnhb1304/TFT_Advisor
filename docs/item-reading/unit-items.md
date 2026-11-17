@@ -43,6 +43,10 @@ Bước I1: đọc đồ trên tướng (3 icon dưới thanh máu). Thuộc [it
 | Lúc **xem bàn người khác** thanh xanh vẫn là tướng của mình nhưng vị trí khác | Không phụ thuộc vị trí: neo theo thanh máu |
 | Tướng trên hàng chờ cũng có thanh máu | Đồ trên tướng hàng chờ **vẫn tính** là đồ đang cầm. Chỉ ghi thêm vị trí (bàn / hàng chờ) theo vùng `bench` |
 
+## I1.5 trong live (2026-11-18)
+
+`src/live/item_tracker.py`: `LiveSession.item_tracker` đọc ngoài màn chọn lõi, mỗi 5 giây một lần, bỏ khung có thanh máu đỏ, giữ lần đọc gần nhất và ghi vào `GameState` khi màn chọn lõi mở. `run_live.py` ghi `item_ms`, `items_read`, và đồ đã dùng ở mỗi `AdviceReady`. `tools/live_latency_report.py` có thêm dòng `items`.
+
 ## Related
 
 - [overview](overview.md) · [bench-components](bench-components.md) · [core-items](core-items.md) · [evaluation](evaluation.md)

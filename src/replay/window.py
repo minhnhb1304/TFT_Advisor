@@ -24,6 +24,7 @@ from ..knowledge.augment_features import FeatureTable
 from ..knowledge.name_index import NameIndex
 from ..live.card_reader import GeminiCardReader, HybridCardReader, OcrCardReader
 from ..live.events import AdviceReady, Cleared, Idle, Status
+from ..live.item_tracker import default_item_tracker
 from ..live.session import LiveSession
 from ..eval.dataset_split import data_patch_for
 from ..utils.settings import Settings
@@ -59,6 +60,7 @@ def build_session(
         regions=regions,
         source_id=source_id,
         held_tracker=_held_tracker(settings),
+        item_tracker=default_item_tracker(settings.root),
     )
 
 

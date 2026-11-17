@@ -53,6 +53,21 @@ Các tướng dưới đây chỉ là **ví dụ minh hoạ** luật. Luật ph�
 
 Crawler `scripts/crawl_tftacademy_comps.py` đã có nhưng parser bỏ mất đồ từng tướng, `style`, `earlyComp`, `carousel`: sửa để giữ lại. Bảng duyệt tay không trái quy tắc "không curate tay" của SPEC: 18.6 là patch cuối, mỗi dòng có số liệu đi kèm.
 
+## Trạng thái 2026-11-18: bảng đã sinh, chờ bạn duyệt
+
+`crawl_tftacademy_guides.py` → `data/tftacademy_guides.json` (74 comp: 55 đang công khai + 19 đã gỡ khỏi tier list, giữ làm bằng chứng vì đồ hợp tướng không đổi theo bản) và `data/item_tiers.json` (chỉ đồ ghép + ấn). `build_core_items.py` → `data/core_items.json`: 34 tướng có core. In bảng để duyệt: `build_core_items.py --report`.
+
+| Bước | Cách đã làm (khác bản kế hoạch) |
+|---|---|
+| Đồ tank | Điểm bất động: xuất phát từ đồ ghép từ 2 mảnh thủ + đồ chỉ có chỉ số thủ (CDragon), thêm món mà ≥ 50% lần xuất hiện nằm trên tướng đa số cầm đồ tank. Ra 14 món, có Gargoyle, Warmog, Protector's Vow, Crownguard, Ionic Spark |
+| Vai | Carry chính = `mainChampion` nếu cầm ≥ 2 đồ sát thương, không thì tướng cầm nhiều đồ sát thương nhất. Tướng còn lại cầm đồ sát thương là carry phụ |
+| Bộ core | Neo = món xuất hiện nhiều nhất. Ghép thêm món b chỉ khi hai món đi cùng nhau theo cả hai chiều (≥ 60%) và cùng có mặt ở ≥ 3 comp |
+| AD/AP | Hậu tố tên (`_AD`/`_AP`), rồi biểu tượng scale trong mô tả kỹ năng CDragon; hoà thì bỏ phiếu theo chỉ số đồ |
+
+**Ví dụ của bạn (test trong `tests/test_core_items.py`):** Tristana, Kayle → Guinsoo ✓; Ahri → Găng + Shojin ✓. **Lệch** (dữ liệu không đủ để thuật toán ra đúng): Aphelios carry chính máy ra Guinsoo + Kraken (TFT Academy luôn ghép Kraken cùng Guinsoo), carry phụ ra Last Whisper (Red Buff chỉ 2/3 comp). Hai dòng này lấy theo lời bạn trong `data/core_items.overrides.json`, mỗi dòng ghi lý do. Muốn sửa dòng khác thì thêm vào file đó rồi chạy lại `build_core_items.py`.
+
+**Cần bạn xem:** Rengar ra AP và Caitlyn chưa rõ AD/AP (mô tả kỹ năng hoà). 7/74 comp chưa rõ AD/AP của carry chính, nên chấp lõi không kích hoạt ở các comp đó. Một số bộ chỉ dựa trên 2 comp.
+
 ## Patch: đồ theo tướng dùng chung, mạnh/yếu theo bản (bạn chốt 2026-11-17)
 
 Bộ đồ hợp với một tướng **gần như không đổi** giữa 18.2 và 18.6. Thứ thay đổi giữa các bản là tướng nào mạnh, nghĩa là tướng nào xuất hiện làm carry. Vì vậy:

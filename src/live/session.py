@@ -37,6 +37,7 @@ from ..vision.held_augments import HeldAugmentTracker, card_icon, rounds_between
 from ..vision.hud_reader import HudReading
 from .card_reader import SLOTS, CardReader
 from .events import AdviceReady, Cleared, Idle, LiveEvent, Status
+from .item_tracker import ItemTracker
 from .screen_tracker import AugmentScreenTracker, thumb_diff
 
 # O HUD dung de nhan ra "khung nay khong co gi moi de doc".
@@ -63,6 +64,9 @@ class LiveSession:
     # Doc lo DA CHON tu dai icon huong 10 gio -> `GameState.augments` (luat can
     # bang va combo cua directional). None = tat, augments luon rong nhu cu.
     held_tracker: HeldAugmentTracker | None = None
+    # Doc do tren tuong minh -> `GameState.completed_items/item_components`
+    # (CoreFit theo huong). None = tat, do luon rong nhu cu.
+    item_tracker: ItemTracker | None = None
 
     def __post_init__(self) -> None:
         self.screen_tracker = AugmentScreenTracker(self.regions, stable_frames=self.stable_frames)
@@ -99,6 +103,8 @@ class LiveSession:
         self.game_tracker.reset()
         if self.held_tracker is not None:
             self.held_tracker.reset()
+        if self.item_tracker is not None:
+            self.item_tracker.reset()
         self._reset_screen()
         self._last_t = float("-inf")
 
@@ -189,6 +195,8 @@ class LiveSession:
                           tuple(f"ô {c.slot + 1}: {c.reason}" for c in cards))
 
         state = self.game_tracker.state(traits=traits)
+        if self.item_tracker is not None:
+            self.item_tracker.apply(state)
         # Icon cat tu the o khung vua doc (the da on dinh `stable_frames`): mau so
         # sanh cho dai lo da chon, va icon de ve khi CDragon khong co.
         icons = {a: card_icon(frame.image, c.slot) for c in choices if c.slot is not None
@@ -241,6 +249,8 @@ class LiveSession:
         left_screen = self._in_screen and self._screen_done(frame, stage)
         if left_screen:
             self._reset_screen()
+        if self.item_tracker is not None and self.item_tracker.observe(frame.image, t):
+            latency["items"] = self.item_tracker.last_ms or 0.0
 
         if t - self._last_hud_t >= self.hud_every_s:
             self._last_hud_t = t

@@ -51,6 +51,8 @@ def read_session(path: Path) -> dict:
                 session["hud_first"] = record["hud_ms"]
             else:
                 session["samples"]["hud"].append(record["hud_ms"])
+        if "item_ms" in record:
+            session["samples"].setdefault("items", []).append(record["item_ms"])
         if record.get("type") == "AdviceReady":
             session["stages"].append(record.get("stage"))
             session["samples"]["step (màn chọn lõi)"].append(record["step_ms"])

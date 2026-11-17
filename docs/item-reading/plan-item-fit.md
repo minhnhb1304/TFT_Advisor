@@ -72,6 +72,10 @@ lõi carry_type none / both → không phạt
 - Thêm số hạng **thưởng core theo hướng** vào `rank_by_plan()`, cộng giống `PlanFit`: `w_core * thưởng(hướng)`. Chỉ cộng phần thưởng nên không tính trùng phần sàn của ItemFit cũ.
 - `w_core` đặt trong `config/scoring_weights.yaml`, chỉnh trên dev.
 
+## Trạng thái 2026-11-18: đã gắn, chưa đổi kết quả dev
+
+`src/decision/scoring/core_fit.py` + `config/scoring_weights.yaml` (`tuning.core_fit`: `weight` 0,10, `anvil_extra` 0,15, `off_damage_factor` 0,15, `plan_costs`). Chỉ chạy khi có `data/core_items.json` **và** đọc được ít nhất một món. Chấp lõi chỉ xét khi đã có đồ ghép (đầu ván không phạt). Lý do nằm trong `PlanLine.core_fit` (log, replay), chưa lên overlay. Đo bằng `scripts/eval_core_fit.py`: xem [evaluation](evaluation.md).
+
 ## Related
 
 - [overview](overview.md) · [core-items](core-items.md) · [unit-items](unit-items.md) · [evaluation](evaluation.md)
