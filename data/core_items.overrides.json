@@ -1,0 +1,10 @@
+{
+ "note": "Dòng người chơi (Challenger) đã duyệt, đè lên dòng build_core_items.py sinh. Mỗi dòng ghi lý do.",
+ "champions": {
+  "DA_18_Aphelios": {
+   "note": "2026-11-17: carry chính = Guinsoo HOẶC IE + Kraken (máy sinh Guinsoo+Kraken vì TFT Academy luôn ghép Kraken cùng Guinsoo); carry phụ = Last Whisper + Red Buff (Red Buff chỉ 2/3 comp nên máy không ghép).",
+   "carry": [{"items": ["DA_GuinsoosRageblade"]}, {"items": ["DA_InfinityEdge", "DA_KrakensFury"]}],
+   "secondary": [{"items": ["DA_LastWhisper", "DA_RedBuff"]}]
+  }
+ }
+}

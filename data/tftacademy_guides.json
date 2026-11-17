@@ -1,0 +1,7810 @@
+{
+ "meta": {
+  "source": "https://tftacademy.com/api/tierlist/comps?set=18",
+  "patch": "18.6",
+  "fetched_at": "2026-11-17T16:58:25+00:00",
+  "n": 74
+ },
+ "guides": [
+  {
+   "slug": "set-18-coven-reroll",
+   "title": "Coven Reroll",
+   "tier": "C",
+   "style": "",
+   "main": "DA_18_Caitlyn",
+   "final": [
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_GiantSlayer"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_SteadfastHeart",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.542Z"
+  },
+  {
+   "slug": "set-18-dark-mages",
+   "title": "Sprykin Veigar",
+   "tier": "C",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Veigar",
+   "final": [
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SteadfastHeart"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_BlueBuff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_Artifact_LudensTempest",
+      "DA_18_EmblemFloraFatalisAugment"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_BlueBuff",
+    "DA_JeweledGauntlet",
+    "DA_GargoyleStoneplate",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.600Z"
+  },
+  {
+   "slug": "set-18-embiggen-xayah",
+   "title": "Solar Xayah",
+   "tier": "B",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Xayah",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_Deathblade",
+      "DA_KrakensFury",
+      "DA_GiantSlayer"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [
+      "DA_Evenshroud",
+      "DA_SunfireCape"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_Fishbones",
+      "DA_Artifact_TitanicHydra"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_18_EmblemFae"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_Component_BFSword",
+    "DA_Component_RecurveBow",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.320Z"
+  },
+  {
+   "slug": "set-18-fae-xayah",
+   "title": "Fae Xayah",
+   "tier": "C",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Xayah",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_Artifact_AegisOfDawn",
+      "DA_Artifact_LightshieldCrest",
+      "DA_Artifact_ForbiddenIdol"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_Fishbones",
+      "DA_Artifact_TitanicHydra"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_KrakensFury",
+    "DA_GargoyleStoneplate",
+    "DA_HextechGunblade"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.570Z"
+  },
+  {
+   "slug": "set-18-forest-fire",
+   "title": "Forest Fire",
+   "tier": "C",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Xayah",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_Fishbones",
+      "DA_Artifact_TitanicHydra"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_Artifact_AegisOfDawn",
+      "DA_Artifact_LightshieldCrest",
+      "DA_Artifact_ForbiddenIdol"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_KrakensFury",
+    "DA_GargoyleStoneplate",
+    "DA_Deathblade"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.320Z"
+  },
+  {
+   "slug": "set-18-pebbles-3-tempo",
+   "title": "Pebbles 3 Tempo",
+   "tier": "C",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Sentry",
+   "final": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Artifact_BlightingJewel"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_ArchangelsStaff",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_BlueBuff",
+    "DA_RabadonsDeathcap",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.603Z"
+  },
+  {
+   "slug": "set-18-riftbeast-reroll",
+   "title": "Riftbeast Reroll",
+   "tier": "C",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Sentry",
+   "final": [
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_BlueBuff",
+      "DA_LastWhisper"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [
+      "DA_Artifact_EternalPact"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_LastWhisper",
+    "DA_Component_BFSword",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.591Z"
+  },
+  {
+   "slug": "set-18-solar-melee",
+   "title": "Solar Melee",
+   "tier": "B",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Akali_AD",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Camille",
+     "items": [
+      "DA_SteraksGage",
+      "DA_Quicksilver",
+      "DA_InfinityEdge"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_InfinityEdge"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [
+      "DA_Artifact_Fishbones",
+      "DA_Artifact_RapidFireCannon",
+      "DA_Artifact_LudensTempest"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Camille",
+     "items": [
+      "DA_Artifact_SilvermereDawn",
+      "DA_Artifact_Mittens",
+      "DA_Artifact_InfinityForce"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_GargoyleStoneplate",
+    "DA_Component_SparringGloves",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.601Z"
+  },
+  {
+   "slug": "set-18-veigar-consuming-flora-copy",
+   "title": "Elderwood Veigar",
+   "tier": "X",
+   "style": "1-Cost Reroll",
+   "main": "DA_18_Veigar",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_BlueBuff",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_Artifact_LudensTempest",
+      "DA_18_EmblemFloraFatalisAugment"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_BlueBuff",
+    "DA_JeweledGauntlet",
+    "DA_GargoyleStoneplate",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.567Z"
+  },
+  {
+   "slug": "",
+   "title": "LeBlanc Weavers",
+   "tier": "C",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_LeBlanc",
+   "final": [
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SunfireCape",
+      "DA_ProtectorsVow"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.312Z"
+  },
+  {
+   "slug": "set-18-caitlyn-hunters",
+   "title": "Caitlyn Hunters",
+   "tier": "B",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Caitlyn",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [
+      "DA_GuinsoosRagebladeRadiant",
+      "DA_HextechGunblade",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_GamblersBlade",
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_KrakensFury",
+    "DA_Component_RecurveBow",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.605Z"
+  },
+  {
+   "slug": "set-18-coven-elise",
+   "title": "Coven Elise",
+   "tier": "X",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Elise",
+   "final": [
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_18_EmblemSlayer",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_TitansResolve",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_TitansResolve",
+    "DA_Component_NegatronCloak",
+    "DA_Component_ChainVest"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.563Z"
+  },
+  {
+   "slug": "set-18-eclipse-kayle",
+   "title": "Eclipse Kayle",
+   "tier": "C",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Kayle",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_18_EmblemLunar"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap",
+      "DA_RedBuff"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_SeekersArmguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [
+      "DA_Artifact_ForbiddenIdol"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.327Z"
+  },
+  {
+   "slug": "set-18-infinite-elise",
+   "title": "Ravager Elise",
+   "tier": "X",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Elise",
+   "final": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_HandOfJustice"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_ProtectorsVow",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Caitlyn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_18_EmblemSlayer",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_TitansResolve",
+    "DA_Component_NegatronCloak",
+    "DA_Component_ChainVest"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.555Z"
+  },
+  {
+   "slug": "set-18-moo-nara",
+   "title": "Moo-nara",
+   "tier": "X",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Yunara",
+   "final": [
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [
+      "DA_SteraksGage",
+      "DA_TitansResolve",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_18_EmblemBlackthorn",
+      "DA_LastWhisper"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_18_EmblemBlackthorn",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_GargoyleStoneplate",
+    "DA_Component_RecurveBow",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.532Z"
+  },
+  {
+   "slug": "set-18-solar-kayle",
+   "title": "Solar Kayle",
+   "tier": "C",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Kayle",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff",
+      "DA_Deathblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_StatikkShiv",
+      "DA_Artifact_Mittens"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_Artifact_RapidFireCannon",
+      "DA_Item_Artifact_TalismanOfAscension",
+      "DA_Artifact_ZhonyasParadox"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.603Z"
+  },
+  {
+   "slug": "set-18-solar-kayle-copy",
+   "title": "Cursed Crown Kayle",
+   "tier": "X",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Kayle",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_Deathblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ],
+     "stars": 3
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_SparringGloves"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.565Z"
+  },
+  {
+   "slug": "set-18-solara-yunara",
+   "title": "Solar Blossom",
+   "tier": "A",
+   "style": "2-Cost Reroll",
+   "main": "DA_Karma18",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_Deathblade",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_Artifact_EternalPact",
+      "DA_18_EmblemExecutioner"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_SpearOfShojin",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_JeweledGauntlet",
+    "DA_GargoyleStoneplate",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.266Z"
+  },
+  {
+   "slug": "set-18-sprykin-teemo",
+   "title": "Sprykin Teemo",
+   "tier": "C",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Teemo",
+   "final": [
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [
+      "DA_18_EmblemSprykin",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_RabadonsDeathcap",
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.561Z"
+  },
+  {
+   "slug": "set-18-sprykin-teemo-copy",
+   "title": "Tee-moo",
+   "tier": "B",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Teemo",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_RabadonsDeathcap_Radiant",
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_SpearOfShojin",
+    "DA_VoidStaff",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.330Z"
+  },
+  {
+   "slug": "set-18-warwick-rr",
+   "title": "Warwick Ravager",
+   "tier": "C",
+   "style": "2-Cost Reroll",
+   "main": "DA_18_Warwick",
+   "final": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_HandOfJustice"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [
+      "DA_SteraksGage",
+      "DA_TitansResolve",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_TitansResolve",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [
+      "DA_Artifact_Mittens",
+      "DA_Artifact_InfinityForce",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_TitansResolve",
+    "DA_Component_BFSword",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.536Z"
+  },
+  {
+   "slug": "",
+   "title": "Spellweaver Kha'Zix",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_KhaZix",
+   "final": [
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_VoidStaff"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [
+      "DA_18_EmblemSpellweaver"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_Artifact_LichBane",
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_SeekersArmguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_Artifact_LudensTempest",
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_ZhonyasParadox"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_HandOfJustice",
+    "DA_Component_GiantsBelt",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_SparringGloves"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.593Z"
+  },
+  {
+   "slug": "set-18-adaptor-reroll",
+   "title": "Adaptor Reroll",
+   "tier": "A",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_MasterYi_AD",
+   "final": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_GiantSlayer"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight",
+      "DA_TitansResolve"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_18_EmblemBrawler",
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_RapidFireCannon"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_EdgeOfNight",
+    "DA_Component_ChainVest",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.302Z"
+  },
+  {
+   "slug": "set-18-adaptor-reroll-copy",
+   "title": "Yi Rengar",
+   "tier": "A",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_MasterYi_AD",
+   "final": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_TitansResolve",
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_Evenshroud"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_18_EmblemBrawler",
+      "DA_Artifact_HellfireHatchet",
+      "DA_Quicksilver"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_RapidFireCannon"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_Component_RecurveBow",
+    "DA_Component_ChainVest",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.554Z"
+  },
+  {
+   "slug": "set-18-azir-rammus",
+   "title": "Azir Rammus",
+   "tier": "B",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Azir",
+   "final": [
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [
+      "DA_Artifact_LightshieldCrest"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.599Z"
+  },
+  {
+   "slug": "set-18-azir-reroll",
+   "title": "Azir Reroll",
+   "tier": "B",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Azir",
+   "final": [
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_HextechGunblade",
+      "DA_JeweledGauntlet",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_Artifact_SeekersArmguard",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_EternalPact"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_SparringGloves",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.304Z"
+  },
+  {
+   "slug": "set-18-cass-fiddle",
+   "title": "Double Trouble Cass",
+   "tier": "X",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Cassiopeia",
+   "final": [
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_Artifact_BlightingJewel"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.581Z"
+  },
+  {
+   "slug": "set-18-defender-cassio",
+   "title": "Defender Cassio",
+   "tier": "B",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Cassiopeia",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [
+      "DA_TitansResolve",
+      "DA_AdaptiveHelm",
+      "DA_Crownguard"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [
+      "DA_IonicSpark",
+      "DA_SunfireCape",
+      "DA_SteadfastHeart"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_BlightingJewel",
+      "DA_Item_Artifact_TalismanOfAscension"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_HextechGunblade",
+    "DA_Component_ChainVest",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.563Z"
+  },
+  {
+   "slug": "set-18-fae-tristana-copy",
+   "title": "Tristana Rengar",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Tristana",
+   "final": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [
+      "DA_Crownguard",
+      "DA_SunfireCape",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_18_EmblemFae",
+      "DA_Quicksilver"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade",
+      "DA_HextechGunblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_18_EmblemSprykin"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_EdgeOfNight",
+    "DA_Component_NegatronCloak",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.532Z"
+  },
+  {
+   "slug": "set-18-infernal-khazix",
+   "title": "Infernal Khazix",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_KhaZix",
+   "final": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_IonicSpark"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.544Z"
+  },
+  {
+   "slug": "set-18-infernal-khazix-copy",
+   "title": "Blackthorn Khazix",
+   "tier": "X",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_KhaZix",
+   "final": [
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_VoidStaff",
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_18_EmblemBlackthorn"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.564Z"
+  },
+  {
+   "slug": "set-18-lunarwood-khazix",
+   "title": "Lunarwood Kha'zix",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_KhaZix",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_IonicSpark"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_IonicSpark"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_Artifact_LichBane",
+      "DA_Artifact_WitsEnd",
+      "DA_Artifact_SeekersArmguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_Artifact_LudensTempest",
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_ZhonyasParadox"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_HandOfJustice",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.601Z"
+  },
+  {
+   "slug": "set-18-mama-faek",
+   "title": "Mama Faek",
+   "tier": "X",
+   "style": "3-Cost Reroll",
+   "main": "DA_CrimsonRaptor18",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_SunfireCape",
+      "DA_Evenshroud"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_GuinsoosRagebladeRadiant"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_ProtectorsVow",
+    "DA_GuinsoosRageblade",
+    "DA_Component_RecurveBow",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.333Z"
+  },
+  {
+   "slug": "set-18-mamawood",
+   "title": "Mamawood",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_CrimsonRaptor18",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_SunfireCape",
+      "DA_Evenshroud"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_ProtectorsVow"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_GuinsoosRagebladeRadiant",
+      "DA_HextechGunblade",
+      "DA_TitansResolve"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_HextechGunblade",
+    "DA_GargoyleStoneplate",
+    "DA_Component_ChainVest"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.595Z"
+  },
+  {
+   "slug": "set-18-rengar-rr",
+   "title": "Ravager Rengar",
+   "tier": "X",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Rengar",
+   "final": [
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_IonicSpark"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_SunfireCape",
+      "DA_GargoyleStoneplate",
+      "DA_Evenshroud"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_18_EmblemSlayer"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_18_EmblemSlayer"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_Artifact_Mittens",
+      "DA_Artifact_RapidFireCannon",
+      "DA_Artifact_HellfireHatchet"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_InfinityForce",
+      "DA_Artifact_TitanicHydra"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_18_EmblemSlayer",
+    "DA_GuinsoosRageblade",
+    "DA_TitansResolve",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.568Z"
+  },
+  {
+   "slug": "set-18-solar-mama",
+   "title": "Solar Mama",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_CrimsonRaptor18",
+   "final": [
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_RedBuff",
+      "DA_InfinityEdge"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [],
+     "stars": 3
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_TitanicHydra",
+      "DA_InfinityEdgeRadiant"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_ChainVest",
+    "DA_InfinityEdge",
+    "DA_ProtectorsVow",
+    "DA_RedBuff"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.330Z"
+  },
+  {
+   "slug": "set-18-sprykin-trist",
+   "title": "Fae Tristana",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_Tristana",
+   "final": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade",
+      "DA_GiantSlayer"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_HextechGunblade",
+    "DA_Component_BFSword",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.589Z"
+  },
+  {
+   "slug": "set-18-unrivaled-reroll",
+   "title": "Unrivaled Reroll",
+   "tier": "X",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_KhaZix",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_EdgeOfNight",
+    "DA_Component_BFSword",
+    "DA_Component_ChainVest",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.604Z"
+  },
+  {
+   "slug": "set-18-yazir",
+   "title": "Yazir",
+   "tier": "C",
+   "style": "3-Cost Reroll",
+   "main": "DA_18_MasterYi_AD",
+   "final": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_VoidStaff",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_MasterYi_AD",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GiantSlayer",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [
+      "DA_SunfireCape",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.253Z"
+  },
+  {
+   "slug": "set-18-6-juggernaut-ap",
+   "title": "Zyra Juggernaut",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Zyra",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_Item_Artifact_TalismanOfAscension",
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_ArchangelsStaff",
+    "DA_WarmogsArmor",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_NeedlesslyLargeRod"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.278Z"
+  },
+  {
+   "slug": "set-18-6-juggernaut-ap-copy",
+   "title": "6 Juggernaut AD",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_Amumu18",
+   "final": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [
+      "DA_18_EmblemJuggernaut",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_WarmogsArmor",
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.597Z"
+  },
+  {
+   "slug": "set-18-adaptor-nidalee",
+   "title": "Invoker Nidalee",
+   "tier": "C",
+   "style": "4-Cost Fast 8",
+   "main": "DA_Nidalee18_AP",
+   "final": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_ArchangelsStaff",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_GuinsoosRageblade",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Artifact_BlightingJewel"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_StatikkShiv"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_JeweledGauntlet",
+    "DA_Morellonomicon",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.601Z"
+  },
+  {
+   "slug": "set-18-afaelios",
+   "title": "Afaelios",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_KrakensFury",
+      "DA_18_EmblemFae",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.557Z"
+  },
+  {
+   "slug": "set-18-ahri-morgana",
+   "title": "Ahri Morgana",
+   "tier": "A",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemInvoker",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Artifact_BlightingJewel",
+      "DA_18_EmblemSpellweaver"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_JeweledGauntlet",
+    "DA_Component_GiantsBelt",
+    "DA_Component_TearOfTheGoddess"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.279Z"
+  },
+  {
+   "slug": "set-18-ahri-morgana-copy",
+   "title": "Spellweaver Ahri",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_18_EmblemSpellweaver",
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_JeweledGauntlet",
+    "DA_Component_GiantsBelt",
+    "DA_Component_TearOfTheGoddess"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.211Z"
+  },
+  {
+   "slug": "set-18-aphelios-flex",
+   "title": "Aphelios Flex",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_RedBuff",
+      "DA_Deathblade",
+      "DA_GiantSlayer"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.600Z"
+  },
+  {
+   "slug": "set-18-aphelios-nidalee",
+   "title": "Aphelios Nidalee",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_SteraksGage",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [
+      "DA_SteraksGage",
+      "DA_InfinityEdge",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_Artifact_SilvermereDawn",
+      "DA_BlueBuff",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.320Z"
+  },
+  {
+   "slug": "set-18-aphelios-rapidfire",
+   "title": "Aphelios Rapidfire",
+   "tier": "C",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_KrakensFury",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_18_EmblemRapidfire",
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.594Z"
+  },
+  {
+   "slug": "set-18-aphelios-vanguards-copy",
+   "title": "Aphelios Elderwood",
+   "tier": "X",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Protector",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_Evenshroud"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_18_EmblemElderwood",
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_18_EmblemElderwood",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_Artifact_GamblersBlade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_18_EmblemRapidfire",
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.593Z"
+  },
+  {
+   "slug": "set-18-ashe-juggernauts",
+   "title": "Ashe Juggernauts",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ashe",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_WarmogsArmor",
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.599Z"
+  },
+  {
+   "slug": "set-18-blackthorn-ahri",
+   "title": "Blackthorn Ahri",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemBlackthorn",
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.211Z"
+  },
+  {
+   "slug": "set-18-blackthorn-malphite",
+   "title": "Blackthorn Malphite",
+   "tier": "C",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Malphite",
+   "final": [
+    {
+     "apiName": "DA_18_Veigar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_VoidStaff",
+      "DA_18_EmblemBlackthorn",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Lux18_Base",
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_VoidStaff",
+      "DA_ArchangelsStaff",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_Artifact_MogulsMail",
+      "DA_Artifact_LightshieldCrest",
+      "DA_Artifact_TheIndomitable"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.568Z"
+  },
+  {
+   "slug": "set-18-bronze-for-life-ap",
+   "title": "Bronze For Life AP",
+   "tier": "X",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Zyra",
+   "final": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_GuinsoosRageblade",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_VoidStaff",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [],
+   "alt": [],
+   "carousel": [],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.600Z"
+  },
+  {
+   "slug": "set-18-coven-ahri",
+   "title": "Coven Ahri",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_Crownguard",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemInvoker",
+      "DA_Artifact_Manazane"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Artifact_BlightingJewel",
+      "DA_18_EmblemSpellweaver"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_JeweledGauntlet",
+    "DA_Component_GiantsBelt",
+    "DA_Component_TearOfTheGoddess"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.513Z"
+  },
+  {
+   "slug": "set-18-elderwood-executioners",
+   "title": "Elderwood Executioners",
+   "tier": "A",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ezreal",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [
+      "DA_DragonsClaw",
+      "DA_BrambleVest",
+      "DA_SunfireCape"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap",
+      "DA_18_EmblemElderwood"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Lux18_Base",
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.220Z"
+  },
+  {
+   "slug": "set-18-fae-ezreal",
+   "title": "Fae Ezreal",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ezreal",
+   "final": [
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_Deathblade",
+      "DA_18_EmblemFae"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_Evenshroud"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_Crownguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_18_EmblemFae"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.215Z"
+  },
+  {
+   "slug": "set-18-inferno-fast-9",
+   "title": "Inferno Fast 9",
+   "tier": "X",
+   "style": "4-Cost Fast 8",
+   "main": "DA_Lux18_Base",
+   "final": [
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_LastWhisper",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_18_EmblemInferno"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_Bloodthirster"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Lux18_Base",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_WarmogsArmor",
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.587Z"
+  },
+  {
+   "slug": "set-18-invoker-nidalee-copy",
+   "title": "Primal Jungle",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Sivir",
+   "final": [
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SteraksGage",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_18_EmblemHunter",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_BlueBuff",
+      "DA_Artifact_SilvermereDawn",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.304Z"
+  },
+  {
+   "slug": "set-18-moon-fire",
+   "title": "Aphelios Vanguards",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_RedBuff",
+      "DA_Deathblade",
+      "DA_GiantSlayer"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Component_RecurveBow",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_ChainVest"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.594Z"
+  },
+  {
+   "slug": "set-18-primal-hunters",
+   "title": "Primal Sivir",
+   "tier": "A",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Sivir",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_SteraksGage",
+      "DA_Bloodthirster",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Deathblade",
+      "DA_BlueBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [
+      "DA_BlueBuff",
+      "DA_InfinityEdge"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_18_EmblemFae"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Nidalee18_AP",
+     "items": [
+      "DA_18_EmblemHunter",
+      "DA_Artifact_SilvermereDawn",
+      "DA_BlueBuff"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_BlueBuff",
+    "DA_InfinityEdge",
+    "DA_Component_ChainVest",
+    "DA_Component_BFSword"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.490Z"
+  },
+  {
+   "slug": "set-18-primal-jungle-copy",
+   "title": "Primal Flex",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Sivir",
+   "final": [
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Tristana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_SpearOfShojin",
+    "DA_Component_RecurveBow",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.518Z"
+  },
+  {
+   "slug": "set-18-solar-eclipse",
+   "title": "Solar Eclipse",
+   "tier": "X",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Aphelios",
+   "final": [
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kayle",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sejuani",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_AdaptiveHelm",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Camille",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Leona",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Akali_AD",
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_WarmogsArmor",
+    "DA_Component_ChainVest",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.552Z"
+  },
+  {
+   "slug": "set-18-soraka-flex",
+   "title": "Malphite AP Flex",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Malphite",
+   "final": [
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Azir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Malphite",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_AdaptiveHelm",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_VoidStaff",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [
+      "DA_Artifact_Dawncore",
+      "DA_Artifact_LichBane",
+      "DA_Artifact_EternalPact"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GargoyleStoneplate",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.547Z"
+  },
+  {
+   "slug": "set-18-spellweavers",
+   "title": "Ahri Zyra",
+   "tier": "A",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_SpiritVisage"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemFloraFatalisAugment",
+      "DA_18_EmblemLunar"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [
+      "DA_18_EmblemSpellweaver",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_JeweledGauntlet",
+    "DA_Component_GiantsBelt",
+    "DA_Component_TearOfTheGoddess"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.278Z"
+  },
+  {
+   "slug": "set-18-spirit-blossom",
+   "title": "Spirit Blossom",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ahri",
+   "final": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Vi18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sivir",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Zyra",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_BrambleVest",
+      "DA_DragonsClaw",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_JeweledGauntlet",
+    "DA_Component_GiantsBelt",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.221Z"
+  },
+  {
+   "slug": "set-18-woodblossom",
+   "title": "Ezreal Ahri",
+   "tier": "B",
+   "style": "4-Cost Fast 8",
+   "main": "DA_18_Ezreal",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_ArchangelsStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ahri",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SunfireCape"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Soraka",
+     "items": [
+      "DA_18_EmblemSpellweaver"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_Artifact_GoldCollector",
+      "DA_Artifact_Dawncore"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_RecurveBow"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.264Z"
+  },
+  {
+   "slug": "set-18-10-riftbeast",
+   "title": "10 Riftbeast",
+   "tier": "S",
+   "style": "Fast 9",
+   "main": "DA_Brambleback18",
+   "final": [
+    {
+     "apiName": "DA_Gromp18_AP",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_GuinsoosRageblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_ElderDragon",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_Component_BFSword",
+    "DA_Component_ChainVest",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-17 16:37:38.480Z"
+  },
+  {
+   "slug": "set-18-ap-95",
+   "title": "AP Fast 9",
+   "tier": "A",
+   "style": "Fast 9",
+   "main": "DA_18_Alune",
+   "final": [
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Lillia",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [
+      "DA_BlueBuff",
+      "DA_ArchangelsStaff",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_SpearOfShojin",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.282Z"
+  },
+  {
+   "slug": "set-18-blossom-fast-9",
+   "title": "Ashe Fast 9 ",
+   "tier": "C",
+   "style": "Fast 9",
+   "main": "DA_18_Ashe",
+   "final": [
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sett",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_SteadfastHeart"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ashe",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_ElderDragon",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SteraksGage",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Karma18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yunara",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_LastWhisper",
+    "DA_SpearOfShojin",
+    "DA_RedBuff",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.598Z"
+  },
+  {
+   "slug": "set-18-dragon-princess",
+   "title": "Draven Dragon 9",
+   "tier": "A",
+   "style": "Fast 9",
+   "main": "DA_Draven18",
+   "final": [
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Draven18",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_LastWhisper",
+      "DA_KrakensFury"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_ElderDragon",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Deathblade",
+      "DA_StrikersFlail"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_SpearOfShojin",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_Evenshroud"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_Cinderling18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_ElderDragon",
+     "items": [
+      "DA_Artifact_GoldCollector"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_InfinityEdge",
+    "DA_Component_BFSword",
+    "DA_Component_SparringGloves",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.330Z"
+  },
+  {
+   "slug": "set-18-elderwood-executioners-copy",
+   "title": "Draven Ezreal 9",
+   "tier": "A",
+   "style": "Fast 9",
+   "main": "DA_Draven18",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Amumu18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ezreal",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ivern",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Kennen",
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Draven18",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_RekSai",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alistar",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Warwick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rengar",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_LastWhisper",
+      "DA_WarmogsArmor"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_Draven18",
+     "items": [
+      "DA_Artifact_GoldCollector",
+      "DA_Artifact_NavoriFlickerblade",
+      "DA_Artifact_Fishbones"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Maokai",
+     "items": [
+      "DA_Artifact_MogulsMail",
+      "DA_Artifact_VoidGauntlet",
+      "DA_Artifact_LightshieldCrest"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_LastWhisper",
+    "DA_KrakensFury",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.265Z"
+  },
+  {
+   "slug": "set-18-tempo-riftbeast",
+   "title": "Tempo Riftbeast",
+   "tier": "S",
+   "style": "Fast 9",
+   "main": "DA_Brambleback18",
+   "final": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ],
+     "stars": 3
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_GnarSmall",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_ElderDragon",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
+      "DA_SteraksGage"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Yorick",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Scuttlecrab18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Murkwolf18",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight"
+     ],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_Krug18",
+     "items": [
+      "DA_18_EmblemVanguard"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_18_EmblemBrawler",
+      "DA_18_EmblemJuggernaut"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_EdgeOfNight",
+    "DA_Component_GiantsBelt",
+    "DA_Component_SparringGloves"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.197Z"
+  },
+  {
+   "slug": "set-18-trait-ladder",
+   "title": "Trait Ladder",
+   "tier": "X",
+   "style": "Fast 9",
+   "main": "DA_Fiddlesticks18",
+   "final": [
+    {
+     "apiName": "DA_Elderwood18_Lifeblossom",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Elderwood18_StonebarkTree",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rakan",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Xayah",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_LeBlanc",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [
+      "DA_18_EmblemSlayer"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Fiddlesticks18",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SunfireCape",
+      "DA_SpiritVisage"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Aphelios",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_LastWhisper"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Ornn",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Varus",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Shen",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_KhaZix",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [],
+   "carousel": [
+    "DA_GuinsoosRageblade",
+    "DA_Component_RecurveBow",
+    "DA_Component_SparringGloves",
+    "DA_Component_GiantsBelt"
+   ],
+   "public": false,
+   "updated": "2026-11-16 03:14:12.587Z"
+  },
+  {
+   "slug": "set-18-cashout-morgana",
+   "title": "Invoker Morgana",
+   "tier": "C",
+   "style": "Lose Streak",
+   "main": "DA_18_Morgana",
+   "final": [
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Diana",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Hecarim",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_KogMaw18_AD",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Brambleback18",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GiantSlayer",
+      "DA_Quicksilver"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap",
+      "DA_VoidStaff"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Sentinel18",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_Taric18",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Alune",
+     "items": [
+      "DA_18_EmblemInvoker"
+     ],
+     "stars": 1
+    }
+   ],
+   "early": [
+    {
+     "apiName": "DA_18_Kobuko",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Sentry",
+     "items": [],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Teemo",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ],
+     "stars": 1
+    },
+    {
+     "apiName": "DA_18_Rammus",
+     "items": [],
+     "stars": 1
+    }
+   ],
+   "alt": [
+    {
+     "apiName": "DA_18_Morgana",
+     "items": [
+      "DA_Artifact_BlightingJewel"
+     ],
+     "stars": 1
+    }
+   ],
+   "carousel": [
+    "DA_Morellonomicon",
+    "DA_VoidStaff",
+    "DA_Component_NeedlesslyLargeRod",
+    "DA_Component_TearOfTheGoddess"
+   ],
+   "public": true,
+   "updated": "2026-11-16 03:14:12.338Z"
+  }
+ ]
+}

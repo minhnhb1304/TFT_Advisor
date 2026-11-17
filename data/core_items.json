@@ -1,0 +1,3496 @@
+{
+ "meta": {
+  "source": "tftacademy (data/tftacademy_guides.json) + cdragon en_us",
+  "patch": "18.6",
+  "guides_fetched_at": "2026-11-17T16:58:25+00:00",
+  "built_at": "2026-11-17T17:02:12+00:00",
+  "pair": 0.6,
+  "min_support": 2
+ },
+ "tank_items": [
+  "DA_18_EmblemBrawler",
+  "DA_18_EmblemVanguard",
+  "DA_AdaptiveHelm",
+  "DA_BrambleVest",
+  "DA_Crownguard",
+  "DA_DragonsClaw",
+  "DA_Evenshroud",
+  "DA_GargoyleStoneplate",
+  "DA_IonicSpark",
+  "DA_ProtectorsVow",
+  "DA_SpiritVisage",
+  "DA_SteadfastHeart",
+  "DA_SunfireCape",
+  "DA_WarmogsArmor"
+ ],
+ "champions": {
+  "DA_18_Ahri": {
+   "carry": [
+    {
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ],
+     "comps": 5,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  },
+  "DA_18_Aphelios": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AD",
+   "cost": 4
+  },
+  "DA_18_Ashe": {
+   "carry": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 5
+  },
+  "DA_18_Azir": {
+   "carry": [
+    {
+     "items": [
+      "DA_HextechGunblade"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 3
+  },
+  "DA_18_Caitlyn": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": null,
+   "cost": 2
+  },
+  "DA_18_Cassiopeia": {
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 3
+  },
+  "DA_18_Diana": {
+   "secondary": [
+    {
+     "items": [
+      "DA_HandOfJustice",
+      "DA_JeweledGauntlet"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 3
+  },
+  "DA_18_ElderDragon": {
+   "secondary": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 5
+  },
+  "DA_18_Elise": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 2
+  },
+  "DA_18_Ezreal": {
+   "carry": [
+    {
+     "items": [
+      "DA_Deathblade",
+      "DA_SpearOfShojin"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 4
+  },
+  "DA_18_GnarSmall": {
+   "secondary": [
+    {
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "comps": 5,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 5
+  },
+  "DA_18_Ivern": {
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 5
+  },
+  "DA_18_Kayle": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 2
+  },
+  "DA_18_Kennen": {
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 5
+  },
+  "DA_18_KhaZix": {
+   "carry": [
+    {
+     "items": [
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_HandOfJustice"
+     ],
+     "comps": 2,
+     "weight": 0.67
+    }
+   ],
+   "damage": "AP",
+   "cost": 3
+  },
+  "DA_18_LeBlanc": {
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_VoidStaff"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 2
+  },
+  "DA_18_MasterYi_AD": {
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_TitansResolve"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 3
+  },
+  "DA_18_Morgana": {
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ],
+     "comps": 7,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_Morellonomicon"
+     ],
+     "comps": 2,
+     "weight": 0.29
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  },
+  "DA_18_Rengar": {
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 3
+  },
+  "DA_18_Sentry": {
+   "carry": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 1
+  },
+  "DA_18_Sivir": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "comps": 5,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 4
+  },
+  "DA_18_Soraka": {
+   "secondary": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  },
+  "DA_18_Teemo": {
+   "carry": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 2
+  },
+  "DA_18_Tristana": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 3
+  },
+  "DA_18_Varus": {
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 1
+  },
+  "DA_18_Veigar": {
+   "carry": [
+    {
+     "items": [
+      "DA_JeweledGauntlet"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 1
+  },
+  "DA_18_Xayah": {
+   "carry": [
+    {
+     "items": [
+      "DA_KrakensFury"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 1
+  },
+  "DA_18_Yunara": {
+   "secondary": [
+    {
+     "items": [
+      "DA_VoidStaff"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 2
+  },
+  "DA_18_Zyra": {
+   "carry": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_VoidStaff"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  },
+  "DA_Brambleback18": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ],
+     "comps": 3,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_ThiefsGloves"
+     ],
+     "comps": 2,
+     "weight": 0.67
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  },
+  "DA_CrimsonRaptor18": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 3
+  },
+  "DA_Draven18": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AD",
+   "cost": 5
+  },
+  "DA_Lux18_Base": {
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ],
+     "comps": 2,
+     "weight": 1.0
+    }
+   ],
+   "damage": "AP",
+   "cost": 5
+  },
+  "DA_Nidalee18_AP": {
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ],
+     "comps": 4,
+     "weight": 1.0
+    },
+    {
+     "items": [
+      "DA_SteraksGage"
+     ],
+     "comps": 3,
+     "weight": 0.75
+    }
+   ],
+   "damage": "AP",
+   "cost": 4
+  }
+ },
+ "comps": [
+  {
+   "slug": "set-18-coven-reroll",
+   "title": "Coven Reroll",
+   "style": "",
+   "plan": null,
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_18_Elise": {
+     "role": "tank",
+     "items": [
+      "DA_SteadfastHeart",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Caitlyn": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_GiantSlayer"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Caitlyn",
+   "damage": null
+  },
+  {
+   "slug": "set-18-dark-mages",
+   "title": "Sprykin Veigar",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_RekSai": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SteadfastHeart"
+     ]
+    },
+    "DA_18_Veigar": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Teemo": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Veigar",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-embiggen-xayah",
+   "title": "Solar Xayah",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Rakan": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Sejuani": {
+     "role": "tank",
+     "items": [
+      "DA_Evenshroud",
+      "DA_SunfireCape"
+     ]
+    },
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "carry",
+     "items": [
+      "DA_Deathblade",
+      "DA_KrakensFury",
+      "DA_GiantSlayer"
+     ]
+    },
+    "DA_18_Kayle": {
+     "role": "secondary",
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_GuinsoosRageblade"
+     ]
+    }
+   },
+   "carry": "DA_18_Xayah",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-fae-xayah",
+   "title": "Fae Xayah",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "carry",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   },
+   "carry": "DA_18_Xayah",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-forest-fire",
+   "title": "Forest Fire",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "carry",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_Varus": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Xayah",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-pebbles-3-tempo",
+   "title": "Pebbles 3 Tempo",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_18_Sentry": {
+     "role": "carry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_Sentry",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-riftbeast-reroll",
+   "title": "Riftbeast Reroll",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_Krug18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Sentry": {
+     "role": "carry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ]
+    },
+    "DA_Cinderling18": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_BlueBuff",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Sentry",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-solar-melee",
+   "title": "Solar Melee",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Akali_AD": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_EdgeOfNight"
+     ]
+    },
+    "DA_18_Camille": {
+     "role": "secondary",
+     "items": [
+      "DA_SteraksGage",
+      "DA_Quicksilver",
+      "DA_InfinityEdge"
+     ]
+    },
+    "DA_18_Varus": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_InfinityEdge"
+     ]
+    }
+   },
+   "carry": "DA_18_Akali_AD",
+   "damage": null
+  },
+  {
+   "slug": "set-18-veigar-consuming-flora-copy",
+   "title": "Elderwood Veigar",
+   "style": "1-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Veigar": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff"
+     ]
+    },
+    "DA_18_LeBlanc": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Veigar",
+   "damage": "AP"
+  },
+  {
+   "slug": "",
+   "title": "LeBlanc Weavers",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SunfireCape",
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_LeBlanc": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ]
+    }
+   },
+   "carry": "DA_18_LeBlanc",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-caitlyn-hunters",
+   "title": "Caitlyn Hunters",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Scuttlecrab18": {
+     "role": "tank",
+     "items": [
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Caitlyn": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   },
+   "carry": "DA_18_Caitlyn",
+   "damage": null
+  },
+  {
+   "slug": "set-18-coven-elise",
+   "title": "Coven Elise",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Elise": {
+     "role": "carry",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   },
+   "carry": "DA_18_Elise",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-eclipse-kayle",
+   "title": "Eclipse Kayle",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Sejuani": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Kayle": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap",
+      "DA_RedBuff"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Kayle",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-infinite-elise",
+   "title": "Ravager Elise",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_ProtectorsVow",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Elise": {
+     "role": "carry",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Diana": {
+     "role": "secondary",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_HandOfJustice"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    },
+    "DA_Murkwolf18": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Elise",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-moo-nara",
+   "title": "Moo-nara",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Alistar": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Yunara": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_18_EmblemBlackthorn",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_18_Warwick": {
+     "role": "secondary",
+     "items": [
+      "DA_SteraksGage",
+      "DA_TitansResolve",
+      "DA_SpearOfShojin"
+     ]
+    }
+   },
+   "carry": "DA_18_Yunara",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-solar-kayle",
+   "title": "Solar Kayle",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Kayle": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff",
+      "DA_Deathblade"
+     ]
+    }
+   },
+   "carry": "DA_18_Kayle",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-solar-kayle-copy",
+   "title": "Cursed Crown Kayle",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_18_Ornn": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Kayle": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_Deathblade"
+     ]
+    }
+   },
+   "carry": "DA_18_Kayle",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-solara-yunara",
+   "title": "Solar Blossom",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Sejuani": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_Karma18": {
+     "role": "carry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ]
+    },
+    "DA_18_Yunara": {
+     "role": "secondary",
+     "items": [
+      "DA_Deathblade",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_18_LeBlanc": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_Karma18",
+   "damage": null
+  },
+  {
+   "slug": "set-18-sprykin-teemo",
+   "title": "Sprykin Teemo",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_RekSai": {
+     "role": "tank",
+     "items": [
+      "DA_18_EmblemSprykin",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Teemo": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap",
+      "DA_JeweledGauntlet"
+     ]
+    },
+    "DA_KogMaw18_AD": {
+     "role": "secondary",
+     "items": [
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Teemo",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-sprykin-teemo-copy",
+   "title": "Tee-moo",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Alistar": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Teemo": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_LeBlanc": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   },
+   "carry": "DA_18_Teemo",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-warwick-rr",
+   "title": "Warwick Ravager",
+   "style": "2-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Warwick": {
+     "role": "carry",
+     "items": [
+      "DA_SteraksGage",
+      "DA_TitansResolve",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_Murkwolf18": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_HandOfJustice"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Warwick",
+   "damage": null
+  },
+  {
+   "slug": "",
+   "title": "Spellweaver Kha'Zix",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_Fiddlesticks18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_KhaZix": {
+     "role": "carry",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_EdgeOfNight"
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_VoidStaff"
+     ]
+    }
+   },
+   "carry": "DA_18_KhaZix",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-adaptor-reroll",
+   "title": "Adaptor Reroll",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_Vi18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_MasterYi_AD": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight",
+      "DA_TitansResolve"
+     ]
+    },
+    "DA_KogMaw18_AD": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_GiantSlayer"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_MasterYi_AD",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-adaptor-reroll-copy",
+   "title": "Yi Rengar",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_Vi18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_18_MasterYi_AD": {
+     "role": "carry",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade"
+     ]
+    },
+    "DA_18_Rengar": {
+     "role": "secondary",
+     "items": [
+      "DA_TitansResolve",
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_MasterYi_AD",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-azir-rammus",
+   "title": "Azir Rammus",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Rammus": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Azir": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Azir",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-azir-reroll",
+   "title": "Azir Reroll",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Vi18": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Azir": {
+     "role": "carry",
+     "items": [
+      "DA_HextechGunblade",
+      "DA_JeweledGauntlet",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_18_Yunara": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff"
+     ]
+    }
+   },
+   "carry": "DA_18_Azir",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-cass-fiddle",
+   "title": "Double Trouble Cass",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_Fiddlesticks18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "role": "secondary",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade"
+     ]
+    }
+   },
+   "carry": null,
+   "damage": null
+  },
+  {
+   "slug": "set-18-defender-cassio",
+   "title": "Defender Cassio",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Fiddlesticks18": {
+     "role": "tank",
+     "items": [
+      "DA_TitansResolve",
+      "DA_AdaptiveHelm",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Rammus": {
+     "role": "tank",
+     "items": [
+      "DA_IonicSpark",
+      "DA_SunfireCape",
+      "DA_SteadfastHeart"
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_HextechGunblade",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Lillia": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Cassiopeia",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-fae-tristana-copy",
+   "title": "Tristana Rengar",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Rammus": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_SunfireCape",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Tristana": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Rengar": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_18_EmblemFae",
+      "DA_Quicksilver"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Tristana",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-infernal-khazix",
+   "title": "Infernal Khazix",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_Fiddlesticks18": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_IonicSpark"
+     ]
+    },
+    "DA_18_KhaZix": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_KhaZix",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-infernal-khazix-copy",
+   "title": "Blackthorn Khazix",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_KhaZix": {
+     "role": "carry",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_18_EmblemBlackthorn"
+     ]
+    },
+    "DA_18_Azir": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_KhaZix",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-lunarwood-khazix",
+   "title": "Lunarwood Kha'zix",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_KhaZix": {
+     "role": "carry",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "secondary",
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_Diana": {
+     "role": "secondary",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_IonicSpark"
+     ]
+    }
+   },
+   "carry": "DA_18_KhaZix",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-mama-faek",
+   "title": "Mama Faek",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_Krug18": {
+     "role": "tank",
+     "items": [
+      "DA_SunfireCape",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "role": "carry",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ]
+    }
+   },
+   "carry": "DA_CrimsonRaptor18",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-mamawood",
+   "title": "Mamawood",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_Krug18": {
+     "role": "tank",
+     "items": [
+      "DA_SunfireCape",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade",
+      "DA_TitansResolve"
+     ]
+    }
+   },
+   "carry": "DA_CrimsonRaptor18",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-rengar-rr",
+   "title": "Ravager Rengar",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_SunfireCape",
+      "DA_GargoyleStoneplate",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_18_Rengar": {
+     "role": "carry",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade",
+      "DA_18_EmblemSlayer"
+     ]
+    },
+    "DA_18_Diana": {
+     "role": "secondary",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_HandOfJustice",
+      "DA_IonicSpark"
+     ]
+    }
+   },
+   "carry": "DA_18_Rengar",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-solar-mama",
+   "title": "Solar Mama",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Rakan": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "role": "carry",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_RedBuff",
+      "DA_InfinityEdge"
+     ]
+    },
+    "DA_18_Xayah": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_CrimsonRaptor18",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-sprykin-trist",
+   "title": "Fae Tristana",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Rammus": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Tristana": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade",
+      "DA_GiantSlayer"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_18_EmblemFae",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   },
+   "carry": "DA_18_Tristana",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-unrivaled-reroll",
+   "title": "Unrivaled Reroll",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_KhaZix": {
+     "role": "carry",
+     "items": [
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap",
+      "DA_EdgeOfNight"
+     ]
+    },
+    "DA_18_Rengar": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_TitansResolve",
+      "DA_GuinsoosRageblade"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   },
+   "carry": "DA_18_KhaZix",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-yazir",
+   "title": "Yazir",
+   "style": "3-Cost Reroll",
+   "plan": "reroll",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_Vi18": {
+     "role": "tank",
+     "items": [
+      "DA_SunfireCape",
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_MasterYi_AD": {
+     "role": "carry",
+     "items": [
+      "DA_TitansResolve",
+      "DA_GiantSlayer",
+      "DA_EdgeOfNight"
+     ]
+    },
+    "DA_18_Azir": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_VoidStaff",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_MasterYi_AD",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-6-juggernaut-ap",
+   "title": "Zyra Juggernaut",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff",
+      "DA_VoidStaff"
+     ]
+    },
+    "DA_18_Ivern": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_GuinsoosRageblade"
+     ]
+    }
+   },
+   "carry": "DA_18_Zyra",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-6-juggernaut-ap-copy",
+   "title": "6 Juggernaut AD",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "B",
+   "units": {
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    },
+    "DA_18_Kennen": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight"
+     ]
+    }
+   },
+   "carry": "DA_18_Sivir",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-adaptor-nidalee",
+   "title": "Invoker Nidalee",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "C",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_GuinsoosRageblade",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_ArchangelsStaff",
+      "DA_AdaptiveHelm"
+     ]
+    }
+   },
+   "carry": "DA_Nidalee18_AP",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-afaelios",
+   "title": "Afaelios",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_SpiritVisage",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_KrakensFury",
+      "DA_18_EmblemFae",
+      "DA_InfinityEdge"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-ahri-morgana",
+   "title": "Ahri Morgana",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-ahri-morgana-copy",
+   "title": "Spellweaver Ahri",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_18_EmblemSpellweaver",
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-aphelios-flex",
+   "title": "Aphelios Flex",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "B",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_RedBuff",
+      "DA_Deathblade",
+      "DA_GiantSlayer"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-aphelios-nidalee",
+   "title": "Aphelios Nidalee",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_SteraksGage",
+      "DA_InfinityEdge"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-aphelios-rapidfire",
+   "title": "Aphelios Rapidfire",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_KrakensFury",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "secondary",
+     "items": [
+      "DA_18_EmblemRapidfire",
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-aphelios-vanguards-copy",
+   "title": "Aphelios Elderwood",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_18_EmblemElderwood",
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-ashe-juggernauts",
+   "title": "Ashe Juggernauts",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    }
+   },
+   "carry": "DA_18_Ashe",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-blackthorn-ahri",
+   "title": "Blackthorn Ahri",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "B",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_18_EmblemBlackthorn",
+      "DA_JeweledGauntlet",
+      "DA_BlueBuff"
+     ]
+    },
+    "DA_18_Yunara": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-blackthorn-malphite",
+   "title": "Blackthorn Malphite",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Azir": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_18_EmblemBlackthorn",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_Lux18_Base": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin"
+     ]
+    }
+   },
+   "carry": "DA_18_Azir",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-bronze-for-life-ap",
+   "title": "Bronze For Life AP",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_VoidStaff",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_GuinsoosRageblade",
+      "DA_StrikersFlail"
+     ]
+    }
+   },
+   "carry": "DA_18_Zyra",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-coven-ahri",
+   "title": "Coven Ahri",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": false,
+   "tier": "B",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_Crownguard",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-elderwood-executioners",
+   "title": "Elderwood Executioners",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Hecarim": {
+     "role": "tank",
+     "items": [
+      "DA_DragonsClaw",
+      "DA_BrambleVest",
+      "DA_SunfireCape"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_Soraka": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap",
+      "DA_18_EmblemElderwood"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    },
+    "DA_Lux18_Base": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin"
+     ]
+    }
+   },
+   "carry": "DA_18_Ezreal",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-fae-ezreal",
+   "title": "Fae Ezreal",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_Deathblade",
+      "DA_18_EmblemFae"
+     ]
+    }
+   },
+   "carry": "DA_18_Ezreal",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-inferno-fast-9",
+   "title": "Inferno Fast 9",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_Lux18_Base": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    "DA_18_Kennen": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_Bloodthirster"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper",
+      "DA_InfinityEdge"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_18_EmblemInferno"
+     ]
+    }
+   },
+   "carry": "DA_Lux18_Base",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-invoker-nidalee-copy",
+   "title": "Primal Jungle",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SteraksGage",
+      "DA_SpearOfShojin"
+     ]
+    }
+   },
+   "carry": "DA_18_Sivir",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-moon-fire",
+   "title": "Aphelios Vanguards",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_RedBuff",
+      "DA_Deathblade",
+      "DA_GiantSlayer"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_SteraksGage"
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "role": "secondary",
+     "items": [
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-primal-hunters",
+   "title": "Primal Sivir",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Deathblade",
+      "DA_BlueBuff"
+     ]
+    },
+    "DA_Nidalee18_AP": {
+     "role": "secondary",
+     "items": [
+      "DA_SteraksGage",
+      "DA_Bloodthirster",
+      "DA_EdgeOfNight"
+     ]
+    }
+   },
+   "carry": "DA_18_Sivir",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-primal-jungle-copy",
+   "title": "Primal Flex",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Amumu18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ]
+    },
+    "DA_18_Sivir": {
+     "role": "carry",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "secondary",
+     "items": [
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Sivir",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-solar-eclipse",
+   "title": "Solar Eclipse",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "X",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_AdaptiveHelm",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-soraka-flex",
+   "title": "Malphite AP Flex",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Malphite": {
+     "role": "tank",
+     "items": [
+      "DA_GargoyleStoneplate",
+      "DA_WarmogsArmor",
+      "DA_Crownguard"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_VoidStaff",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Soraka": {
+     "role": "secondary",
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_AdaptiveHelm",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   },
+   "carry": "DA_18_Zyra",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-spellweavers",
+   "title": "Ahri Zyra",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Lillia": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_Zyra": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon",
+      "DA_SpearOfShojin"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-spirit-blossom",
+   "title": "Spirit Blossom",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_BrambleVest",
+      "DA_DragonsClaw",
+      "DA_WarmogsArmor"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_JeweledGauntlet",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "secondary",
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin",
+      "DA_LastWhisper"
+     ]
+    }
+   },
+   "carry": "DA_18_Ahri",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-woodblossom",
+   "title": "Ezreal Ahri",
+   "style": "4-Cost Fast 8",
+   "plan": "fast8",
+   "public": true,
+   "tier": "B",
+   "units": {
+    "DA_18_Soraka": {
+     "role": "tank",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_ArchangelsStaff"
+     ]
+    },
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_SunfireCape"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_Ahri": {
+     "role": "secondary",
+     "items": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "DA_VoidStaff"
+     ]
+    }
+   },
+   "carry": "DA_18_Ezreal",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-10-riftbeast",
+   "title": "10 Riftbeast",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "S",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_Krug18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_BrambleVest",
+      "DA_DragonsClaw"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "carry",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_Quicksilver",
+      "DA_GuinsoosRageblade"
+     ]
+    },
+    "DA_18_ElderDragon": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_Brambleback18",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-ap-95",
+   "title": "AP Fast 9",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Ivern": {
+     "role": "tank",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_18_Alune": {
+     "role": "carry",
+     "items": [
+      "DA_BlueBuff",
+      "DA_ArchangelsStaff",
+      "DA_JeweledGauntlet"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "secondary",
+     "items": [
+      "DA_VoidStaff",
+      "DA_Morellonomicon"
+     ]
+    }
+   },
+   "carry": "DA_18_Alune",
+   "damage": null
+  },
+  {
+   "slug": "set-18-blossom-fast-9",
+   "title": "Ashe Fast 9 ",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_18_Sett": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_SteadfastHeart"
+     ]
+    },
+    "DA_18_Ashe": {
+     "role": "carry",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RedBuff",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_18_ElderDragon": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SteraksGage",
+      "DA_StrikersFlail"
+     ]
+    }
+   },
+   "carry": "DA_18_Ashe",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-dragon-princess",
+   "title": "Draven Dragon 9",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow"
+     ]
+    },
+    "DA_18_Maokai": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_Crownguard",
+      "DA_Evenshroud"
+     ]
+    },
+    "DA_Draven18": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_LastWhisper",
+      "DA_KrakensFury"
+     ]
+    },
+    "DA_18_ElderDragon": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Deathblade",
+      "DA_StrikersFlail"
+     ]
+    },
+    "DA_18_Ivern": {
+     "role": "secondary",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_SpearOfShojin",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_18_Kennen": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_Draven18",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-elderwood-executioners-copy",
+   "title": "Draven Ezreal 9",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "A",
+   "units": {
+    "DA_18_Maokai": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_GargoyleStoneplate",
+      "DA_BrambleVest"
+     ]
+    },
+    "DA_Draven18": {
+     "role": "carry",
+     "items": [
+      "DA_KrakensFury",
+      "DA_GuinsoosRageblade",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_LastWhisper",
+      "DA_Deathblade"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    },
+    "DA_18_Kennen": {
+     "role": "secondary",
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    }
+   },
+   "carry": "DA_Draven18",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-tempo-riftbeast",
+   "title": "Tempo Riftbeast",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": true,
+   "tier": "S",
+   "units": {
+    "DA_Krug18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SpiritVisage",
+      "DA_GargoyleStoneplate"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_EdgeOfNight",
+      "DA_Quicksilver"
+     ]
+    },
+    "DA_18_ElderDragon": {
+     "role": "secondary",
+     "items": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
+      "DA_SteraksGage"
+     ]
+    }
+   },
+   "carry": "DA_Brambleback18",
+   "damage": "AP"
+  },
+  {
+   "slug": "set-18-trait-ladder",
+   "title": "Trait Ladder",
+   "style": "Fast 9",
+   "plan": "fast9",
+   "public": false,
+   "tier": "X",
+   "units": {
+    "DA_Fiddlesticks18": {
+     "role": "tank",
+     "items": [
+      "DA_WarmogsArmor",
+      "DA_SunfireCape",
+      "DA_SpiritVisage"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "role": "carry",
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury",
+      "DA_LastWhisper"
+     ]
+    },
+    "DA_18_LeBlanc": {
+     "role": "secondary",
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   },
+   "carry": "DA_18_Aphelios",
+   "damage": "AD"
+  },
+  {
+   "slug": "set-18-cashout-morgana",
+   "title": "Invoker Morgana",
+   "style": "Lose Streak",
+   "plan": null,
+   "public": true,
+   "tier": "C",
+   "units": {
+    "DA_Sentinel18": {
+     "role": "tank",
+     "items": [
+      "DA_ProtectorsVow",
+      "DA_WarmogsArmor",
+      "DA_AdaptiveHelm"
+     ]
+    },
+    "DA_18_Morgana": {
+     "role": "carry",
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap",
+      "DA_VoidStaff"
+     ]
+    },
+    "DA_Brambleback18": {
+     "role": "secondary",
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GiantSlayer",
+      "DA_Quicksilver"
+     ]
+    }
+   },
+   "carry": "DA_18_Morgana",
+   "damage": "AP"
+  }
+ ]
+}
