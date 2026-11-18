@@ -53,6 +53,15 @@ Chi tiết và ảnh: [dev_log §18](../../dev_log.md). Còn D4: bạn chạy th
 | B3 | Trang duyệt (theo mẫu `review_augment_features.py`) để bạn chốt từng cặp; chỉ cặp đã duyệt mới được dùng |
 | B4 | `PlanFitScorer`: lõi ứng viên tạo combo với lõi đã cầm thì được cộng `combo_bonus`, lý do ghi *"combo với X"*. Test: `minh_06` 4-2 → Booster Pack++ |
 
+## Cầm 2 lõi combat: đủ hay thiếu kinh tế (2026-11-18)
+
+Luật của bạn: cầm 2 lõi combat, đủ kinh tế thì lấy thêm combat, thiếu kinh tế (cần tiền lên cấp, nâng đội hình) thì lấy eco.
+
+| Cách | Trạng thái |
+|---|---|
+| **B: dòng "Thiếu tiền lên cấp"** (`short_on_cash`) ưu tiên eco, các dòng khác ưu tiên combat | **Đang dùng** (`plan_fit.py`, test `test_two_combat_held_*`). Dev không đổi: 7/15 · 9/15 |
+| **A: đọc từ HUD.** Vàng còn sau khi mua XP lên cấp mục tiêu so với một ngưỡng | **Cần nghiên cứu**: cấp mục tiêu theo hướng (8 hay 9), ngưỡng vàng. Số 4-2 trên dev: 29, 28, 6, 14, 25. Lưu ý: vàng ở 4-2 dao động theo cách giữ lãi của từng người |
+
 ## E. Đánh giá và luận văn (tuần 9–12)
 
 - Bạn quay và gắn nhãn video 18.6 kèm `plan.route` (cùng `encounter`, `plan.since`).

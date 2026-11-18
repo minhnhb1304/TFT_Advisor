@@ -96,6 +96,22 @@ def test_held_combat_springboard_makes_eco_worth_more():
     assert scorer("COMBAT", COMBAT, state(), SILENT, held=balanced).detail["debt_delta"] == 0
 
 
+def test_two_combat_held_stacks_combat_unless_short_on_cash():
+    """Cam 2 combat: du kinh te -> them combat; thieu kinh te -> eco (2026-11-18)."""
+    scorer = PlanFitScorer(PlanSettings(debt_bonus=0.05))
+    cash = PlanProfile("cash", "Thiếu tiền", short_on_cash=True)
+    held = [COMBAT, COMBAT]
+    assert scorer("COMBAT", COMBAT, state(), SILENT, held=held).detail["debt_delta"] == pytest.approx(0.10)
+    assert scorer("ECO", ECO, state(), SILENT, held=held).detail["debt_delta"] == 0
+    assert scorer("ECO", ECO, state(), cash, held=held).detail["debt_delta"] == pytest.approx(0.10)
+    assert scorer("COMBAT", COMBAT, state(), cash, held=held).detail["debt_delta"] == 0
+
+
+def test_short_on_cash_survives_stage_override():
+    plan = PlanProfile.from_config("cash", {"short_on_cash": True, "by_stage": {4: {"eco": 0.1}}})
+    assert plan.at_stage(4).short_on_cash
+
+
 def test_stage_override_switches_weights_but_keeps_label():
     """Reroll da roll xong o stage 4: du eco, thieu combat (minh_04 4-2)."""
     plan = PlanProfile.from_config("reroll", {

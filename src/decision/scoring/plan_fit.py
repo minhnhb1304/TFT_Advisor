@@ -42,6 +42,8 @@ ECO_CATEGORIES = frozenset({"econ", "reroll"})
 POWER_CATEGORIES = frozenset({"combat", "item", "trait"})
 DEFAULT_WEIGHT = 0.15
 DEFAULT_DEBT_BONUS = 0.05
+# Cam tu chung nay lo combat tro len thi dong du kinh te uu tien them combat.
+COMBAT_STACK = 2
 # Don vi TONG DIEM (khong nhan weight): ~1/2, 1, 2 lan khoang cach top-1/top-2
 # trung vi tren dev (0.039, do 2026-11-18).
 DEFAULT_COMBO_STRENGTH = {"info": 0.0, "light": 0.02, "medium": 0.04, "strong": 0.08}
@@ -78,6 +80,8 @@ class PlanProfile:
     routes: tuple[str, ...] = ()
     # Duoi muc mau nay thi dong cua huong nay kem canh bao (khong doi diem).
     min_hp: int | None = None
+    # Dong "thieu tien": nguoi choi tu nhan la thieu kinh te (cach B, 2026-11-18).
+    short_on_cash: bool = False
     # Tu stage nay tro di dung bo trong so khac. Vd reroll da roll xong 3 sao
     # o 4-2 thi lo eco het gia tri: "du eco, thieu combat" (minh_04 4-2).
     by_stage: tuple[tuple[int, "PlanProfile"], ...] = ()
@@ -105,13 +109,15 @@ class PlanProfile:
             econ_type=econ_type,
             routes=tuple(str(r) for r in data.get("routes") or ()),
             min_hp=int(min_hp) if min_hp is not None else None,
+            short_on_cash=bool(data.get("short_on_cash", False)),
         )
         # Moc stage chi doi trong so; nhan, route, min_hp ke thua tu huong goc.
         stages = []
         for start, override in (data.get("by_stage") or {}).items():
             merged = {
                 "label": base.label, "eco": base.eco, "power": base.power,
-                "econ_type": dict(base.econ_type), "min_hp": min_hp, **(override or {}),
+                "econ_type": dict(base.econ_type), "min_hp": min_hp,
+                "short_on_cash": base.short_on_cash, **(override or {}),
             }
             stages.append((int(start), cls.from_config(key, merged)))
         return replace(base, by_stage=tuple(stages))
@@ -184,12 +190,20 @@ class PlanFitScorer:
         # Can bang HAI chieu: cam eco -> thieu suc manh, lo combat dang gia;
         # cam combat lam ban dap -> can tien de len full bai, lo eco dang gia
         # (minh_06 4-2). `debt` > 0 = nghieng eco, < 0 = nghieng combat.
-        debt = sum(1 for h in held if eco_only(h)) - sum(1 for h in held if power_only(h))
+        # Rieng khi da cam >= 2 lo combat (nguoi choi, 2026-11-18): du kinh te ->
+        # them combat; thieu kinh te -> eco. "Thieu" = dong `short_on_cash`
+        # nguoi choi tu chon, KHONG doc tu HUD (cach A con can nghien cuu).
+        combat_held = sum(1 for h in held if power_only(h))
+        debt = sum(1 for h in held if eco_only(h)) - combat_held
+        stack_combat = combat_held >= COMBAT_STACK and not plan.short_on_cash
         debt_delta = 0.0
         if debt > 0 and power_only(feature):
             debt_delta = self.settings.debt_bonus * debt
             parts.append(f"đã nặng kinh tế ({debt} lõi) — cần lõi combat bù sức mạnh")
-        elif debt < 0 and eco_only(feature):
+        elif debt < 0 and stack_combat and power_only(feature):
+            debt_delta = self.settings.debt_bonus * -debt
+            parts.append(f"đã {combat_held} lõi combat, đủ kinh tế — thêm combat")
+        elif debt < 0 and not stack_combat and eco_only(feature):
             debt_delta = self.settings.debt_bonus * -debt
             parts.append(f"đã có {-debt} lõi combat làm bàn đạp — cần tiền lên full bài")
         delta += debt_delta

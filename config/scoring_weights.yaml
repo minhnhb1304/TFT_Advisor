@@ -129,6 +129,8 @@ tuning:
         eco: 0.20
         power: 0.0
         econ_type: {gold: 0.10, xp: 0.10}
+        # Cam >= 2 lo combat: dong nay uu tien eco, cac dong khac them combat.
+        short_on_cash: true
   # Thuong manh core + chap loi THEO HUONG - docs/item-reading/plan-item-fit.md.
   # Cung kieu plan_fit: KHONG nam trong `weights`, chi rank_by_plan() dung, va
   # chi khi co bang data/core_items.json + doc duoc it nhat mot mon do.
