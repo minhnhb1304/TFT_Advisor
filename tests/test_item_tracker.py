@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.live.item_tracker import ItemTracker
+from src.live.item_tracker import ItemTracker, held_items
 from src.vision.unit_items import Bar, ItemCell, UnitItems
 
 
@@ -57,3 +57,12 @@ def test_apply_and_reset():
     assert state.item_components == ["DA_Component_TearOfTheGoddess"]
     tracker.reset()
     assert tracker.completed == [] and tracker.observe is not None
+
+
+def test_thiefs_gloves_random_items_are_not_held():
+    """Gang Dao Tac chiem 3 o: 2 mon ngau nhien bi bo, IE that tren tuong khac van tinh."""
+    units = [unit("DA_ThiefsGloves", "DA_InfinityEdge", "DA_KrakensFury"), unit("DA_InfinityEdge")]
+    assert held_items(units) == (["DA_ThiefsGloves", "DA_InfinityEdge"], [])
+    tracker = ItemTracker(FakeReader(units))
+    tracker.observe(None, 0.0)
+    assert tracker.completed == ["DA_ThiefsGloves", "DA_InfinityEdge"]

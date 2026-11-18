@@ -38,7 +38,7 @@ from src.decision.augment_advisor import AugmentAdvisor, AugmentChoice  # noqa: 
 from src.decision.scoring import PlanSettings  # noqa: E402
 from src.decision.scoring.core_fit import CoreFit, CoreFitSettings  # noqa: E402
 from src.eval.playtest_labels import load  # noqa: E402
-from src.live.item_tracker import COMPONENT_PREFIX  # noqa: E402
+from src.live.item_tracker import held_items  # noqa: E402
 from src.utils.settings import Settings  # noqa: E402
 from src.vision.unit_items import UnitItemReader, find_health_bars  # noqa: E402
 
@@ -52,10 +52,9 @@ def items_before(cap, reader: UnitItemReader, t_open: float, lookback: float, st
         cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
         ok, frame = cap.read()
         if ok and not find_health_bars(frame, own=False):
-            items = [i for u in reader.read(frame) for i in u.items]
-            if items:
-                return (t, [i for i in items if not i.startswith(COMPONENT_PREFIX)],
-                        [i for i in items if i.startswith(COMPONENT_PREFIX)])
+            completed, parts = held_items(reader.read(frame))
+            if completed or parts:
+                return t, completed, parts
         t -= step
     return None, [], []
 

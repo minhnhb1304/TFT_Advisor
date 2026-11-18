@@ -47,6 +47,8 @@ Bước I1: đọc đồ trên tướng (3 icon dưới thanh máu). Thuộc [it
 
 `src/live/item_tracker.py`: `LiveSession.item_tracker` đọc ngoài màn chọn lõi, mỗi 5 giây một lần, bỏ khung có thanh máu đỏ, giữ lần đọc gần nhất và ghi vào `GameState` khi màn chọn lõi mở. `run_live.py` ghi `item_ms`, `items_read`, và đồ đã dùng ở mỗi `AdviceReady`. `tools/live_latency_report.py` có thêm dòng `items`.
 
+**Găng Đạo Tặc** (`held_items`): tướng cầm Găng không lắp thêm được đồ, nên 2 món còn lại trên tướng đó là đồ ngẫu nhiên đổi mỗi vòng → chỉ tính Găng, bỏ 2 món kia. Cùng món đó trên tướng khác vẫn là đồ thật. Lọc theo tướng, không thêm lớp icon (icon giống hệt nhau). Khi gắn nhãn vẫn ghi đúng icon nhìn thấy.
+
 ## Related
 
 - [overview](overview.md) · [bench-components](bench-components.md) · [core-items](core-items.md) · [evaluation](evaluation.md)

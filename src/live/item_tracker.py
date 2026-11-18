@@ -15,6 +15,17 @@ import time
 from typing import Any, Callable
 
 COMPONENT_PREFIX = "DA_Component_"
+# Tuong cam Gang Dao Tac khong lap them duoc do: 2 mon con lai tren tuong do la
+# do ngau nhien doi moi vong, khong phai do dang cam.
+THIEFS_GLOVES = "DA_ThiefsGloves"
+
+
+def held_items(units: Any) -> tuple[list[str], list[str]]:
+    """(do da ghep, manh) dang cam tren cac tuong; bo do ngau nhien cua Gang Dao Tac."""
+    items = [i for u in units
+             for i in ([THIEFS_GLOVES] if THIEFS_GLOVES in u.items else u.items)]
+    return ([i for i in items if not i.startswith(COMPONENT_PREFIX)],
+            [i for i in items if i.startswith(COMPONENT_PREFIX)])
 
 
 @dataclass
@@ -47,9 +58,7 @@ class ItemTracker:
             return False
         finally:
             self.last_ms = (time.perf_counter() - t0) * 1000.0
-        items = [i for u in units for i in u.items]
-        self.components = [i for i in items if i.startswith(COMPONENT_PREFIX)]
-        self.completed = [i for i in items if not i.startswith(COMPONENT_PREFIX)]
+        self.completed, self.components = held_items(units)
         self.uncertain = sum(1 for u in units for c in u.cells if c.api_name is None)
         return True
 
