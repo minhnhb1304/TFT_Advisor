@@ -56,6 +56,7 @@ from .scoring import (
     TempoFitScorer,
 )
 from .scoring.core_fit import NAME as CORE_FIT
+from .scoring.augment_combos import ComboTable
 from .scoring.core_fit import CoreFit, CoreFitSettings
 
 
@@ -224,6 +225,7 @@ class AugmentAdvisor:
         stats: AugmentStatsProvider | None = None,
         config: ScoringConfig | None = None,
         core_table: CoreTable | None = None,
+        combos: ComboTable | None = None,
     ) -> None:
         self.features = features or FeatureTable.empty()
         self.stats = stats or NullProvider()
@@ -231,6 +233,8 @@ class AugmentAdvisor:
         # Bang do core (docs/item-reading/plan-item-fit.md). None = CoreFit tat,
         # rank_by_plan() nhu truoc.
         self.core_table = core_table
+        # Bang combo lo (docs/directional-augment/augment-combos.md). None = tat.
+        self.combos = combos
 
         self.scorers = {
             "base": BaseScorer(self.stats, self.config),
@@ -306,7 +310,7 @@ class AugmentAdvisor:
         """
         settings = PlanSettings.from_config(self.config)
         plans = list(plans if plans is not None else settings.plans)
-        scorer = PlanFitScorer(settings)
+        scorer = PlanFitScorer(settings, self.combos)
         core_settings = CoreFitSettings.from_config(self.config)
         core = (CoreFit(self.core_table, core_settings)
                 if self.core_table is not None and core_settings.enabled else None)
@@ -321,7 +325,8 @@ class AugmentAdvisor:
                 feature = self.features.get(e.api_name)
                 fit = scorer(e.api_name, feature, state, plan, held)
                 fits[e.api_name] = fit
-                total = e.total + settings.weight * (fit.score - 0.5)
+                total = (e.total + settings.weight * (fit.score - 0.5)
+                         + float(fit.detail.get("combo_delta") or 0.0))
                 components = {**e.components, fit.name: fit}
                 if core is not None:
                     cf = core(e.api_name, feature, state, plan.key, plan.label)
@@ -354,7 +359,6 @@ class AugmentAdvisor:
             if top is None:
                 continue
             fit = advice.plan_fits[plan.key][top.api_name]
-            warning = str(fit.detail.get("warning") or "")
             line = by_api.get(top.api_name)
             if line is None:
                 line = by_api[top.api_name] = PlanLine([plan], top, fit,
@@ -362,8 +366,10 @@ class AugmentAdvisor:
                 advice.lines.append(line)
             else:
                 line.plans.append(plan)
-            if warning:
-                line.warnings.append(warning)
+            # Cung mot lo o nhieu huong -> canh bao giong nhau chi hien mot lan.
+            for warning in fit.detail.get("warnings") or ():
+                if warning not in line.warnings:
+                    line.warnings.append(warning)
         return advice
 
     # -- reroll (SPEC 3.5.5) -----------------------------------------------

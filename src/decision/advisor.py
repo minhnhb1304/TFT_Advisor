@@ -32,6 +32,7 @@ from .llm_reasoner import LlmReasoner
 from .position_advisor import PositionAdvice, PositionAdvisor
 from .reroll_policy import RerollAdvice, RerollState
 from .rules_engine import Advice, EconomyRules
+from .scoring.augment_combos import ComboTable
 from .scoring.plan_fit import PlanSettings
 from .scoring.types import ScoringConfig
 
@@ -105,6 +106,7 @@ class Advisor:
         self.augment_advisor = AugmentAdvisor(
             self.features, self.stats, config,
             core_table=CoreTable.load(s.path("core_items"), s.path("item_recipes")),
+            combos=ComboTable.load(s.path("augment_combos")),
         )
         self.plan_settings = PlanSettings.from_config(config)
 

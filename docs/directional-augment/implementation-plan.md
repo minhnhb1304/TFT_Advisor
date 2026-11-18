@@ -44,6 +44,8 @@ Chi tiết và ảnh: [dev_log §18](../../dev_log.md). Còn D4: bạn chạy th
 
 ## B. Combo lõi (tuần 8, song song)
 
+**Xong 2026-11-18** (B1 nguồn = file của bạn; B3 thay bằng mục "cần bạn xác nhận"): [augment-combos.md](augment-combos.md). Dev 9/15 → 10/15, `minh_06` 4-2 ra Booster Pack++.
+
 | Bước | Nội dung |
 |---|---|
 | B1 | Nguồn: (1) **bạn liệt kê** combo bạn biết; (2) research EN + ZH (`lead-researcher`) về combo lõi Set 18; (3) trích cặp ứng viên từ mô tả, ví dụ lõi sinh orb × lõi khuếch đại orb |

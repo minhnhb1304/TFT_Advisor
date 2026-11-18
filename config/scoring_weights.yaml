@@ -90,6 +90,10 @@ tuning:
     # co lo combat lam ban dap -> lo eco +debt_bonus x lech ("3 eco phai full
     # bai moi manh, combat chi can full form").
     debt_bonus: 0.05
+    # Luat combo lo cua nguoi choi (data/augment_combos.json): nhe/vua/manh
+    # cong (tru neu ki nhau) THANG vao tong diem huong, khong nhan weight.
+    # ~1/2, 1, 2 lan khoang cach top-1/top-2 trung vi tren dev (0.039).
+    combo_strength: {info: 0.0, light: 0.02, medium: 0.04, strong: 0.08}
     plans:
       fast9:
         label: "Muốn lên 9"

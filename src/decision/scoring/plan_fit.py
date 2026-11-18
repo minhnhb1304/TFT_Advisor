@@ -20,16 +20,21 @@ lieu:
     3 sao) moi manh; 3 combat chi can "full form" (du doi hinh 1 sao).
   - Vi vay moi augment eco DA CAM la mot khoan "no suc manh" ban co phai tra:
     augment combat o man sau duoc cong theo so no do (`debt_bonus`).
+  - Combo / ki nhau / lo rui ro giua lo ung vien va lo da cam: bang
+    data/augment_combos.json (augment_combos.py), muc manh `combo_strength`.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
-from typing import Any, Sequence
+from typing import TYPE_CHECKING, Any, Sequence
 
 from ...game_state.models import GameState
 from ...knowledge.augment_features import ECON_TYPES, AugmentFeature
 from .types import ComponentScore, ScoringConfig, clamp01, neutral
+
+if TYPE_CHECKING:
+    from .augment_combos import ComboTable
 
 NAME = "plan_fit"
 
@@ -37,6 +42,9 @@ ECO_CATEGORIES = frozenset({"econ", "reroll"})
 POWER_CATEGORIES = frozenset({"combat", "item", "trait"})
 DEFAULT_WEIGHT = 0.15
 DEFAULT_DEBT_BONUS = 0.05
+# Don vi TONG DIEM (khong nhan weight): ~1/2, 1, 2 lan khoang cach top-1/top-2
+# trung vi tren dev (0.039, do 2026-11-18).
+DEFAULT_COMBO_STRENGTH = {"info": 0.0, "light": 0.02, "medium": 0.04, "strong": 0.08}
 
 
 def is_eco(feature: AugmentFeature) -> bool:
@@ -117,6 +125,8 @@ class PlanSettings:
     weight: float = DEFAULT_WEIGHT
     debt_bonus: float = DEFAULT_DEBT_BONUS
     plans: tuple[PlanProfile, ...] = ()
+    # Muc nhe/vua/manh cua luat combo; rong = gia tri mac dinh cua augment_combos.
+    combo_strength: dict[str, float] = field(default_factory=dict)
 
     @classmethod
     def from_config(cls, config: ScoringConfig) -> "PlanSettings":
@@ -129,6 +139,7 @@ class PlanSettings:
             weight=float(tune.get("weight", DEFAULT_WEIGHT)),
             debt_bonus=float(tune.get("debt_bonus", DEFAULT_DEBT_BONUS)),
             plans=plans,
+            combo_strength={str(k): float(v) for k, v in (tune.get("combo_strength") or {}).items()},
         )
 
     def plan_for_route(self, route: str | None) -> PlanProfile | None:
@@ -141,8 +152,9 @@ class PlanSettings:
 class PlanFitScorer:
     """Cham mot augment duoi MOT huong. 0.5 = huong nay khong co y kien."""
 
-    def __init__(self, settings: PlanSettings) -> None:
+    def __init__(self, settings: PlanSettings, combos: "ComboTable | None" = None) -> None:
         self.settings = settings
+        self.combos = combos
 
     def __call__(
         self,
@@ -182,14 +194,24 @@ class PlanFitScorer:
             parts.append(f"đã có {-debt} lõi combat làm bàn đạp — cần tiền lên full bài")
         delta += debt_delta
 
+        warnings: list[str] = []
+        combo_delta = 0.0
+        if self.combos is not None:
+            effect = self.combos.effect(feature, held, plan.key,
+                                        {**DEFAULT_COMBO_STRENGTH, **self.settings.combo_strength})
+            # Khong vao `delta`: rank_by_plan() cong thang vao tong diem.
+            combo_delta = effect.delta
+            parts.extend(effect.reasons)
+            warnings.extend(effect.warnings)
+
         if eco_only(feature):
             parts.append("lõi kinh tế: phải lên full bài mới mạnh")
         elif power_only(feature):
             parts.append("lõi combat: full form là đủ")
 
-        warning = ""
         if plan.min_hp is not None and state.hp < plan.min_hp:
-            warning = f"còn {state.hp} máu — {label.lower()} rủi ro"
+            warnings.insert(0, f"còn {state.hp} máu — {label.lower()} rủi ro")
+        warning = " · ".join(warnings)
 
         reason = f"{label}: " + (" · ".join(parts) if parts else "không có ý kiến riêng")
         return ComponentScore(
@@ -202,6 +224,8 @@ class PlanFitScorer:
                 "power": power,
                 "debt": debt,
                 "debt_delta": round(debt_delta, 3),
+                "combo_delta": round(combo_delta, 3),
                 "warning": warning,
+                "warnings": warnings,
             },
         )
