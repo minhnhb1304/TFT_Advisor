@@ -12,7 +12,7 @@ Hạn nộp: **~2027-01-20** (16 tuần từ 30-09). Trừ ngược: **4 tuần 
 
 > **2026-11-14: có vỏ live `run_live.py`** ([dev_log §19](../dev_log.md)). Việc của bạn trên máy chơi: `git pull`, mở TFT ở chế độ Borderless, chạy `.venv\Scripts\python run_live.py` (mặc định `hybrid`; có khoá Gemini thì đọc bù thẻ OCR sót), chơi qua ít nhất một màn chọn lõi, Ctrl+C để thoát, rồi gửi lại file `data/live_logs/*.jsonl` và ảnh chụp màn hình.
 
-> **2026-11-18: đọc đồ + bảng core.** Chi tiết ở [item-reading/overview.md](item-reading/overview.md) (cột trạng thái). Đã xong: nhãn 63 khung (precision dev 1,000 ở ngưỡng 0,70), đọc thanh đồ chưa lắp (15/15 màn dev có đồ). Việc của bạn: duyệt bảng core (`build_core_items.py --report`), sửa trong `data/core_items.overrides.json`.
+> **2026-11-18: đọc đồ + bảng core.** Chi tiết ở [item-reading/overview.md](item-reading/overview.md) (cột trạng thái). Đã xong: nhãn 63 khung (precision dev 1,000 ở ngưỡng 0,70), đọc thanh đồ chưa lắp (15/15 màn dev có đồ). Bảng core bạn đã duyệt 43/43 tướng (`scripts/review_core_items.py`). Còn: nhãn held-out cho đọc đồ (tuần 9–11).
 
 > **18.6: 8 ván `maris_01`–`maris_08` (VOD giải, cắt 2026-11-16) → held-out, đã ghi vào `split.json` (2026-11-16).**
 

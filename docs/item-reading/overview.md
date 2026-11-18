@@ -12,7 +12,7 @@ Kế hoạch 2026-11-17: đọc đồ từ pixel để **ItemFit trong điểm l
 |---|---|
 | Đồ trên tướng mình (3 icon dưới thanh máu xanh) | Panel "ghép gì" trên overlay |
 | **Chỉ đồ thường**: 10 mảnh, đồ ghép, ấn (65 món trong `item_recipes.json`) | Đồ ánh sáng, đồ tạo tác, đồ đặc biệt khác: bộ đọc để "chưa rõ" (bạn chốt 2026-11-17) |
-| Mảnh đồ trên băng ghế đồ | Nhận diện tên tướng trên bàn (để Future Work) |
+| Mảnh đồ chưa lắp (thanh dọc mép trái) | Nhận diện tên tướng trên bàn (để Future Work) |
 | Bảng đồ core theo tướng (có nhóm thay thế), 4 vai carry/tank chính/phụ | Đồ trên tướng địch |
 | ItemFit dùng "mảnh đang thiếu để ghép core cho vai ưu tiên nhất" | Chọn đồ ở băng chuyền / kho đồ |
 
@@ -21,10 +21,10 @@ Kế hoạch 2026-11-17: đọc đồ từ pixel để **ItemFit trong điểm l
 | # | Việc | Tài liệu | Tuần | Trạng thái 2026-11-18 |
 |---|---|---|---|---|
 | I0 | Sửa lệch tên đồ giữa ItemFit/BoardFit và `item_recipes.json` | [core-items](core-items.md) | 7 | Xong |
-| I1 | Đọc đồ trên tướng, neo theo thanh máu | [unit-items](unit-items.md) | 7–8 | Bộ đọc + gắn vào live xong; chờ nhãn để đo |
+| I1 | Đọc đồ trên tướng, neo theo thanh máu | [unit-items](unit-items.md) | 7–8 | Xong: precision dev 1,000 (403/403) ở ngưỡng 0,70, độ phủ 0,902 |
 | I2 | Đọc mảnh trên băng ghế (tìm mẫu trước, có thể gần như luôn trống) | [bench-components](bench-components.md) | 9–10 | Xong 2026-11-18: thanh dọc mép trái, 10 ô cố định; 15/15 màn dev đọc được đồ |
-| I3 | Bảng đồ core 18.6 + suy carry + thưởng core theo hướng | [core-items](core-items.md) · [plan-item-fit](plan-item-fit.md) | 9 | Bảng sinh xong (chờ duyệt), CoreFit + chấp lõi đã gắn |
-| I4 | Gắn nhãn, đo, báo số | [evaluation](evaluation.md) | 8–11 | Có số dev đầu tiên; precision chờ nhãn |
+| I3 | Bảng đồ core 18.6 + suy carry + thưởng core theo hướng | [core-items](core-items.md) · [plan-item-fit](plan-item-fit.md) | 9 | Xong: bạn duyệt 43/43 tướng; CoreFit + chấp lõi đã gắn; hệ Thích Ứng theo đồ |
+| I4 | Gắn nhãn, đo, báo số | [evaluation](evaluation.md) | 8–11 | Dev xong; còn held-out (~30 khung, gắn nhãn tuần 9–11) và nhãn riêng cho thanh đồ chưa lắp |
 
 Tuần 7 = 2026-11-16. **Tuần 12 (từ 2026-12-21) đóng băng số**: mọi ngưỡng phải chốt trước đó.
 
