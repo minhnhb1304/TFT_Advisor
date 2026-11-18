@@ -4,7 +4,7 @@
 
 ## Dữ liệu
 
-Hiện **không có nhãn đồ nào**: nhãn playtest chỉ có HUD + thẻ lõi. `src/eval/recognition.py` đã có loại thực thể `"item"` (P/R/F1 + latency) nhưng chưa có gì sinh dự đoán.
+Nhãn đồ trên tướng: **63 khung, 536 ô, 9 video dev, bạn đã kiểm hết (2026-11-18)**.
 
 | Bộ | Nguồn | Cỡ | Ai làm |
 |---|---|---|---|
@@ -38,7 +38,21 @@ Quy tắc split giữ như cũ: chỉnh ngưỡng chỉ trên development; held-
 | CoreFit đổi top-1 của hướng thật | 0/15. Chấp lõi kích hoạt 0 màn |
 | Top-1 khớp lựa chọn người chơi | tắt 9/15 · bật 9/15 |
 
-Đúng như rủi ro đã ghi: ít lõi tặng đồ được chào ở các màn dev. Số trên vẫn gồm lỗi đọc đồ, vì precision chưa đo (chờ nhãn).
+Đúng như rủi ro đã ghi: ít lõi tặng đồ được chào ở các màn dev. Chạy lại với mẫu game + ngưỡng mới (bên dưới): **số không đổi**.
+
+## Precision đọc đồ trên dev (`scripts/eval_item_reading.py`, chéo theo video)
+
+Chấm phân loại trên 536 ô đã kiểm (447 món, 44 không phải đồ, 45 đồ đặc biệt). Mẫu của video V chỉ lấy từ 8 video còn lại.
+
+| Bộ mẫu · ngưỡng | Precision | Độ phủ |
+|---|---|---|
+| Chỉ icon CDragon · score ≥ 0,55 | 0,988 (318/322) | 0,711 |
+| CDragon + mẫu game · score ≥ 0,55 | 0,972 (413/425) | 0,924 |
+| **CDragon + mẫu game · score ≥ 0,70** (đã chốt) | **1,000 (403/403)** | **0,902** |
+
+- 12 lỗi ở ngưỡng 0,55 đều là ô **đồ đặc biệt / không phải đồ** (icon có dấu đồng hồ, đọc thành Đai Khổng Lồ), điểm cao nhất 0,687, nên chốt 0,70. Ngưỡng chọn trên chính bộ này, nên số thật phải chờ held-out.
+- Nhãn: 2 ô Trái Tim Kiên Định bị gắn nhầm thành Găng Công Lý (`minh_02@1875`, `@2235`), mình đã sửa. Đó là nguồn của 3 lỗi 0,996.
+- Mẫu game: `templates` cắt 447 ô vào `data/item_templates` (45 món, 1,9 MB).
 
 ## Câu hỏi cần trả lời trong chương kết quả
 

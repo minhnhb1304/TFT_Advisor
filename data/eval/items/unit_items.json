@@ -4,13 +4,13 @@
   {
    "id": "dat_01@150",
    "video": "dat_01",
-   "t": 150.0,
+   "t": 150,
    "image": "data/eval/items/frames/dat_01_150.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -123,13 +123,13 @@
   {
    "id": "dat_01@585",
    "video": "dat_01",
-   "t": 585.0,
+   "t": 585,
    "image": "data/eval/items/frames/dat_01_585.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -255,7 +255,7 @@
          0.331
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -291,13 +291,13 @@
   {
    "id": "dat_01@765",
    "video": "dat_01",
-   "t": 765.0,
+   "t": 765,
    "image": "data/eval/items/frames/dat_01_765.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -355,7 +355,7 @@
          0.551
         ]
        ],
-       "label": null
+       "label": "DA_Crownguard"
       }
      ]
     },
@@ -467,13 +467,13 @@
   {
    "id": "dat_01@1065",
    "video": "dat_01",
-   "t": 1065.0,
+   "t": 1065,
    "image": "data/eval/items/frames/dat_01_1065.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -555,7 +555,7 @@
          0.608
         ]
        ],
-       "label": null
+       "label": "DA_Crownguard"
       }
      ]
     },
@@ -689,7 +689,7 @@
          0.21
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -743,15 +743,15 @@
   {
    "id": "dat_01@1350",
    "video": "dat_01",
-   "t": 1350.0,
+   "t": 1350,
    "image": "data/eval/items/frames/dat_01_1350.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
-   "note": "",
+   "note": "đai khổng lồ (hoặc các đồ khác) có thêm hình tròn nhỏ ở góc dưới bên phải là các đồ được mượn tạm 1 round sau đó mất (hình tròn là hình đồng hồ)",
    "units": [
     {
      "bar": [
@@ -831,7 +831,7 @@
          0.616
         ]
        ],
-       "label": null
+       "label": "DA_Crownguard"
       }
      ]
     },
@@ -865,7 +865,7 @@
          0.37
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -889,7 +889,7 @@
          0.28
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -932,7 +932,7 @@
          0.37
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -956,7 +956,7 @@
          0.284
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -1072,7 +1072,7 @@
          0.367
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -1096,7 +1096,7 @@
          0.258
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -1130,7 +1130,7 @@
          0.369
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -1212,7 +1212,7 @@
          0.344
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -1246,7 +1246,7 @@
          0.337
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -1270,7 +1270,7 @@
          0.27
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -1288,13 +1288,13 @@
   {
    "id": "dat_01@1590",
    "video": "dat_01",
-   "t": 1590.0,
+   "t": 1590,
    "image": "data/eval/items/frames/dat_01_1590.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -1376,7 +1376,7 @@
          0.616
         ]
        ],
-       "label": null
+       "label": "DA_Crownguard"
       }
      ]
     },
@@ -1494,7 +1494,7 @@
          0.473
         ]
        ],
-       "label": null
+       "label": "DA_GiantSlayer"
       }
      ]
     },
@@ -1528,7 +1528,7 @@
          0.354
         ]
        ],
-       "label": null
+       "label": "DA_IonicSpark"
       },
       {
        "box": [
@@ -1552,7 +1552,7 @@
          0.481
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -1576,7 +1576,7 @@
          0.546
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -1652,13 +1652,13 @@
   {
    "id": "dat_01@1875",
    "video": "dat_01",
-   "t": 1875.0,
+   "t": 1875,
    "image": "data/eval/items/frames/dat_01_1875.jpg",
    "size": [
     1728,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -1692,7 +1692,7 @@
          0.565
         ]
        ],
-       "label": null
+       "label": "DA_Crownguard"
       },
       {
        "box": [
@@ -1801,7 +1801,7 @@
          0.338
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -1825,7 +1825,7 @@
          0.381
         ]
        ],
-       "label": null
+       "label": "DA_Quicksilver"
       },
       {
        "box": [
@@ -1849,7 +1849,7 @@
          0.532
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -1883,7 +1883,7 @@
          0.535
         ]
        ],
-       "label": null
+       "label": "DA_GiantSlayer"
       },
       {
        "box": [
@@ -2047,7 +2047,7 @@
          0.316
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       }
      ]
     }
@@ -2056,13 +2056,13 @@
   {
    "id": "minh_01@375",
    "video": "minh_01",
-   "t": 375.0,
+   "t": 375,
    "image": "data/eval/items/frames/minh_01_375.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -2247,13 +2247,13 @@
   {
    "id": "minh_01@675",
    "video": "minh_01",
-   "t": 675.0,
+   "t": 675,
    "image": "data/eval/items/frames/minh_01_675.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -2287,7 +2287,7 @@
          0.374
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -2453,13 +2453,13 @@
   {
    "id": "minh_01@930",
    "video": "minh_01",
-   "t": 930.0,
+   "t": 930,
    "image": "data/eval/items/frames/minh_01_930.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -2649,13 +2649,13 @@
   {
    "id": "minh_01@1215",
    "video": "minh_01",
-   "t": 1215.0,
+   "t": 1215,
    "image": "data/eval/items/frames/minh_01_1215.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -2689,7 +2689,7 @@
          0.225
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -2713,7 +2713,7 @@
          0.314
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -2771,7 +2771,7 @@
          0.314
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -2795,7 +2795,7 @@
          0.473
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -3068,13 +3068,13 @@
   {
    "id": "minh_01@1560",
    "video": "minh_01",
-   "t": 1560.0,
+   "t": 1560,
    "image": "data/eval/items/frames/minh_01_1560.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -3108,7 +3108,7 @@
          0.234
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -3132,7 +3132,7 @@
          0.322
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -3190,7 +3190,7 @@
          0.322
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -3214,7 +3214,7 @@
          0.471
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -3402,7 +3402,7 @@
          0.286
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -3436,7 +3436,7 @@
          0.488
         ]
        ],
-       "label": null
+       "label": "DA_Deathblade"
       },
       {
        "box": [
@@ -3538,13 +3538,13 @@
   {
    "id": "minh_01@1815",
    "video": "minh_01",
-   "t": 1815.0,
+   "t": 1815,
    "image": "data/eval/items/frames/minh_01_1815.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -3578,7 +3578,7 @@
          0.227
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -3660,7 +3660,7 @@
          0.321
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -3684,7 +3684,7 @@
          0.469
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -3892,7 +3892,7 @@
          0.512
         ]
        ],
-       "label": null
+       "label": "DA_Component_NegatronCloak"
       },
       {
        "box": [
@@ -4011,7 +4011,7 @@
          0.446
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -4035,7 +4035,7 @@
          0.397
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -4069,7 +4069,7 @@
          0.443
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -4194,7 +4194,7 @@
          0.403
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -4355,13 +4355,13 @@
   {
    "id": "minh_01@2070",
    "video": "minh_01",
-   "t": 2070.0,
+   "t": 2070,
    "image": "data/eval/items/frames/minh_01_2070.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -4395,7 +4395,7 @@
          0.225
         ]
        ],
-       "label": null
+       "label": "DA_SpiritVisage"
       },
       {
        "box": [
@@ -4477,7 +4477,7 @@
          0.469
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       },
       {
        "box": [
@@ -4501,7 +4501,7 @@
          0.367
         ]
        ],
-       "label": null
+       "label": "DA_EdgeOfNight"
       }
      ]
     },
@@ -4535,7 +4535,7 @@
          0.209
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -4910,7 +4910,7 @@
          0.395
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -4944,7 +4944,7 @@
          0.483
         ]
        ],
-       "label": null
+       "label": "DA_Deathblade"
       },
       {
        "box": [
@@ -5098,13 +5098,13 @@
   {
    "id": "minh_02@600",
    "video": "minh_02",
-   "t": 600.0,
+   "t": 600,
    "image": "data/eval/items/frames/minh_02_600.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -5165,7 +5165,7 @@
          0.082
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -5226,7 +5226,7 @@
          0.31
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -5250,7 +5250,7 @@
          0.337
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -5274,7 +5274,7 @@
          0.436
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -5301,13 +5301,13 @@
   {
    "id": "minh_02@1350",
    "video": "minh_02",
-   "t": 1350.0,
+   "t": 1350,
    "image": "data/eval/items/frames/minh_02_1350.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -5477,7 +5477,7 @@
          0.097
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -5535,7 +5535,7 @@
          0.433
         ]
        ],
-       "label": null
+       "label": "DA_Deathblade"
       }
      ]
     },
@@ -5620,7 +5620,7 @@
          0.331
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -5687,7 +5687,7 @@
          0.334
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -5729,13 +5729,13 @@
   {
    "id": "minh_02@1635",
    "video": "minh_02",
-   "t": 1635.0,
+   "t": 1635,
    "image": "data/eval/items/frames/minh_02_1635.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -5793,7 +5793,7 @@
          0.321
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -5908,13 +5908,13 @@
   {
    "id": "minh_02@1815",
    "video": "minh_02",
-   "t": 1815.0,
+   "t": 1815,
    "image": "data/eval/items/frames/minh_02_1815.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -5948,7 +5948,7 @@
          0.579
         ]
        ],
-       "label": null
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -5996,7 +5996,7 @@
          0.442
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       }
      ]
     },
@@ -6109,7 +6109,7 @@
          0.191
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -6234,7 +6234,7 @@
          0.206
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -6292,7 +6292,7 @@
          0.326
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -6398,7 +6398,7 @@
          0.087
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -6432,7 +6432,7 @@
          0.203
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -6502,13 +6502,13 @@
   {
    "id": "minh_02@1875",
    "video": "minh_02",
-   "t": 1875.0,
+   "t": 1875,
    "image": "data/eval/items/frames/minh_02_1875.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -6542,7 +6542,7 @@
          0.525
         ]
        ],
-       "label": "DA_HandOfJustice"
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -6590,7 +6590,7 @@
          0.493
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       }
      ]
     },
@@ -6715,7 +6715,7 @@
          0.217
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -6797,7 +6797,7 @@
          0.088
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -6831,7 +6831,7 @@
          0.2
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -6923,7 +6923,7 @@
          0.331
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -6965,13 +6965,13 @@
   {
    "id": "minh_02@2040",
    "video": "minh_02",
-   "t": 2040.0,
+   "t": 2040,
    "image": "data/eval/items/frames/minh_02_2040.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -7005,7 +7005,7 @@
          0.547
         ]
        ],
-       "label": null
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -7111,7 +7111,7 @@
          0.324
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -7226,13 +7226,13 @@
   {
    "id": "minh_02@2235",
    "video": "minh_02",
-   "t": 2235.0,
+   "t": 2235,
    "image": "data/eval/items/frames/minh_02_2235.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -7266,7 +7266,7 @@
          0.521
         ]
        ],
-       "label": "DA_HandOfJustice"
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -7314,7 +7314,7 @@
          0.436
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       }
      ]
     },
@@ -7348,7 +7348,7 @@
          0.436
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       }
      ]
     },
@@ -7406,7 +7406,7 @@
          0.507
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -7464,7 +7464,7 @@
          0.507
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -7601,7 +7601,7 @@
          0.327
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -7649,7 +7649,7 @@
          0.089
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -7707,7 +7707,7 @@
          0.329
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -7856,7 +7856,7 @@
          0.38
         ]
        ],
-       "label": null
+       "label": "DA_Bloodthirster"
       },
       {
        "box": [
@@ -7898,13 +7898,13 @@
   {
    "id": "minh_03@165",
    "video": "minh_03",
-   "t": 165.0,
+   "t": 165,
    "image": "data/eval/items/frames/minh_03_165.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -8014,13 +8014,13 @@
   {
    "id": "minh_03@405",
    "video": "minh_03",
-   "t": 405.0,
+   "t": 405,
    "image": "data/eval/items/frames/minh_03_405.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -8121,7 +8121,7 @@
          0.543
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -8145,7 +8145,7 @@
          0.332
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -8248,13 +8248,13 @@
   {
    "id": "minh_03@810",
    "video": "minh_03",
-   "t": 810.0,
+   "t": 810,
    "image": "data/eval/items/frames/minh_03_810.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -8322,7 +8322,7 @@
          0.486
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -8404,7 +8404,7 @@
          0.425
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -8428,7 +8428,7 @@
          0.532
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     }
@@ -8437,13 +8437,13 @@
   {
    "id": "minh_03@1095",
    "video": "minh_03",
-   "t": 1095.0,
+   "t": 1095,
    "image": "data/eval/items/frames/minh_03_1095.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -8477,7 +8477,7 @@
          0.438
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -8595,7 +8595,7 @@
          0.487
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -8701,7 +8701,7 @@
          0.452
         ]
        ],
-       "label": null
+       "label": "DA_VoidStaff"
       }
      ]
     },
@@ -8764,14 +8764,14 @@
   {
    "id": "minh_03@1425",
    "video": "minh_03",
-   "t": 1425.0,
+   "t": 1425,
    "image": "data/eval/items/frames/minh_03_1425.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 1,
    "note": "",
    "units": [
     {
@@ -8862,7 +8862,7 @@
          0.493
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -8944,7 +8944,7 @@
          0.523
         ]
        ],
-       "label": "DA_HandOfJustice"
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -9026,7 +9026,7 @@
          0.495
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -9044,13 +9044,13 @@
   {
    "id": "minh_03@1650",
    "video": "minh_03",
-   "t": 1650.0,
+   "t": 1650,
    "image": "data/eval/items/frames/minh_03_1650.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -9127,7 +9127,7 @@
          0.436
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -9267,7 +9267,7 @@
          0.501
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -9425,7 +9425,7 @@
          0.489
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -9531,7 +9531,7 @@
          0.309
         ]
        ],
-       "label": null
+       "label": "DA_InfinityEdge"
       },
       {
        "box": [
@@ -9710,14 +9710,14 @@
   {
    "id": "minh_03@2085",
    "video": "minh_03",
-   "t": 2085.0,
+   "t": 2085,
    "image": "data/eval/items/frames/minh_03_2085.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 1,
    "note": "",
    "units": [
     {
@@ -9750,7 +9750,7 @@
          0.292
         ]
        ],
-       "label": null
+       "label": "DA_DragonsClaw"
       },
       {
        "box": [
@@ -9798,7 +9798,7 @@
          0.435
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       }
      ]
     },
@@ -9832,7 +9832,7 @@
          0.391
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -9856,7 +9856,7 @@
          0.225
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -9923,7 +9923,7 @@
          0.435
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -9981,7 +9981,7 @@
          0.434
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -10073,7 +10073,7 @@
          0.492
         ]
        ],
-       "label": null
+       "label": "DA_TitansResolve"
       },
       {
        "box": [
@@ -10199,7 +10199,7 @@
          0.393
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -10251,7 +10251,7 @@
          0.481
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -10424,7 +10424,7 @@
          0.43
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -10554,13 +10554,13 @@
   {
    "id": "minh_04@405",
    "video": "minh_04",
-   "t": 405.0,
+   "t": 405,
    "image": "data/eval/items/frames/minh_04_405.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -10603,7 +10603,7 @@
          0.464
         ]
        ],
-       "label": "DA_Component_TearOfTheGoddess"
+       "label": "__not_item__"
       }
      ]
     },
@@ -10716,7 +10716,7 @@
          0.395
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -10740,7 +10740,7 @@
          0.288
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     }
@@ -10749,13 +10749,13 @@
   {
    "id": "minh_04@660",
    "video": "minh_04",
-   "t": 660.0,
+   "t": 660,
    "image": "data/eval/items/frames/minh_04_660.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -10973,13 +10973,13 @@
   {
    "id": "minh_04@855",
    "video": "minh_04",
-   "t": 855.0,
+   "t": 855,
    "image": "data/eval/items/frames/minh_04_855.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -11197,13 +11197,13 @@
   {
    "id": "minh_04@1095",
    "video": "minh_04",
-   "t": 1095.0,
+   "t": 1095,
    "image": "data/eval/items/frames/minh_04_1095.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -11237,7 +11237,7 @@
          0.372
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -11374,14 +11374,14 @@
   {
    "id": "minh_04@1290",
    "video": "minh_04",
-   "t": 1290.0,
+   "t": 1290,
    "image": "data/eval/items/frames/minh_04_1290.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 1,
    "note": "",
    "units": [
     {
@@ -11423,7 +11423,7 @@
          0.442
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -11621,7 +11621,7 @@
          0.53
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -11655,7 +11655,7 @@
          0.53
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -11761,13 +11761,13 @@
   {
    "id": "minh_04@1485",
    "video": "minh_04",
-   "t": 1485.0,
+   "t": 1485,
    "image": "data/eval/items/frames/minh_04_1485.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -11810,7 +11810,7 @@
          0.441
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -11902,7 +11902,7 @@
          0.421
         ]
        ],
-       "label": null
+       "label": "DA_TitansResolve"
       },
       {
        "box": [
@@ -11926,7 +11926,7 @@
          0.336
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -11984,7 +11984,7 @@
          0.336
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -12139,13 +12139,13 @@
   {
    "id": "minh_04@1725",
    "video": "minh_04",
-   "t": 1725.0,
+   "t": 1725,
    "image": "data/eval/items/frames/minh_04_1725.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -12197,7 +12197,7 @@
          0.442
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -12289,7 +12289,7 @@
          0.193
         ]
        ],
-       "label": null
+       "label": "DA_HextechGunblade"
       },
       {
        "box": [
@@ -12313,7 +12313,7 @@
          0.35
         ]
        ],
-       "label": null
+       "label": "DA_Bloodthirster"
       },
       {
        "box": [
@@ -12371,7 +12371,7 @@
          0.35
         ]
        ],
-       "label": null
+       "label": "DA_Bloodthirster"
       },
       {
        "box": [
@@ -12560,7 +12560,7 @@
          0.313
         ]
        ],
-       "label": null
+       "label": "DA_Morellonomicon"
       },
       {
        "box": [
@@ -12626,13 +12626,13 @@
   {
    "id": "minh_05@180",
    "video": "minh_05",
-   "t": 180.0,
+   "t": 180,
    "image": "data/eval/items/frames/minh_05_180.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -12735,13 +12735,13 @@
   {
    "id": "minh_05@630",
    "video": "minh_05",
-   "t": 630.0,
+   "t": 630,
    "image": "data/eval/items/frames/minh_05_630.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -12799,7 +12799,7 @@
          0.504
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -12886,13 +12886,13 @@
   {
    "id": "minh_05@960",
    "video": "minh_05",
-   "t": 960.0,
+   "t": 960,
    "image": "data/eval/items/frames/minh_05_960.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -12926,7 +12926,7 @@
          0.504
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -13008,7 +13008,7 @@
          0.116
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -13114,13 +13114,13 @@
   {
    "id": "minh_05@1335",
    "video": "minh_05",
-   "t": 1335.0,
+   "t": 1335,
    "image": "data/eval/items/frames/minh_05_1335.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -13154,7 +13154,7 @@
          0.506
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -13371,14 +13371,14 @@
   {
    "id": "minh_05@1605",
    "video": "minh_05",
-   "t": 1605.0,
+   "t": 1605,
    "image": "data/eval/items/frames/minh_05_1605.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 3,
    "note": "",
    "units": [
     {
@@ -13411,7 +13411,7 @@
          0.505
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -13469,7 +13469,7 @@
          0.47
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       }
      ]
     },
@@ -13608,7 +13608,7 @@
          0.532
         ]
        ],
-       "label": null
+       "label": "DA_18_EmblemPrimal"
       },
       {
        "box": [
@@ -13677,14 +13677,14 @@
   {
    "id": "minh_05@1950",
    "video": "minh_05",
-   "t": 1950.0,
+   "t": 1950,
    "image": "data/eval/items/frames/minh_05_1950.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 5,
    "note": "",
    "units": [
     {
@@ -13787,7 +13787,7 @@
          0.309
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -13854,7 +13854,7 @@
          0.445
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -13912,7 +13912,7 @@
          0.44
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       }
      ]
     },
@@ -13946,7 +13946,7 @@
          0.528
         ]
        ],
-       "label": null
+       "label": "DA_18_EmblemPrimal"
       }
      ]
     },
@@ -14043,13 +14043,13 @@
   {
    "id": "minh_05@2370",
    "video": "minh_05",
-   "t": 2370.0,
+   "t": 2370,
    "image": "data/eval/items/frames/minh_05_2370.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -14119,7 +14119,7 @@
          0.437
         ]
        ],
-       "label": null
+       "label": "DA_StrikersFlail"
       },
       {
        "box": [
@@ -14201,7 +14201,7 @@
          0.316
         ]
        ],
-       "label": null
+       "label": "DA_IonicSpark"
       }
      ]
     },
@@ -14286,7 +14286,7 @@
          0.475
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -14310,7 +14310,7 @@
          0.446
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       }
      ]
     },
@@ -14344,7 +14344,7 @@
          0.431
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       }
      ]
     },
@@ -14378,7 +14378,7 @@
          0.527
         ]
        ],
-       "label": null
+       "label": "DA_18_EmblemPrimal"
       }
      ]
     },
@@ -14448,13 +14448,13 @@
   {
    "id": "minh_06@225",
    "video": "minh_06",
-   "t": 225.0,
+   "t": 225,
    "image": "data/eval/items/frames/minh_06_225.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -14603,14 +14603,14 @@
   {
    "id": "minh_06@465",
    "video": "minh_06",
-   "t": 465.0,
+   "t": 465,
    "image": "data/eval/items/frames/minh_06_465.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 1,
    "note": "",
    "units": [
     {
@@ -14757,13 +14757,13 @@
   {
    "id": "minh_06@750",
    "video": "minh_06",
-   "t": 750.0,
+   "t": 750,
    "image": "data/eval/items/frames/minh_06_750.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -14942,13 +14942,13 @@
   {
    "id": "minh_06@990",
    "video": "minh_06",
-   "t": 990.0,
+   "t": 990,
    "image": "data/eval/items/frames/minh_06_990.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -15085,7 +15085,7 @@
          0.521
         ]
        ],
-       "label": null
+       "label": "DA_Component_NeedlesslyLargeRod"
       },
       {
        "box": [
@@ -15178,13 +15178,13 @@
   {
    "id": "minh_06@1200",
    "video": "minh_06",
-   "t": 1200.0,
+   "t": 1200,
    "image": "data/eval/items/frames/minh_06_1200.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -15218,7 +15218,7 @@
          0.501
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -15432,14 +15432,14 @@
   {
    "id": "minh_06@1455",
    "video": "minh_06",
-   "t": 1455.0,
+   "t": 1455,
    "image": "data/eval/items/frames/minh_06_1455.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 2,
    "note": "",
    "units": [
     {
@@ -15472,7 +15472,7 @@
          0.507
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -15660,14 +15660,14 @@
   {
    "id": "minh_06@1650",
    "video": "minh_06",
-   "t": 1650.0,
+   "t": 1650,
    "image": "data/eval/items/frames/minh_06_1650.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 2,
    "note": "",
    "units": [
     {
@@ -15782,7 +15782,7 @@
          0.501
         ]
        ],
-       "label": null
+       "label": "DA_SunfireCape"
       },
       {
        "box": [
@@ -16012,13 +16012,13 @@
   {
    "id": "minh_07@165",
    "video": "minh_07",
-   "t": 165.0,
+   "t": 165,
    "image": "data/eval/items/frames/minh_07_165.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -16110,7 +16110,7 @@
          0.086
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -16191,13 +16191,13 @@
   {
    "id": "minh_07@495",
    "video": "minh_07",
-   "t": 495.0,
+   "t": 495,
    "image": "data/eval/items/frames/minh_07_495.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -16231,7 +16231,7 @@
          0.31
         ]
        ],
-       "label": null
+       "label": "DA_Morellonomicon"
       },
       {
        "box": [
@@ -16255,7 +16255,7 @@
          0.089
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -16279,7 +16279,7 @@
          0.44
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       }
      ]
     },
@@ -16349,13 +16349,13 @@
   {
    "id": "minh_07@705",
    "video": "minh_07",
-   "t": 705.0,
+   "t": 705,
    "image": "data/eval/items/frames/minh_07_705.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -16389,7 +16389,7 @@
          0.371
         ]
        ],
-       "label": null
+       "label": "DA_Morellonomicon"
       },
       {
        "box": [
@@ -16413,7 +16413,7 @@
          0.087
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -16437,7 +16437,7 @@
          0.438
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       }
      ]
     },
@@ -16525,13 +16525,13 @@
   {
    "id": "minh_07@1065",
    "video": "minh_07",
-   "t": 1065.0,
+   "t": 1065,
    "image": "data/eval/items/frames/minh_07_1065.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -16650,7 +16650,7 @@
          0.094
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -16735,13 +16735,13 @@
   {
    "id": "minh_07@1530",
    "video": "minh_07",
-   "t": 1530.0,
+   "t": 1530,
    "image": "data/eval/items/frames/minh_07_1530.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -16893,7 +16893,7 @@
          0.093
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -16999,7 +16999,7 @@
          0.301
         ]
        ],
-       "label": null
+       "label": "DA_Morellonomicon"
       }
      ]
     }
@@ -17008,13 +17008,13 @@
   {
    "id": "minh_07@1875",
    "video": "minh_07",
-   "t": 1875.0,
+   "t": 1875,
    "image": "data/eval/items/frames/minh_07_1875.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -17072,7 +17072,7 @@
          0.447
         ]
        ],
-       "label": null
+       "label": "DA_SteadfastHeart"
       },
       {
        "box": [
@@ -17096,7 +17096,7 @@
          0.372
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -17130,7 +17130,7 @@
          0.434
         ]
        ],
-       "label": null
+       "label": "DA_SteadfastHeart"
       }
      ]
     },
@@ -17274,7 +17274,7 @@
          0.157
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -17298,7 +17298,7 @@
          0.251
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -17350,7 +17350,7 @@
          0.44
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -17374,7 +17374,7 @@
          0.094
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -17432,7 +17432,7 @@
          0.134
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -17466,7 +17466,7 @@
          0.33
         ]
        ],
-       "label": null
+       "label": "DA_RabadonsDeathcap"
       },
       {
        "box": [
@@ -17548,7 +17548,7 @@
          0.198
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -17606,7 +17606,7 @@
          0.569
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -17630,7 +17630,7 @@
          0.302
         ]
        ],
-       "label": null
+       "label": "DA_Morellonomicon"
       }
      ]
     },
@@ -17666,13 +17666,13 @@
   {
    "id": "minh_07@2325",
    "video": "minh_07",
-   "t": 2325.0,
+   "t": 2325,
    "image": "data/eval/items/frames/minh_07_2325.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -17706,7 +17706,7 @@
          0.434
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -17730,7 +17730,7 @@
          0.093
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -17763,13 +17763,13 @@
   {
    "id": "minh_08@195",
    "video": "minh_08",
-   "t": 195.0,
+   "t": 195,
    "image": "data/eval/items/frames/minh_08_195.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -17912,13 +17912,13 @@
   {
    "id": "minh_08@540",
    "video": "minh_08",
-   "t": 540.0,
+   "t": 540,
    "image": "data/eval/items/frames/minh_08_540.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -17952,7 +17952,7 @@
          0.61
         ]
        ],
-       "label": null
+       "label": "DA_Component_NegatronCloak"
       },
       {
        "box": [
@@ -18010,7 +18010,7 @@
          0.247
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -18044,7 +18044,7 @@
          0.516
         ]
        ],
-       "label": null
+       "label": "DA_Component_NeedlesslyLargeRod"
       },
       {
        "box": [
@@ -18068,7 +18068,7 @@
          0.433
         ]
        ],
-       "label": null
+       "label": "DA_WarmogsArmor"
       },
       {
        "box": [
@@ -18119,13 +18119,13 @@
   {
    "id": "minh_08@1005",
    "video": "minh_08",
-   "t": 1005.0,
+   "t": 1005,
    "image": "data/eval/items/frames/minh_08_1005.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
+   "verified": true,
    "missed": 0,
    "note": "",
    "units": [
@@ -18159,7 +18159,7 @@
          0.417
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -18265,7 +18265,7 @@
          0.286
         ]
        ],
-       "label": null
+       "label": "DA_ProtectorsVow"
       },
       {
        "box": [
@@ -18323,7 +18323,7 @@
          0.382
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -18490,7 +18490,7 @@
          0.278
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -18514,7 +18514,7 @@
          0.184
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     }
@@ -18523,14 +18523,14 @@
   {
    "id": "minh_08@1290",
    "video": "minh_08",
-   "t": 1290.0,
+   "t": 1290,
    "image": "data/eval/items/frames/minh_08_1290.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 3,
    "note": "",
    "units": [
     {
@@ -18563,7 +18563,7 @@
          0.363
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -18645,7 +18645,7 @@
          0.16
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -18679,7 +18679,7 @@
          0.35
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -18703,7 +18703,7 @@
          0.477
         ]
        ],
-       "label": null
+       "label": "DA_AdaptiveHelm"
       },
       {
        "box": [
@@ -18761,7 +18761,7 @@
          0.405
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -18795,7 +18795,7 @@
          0.311
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -18819,7 +18819,7 @@
          0.22
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -18862,7 +18862,7 @@
          0.245
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -18896,7 +18896,7 @@
          0.299
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -18920,7 +18920,7 @@
          0.221
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -18954,7 +18954,7 @@
          0.309
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -18978,7 +18978,7 @@
          0.218
         ]
        ],
-       "label": null
+       "label": "__other__"
       }
      ]
     },
@@ -19093,7 +19093,7 @@
          0.304
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -19117,7 +19117,7 @@
          0.256
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     }
@@ -19126,14 +19126,14 @@
   {
    "id": "minh_08@1605",
    "video": "minh_08",
-   "t": 1605.0,
+   "t": 1605,
    "image": "data/eval/items/frames/minh_08_1605.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 2,
    "note": "",
    "units": [
     {
@@ -19166,7 +19166,7 @@
          0.37
         ]
        ],
-       "label": null
+       "label": "DA_GargoyleStoneplate"
       },
       {
        "box": [
@@ -19190,7 +19190,7 @@
          0.357
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -19248,7 +19248,7 @@
          0.367
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -19315,7 +19315,7 @@
          0.356
         ]
        ],
-       "label": null
+       "label": "DA_Bloodthirster"
       },
       {
        "box": [
@@ -19397,7 +19397,7 @@
          0.156
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -19458,7 +19458,7 @@
          0.206
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -19616,14 +19616,14 @@
   {
    "id": "minh_08@1875",
    "video": "minh_08",
-   "t": 1875.0,
+   "t": 1875,
    "image": "data/eval/items/frames/minh_08_1875.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 2,
    "note": "",
    "units": [
     {
@@ -19756,7 +19756,7 @@
          0.373
         ]
        ],
-       "label": null
+       "label": "DA_Evenshroud"
       }
      ]
     },
@@ -19790,7 +19790,7 @@
          0.287
         ]
        ],
-       "label": null
+       "label": "DA_DragonsClaw"
       }
      ]
     },
@@ -19833,7 +19833,7 @@
          0.089
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -19943,7 +19943,7 @@
          0.45
         ]
        ],
-       "label": null
+       "label": "DA_VoidStaff"
       }
      ]
     }
@@ -19952,14 +19952,14 @@
   {
    "id": "minh_08@2115",
    "video": "minh_08",
-   "t": 2115.0,
+   "t": 2115,
    "image": "data/eval/items/frames/minh_08_2115.jpg",
    "size": [
     1920,
     1080
    ],
-   "verified": false,
-   "missed": 0,
+   "verified": true,
+   "missed": 5,
    "note": "",
    "units": [
     {
@@ -19992,7 +19992,7 @@
          0.224
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -20016,7 +20016,7 @@
          0.058
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -20050,7 +20050,7 @@
          0.367
         ]
        ],
-       "label": null
+       "label": "__other__"
       },
       {
        "box": [
@@ -20150,7 +20150,7 @@
          0.335
         ]
        ],
-       "label": null
+       "label": "DA_KrakensFury"
       },
       {
        "box": [
@@ -20232,7 +20232,7 @@
          0.527
         ]
        ],
-       "label": null
+       "label": "DA_ThiefsGloves"
       }
      ]
     },
@@ -20275,7 +20275,7 @@
          0.474
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -20299,7 +20299,7 @@
          0.536
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -20342,7 +20342,7 @@
          0.253
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       },
       {
        "box": [
@@ -20366,7 +20366,7 @@
          0.212
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },
@@ -20400,7 +20400,7 @@
          0.212
         ]
        ],
-       "label": null
+       "label": "__not_item__"
       }
      ]
     },

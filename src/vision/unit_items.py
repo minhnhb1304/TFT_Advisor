@@ -49,8 +49,9 @@ BORDER_MIN = 0.6
 INNER_STD_MIN = 12.0
 MAX_ITEMS = 3
 MATCH_SIZE = 21
-# Nguong tra loi; chinh tren bo nhan dev (docs/item-reading/evaluation.md).
-MIN_SCORE = 0.55
+# Nguong tra loi; chinh tren bo nhan dev (docs/item-reading/evaluation.md, 2026-11-18):
+# o sai cao nhat (do dac biet / khong phai do) dat 0,687 -> 0,70.
+MIN_SCORE = 0.70
 MIN_MARGIN = 0.08
 DEFAULT_ICON_DIR = Path("data/item_icons")
 DEFAULT_TEMPLATE_DIR = Path("data/item_templates")
