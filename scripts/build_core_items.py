@@ -108,6 +108,21 @@ def assign_roles(guide: dict, recipes: dict, tank: set[str]) -> dict[str, tuple[
     return roles
 
 
+TANK_CHAMP_SHARE, TANK_CHAMP_MIN_COMPS = 2 / 3, 3
+
+
+def tank_champions(all_roles: list[dict[str, tuple[str, list[str]]]]) -> set[str]:
+    """Tuong lam tank o phan lon comp (>= 2/3, toi thieu 3 comp). O comp le no cam
+    mon tien ich (vd. Lillia chi cam Gang Dao Tac trong Defender Cassio) - van la tank,
+    khong phai carry phu."""
+    count: dict[str, Counter] = defaultdict(Counter)
+    for roles in all_roles:
+        for api, (role, _items) in roles.items():
+            count[api][role] += 1
+    return {api for api, c in count.items()
+            if sum(c.values()) >= TANK_CHAMP_MIN_COMPS and c["tank"] >= TANK_CHAMP_SHARE * sum(c.values())}
+
+
 def core_sets(rows: list[list[str]], popularity: Counter) -> list[dict]:
     """Phu cac comp bang it bo nhat. Neo = mon co mat nhieu nhat trong comp chua
     phu; ghep them mon di cung hai chieu neu co. Lap voi comp chua phu."""
@@ -212,8 +227,11 @@ def build(guides: list[dict], recipes: dict[str, list[str]], cdragon: dict,
 
     rows: dict[tuple[str, str], list[list[str]]] = defaultdict(list)
     comps = []
-    for g in guides:
-        roles = assign_roles(g, recipes, tank)
+    assigned = [(g, assign_roles(g, recipes, tank)) for g in guides]
+    always_tank = tank_champions([r for _g, r in assigned])
+    for g, roles in assigned:
+        roles = {api: (("tank", items) if api in always_tank else (role, items))
+                 for api, (role, items) in roles.items()}
         for api, (role, items) in roles.items():
             rows[(api, role)].append(damage_items(items, tank) if role != "tank" else items)
         comps.append({"slug": g["slug"], "title": g["title"], "style": g["style"],

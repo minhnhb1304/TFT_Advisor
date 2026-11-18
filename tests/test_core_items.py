@@ -61,6 +61,14 @@ def test_meta_tank_items_are_never_carry_core(built):
                 assert not tank & set(s["items"])
 
 
+def test_mostly_tank_champion_is_never_a_carry(built):
+    """Lillia la tank o 10/11 comp; o Defender Cassio chi cam Gang Dao Tac -> van la tank."""
+    assert "DA_18_Lillia" not in built["champions"]
+    cassio = next(c for c in built["comps"] if c["title"] == "Defender Cassio")
+    assert cassio["units"]["DA_18_Lillia"]["role"] == "tank"
+    assert "DA_IonicSpark" in built["tank_items"]
+
+
 def test_damage_type_from_ability_and_name(built):
     champs = built["champions"]
     assert champs["DA_18_Aphelios"]["damage"] == "AD"

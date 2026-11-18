@@ -3,7 +3,7 @@
   "source": "tftacademy (data/tftacademy_guides.json) + cdragon en_us",
   "patch": "18.6",
   "guides_fetched_at": "2026-11-17T16:58:25+00:00",
-  "built_at": "2026-11-18T04:07:57+00:00",
+  "built_at": "2026-11-18T04:17:57+00:00",
   "pair": 0.6,
   "min_support": 2
  },
@@ -965,9 +965,6 @@
      "source": "override"
     }
    ],
-   "damage": "AP"
-  },
-  "DA_18_Lillia": {
    "damage": "AP"
   },
   "DA_18_Alune": {
@@ -2042,7 +2039,7 @@
      ]
     },
     "DA_18_Lillia": {
-     "role": "secondary",
+     "role": "tank",
      "items": [
       "DA_ThiefsGloves"
      ]
