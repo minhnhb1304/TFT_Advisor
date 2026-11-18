@@ -2,20 +2,20 @@
 
 Bước I2: đọc mảnh đồ chưa lắp trên băng ghế đồ. Thuộc [item-reading](overview.md).
 
-## Quan sát trên video của mình (`minh_06`, 2026-11-17)
+## Vật trên sàn cạnh mép trái bàn (bạn xác nhận 2026-11-18)
 
-- Băng ghế đồ **không phải ô UI phẳng** như các repo khác mô tả. Đây là một dãy ô **3D trong sàn đấu**, ở mép trái bàn cờ (x khoảng 420–560, y khoảng 250–560 ở 1080p), và hình dáng ô đổi theo skin sàn đấu (sàn kính viễn vọng, sàn dung nham...).
-- Trong `minh_06`, các khung đã xem (giây 70, 95, 115, 200, 400, 1085) đều có băng ghế **trống**: bạn lắp đồ ngay khi nhận. Vì vậy chưa có mẫu icon mảnh đồ đặt trên ô.
-- Hệ quả: số đo của TFT-Copilot (lưới 2×10 ở x=8) và Hextech (cột 10 ô ở mép trái) **không áp dụng** cho client này. Phải tự đo.
+Các báo cáo trước (2026-11-17, I2.0 sơ bộ) gọi cột ô ở mép trái là "băng ghế đồ" và các vật trong đó là "quả cầu vàng / vật hồng". **Sai**: bạn xác nhận đó là những thứ sau:
 
-## I2.0 sơ bộ (2026-11-18, 5 ván dev, 4 skin sàn)
-
-| Thời điểm | Băng ghế | Đồ trên tướng |
+| Vật (ảnh 3-1, 4-1 trên 4 skin sàn) | Thật ra là | Với bộ đọc đồ |
 |---|---|---|
-| 8 giây trước và 3 giây sau màn 2-1 | **Trống ở cả 5 ván** (`minh_03` chỉ có quả cầu chiến lợi phẩm chưa mở) | Không có (bộ đọc trả 0 món, xem bằng mắt cũng 0) |
-| 10 giây trước 3-2, 4-2 | Nhiều ô có **quả cầu vàng / vật màu hồng** (`minh_04`, `minh_05`, `minh_06`, `dat_01`), không phải icon mảnh đồ vuông | 2–5 món, I1 đọc được |
+| Cột 4–5 ô ở mép trái (chậu cam, cầu vàng, vỏ sò…) | **Lợi tức**: mỗi ô = 10 vàng (5 ô = 50 vàng), hình đổi theo skin | Bỏ qua |
+| Icon vuông nhỏ trên đầu cột | **Lõi đã chọn** | Không phải đồ; không gắn với thanh máu nên bộ đọc I1 không bắt |
+| Thanh kiếm pha lê trên bệ | Đi kèm lõi đã chọn (lõi căn giữa theo nó), không có tác dụng | Bỏ qua |
+| Vật hồng, khủng long, con ma to | Hiệu ứng sàn đấu / chưởng lực (skin) | Bỏ qua |
 
-Kết luận tạm thời: ở 2-1 người chơi **chưa có mảnh đồ nào**, nên I2 không cứu được màn 2-1. Từ 3-2 trở đi đồ đã nằm trên tướng (I1). Làm theo **phương án dự phòng** bên dưới, tạm hoãn I2.1–I2.3. **Cần bạn xác nhận** quả cầu vàng / vật hồng trên băng ghế ở 3-2, 4-2 là gì (chưa mở? vật phẩm đặc biệt?) trước khi quyết có làm I2 không.
+Hệ quả:
+- Kết luận cũ "băng ghế trống ở 2-1" **không còn căn cứ**, vì vùng đã xem là ô lợi tức. Điều còn đúng: bộ đọc I1 và mắt đều thấy 0 món **trên tướng** ở 2-1 trong 5 ván.
+- **Chưa biết mảnh đồ chưa lắp nằm ở đâu trên màn hình** → cần bạn chỉ chỗ (ảnh có mảnh chưa lắp) trước khi làm I2.0 lại. Số đo của TFT-Copilot / Hextech vẫn không áp dụng được.
 
 ## Cách làm
 
@@ -28,7 +28,7 @@ Kết luận tạm thời: ở 2-1 người chơi **chưa có mảnh đồ nào*
 
 ## Phương án dự phòng
 
-Nếu I2.0 cho thấy băng ghế gần như luôn trống trong lối chơi thật (lắp đồ ngay), thì `item_components` phần lớn bằng 0. Khi đó **đồ trên tướng (I1) mới là nguồn chính**: ItemFit tính "đang thiếu gì" từ đồ đã lắp + bảng đồ core, không cần mảnh trên băng ghế. Đây là lý do I1 làm trước I2.
+Nếu I2.0 cho thấy mảnh chưa lắp gần như không có trong lối chơi thật (lắp đồ ngay), thì `item_components` phần lớn bằng 0. Khi đó **đồ trên tướng (I1) mới là nguồn chính**: ItemFit tính "đang thiếu gì" từ đồ đã lắp + bảng đồ core, không cần mảnh trên băng ghế. Đây là lý do I1 làm trước I2.
 
 ## Rủi ro
 

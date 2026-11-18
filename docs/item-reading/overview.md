@@ -22,7 +22,7 @@ Kế hoạch 2026-11-17: đọc đồ từ pixel để **ItemFit trong điểm l
 |---|---|---|---|---|
 | I0 | Sửa lệch tên đồ giữa ItemFit/BoardFit và `item_recipes.json` | [core-items](core-items.md) | 7 | Xong |
 | I1 | Đọc đồ trên tướng, neo theo thanh máu | [unit-items](unit-items.md) | 7–8 | Bộ đọc + gắn vào live xong; chờ nhãn để đo |
-| I2 | Đọc mảnh trên băng ghế (tìm mẫu trước, có thể gần như luôn trống) | [bench-components](bench-components.md) | 9–10 | Tạm hoãn: ở 2-1 cả băng ghế lẫn tướng đều **chưa có mảnh nào** (5/5 ván dev); chờ bạn xác nhận vật trên băng ghế ở 3-2/4-2 |
+| I2 | Đọc mảnh trên băng ghế (tìm mẫu trước, có thể gần như luôn trống) | [bench-components](bench-components.md) | 9–10 | Tạm hoãn: ở 2-1 tướng chưa có món nào (5/5 ván dev). Vùng tưởng là băng ghế hoá ra là ô lợi tức; chờ bạn chỉ chỗ mảnh chưa lắp |
 | I3 | Bảng đồ core 18.6 + suy carry + thưởng core theo hướng | [core-items](core-items.md) · [plan-item-fit](plan-item-fit.md) | 9 | Bảng sinh xong (chờ duyệt), CoreFit + chấp lõi đã gắn |
 | I4 | Gắn nhãn, đo, báo số | [evaluation](evaluation.md) | 8–11 | Có số dev đầu tiên; precision chờ nhãn |
 
@@ -31,7 +31,7 @@ Tuần 7 = 2026-11-16. **Tuần 12 (từ 2026-12-21) đóng băng số**: mọi 
 ## Thứ tự và lý do
 
 - **I0 trước tiên**: rẻ, và nếu không sửa thì mọi thứ đọc được đều không khớp.
-- **I1 trước I2**: trong `minh_06` băng ghế đồ gần như luôn trống vì bạn lắp đồ ngay. Đồ trên tướng mới là nguồn dữ liệu chính.
+- **I1 trước I2**: bạn thường lắp đồ ngay khi nhận. Đồ trên tướng mới là nguồn dữ liệu chính.
 - **I3 cần I1**: muốn biết "carry đang thiếu gì" thì phải biết carry đang cầm gì.
 
 ## Kết luận nghiên cứu (2026-11-17)
