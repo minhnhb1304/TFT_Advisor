@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chấm điểm lõi</title>
+<style>
+:root{
+  --bg:#0f1218;--panel:#171b24;--panel2:#1e2330;--line:#2b3242;--text:#e7e9ee;--muted:#9aa3b5;
+  --gold:#e8b84a;--up:#3fbf7f;--down:#e5604d;--plan:#5b8cff;--combo:#e8b84a;--core:#46c2c9;--base:#6b7387;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 "Segoe UI",system-ui,sans-serif}
+main{max-width:1280px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:24px;margin:0}
+h2{font-size:18px;margin:36px 0 4px}
+.sub{color:var(--muted);margin:2px 0 14px}
+.formula{font-family:Consolas,monospace;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:inline-block;margin:6px 0}
+.hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;margin-top:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.frame img{width:100%;border-radius:8px;display:block}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.kv b{color:var(--muted);font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 10px 2px 3px;margin:3px 4px 0 0;font-size:13px}
+.chip img{width:22px;height:22px;border-radius:50%}
+.tag{display:inline-block;font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:0 6px;margin:2px 3px 0 0;color:var(--muted)}
+.warn{color:#f0a35e}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{position:relative}
+.card.pick{outline:2px solid var(--gold)}
+.card .head{display:flex;gap:10px;align-items:center}
+.card .head img{width:44px;height:44px;border-radius:8px;background:#000}
+.card .nm{font-weight:600}
+.badge{font-size:11px;border-radius:4px;padding:1px 6px;background:var(--gold);color:#1a1a1a;font-weight:700}
+.total{font-size:26px;font-weight:700;margin:8px 0 2px}
+.rankpos{color:var(--muted);font-size:12px}
+.bars{margin-top:10px}
+.bar{display:grid;grid-template-columns:78px 1fr 58px;align-items:center;gap:8px;margin:5px 0;font-size:12px}
+.track{position:relative;height:16px;background:var(--panel2);border-radius:4px}
+.track::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;border-left:1px dashed #556}
+.fill{position:absolute;top:2px;bottom:2px;border-radius:3px}
+.val{text-align:right;font-family:Consolas,monospace}
+details{margin-top:8px}
+summary{cursor:pointer;color:var(--muted);font-size:12px}
+details ul{margin:6px 0 0;padding-left:18px;font-size:12px;color:var(--muted)}
+.sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px 18px}
+.sl label{display:flex;justify-content:space-between;font-size:13px}
+.sl input[type=range]{width:100%}
+.sum{margin-top:8px;font-size:13px}
+button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 12px;cursor:pointer}
+.plans{display:grid;gap:12px}
+.prow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start}
+.prow.truth .plabel{color:var(--gold)}
+.plabel{font-weight:600}
+.plabel small{display:block;color:var(--muted);font-weight:400}
+.wf{display:grid;grid-template-columns:200px 1fr 64px;gap:8px;align-items:center;font-size:12px;margin:3px 0}
+.wf .who{display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf .who img{width:20px;height:20px;border-radius:4px}
+.stack{position:relative;height:18px;background:var(--panel2);border-radius:4px;overflow:hidden}
+.seg{position:absolute;top:0;bottom:0}
+.wf.top .val{color:var(--gold);font-weight:700}
+.legend span{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12px;color:var(--muted)}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+.why{font-size:12px;color:var(--muted);margin:4px 0 0 208px}
+.ok{color:var(--up)} .bad{color:var(--down)}
+footer{margin-top:40px;color:var(--muted);font-size:12px}
+@media (max-width:900px){.hero,.cards{grid-template-columns:1fr}.prow{grid-template-columns:1fr}.why{margin-left:0}.wf{grid-template-columns:130px 1fr 56px}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const D = /*DATA*/null;
+const COMP = {base:"Bảng tier",board_fit:"Bàn cờ",econ_fit:"Kinh tế",item_fit:"Trang bị",tempo_fit:"Nhịp / máu"};
+const ORDER = ["base","board_fit","econ_fit","item_fit","tempo_fit"];
+const W0 = {...D.weights, plan: D.plan_weight};
+let W = {...W0};
+const f3 = x => (Math.round(x*1000)/1000).toFixed(3).replace(".", ",");
+const sgn = x => (x>=0?"+":"−")+f3(Math.abs(x));
+const esc = s => String(s??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = (src, alt) => src ? `<img src="${src}" alt="${esc(alt)}">` : "";
+
+function rankScore(c){ return ORDER.reduce((s,n)=> s + W[n]*c.components[n].score, 0); }
+function planScore(c, key){
+  const p = c.plans[key];
+  let t = rankScore(c) + W.plan*(p.pf-0.5) + p.combo;
+  if (D.core.enabled){ if (p.off_damage) t *= D.core.off_factor; else t += D.core.weight*p.core_bonus; }
+  return t;
+}
+function order(scoreFn){
+  return [...D.cards].sort((a,b)=> (scoreFn(b)-scoreFn(a)) || a.api.localeCompare(b.api));
+}
+
+function header(){
+  const s = D.state;
+  const xp = s.xp_needed ? `${s.xp}/${s.xp_needed}` : s.xp;
+  const tp = D.plans.find(p=>p.key===D.true_plan);
+  const picked = D.cards.find(c=>c.api===D.picked);
+  return `
+  <h1>Chấm điểm lõi · ${esc(D.video)} · ${esc(D.stage)}</h1>
+  <div class="sub">Mọi con số lấy từ engine thật (<code>rank()</code>, <code>rank_by_plan()</code>); trang chỉ cộng lại khi kéo trọng số.</div>
+  <div class="hero">
+    <div class="panel frame">${D.frame ? img(D.frame,"khung hình") : "<i>không có ảnh snapshot</i>"}</div>
+    <div class="panel">
+      <div class="kv">
+        <b>Vòng</b><span>${esc(D.stage)}</span>
+        <b>Vàng</b><span>${s.gold}</span>
+        <b>Cấp</b><span>${s.level} (XP ${xp})</span>
+        <b>Máu</b><span>${s.hp}${s.hp_labeled?"":' <span class="warn">— chưa gán nhãn, mặc định 100</span>'}</span>
+        <b>Chuỗi</b><span>${s.streak}</span>
+        <b>Lõi đã cầm</b><span>${D.held.map(h=>`<span class="chip">${img(h.icon,h.name)}${esc(h.name)}</span>`).join("") || "—"}</span>
+        <b>Người chơi chọn</b><span>${picked?`<span class="chip">${img(picked.icon,picked.name)}${esc(picked.name)}</span>`:"—"}</span>
+        <b>Hướng thật</b><span>${tp?esc(tp.label):"—"} <small class="sub">(${esc(D.route||"")})</small></span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function tier1(){
+  const ranked = order(rankScore);
+  const maxDev = Math.max(0.02, ...D.cards.flatMap(c=>ORDER.map(n=>Math.abs(W[n]*(c.components[n].score-0.5)))));
+  const sumW = ORDER.reduce((s,n)=>s+W[n],0);
+  return `
+  <h2>Tầng 1 · Tổng có trọng số của 5 thành phần</h2>
+  <div class="formula">rank = Σ wᵢ·sᵢ = ${f3(sumW/2)} + Σ wᵢ·(sᵢ − 0,5)</div>
+  <div class="sub">Mỗi thanh là phần một thành phần kéo lõi lên (xanh) hoặc xuống (đỏ) so với mốc trung tính 0,5.</div>
+  <div class="cards">${[...D.cards].sort((a,b)=>a.slot-b.slot).map(c=>{
+    const pos = ranked.indexOf(c)+1, r = rankScore(c);
+    return `<div class="panel card ${c.api===D.picked?"pick":""}">
+      <div class="head">${img(c.icon,c.name)}<div><div class="nm">Ô ${c.slot} · ${esc(c.name)}</div>
+        ${c.tags.categories.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}
+        ${c.tags.econ_value?`<span class="tag">kinh tế ${c.tags.econ_value}/3</span>`:""}
+        ${c.tags.tempo?`<span class="tag">${esc(c.tags.tempo)}</span>`:""}</div>
+        ${c.api===D.picked?'<span class="badge" style="margin-left:auto">ĐÃ CHỌN</span>':""}</div>
+      <div class="total">${f3(r)}</div><div class="rankpos">hạng ${pos}/${D.cards.length} theo rank()</div>
+      <div class="bars">${ORDER.map(n=>{
+        const s = c.components[n].score, v = W[n]*(s-0.5), w = Math.abs(v)/maxDev*50;
+        const left = v>=0 ? 50 : 50-w;
+        return `<div class="bar"><span>${COMP[n]}</span>
+          <div class="track" title="s = ${f3(s)}, w = ${f3(W[n])}"><div class="fill" style="left:${left}%;width:${w}%;background:${v>=0?"var(--up)":"var(--down)"}"></div></div>
+          <span class="val">${v===0?"0":sgn(v)}</span></div>`;}).join("")}</div>
+      <details><summary>Lý do từng thành phần</summary><ul>${ORDER.map(n=>`<li><b>${COMP[n]}</b> (s = ${f3(c.components[n].score)}): ${esc(c.components[n].reason)}</li>`).join("")}</ul></details>
+    </div>`;}).join("")}</div>`;
+}
+
+function sliders(){
+  const sumW = ORDER.reduce((s,n)=>s+W[n],0);
+  return `
+  <h2>Trọng số · thử ablation trực tiếp</h2>
+  <div class="sub">Kéo để xem thứ hạng đổi thế nào. Đặt một trọng số về 0 = tắt thành phần đó.</div>
+  <div class="panel"><div class="sliders">
+    ${[...ORDER,"plan"].map(n=>`<div class="sl"><label><span>${n==="plan"?"Theo hướng (plan_fit)":COMP[n]}</span><span>${f3(W[n])}</span></label>
+      <input type="range" min="0" max="0.6" step="0.01" value="${W[n]}" data-w="${n}"></div>`).join("")}
+  </div>
+  <div class="sum">Tổng 5 trọng số: <b class="${Math.abs(sumW-1)<1e-9?"ok":"bad"}">${f3(sumW)}</b> · <button id="reset">Về cấu hình gốc</button> ${check()}</div></div>`;
+}
+
+function check(){
+  const same = Object.keys(W0).every(k=>Math.abs(W[k]-W0[k])<1e-12);
+  if (!same) return '<span class="warn">đang dùng trọng số thử</span>';
+  const ok = D.cards.every(c=>Math.abs(rankScore(c)-c.engine_rank)<1e-9 &&
+    D.plans.every(p=>Math.abs(planScore(c,p.key)-c.plans[p.key].engine_total)<1e-9));
+  return ok ? '<span class="ok">✓ trang tính lại khớp engine</span>' : '<span class="bad">✗ lệch engine</span>';
+}
+
+function tier2(){
+  const all = D.cards.flatMap(c=>D.plans.map(p=>planScore(c,p.key)));
+  const lo = Math.min(0.4, ...all.map(x=>x-0.02)), hi = Math.max(...all)+0.02;
+  const X = v => (v-lo)/(hi-lo)*100;
+  return `
+  <h2>Tầng 2 · Điểm theo từng hướng</h2>
+  <div class="formula">điểm hướng = rank + w·(plan_fit − 0,5) + combo ${D.core.enabled?"+ core":""}</div>
+  <div class="legend"><span><i style="background:var(--base)"></i>rank</span><span><i style="background:var(--plan)"></i>theo hướng</span><span><i style="background:var(--combo)"></i>combo / bộ 3</span><span><i style="background:var(--core)"></i>đồ core</span><span><i style="background:var(--down)"></i>phần bị trừ</span></div>
+  <div class="panel plans">${D.plans.map(p=>{
+    const ranked = order(c=>planScore(c,p.key));
+    const top = ranked[0], tie = ranked.length>1 && Math.abs(planScore(ranked[0],p.key)-planScore(ranked[1],p.key))<1e-9;
+    return `<div class="prow ${p.key===D.true_plan?"truth":""}">
+      <div class="plabel">${esc(p.label)}${p.key===D.true_plan?"<small>★ hướng thật của ván</small>":""}</div>
+      <div>${ranked.map(c=>{
+        const d = c.plans[p.key], r = rankScore(c), pl = W.plan*(d.pf-0.5);
+        let segs = [], x = r;
+        segs.push(`<div class="seg" style="left:0;width:${X(r)}%;background:var(--base)"></div>`);
+        const add = (v,color)=>{ if(Math.abs(v)<1e-12) return; const a=Math.min(x,x+v), b=Math.max(x,x+v);
+          segs.push(`<div class="seg" style="left:${X(a)}%;width:${X(b)-X(a)}%;background:${v<0?"var(--down)":color};opacity:.9"></div>`); x+=v; };
+        add(pl,"var(--plan)"); add(d.combo,"var(--combo)");
+        if (D.core.enabled && !d.off_damage) add(D.core.weight*d.core_bonus,"var(--core)");
+        const t = planScore(c,p.key);
+        const tip = `rank ${f3(r)} · hướng ${sgn(pl)} (plan_fit ${f3(d.pf)}) · combo ${sgn(d.combo)}${d.off_damage?" · lệch AD/AP ×"+D.core.off_factor:""}`;
+        return `<div class="wf ${c===top?"top":""}"><span class="who">${img(c.icon,c.name)}${c===top?"👑 ":""}${esc(c.name)}${c.api===D.picked?" ★":""}</span>
+          <div class="stack" title="${esc(tip)}">${segs.join("")}</div><span class="val">${f3(t)}</span></div>`;}).join("")}
+        ${tie?'<div class="why warn">Hai lõi đầu bằng điểm: xếp theo tên để kết quả lặp lại được.</div>':""}
+        <div class="why">${esc(top.plans[p.key].reason)}${top.plans[p.key].warnings.length?' · <span class="warn">⚠ '+esc(top.plans[p.key].warnings.join(" · "))+"</span>":""}</div>
+      </div></div>`;}).join("")}</div>`;
+}
+
+function footer(){
+  return `<footer>
+  Trọng số là giả định ban đầu từ kinh nghiệm chuyên gia, chưa fit trên dữ liệu (config/scoring_weights.yaml).
+  Combo cộng thẳng vào tổng: nhẹ 0,02 · vừa 0,04 · mạnh 0,08 (≈ ½, 1, 2 lần khoảng cách top-1/top-2 trung vị trên dev).
+  Số trên tập development là số trong mẫu.</footer>`;
+}
+
+function render(){
+  document.getElementById("app").innerHTML = header() + tier1() + sliders() + tier2() + footer();
+  document.querySelectorAll("input[data-w]").forEach(el=>el.addEventListener("input", e=>{
+    W[e.target.dataset.w] = parseFloat(e.target.value); render();
+    const again = document.querySelector(`input[data-w="${e.target.dataset.w}"]`); again && again.focus();
+  }));
+  document.getElementById("reset").onclick = ()=>{ W = {...W0}; render(); };
+}
+render();
+</script>
+</body>
+</html>
