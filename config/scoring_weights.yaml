@@ -7,11 +7,14 @@
 # Phai noi ro dieu do trong bao cao: chung se duoc hieu chinh sau khi
 # ScenarioLogger tich luy du dataset (SPEC 12.2).
 
+# 2026-11-18 (nguoi choi): board_fit 0.30 -> 0.15, item_fit 0.15 -> 0.30. Chua
+# doc duoc ban co nen board_fit gan nhu luon 0.5; huong AD/AP cua carry da do
+# core_fit lo bang bang core da duyet. Dev giu nguyen 6/15 tat, 9/15 bat.
 weights:
   base: 0.30       # w1 - so lieu tinh tu StatsProvider
-  board_fit: 0.30  # w2 - trung trait / khop carry type
+  board_fit: 0.15  # w2 - trung trait / khop carry type
   econ_fit: 0.15   # w3 - gia tri econ x do hop stage
-  item_fit: 0.15   # w4 - component duoc tang vs item dang thieu
+  item_fit: 0.30   # w4 - component duoc tang vs item dang thieu
   tempo_fit: 0.10  # w5 - greed theo HP
 
 # Tham so cua tung thanh phan. Tach khoi `weights` de ablation chi cham vao
