@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duyệt bảng core</title>
+<style>
+  :root { --bg:#14161a; --card:#1e2127; --line:#333843; --text:#e6e6e6; --dim:#9aa0aa;
+          --ok:#3fb950; --warn:#d29922; --bad:#f85149; --accent:#58a6ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.4 system-ui, sans-serif; }
+  header { position:sticky; top:0; z-index:5; background:#0d0f12; border-bottom:1px solid var(--line);
+           padding:10px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:16px; }
+  button, select { background:#2a2f38; color:var(--text); border:1px solid var(--line); border-radius:6px;
+           padding:4px 10px; cursor:pointer; font:inherit; }
+  button:hover { border-color:var(--accent); }
+  button.primary { background:#1f6feb; border-color:#1f6feb; }
+  button.small { padding:1px 6px; font-size:12px; }
+  main { padding:16px; max-width:1300px; margin:0 auto; }
+  .help { color:var(--dim); font-size:13px; margin:0 0 12px; }
+  .champ { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:14px; }
+  .champ.verified { border-color:var(--ok); }
+  .champ.changed { border-color:var(--accent); }
+  .champ h3 { margin:0 0 8px; font-size:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .flag { font-size:11px; padding:1px 6px; border-radius:10px; border:1px solid var(--warn); color:var(--warn); font-weight:normal; }
+  .flag.bad { border-color:var(--bad); color:var(--bad); }
+  .flag.ok { border-color:var(--ok); color:var(--ok); }
+  .grid { display:grid; grid-template-columns: minmax(300px, 1fr) minmax(300px, 1.3fr); gap:14px; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  .role { margin-bottom:10px; }
+  .role > .dim { margin-bottom:4px; }
+  .set { display:flex; gap:6px; align-items:center; flex-wrap:wrap; padding:4px 6px; border:1px dashed var(--line); border-radius:6px; margin-bottom:4px; }
+  .chip { display:inline-flex; align-items:center; gap:3px; background:#0d0f12; border:1px solid var(--line); border-radius:6px; padding:1px 4px 1px 1px; font-size:12px; }
+  .chip img, .ev img { width:26px; height:26px; vertical-align:middle; border-radius:3px; }
+  .chip .x { cursor:pointer; color:var(--bad); padding:0 2px; }
+  .sup { font-size:12px; color:var(--dim); }
+  input[list] { width:170px; background:#0d0f12; color:var(--text); border:1px solid var(--line); border-radius:4px; padding:2px 6px; font-size:12px; }
+  textarea { width:100%; background:#0d0f12; color:var(--text); border:1px solid var(--line); border-radius:4px; padding:4px 6px; font:inherit; font-size:13px; }
+  .ev { font-size:12px; border-top:1px dashed var(--line); padding:4px 0; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .ev .t { min-width:200px; }
+  .ev.retired { opacity:.6; }
+  .tag { font-size:11px; padding:0 5px; border-radius:4px; background:#2a2f38; }
+  .tag.carry { background:#5a1e1e; } .tag.secondary { background:#4a3b12; } .tag.tank { background:#1e3a5a; }
+  .dim { color:var(--dim); font-size:12px; }
+  .err { color:var(--bad); }
+  .tank { outline:1px solid #1e3a5a; }
+</style>
+</head>
+<body>
+<header>
+  <b>Duyệt bảng core</b>
+  <span id="progress" class="dim"></span>
+  <select id="filter">
+    <option value="look">Cần xem (cờ vàng/đỏ)</option>
+    <option value="todo">Chưa duyệt</option>
+    <option value="all">Tất cả</option>
+  </select>
+  <button class="primary" id="save">Lưu (Ctrl+S)</button>
+  <span id="status" class="dim"></span>
+</header>
+<main>
+  <p class="help">
+    Mỗi tướng: <b>bộ core</b> máy sinh từ comp TFT Academy (số trong ngoặc = số comp có bộ đó; ≤ 2 là yếu),
+    <b>AD/AP</b>, và bên phải là <b>bằng chứng</b> (đồ của tướng trong từng comp; mờ = comp đã gỡ khỏi tier list).
+    Sửa bộ: bấm × để bỏ món, gõ tên món để thêm, "+ bộ" để thêm bộ thay thế (carry chỉ cần đủ MỘT bộ).
+    Xong thì tích <b>Đã duyệt</b>. Lưu ghi phần khác máy sinh vào <code id="path"></code> rồi sinh lại bảng.
+  </p>
+  <datalist id="itemlist"></datalist>
+  <div id="list"></div>
+</main>
+<script>
+let S = null, edits = {}, dirty = false;
+const ROLE_VI = {carry: "Carry chính", secondary: "Carry phụ"};
+const short = a => (a || "").replace(/^DA_18_|^DA_|18(_\w+)?$/g, "");
+const item = api => S.itemByApi[api] || {api, vi: short(api), en: "", icon: ""};
+const name = api => S.names[api] || short(api);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const icon = api => { const it = item(api); return it.icon ? `<img src="/file/${it.icon}" title="${esc(it.vi)} · ${esc(it.en)}">` : ""; };
+
+async function load() {
+  S = await (await fetch("/api/state")).json();
+  S.itemByApi = Object.fromEntries(S.items.map(o => [o.api, o]));
+  S.byLabel = {};
+  const dl = document.getElementById("itemlist");
+  for (const o of S.items) {
+    const label = `${o.vi} (${o.en})`;
+    S.byLabel[label] = o.api;
+    dl.insertAdjacentHTML("beforeend", `<option value="${esc(label)}">`);
+  }
+  document.getElementById("path").textContent = S.path;
+  const champs = new Set(Object.keys(S.generated));
+  for (const c of S.comps) for (const [a, u] of Object.entries(c.units)) if (u.role !== "tank") champs.add(a);
+  for (const a of Object.keys(S.overrides)) champs.add(a);
+  for (const api of champs) {
+    const g = S.generated[api] || {}, o = S.overrides[api] || {};
+    edits[api] = {
+      carry: JSON.parse(JSON.stringify(o.carry || g.carry || [])).map(s => ({items: s.items, comps: s.comps})),
+      secondary: JSON.parse(JSON.stringify(o.secondary || g.secondary || [])).map(s => ({items: s.items, comps: s.comps})),
+      damage: "damage" in o ? o.damage : (g.damage ?? null),
+      note: o.note || "", verified: !!o.verified,
+    };
+  }
+  render();
+}
+
+function evidence(api) {
+  return S.comps.filter(c => c.units[api]).map(c => ({c, u: c.units[api]}))
+    .sort((a, b) => (b.c.public - a.c.public) || ({carry:0, secondary:1, tank:2}[a.u.role] - {carry:0, secondary:1, tank:2}[b.u.role]));
+}
+
+const sameSets = (a, b) => JSON.stringify((a || []).map(s => [...s.items].sort()).sort()) === JSON.stringify((b || []).map(s => [...s.items].sort()).sort());
+
+function diff(api) {
+  const e = edits[api], g = S.generated[api] || {}, out = {};
+  for (const r of ["carry", "secondary"]) if (!sameSets(e[r], g[r])) out[r] = e[r].filter(s => s.items.length).map(s => ({items: s.items}));
+  if ((e.damage ?? null) !== (g.damage ?? null)) out.damage = e.damage;
+  if (e.note) out.note = e.note;
+  if (e.verified) out.verified = true;
+  return out;
+}
+
+function flags(api) {
+  const e = edits[api], f = [];
+  const ev = evidence(api);
+  if (!e.damage) f.push(["bad", "chưa rõ AD/AP"]);
+  if (ev.some(x => x.u.role === "carry") && !e.carry.length) f.push(["bad", "là carry nhưng chưa có bộ core"]);
+  if ([...e.carry, ...e.secondary].some(s => s.comps != null && s.comps <= 2)) f.push(["", "bộ chỉ dựa trên ≤ 2 comp"]);
+  if (S.overrides[api] && (S.overrides[api].carry || S.overrides[api].secondary || "damage" in S.overrides[api])) f.push(["ok", "có dòng đã duyệt"]);
+  return f;
+}
+
+function setHtml(api, role, i, s) {
+  const chips = s.items.map((a, k) => `<span class="chip">${icon(a)}${esc(item(a).vi)}<span class="x" data-act="rm" data-api="${api}" data-role="${role}" data-i="${i}" data-k="${k}">×</span></span>`).join("");
+  return `<div class="set">${chips}
+    <input list="itemlist" placeholder="+ món…" data-act="add" data-api="${api}" data-role="${role}" data-i="${i}">
+    ${s.comps != null ? `<span class="sup">(${s.comps} comp)</span>` : `<span class="sup">(bạn sửa)</span>`}
+    <button class="small" data-act="rmset" data-api="${api}" data-role="${role}" data-i="${i}">xoá bộ</button></div>`;
+}
+
+function card(api) {
+  const e = edits[api], g = S.generated[api] || {};
+  const d = diff(api), changed = Object.keys(d).some(k => k !== "verified" && k !== "note");
+  const fl = flags(api).map(([c, t]) => `<span class="flag ${c}">${t}</span>`).join("");
+  const roles = ["carry", "secondary"].map(r => `<div class="role"><div class="dim">${ROLE_VI[r]}</div>
+      ${e[r].map((s, i) => setHtml(api, r, i, s)).join("") || `<div class="dim">— chưa có —</div>`}
+      <button class="small" data-act="addset" data-api="${api}" data-role="${r}">+ bộ</button></div>`).join("");
+  const ev = evidence(api).map(({c, u}) => `<div class="ev ${c.public ? "" : "retired"}">
+      <span class="tag ${u.role}">${u.role}</span><span class="t">${esc(c.title)} <span class="dim">${c.tier || ""} · ${c.plan || "–"}${c.public ? "" : " · đã gỡ"}</span></span>
+      ${u.items.map(a => `<span class="${S.tank_items.includes(a) ? "tank" : ""}">${icon(a)}</span>`).join("")}</div>`).join("");
+  return `<div class="champ ${e.verified ? "verified" : ""} ${changed ? "changed" : ""}" id="c-${api}">
+    <h3>${esc(name(api))} <span class="dim">${esc(api)} · ${g.cost ? g.cost + " vàng" : ""}</span>
+      <select data-act="dmg" data-api="${api}">
+        ${["", "AD", "AP"].map(v => `<option value="${v}" ${(e.damage || "") === v ? "selected" : ""}>${v || "? chưa rõ"}</option>`).join("")}
+      </select>
+      <span class="dim">máy: ${g.damage || "?"}</span>
+      ${fl}
+      <label style="margin-left:auto"><input type="checkbox" data-act="ver" data-api="${api}" ${e.verified ? "checked" : ""}> Đã duyệt</label></h3>
+    <div class="grid"><div>${roles}
+      <textarea rows="2" placeholder="Ghi chú / lý do (tuỳ chọn)" data-act="note" data-api="${api}">${esc(e.note)}</textarea></div>
+      <div><div class="dim">Bằng chứng TFT Academy (viền xanh = đồ tank):</div>${ev || `<div class="dim">không có comp</div>`}</div></div></div>`;
+}
+
+function render() {
+  const mode = document.getElementById("filter").value;
+  const apis = Object.keys(edits).sort((a, b) => name(a).localeCompare(name(b)));
+  const shown = apis.filter(a => mode === "all" || (mode === "todo" ? !edits[a].verified
+                     : !edits[a].verified && flags(a).some(([c]) => c !== "ok")));
+  document.getElementById("list").innerHTML = shown.map(card).join("") || `<p class="dim">Không còn tướng nào ở bộ lọc này.</p>`;
+  const v = apis.filter(a => edits[a].verified).length;
+  document.getElementById("progress").textContent = `${v}/${apis.length} tướng đã duyệt · đang hiện ${shown.length}`;
+}
+
+function touch() { dirty = true; document.getElementById("status").textContent = "chưa lưu"; }
+
+document.addEventListener("click", ev => {
+  const t = ev.target, act = t.dataset.act; if (!act) return;
+  const e = edits[t.dataset.api], r = t.dataset.role, i = +t.dataset.i;
+  if (act === "rm") e[r][i].items.splice(+t.dataset.k, 1), e[r][i].comps = null;
+  else if (act === "rmset") e[r].splice(i, 1);
+  else if (act === "addset") e[r].push({items: [], comps: null});
+  else return;
+  touch(); rerender(t.dataset.api);
+});
+document.addEventListener("change", ev => {
+  const t = ev.target, act = t.dataset.act; if (!act) return;
+  const e = edits[t.dataset.api];
+  if (act === "add") {
+    const api = S.byLabel[t.value]; if (!api) { t.value = ""; return; }
+    const s = e[t.dataset.role][+t.dataset.i];
+    if (!s.items.includes(api)) s.items.push(api), s.comps = null;
+  } else if (act === "dmg") e.damage = t.value || null;
+  else if (act === "ver") e.verified = t.checked;
+  else if (act === "note") e.note = t.value;
+  else return;
+  touch(); rerender(t.dataset.api);
+});
+function rerender(api) {
+  const el = document.getElementById("c-" + api);
+  if (el) el.outerHTML = card(api);
+  const apis = Object.keys(edits);
+  document.getElementById("progress").textContent = `${apis.filter(a => edits[a].verified).length}/${apis.length} tướng đã duyệt`;
+}
+document.getElementById("filter").addEventListener("change", render);
+
+async function save() {
+  const champions = {};
+  for (const api of Object.keys(edits)) { const d = diff(api); if (Object.keys(d).length) champions[api] = d; }
+  document.getElementById("status").textContent = "đang lưu…";
+  const res = await (await fetch("/api/save", {method: "POST", body: JSON.stringify({champions})})).json();
+  const st = document.getElementById("status");
+  if (res.ok) { dirty = false; st.textContent = res.message; st.className = "dim"; }
+  else { st.innerHTML = `<span class="err">${res.errors.map(esc).join("<br>")}</span>`; }
+}
+document.getElementById("save").addEventListener("click", save);
+document.addEventListener("keydown", ev => { if ((ev.ctrlKey || ev.metaKey) && ev.key === "s") { ev.preventDefault(); save(); } });
+window.addEventListener("beforeunload", ev => { if (dirty) { ev.preventDefault(); ev.returnValue = ""; } });
+load();
+</script>
+</body>
+</html>

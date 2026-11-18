@@ -172,7 +172,7 @@ def apply_overrides(table: dict[str, dict], overrides: dict[str, dict]) -> None:
     for api, fields in overrides.items():
         entry = table.setdefault(api, {})
         for key, value in fields.items():
-            if key == "note":
+            if key in ("note", "verified"):
                 continue
             if key in ("carry", "secondary"):
                 value = [{"items": sorted(s["items"]), "comps": s.get("comps"),

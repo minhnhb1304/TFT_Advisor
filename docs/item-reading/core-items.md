@@ -64,7 +64,7 @@ Crawler `scripts/crawl_tftacademy_comps.py` đã có nhưng parser bỏ mất đ
 | Bộ core | Neo = món xuất hiện nhiều nhất. Ghép thêm món b chỉ khi hai món đi cùng nhau theo cả hai chiều (≥ 60%) và cùng có mặt ở ≥ 3 comp |
 | AD/AP | Hậu tố tên (`_AD`/`_AP`), rồi biểu tượng scale trong mô tả kỹ năng CDragon; hoà thì bỏ phiếu theo chỉ số đồ |
 
-**Ví dụ của bạn (test trong `tests/test_core_items.py`):** Tristana, Kayle → Guinsoo ✓; Ahri → Găng + Shojin ✓. **Lệch** (dữ liệu không đủ để thuật toán ra đúng): Aphelios carry chính máy ra Guinsoo + Kraken (TFT Academy luôn ghép Kraken cùng Guinsoo), carry phụ ra Last Whisper (Red Buff chỉ 2/3 comp). Hai dòng này lấy theo lời bạn trong `data/core_items.overrides.json`, mỗi dòng ghi lý do. Muốn sửa dòng khác thì thêm vào file đó rồi chạy lại `build_core_items.py`.
+**Ví dụ của bạn (test trong `tests/test_core_items.py`):** Tristana, Kayle → Guinsoo ✓; Ahri → Găng + Shojin ✓. **Lệch** (dữ liệu không đủ để thuật toán ra đúng): Aphelios carry chính máy ra Guinsoo + Kraken (TFT Academy luôn ghép Kraken cùng Guinsoo), carry phụ ra Last Whisper (Red Buff chỉ 2/3 comp). Hai dòng này lấy theo lời bạn trong `data/core_items.overrides.json`, mỗi dòng ghi lý do. Sửa dòng khác bằng trang duyệt `scripts/review_core_items.py` (127.0.0.1:8767): mỗi tướng có bộ core, AD/AP, cờ cần xem (chưa rõ AD/AP, là carry mà chưa có bộ, bộ chỉ dựa trên ≤ 2 comp) và bằng chứng từng comp; Lưu ghi phần khác máy sinh vào file đó rồi sinh lại bảng.
 
 **Cần bạn xem:** Rengar ra AP và Caitlyn chưa rõ AD/AP (mô tả kỹ năng hoà). 7/74 comp chưa rõ AD/AP của carry chính, nên chấp lõi không kích hoạt ở các comp đó. Một số bộ chỉ dựa trên 2 comp.
 
