@@ -10,12 +10,16 @@
 # 2026-11-18 (nguoi choi): board_fit 0.30 -> 0.15, item_fit 0.15 -> 0.30. Chua
 # doc duoc ban co nen board_fit gan nhu luon 0.5; huong AD/AP cua carry da do
 # core_fit lo bang bang core da duyet. Dev giu nguyen 6/15 tat, 9/15 bat.
+# Sau do board_fit 0.15 -> 0.10, tempo_fit 0.10 -> 0.15: lo toc he thuong tang
+# kem tuong cua he, nen ban co chi co ich khi giup len sao cac tuong do hoac
+# day toc he len moc cao hon (vd 2 Fae -> 4 Fae). Dev:
+# tat 6 -> 7/15 (minh_05 3-2 ra Slammin+), bat giu 9/15.
 weights:
   base: 0.30       # w1 - so lieu tinh tu StatsProvider
-  board_fit: 0.15  # w2 - trung trait / khop carry type
+  board_fit: 0.10  # w2 - trung trait / khop carry type
   econ_fit: 0.15   # w3 - gia tri econ x do hop stage
   item_fit: 0.30   # w4 - component duoc tang vs item dang thieu
-  tempo_fit: 0.10  # w5 - greed theo HP
+  tempo_fit: 0.15  # w5 - greed theo HP
 
 # Tham so cua tung thanh phan. Tach khoi `weights` de ablation chi cham vao
 # `weights` va khong vo tinh doi hanh vi noi tai cua component.
