@@ -6719,17 +6719,17 @@
       "carry_type": "none",
       "frontline": false,
       "trait_affinity": [],
-      "econ_value": 3,
+      "econ_value": 1,
       "econ_type": [],
       "tempo": "scaling",
       "item_grants": [],
-      "board_condition": null,
+      "board_condition": "phải thắng: gây 80 sát thương lên người chơi khác (~10-11 trận thắng) mới nhận item + tiền",
       "trait_count_reward": null,
       "offer_rounds": [
         "2-1"
       ],
       "live": true,
-      "extraction_method": "manual-audit:categories,category (from llm:gemini-3.5-flash-lite)",
+      "extraction_method": "manual-audit:categories,category,econ_value,board_condition (from llm:gemini-3.5-flash-lite)",
       "confidence": 0.2
     },
     "DA_WeStickTogether": {

@@ -51,6 +51,7 @@ Luật combo lõi của người chơi (Thách Đấu VN), viết 2026-11-18 (ng
 | Bộ 1 eco – 1 item – 1 combat | cộng nhẹ |
 | Warpath, Coven Acolyte | lõi 2-1, chưa có chuỗi → chỉ cảnh báo |
 | Warpath có phải lõi item? | không: item + tiền chỉ trả khi gây 80 sát thương lên người chơi (~10–11 trận thắng) → `triad.conditional`, không tính vào trục nào |
+| Nhãn Warpath trong `augment_features.json` | `econ_value` 3 → 1, `board_condition` = phải thắng đủ 80 sát thương. Dev giữ 9/15; `minh_05` 2-1 Warpath 0,595 → 0,54, vẫn hạng 2 sau Hard Bargain |
 
 "2 lõi kinh tế" chỉ đếm lõi **thuần eco có `econ_type` gold/xp**, đúng chữ "(tiền - xp)" (Expected Unexpectedness không tính).
 
