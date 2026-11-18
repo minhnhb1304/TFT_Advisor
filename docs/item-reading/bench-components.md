@@ -1,6 +1,6 @@
 # Bench Components
 
-Bước I2: đọc mảnh đồ chưa lắp trên băng ghế đồ. Thuộc [item-reading](overview.md).
+Bước I2: đọc mảnh đồ chưa lắp. Thuộc [item-reading](overview.md).
 
 ## Vật trên sàn cạnh mép trái bàn (bạn xác nhận 2026-11-18)
 
@@ -13,29 +13,22 @@ Các báo cáo trước (2026-11-17, I2.0 sơ bộ) gọi cột ô ở mép trá
 | Thanh kiếm pha lê trên bệ | Đi kèm lõi đã chọn (lõi căn giữa theo nó), không có tác dụng | Bỏ qua |
 | Vật hồng, khủng long, con ma to | Hiệu ứng sàn đấu / chưởng lực (skin) | Bỏ qua |
 
-Hệ quả:
-- Kết luận cũ "băng ghế trống ở 2-1" **không còn căn cứ**, vì vùng đã xem là ô lợi tức. Điều còn đúng: bộ đọc I1 và mắt đều thấy 0 món **trên tướng** ở 2-1 trong 5 ván.
-- **Chưa biết mảnh đồ chưa lắp nằm ở đâu trên màn hình** → cần bạn chỉ chỗ (ảnh có mảnh chưa lắp) trước khi làm I2.0 lại. Số đo của TFT-Copilot / Hextech vẫn không áp dụng được.
+Kết luận cũ "băng ghế trống ở 2-1" vì vậy sai. Ở 2-1, trên **tướng** đúng là chưa có món nào.
 
-## Cách làm
+## Thanh đồ chưa lắp (bạn chỉ chỗ 2026-11-18, đã làm)
 
-| Bước | Nội dung | Kiểm bằng |
-|---|---|---|
-| I2.0 | **Tìm mẫu trước khi code**: quét các video dev (cả `dat_*`, vì người khác có thể giữ mảnh lâu hơn) lấy khung có mảnh đồ trên băng ghế (đầu ván sau vòng quái, sau băng chuyền). Ghi giây + số mảnh vào `data/eval/items/bench_frames.json` | Có ≥ 30 khung, ≥ 3 skin sàn |
-| I2.1 | Đo vị trí từng ô trên ≥ 3 skin. Nếu vị trí ô **giống nhau** giữa các skin → toạ độ cố định trong `screen_regions.yaml`. Nếu khác → phát hiện icon trong một dải ROI rộng | Ghi kết luận vào file này |
-| I2.2 | `src/vision/bench_items.py`: phát hiện ô có icon, phân loại bằng cùng bộ phân loại ở [unit-items](unit-items.md) (chỉ 10 mảnh + vài vật phẩm đặc biệt → ít lớp hơn) | Bảng nhầm lẫn trên khung I2.0 |
-| I2.3 | Điền `state.item_components` | `ItemFit` nhận dữ liệu thật trên dev |
+Mảnh thừa nằm ở **thanh dọc sát mép trái màn hình, bên trái khung tộc hệ**. Đây là UI phẳng (không phải vật 3D), nên skin sàn không ảnh hưởng.
 
-## Phương án dự phòng
-
-Nếu I2.0 cho thấy mảnh chưa lắp gần như không có trong lối chơi thật (lắp đồ ngay), thì `item_components` phần lớn bằng 0. Khi đó **đồ trên tướng (I1) mới là nguồn chính**: ItemFit tính "đang thiếu gì" từ đồ đã lắp + bảng đồ core, không cần mảnh trên băng ghế. Đây là lý do I1 làm trước I2.
-
-## Rủi ro
-
-| Rủi ro | Ứng phó |
+| Bước | Kết quả |
 |---|---|
-| Ô 3D nghiêng theo phối cảnh, icon có thể bị xoay/co | Đo ở I2.1; nếu méo nhiều, so khớp bằng embedding thay vì NCC |
-| Lúc ở bàn đối thủ, băng ghế của mình ở vị trí khác hoặc không thấy | Chỉ đọc khi camera ở bàn mình; giữ giá trị cũ khi không đọc được |
+| I2.1 vị trí | 10 ô, toạ độ cố định theo chiều cao, neo mép trái: ô i ở (11, 263 + 54·i), cạnh 42 px tại 1080p. Khớp cả 1920×1080 lẫn 1728×1080 |
+| I2.2 đọc | `src/vision/bench_items.py`: ô trong (bên trong đen phẳng) bỏ qua, ô có icon phân loại bằng `UnitItemReader.classify` (ngưỡng 0,70). Mảnh thật đạt 0,89–0,96 |
+| I2.2 kiểm | 63 khung nhãn dev: 471 ô trống, **66 ô ra tên món, kiểm bằng mắt không thấy ô sai**; 93 ô "chưa rõ" là vật đặc biệt (ô đầu có số đếm, búa rèn, lá xanh, quả cầu xoay…) hoặc ô bị con trỏ chuột che. Chưa có nhãn riêng cho thanh này |
+| I2.3 vào state | `ItemTracker` cộng đồ trên thanh vào `completed_items` / `item_components` (`held_items(units, bench)`). Khung không thấy tướng mình nào thì bỏ, để lần đọc chỉ có thanh đồ không đè mất đồ trên tướng |
+
+Đồ có dấu đồng hồ chỉ tồn tại 1 vòng (bạn xác nhận) → không tính; bộ đọc đã ra "chưa rõ" với chúng.
+
+Trên 15 màn dev: đọc được đồ **15/15** (trước 10/15). Ở 2-1 có 1–3 mảnh. Xem [evaluation](evaluation.md).
 
 ## Related
 

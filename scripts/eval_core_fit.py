@@ -40,20 +40,23 @@ from src.decision.scoring.core_fit import CoreFit, CoreFitSettings  # noqa: E402
 from src.eval.playtest_labels import load  # noqa: E402
 from src.live.item_tracker import held_items  # noqa: E402
 from src.utils.settings import Settings  # noqa: E402
+from src.vision.bench_items import bench_items  # noqa: E402
 from src.vision.unit_items import UnitItemReader, find_health_bars  # noqa: E402
 
 VIDEO_DIR = Path(r"D:\workspace\tft_record")
 
 
 def items_before(cap, reader: UnitItemReader, t_open: float, lookback: float, step: float):
-    """(t, da ghep, manh) o khung chuan bi gan nhat truoc t_open co it nhat mot mon."""
+    """(t, da ghep, manh) o khung chuan bi gan nhat truoc t_open co it nhat mot mon
+    (tren tuong + thanh do chua lap)."""
     t = t_open - 1.0
     while t >= max(0.0, t_open - lookback):
         cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
         ok, frame = cap.read()
         if ok and not find_health_bars(frame, own=False):
-            completed, parts = held_items(reader.read(frame))
-            if completed or parts:
+            units = reader.read(frame)
+            completed, parts = held_items(units, bench_items(frame, reader))
+            if units and (completed or parts):
                 return t, completed, parts
         t -= step
     return None, [], []

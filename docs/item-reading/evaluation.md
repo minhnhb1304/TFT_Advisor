@@ -33,12 +33,14 @@ Quy tắc split giữ như cũ: chỉnh ngưỡng chỉ trên development; held-
 
 | Đo | Số |
 |---|---|
-| Màn đọc được đồ trước khi mở màn chọn lõi | 10/15. **Cả 5 màn 2-1 không có đồ trên tướng**; mảnh chưa lắp chưa đọc được ([bench-components](bench-components.md)) |
+| Màn đọc được đồ trước khi mở màn chọn lõi | 10/15 (chưa đọc thanh đồ chưa lắp). **Cả 5 màn 2-1 không có đồ trên tướng** |
 | Tỷ lệ lùi (có đồ ghép nhưng không comp nào khớp) | 1/10 (`dat_01` 3-2) |
 | CoreFit đổi top-1 của hướng thật | 0/15. Chấp lõi kích hoạt 0 màn |
 | Top-1 khớp lựa chọn người chơi | tắt 9/15 · bật 9/15 |
 
 Đúng như rủi ro đã ghi: ít lõi tặng đồ được chào ở các màn dev. Chạy lại với mẫu game + ngưỡng mới (bên dưới): **số không đổi**.
+
+Thêm thanh đồ chưa lắp ([bench-components](bench-components.md)): đọc được đồ **15/15** màn (2-1 có 1–3 mảnh), lùi 1/10. CoreFit vẫn đổi top-1 **0/15**: trong 45 lõi được chào chỉ **3** lõi cho mảnh core (SweetTreats, BirthdayReunion, DuoQueue) và cả 3 đã đứng đầu hướng sẵn.
 
 ## Precision đọc đồ trên dev (`scripts/eval_item_reading.py`, chéo theo video)
 

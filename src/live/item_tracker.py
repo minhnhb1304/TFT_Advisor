@@ -20,10 +20,11 @@ COMPONENT_PREFIX = "DA_Component_"
 THIEFS_GLOVES = "DA_ThiefsGloves"
 
 
-def held_items(units: Any) -> tuple[list[str], list[str]]:
-    """(do da ghep, manh) dang cam tren cac tuong; bo do ngau nhien cua Gang Dao Tac."""
+def held_items(units: Any, bench: Any = ()) -> tuple[list[str], list[str]]:
+    """(do da ghep, manh) dang cam: tren cac tuong + tren thanh do chua lap.
+    Bo do ngau nhien cua Gang Dao Tac."""
     items = [i for u in units
-             for i in ([THIEFS_GLOVES] if THIEFS_GLOVES in u.items else u.items)]
+             for i in ([THIEFS_GLOVES] if THIEFS_GLOVES in u.items else u.items)] + list(bench)
     return ([i for i in items if not i.startswith(COMPONENT_PREFIX)],
             [i for i in items if i.startswith(COMPONENT_PREFIX)])
 
@@ -34,6 +35,8 @@ class ItemTracker:
     every_s: float = 5.0
     # Co thanh mau do -> giao tranh / dang xem nha khac: khong phai do cua minh luc chuan bi.
     in_combat: Callable[[Any], bool] | None = None
+    # Thanh do chua lap o mep trai: image -> [apiName].
+    bench: Callable[[Any], list[str]] | None = None
     completed: list[str] = field(default_factory=list)
     components: list[str] = field(default_factory=list)
     uncertain: int = 0
@@ -54,11 +57,16 @@ class ItemTracker:
             if self.in_combat is not None and self.in_combat(image):
                 return False
             units = self.reader.read(image)
+            if not units:
+                # Khong thay tuong minh (chuyen canh...): thanh do van hien nen
+                # doc rieng no se de mat do tren tuong cua lan doc truoc.
+                return False
+            bench = self.bench(image) if self.bench is not None else []
         except Exception:                              # noqa: BLE001 - do la phu, khong lam hong vong lap
             return False
         finally:
             self.last_ms = (time.perf_counter() - t0) * 1000.0
-        self.completed, self.components = held_items(units)
+        self.completed, self.components = held_items(units, bench)
         self.uncertain = sum(1 for u in units for c in u.cells if c.api_name is None)
         return True
 
@@ -73,8 +81,10 @@ def default_item_tracker(root: Any = ".") -> ItemTracker:
     """Bo doc that: icon CDragon + mau cat tu game (neu da co)."""
     from pathlib import Path  # noqa: PLC0415
 
+    from ..vision.bench_items import bench_items  # noqa: PLC0415
     from ..vision.unit_items import UnitItemReader, find_health_bars  # noqa: PLC0415
 
     base = Path(root)
     reader = UnitItemReader(base / "data/item_icons", base / "data/item_templates")
-    return ItemTracker(reader, in_combat=lambda image: bool(find_health_bars(image, own=False)))
+    return ItemTracker(reader, in_combat=lambda image: bool(find_health_bars(image, own=False)),
+                       bench=lambda image: bench_items(image, reader))

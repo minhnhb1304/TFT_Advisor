@@ -66,3 +66,19 @@ def test_thiefs_gloves_random_items_are_not_held():
     tracker = ItemTracker(FakeReader(units))
     tracker.observe(None, 0.0)
     assert tracker.completed == ["DA_ThiefsGloves", "DA_InfinityEdge"]
+
+
+def test_bench_items_are_held_too():
+    tracker = ItemTracker(FakeReader([unit("DA_InfinityEdge")]),
+                          bench=lambda image: ["DA_Component_RecurveBow", "DA_Crownguard"])
+    tracker.observe(None, 0.0)
+    assert tracker.completed == ["DA_InfinityEdge", "DA_Crownguard"]
+    assert tracker.components == ["DA_Component_RecurveBow"]
+
+
+def test_frame_without_own_units_keeps_last_read():
+    tracker = ItemTracker(FakeReader([unit("DA_InfinityEdge")], []), every_s=0.0,
+                          bench=lambda image: ["DA_Component_RecurveBow"])
+    tracker.observe(None, 0.0)
+    assert not tracker.observe(None, 1.0)
+    assert tracker.completed == ["DA_InfinityEdge"]
