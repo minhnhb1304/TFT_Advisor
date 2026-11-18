@@ -62,7 +62,7 @@
 <main>
   <p class="help">
     Mỗi tướng: <b>bộ core</b> máy sinh từ comp TFT Academy (số trong ngoặc = số comp có bộ đó; ≤ 2 là yếu),
-    <b>AD/AP</b>, và bên phải là <b>bằng chứng</b> (đồ của tướng trong từng comp; mờ = comp đã gỡ khỏi tier list).
+    <b>AD/AP</b> (hệ Thích Ứng: theo tổng chỉ số AD/AP của đồ, nên mỗi comp/bộ một kiểu — xem nhãn cạnh bộ và "comp AD/AP" ở bằng chứng), và bên phải là <b>bằng chứng</b> (đồ của tướng trong từng comp; mờ = comp đã gỡ khỏi tier list).
     Sửa bộ: bấm × để bỏ món, gõ tên món để thêm, "+ bộ" để thêm bộ thay thế (carry chỉ cần đủ MỘT bộ).
     Xong thì tích <b>Đã duyệt</b>. Lưu ghi phần khác máy sinh vào <code id="path"></code> rồi sinh lại bảng.
   </p>
@@ -95,8 +95,8 @@ async function load() {
   for (const api of champs) {
     const g = S.generated[api] || {}, o = S.overrides[api] || {};
     edits[api] = {
-      carry: JSON.parse(JSON.stringify(o.carry || g.carry || [])).map(s => ({items: s.items, comps: s.comps})),
-      secondary: JSON.parse(JSON.stringify(o.secondary || g.secondary || [])).map(s => ({items: s.items, comps: s.comps})),
+      carry: JSON.parse(JSON.stringify(o.carry || g.carry || [])).map(s => ({items: s.items, comps: s.comps, damage: s.damage})),
+      secondary: JSON.parse(JSON.stringify(o.secondary || g.secondary || [])).map(s => ({items: s.items, comps: s.comps, damage: s.damage})),
       damage: "damage" in o ? o.damage : (g.damage ?? null),
       note: o.note || "", verified: !!o.verified,
     };
@@ -124,6 +124,7 @@ function flags(api) {
   const e = edits[api], f = [];
   const ev = evidence(api);
   if (!e.damage) f.push(["bad", "chưa rõ AD/AP"]);
+  if (e.damage === "adaptive" && ev.some(x => x.u.role === "carry" && !x.c.damage)) f.push(["", "Thích Ứng: có comp hoà AD/AP"]);
   if (ev.some(x => x.u.role === "carry") && !e.carry.length) f.push(["bad", "là carry nhưng chưa có bộ core"]);
   if ([...e.carry, ...e.secondary].some(s => s.comps != null && s.comps <= 2)) f.push(["", "bộ chỉ dựa trên ≤ 2 comp"]);
   if (S.overrides[api] && (S.overrides[api].carry || S.overrides[api].secondary || "damage" in S.overrides[api])) f.push(["ok", "có dòng đã duyệt"]);
@@ -135,6 +136,7 @@ function setHtml(api, role, i, s) {
   return `<div class="set">${chips}
     <input list="itemlist" placeholder="+ món…" data-act="add" data-api="${api}" data-role="${role}" data-i="${i}">
     ${s.comps != null ? `<span class="sup">(${s.comps} comp)</span>` : `<span class="sup">(bạn sửa)</span>`}
+    ${s.damage ? `<span class="tag">${s.damage}</span>` : ""}
     <button class="small" data-act="rmset" data-api="${api}" data-role="${role}" data-i="${i}">xoá bộ</button></div>`;
 }
 
@@ -146,14 +148,14 @@ function card(api) {
       ${e[r].map((s, i) => setHtml(api, r, i, s)).join("") || `<div class="dim">— chưa có —</div>`}
       <button class="small" data-act="addset" data-api="${api}" data-role="${r}">+ bộ</button></div>`).join("");
   const ev = evidence(api).map(({c, u}) => `<div class="ev ${c.public ? "" : "retired"}">
-      <span class="tag ${u.role}">${u.role}</span><span class="t">${esc(c.title)} <span class="dim">${c.tier || ""} · ${c.plan || "–"}${c.public ? "" : " · đã gỡ"}</span></span>
+      <span class="tag ${u.role}">${u.role}</span><span class="t">${esc(c.title)} <span class="dim">${c.tier || ""} · ${c.plan || "–"}${c.public ? "" : " · đã gỡ"}${c.carry === api ? " · comp " + (c.damage || "?") : ""}</span></span>
       ${u.items.map(a => `<span class="${S.tank_items.includes(a) ? "tank" : ""}">${icon(a)}</span>`).join("")}</div>`).join("");
   return `<div class="champ ${e.verified ? "verified" : ""} ${changed ? "changed" : ""}" id="c-${api}">
     <h3>${esc(name(api))} <span class="dim">${esc(api)} · ${g.cost ? g.cost + " vàng" : ""}</span>
       <select data-act="dmg" data-api="${api}">
-        ${["", "AD", "AP"].map(v => `<option value="${v}" ${(e.damage || "") === v ? "selected" : ""}>${v || "? chưa rõ"}</option>`).join("")}
+        ${[["", "? chưa rõ"], ["AD", "AD"], ["AP", "AP"], ["adaptive", "Thích Ứng (theo đồ)"]].map(([v, t]) => `<option value="${v}" ${(e.damage || "") === v ? "selected" : ""}>${t}</option>`).join("")}
       </select>
-      <span class="dim">máy: ${g.damage || "?"}</span>
+      <span class="dim">máy: ${g.damage === "adaptive" ? "Thích Ứng" : (g.damage || "?")}</span>
       ${fl}
       <label style="margin-left:auto"><input type="checkbox" data-act="ver" data-api="${api}" ${e.verified ? "checked" : ""}> Đã duyệt</label></h3>
     <div class="grid"><div>${roles}
@@ -176,7 +178,7 @@ function touch() { dirty = true; document.getElementById("status").textContent =
 document.addEventListener("click", ev => {
   const t = ev.target, act = t.dataset.act; if (!act) return;
   const e = edits[t.dataset.api], r = t.dataset.role, i = +t.dataset.i;
-  if (act === "rm") e[r][i].items.splice(+t.dataset.k, 1), e[r][i].comps = null;
+  if (act === "rm") e[r][i].items.splice(+t.dataset.k, 1), e[r][i].comps = null, e[r][i].damage = null;
   else if (act === "rmset") e[r].splice(i, 1);
   else if (act === "addset") e[r].push({items: [], comps: null});
   else return;
@@ -188,7 +190,7 @@ document.addEventListener("change", ev => {
   if (act === "add") {
     const api = S.byLabel[t.value]; if (!api) { t.value = ""; return; }
     const s = e[t.dataset.role][+t.dataset.i];
-    if (!s.items.includes(api)) s.items.push(api), s.comps = null;
+    if (!s.items.includes(api)) s.items.push(api), s.comps = null, s.damage = null;
   } else if (act === "dmg") e.damage = t.value || null;
   else if (act === "ver") e.verified = t.checked;
   else if (act === "note") e.note = t.value;

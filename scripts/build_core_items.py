@@ -134,10 +134,19 @@ def core_sets(rows: list[list[str]], popularity: Counter) -> list[dict]:
     return out
 
 
+ADAPTIVE = "adaptive"
+ADAPTOR_TRAIT = "Adaptor"
+
+
 def ability_damage(champions: dict[str, dict]) -> dict[str, str]:
-    """AD/AP cua tuong: hau to ten (`_AD`/`_AP`), roi bieu tuong scale trong mo ta ky nang."""
+    """AD/AP cua tuong: he Thich Ung -> "adaptive" (theo chi so lon hon, tuc la theo DO
+    dang cam; hau to `_AD`/`_AP` cua ho chi la mac dinh cua CDragon); con lai hau to
+    ten, roi bieu tuong scale trong mo ta ky nang."""
     out = {}
     for api, c in champions.items():
+        if ADAPTOR_TRAIT in (c.get("traits") or []):
+            out[api] = ADAPTIVE
+            continue
         m = re.search(r"_(AD|AP)$", api)
         if m:
             out[api] = m.group(1)
@@ -165,6 +174,20 @@ def item_damage(stats: dict[str, dict]) -> dict[str, str]:
         if ad != ap:
             out[api] = "AD" if ad else "AP"
     return out
+
+
+def items_damage(items: list[str], stats: dict[str, dict]) -> str | None:
+    """He Thich Ung: AD hay AP lon hon theo TONG chi so tu do. CDragon ghi AD do ghep
+    dang ti le (0,10) con manh dang diem (10) -> quy ve diem. Bang nhau -> None."""
+    total = Counter()
+    for i in items:
+        eff = stats.get(i) or {}
+        ad = float(eff.get("AD") or 0)
+        total["AD"] += ad * 100 if 0 < ad < 1 else ad
+        total["AP"] += float(eff.get("AP") or 0)
+    if round(total["AD"], 3) == round(total["AP"], 3):
+        return None
+    return "AD" if total["AD"] > total["AP"] else "AP"
 
 
 def apply_overrides(table: dict[str, dict], overrides: dict[str, dict]) -> None:
@@ -211,6 +234,9 @@ def build(guides: list[dict], recipes: dict[str, list[str]], cdragon: dict,
         sets = core_sets(rs, popularity)
         if sets:
             table.setdefault(api, {})[role] = sets
+    for api in by_ability:
+        if by_ability[api] == ADAPTIVE and api in {a for (a, _r) in rows}:
+            table.setdefault(api, {})
     for api, entry in table.items():
         dmg = by_ability.get(api)
         if dmg is None:
@@ -220,12 +246,19 @@ def build(guides: list[dict], recipes: dict[str, list[str]], cdragon: dict,
                 dmg = "AD" if votes["AD"] > votes["AP"] else "AP"
         entry["damage"] = dmg
         entry["cost"] = champs.get(api, {}).get("cost")
+        if dmg == ADAPTIVE:
+            for role in ("carry", "secondary"):
+                for st in entry.get(role) or []:
+                    st["damage"] = items_damage(st["items"], stats)
     apply_overrides(table, overrides or {})
 
     for comp in comps:
         carry = next((a for a, u in comp["units"].items() if u["role"] == "carry"), None)
         comp["carry"] = carry
         comp["damage"] = table.get(carry, {}).get("damage") if carry else None
+        if comp["damage"] == ADAPTIVE:
+            # Thich Ung: comp nay ra AD hay AP la do do cua carry trong comp.
+            comp["damage"] = items_damage(comp["units"][carry]["items"], stats)
 
     return {"tank_items": sorted(tank), "champions": table, "comps": comps}
 

@@ -85,7 +85,7 @@ def clean(payload: dict) -> tuple[dict, list[str]]:
                     errors.append(f"{api}: món lạ {bad}")
                 entry[role] = [{"items": s} for s in sets]
         if "damage" in row:
-            if row["damage"] not in ("AD", "AP", None):
+            if row["damage"] not in ("AD", "AP", build_core_items.ADAPTIVE, None):
                 errors.append(f"{api}: AD/AP sai ({row['damage']})")
             entry["damage"] = row["damage"]
         if row.get("note"):

@@ -65,7 +65,20 @@ def test_damage_type_from_ability_and_name(built):
     champs = built["champions"]
     assert champs["DA_18_Aphelios"]["damage"] == "AD"
     assert champs["DA_18_Ahri"]["damage"] == "AP"
-    assert champs["DA_18_MasterYi_AD"]["damage"] == "AD"
+    assert champs["DA_18_Sivir"]["damage"] == "AD"
+
+
+def test_adaptor_damage_follows_items_per_comp(built):
+    """He Thich Ung: AD hay AP theo chi so lon hon tu do -> moi comp mot kieu.
+    Hau to `_AD`/`_AP` trong apiName chi la mac dinh cua CDragon."""
+    champs = built["champions"]
+    assert champs["DA_18_MasterYi_AD"]["damage"] == "adaptive"
+    assert champs["DA_Nidalee18_AP"]["damage"] == "adaptive"
+    nidalee = {tuple(s["items"]): s["damage"] for s in champs["DA_Nidalee18_AP"]["secondary"]}
+    assert nidalee[("DA_SteraksGage",)] == "AD" and nidalee[("DA_GuinsoosRageblade",)] == "AP"
+    comps = {c["title"]: c["damage"] for c in built["comps"]}
+    assert comps["Invoker Nidalee"] == "AP"      # Gang + Guinsoo + Flail
+    assert comps["Solar Melee"] == "AP"          # Akali: Gang + HoJ + EoN
 
 
 def test_style_maps_to_plan(built):

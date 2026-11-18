@@ -3,7 +3,7 @@
   "source": "tftacademy (data/tftacademy_guides.json) + cdragon en_us",
   "patch": "18.6",
   "guides_fetched_at": "2026-11-17T16:58:25+00:00",
-  "built_at": "2026-11-17T17:02:12+00:00",
+  "built_at": "2026-11-18T03:43:20+00:00",
   "pair": 0.6,
   "min_support": 2
  },
@@ -315,10 +315,11 @@
       "DA_TitansResolve"
      ],
      "comps": 3,
-     "weight": 1.0
+     "weight": 1.0,
+     "damage": null
     }
    ],
-   "damage": "AD",
+   "damage": "adaptive",
    "cost": 3
   },
   "DA_18_Morgana": {
@@ -598,18 +599,28 @@
       "DA_GuinsoosRageblade"
      ],
      "comps": 4,
-     "weight": 1.0
+     "weight": 1.0,
+     "damage": "AP"
     },
     {
      "items": [
       "DA_SteraksGage"
      ],
      "comps": 3,
-     "weight": 0.75
+     "weight": 0.75,
+     "damage": "AD"
     }
    ],
-   "damage": "AP",
+   "damage": "adaptive",
    "cost": 4
+  },
+  "DA_18_Akali_AD": {
+   "damage": "adaptive",
+   "cost": 1
+  },
+  "DA_KogMaw18_AD": {
+   "damage": "adaptive",
+   "cost": 3
   }
  },
  "comps": [
@@ -929,7 +940,7 @@
     }
    },
    "carry": "DA_18_Akali_AD",
-   "damage": null
+   "damage": "AP"
   },
   {
    "slug": "set-18-veigar-consuming-flora-copy",
@@ -1493,7 +1504,7 @@
     }
    },
    "carry": "DA_18_MasterYi_AD",
-   "damage": "AD"
+   "damage": "AP"
   },
   {
    "slug": "set-18-adaptor-reroll-copy",
@@ -1537,7 +1548,7 @@
     }
    },
    "carry": "DA_18_MasterYi_AD",
-   "damage": "AD"
+   "damage": "AP"
   },
   {
    "slug": "set-18-azir-rammus",
@@ -2081,7 +2092,7 @@
     }
    },
    "carry": "DA_18_MasterYi_AD",
-   "damage": "AD"
+   "damage": null
   },
   {
    "slug": "set-18-6-juggernaut-ap",
