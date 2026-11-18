@@ -88,19 +88,31 @@ def test_style_maps_to_plan(built):
     assert plans["2-Cost Reroll"] == "reroll"
 
 
+def reviewed_sets(row: dict, role: str) -> list[tuple[str, ...]]:
+    return [tuple(sorted(x["items"])) for x in row[role]]
+
+
 def test_reviewed_rows_override_generated(built):
+    """Dong ban da duyet (trang review_core_items) thay han dong may sinh."""
     over = load("data/core_items.overrides.json")["champions"]
     table = {k: dict(v) for k, v in built["champions"].items()}
     build_core_items.apply_overrides(table, over)
-    aph = table["DA_18_Aphelios"]
-    assert [s["items"] for s in aph["carry"]] == [[GUINSOO], [IE, KRAKEN]]
-    assert [s["items"] for s in aph["secondary"]] == [["DA_LastWhisper", "DA_RedBuff"]]
-    assert aph["damage"] == "AD"
+    for api, row in over.items():
+        for role in ("carry", "secondary"):
+            if role in row:
+                assert [tuple(x["items"]) for x in table[api][role]] == reviewed_sets(row, role), api
+        if "damage" in row:
+            assert table[api]["damage"] == row["damage"], api
+        assert "verified" not in table[api]
 
 
 def test_committed_table_has_reviewed_rows():
+    over = load("data/core_items.overrides.json")["champions"]
     table = CoreTable.load(ROOT / "data/core_items.json", ROOT / "data/item_recipes.json")
-    assert [s.items for s in table.core_sets("DA_18_Aphelios")] == [(GUINSOO,), (IE, KRAKEN)]
+    for api, row in over.items():
+        if "carry" in row:
+            assert [x.items for x in table.core_sets(api)] == reviewed_sets(row, "carry"), api
+    assert all(KRAKEN in x.items for x in table.core_sets("DA_18_Aphelios"))
 
 
 def test_short_name():

@@ -3,7 +3,7 @@
   "source": "tftacademy (data/tftacademy_guides.json) + cdragon en_us",
   "patch": "18.6",
   "guides_fetched_at": "2026-11-17T16:58:25+00:00",
-  "built_at": "2026-11-18T03:43:20+00:00",
+  "built_at": "2026-11-18T04:07:57+00:00",
   "pair": 0.6,
   "min_support": 2
  },
@@ -29,10 +29,12 @@
     {
      "items": [
       "DA_JeweledGauntlet",
-      "DA_SpearOfShojin"
+      "DA_SpearOfShojin",
+      "DA_StrikersFlail"
      ],
-     "comps": 5,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -42,7 +44,8 @@
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
      ],
      "comps": null,
      "weight": 1.0,
@@ -76,10 +79,12 @@
    "carry": [
     {
      "items": [
+      "DA_RedBuff",
       "DA_SpearOfShojin"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
@@ -99,21 +104,15 @@
    "carry": [
     {
      "items": [
-      "DA_HextechGunblade"
+      "DA_HextechGunblade",
+      "DA_RabadonsDeathcap"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
-   "secondary": [
-    {
-     "items": [
-      "DA_GuinsoosRageblade"
-     ],
-     "comps": 2,
-     "weight": 1.0
-    }
-   ],
+   "secondary": [],
    "damage": "AP",
    "cost": 3
   },
@@ -121,13 +120,15 @@
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
-   "damage": null,
+   "damage": "AD",
    "cost": 2
   },
   "DA_18_Cassiopeia": {
@@ -141,7 +142,18 @@
     }
    ],
    "damage": "AP",
-   "cost": 3
+   "cost": 3,
+   "carry": [
+    {
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Diana": {
    "secondary": [
@@ -150,8 +162,17 @@
       "DA_HandOfJustice",
       "DA_JeweledGauntlet"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_IonicSpark"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -169,16 +190,29 @@
     }
    ],
    "damage": "AD",
-   "cost": 5
+   "cost": 5,
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Elise": {
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -191,17 +225,38 @@
       "DA_Deathblade",
       "DA_SpearOfShojin"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
     {
      "items": [
+      "DA_RedBuff",
       "DA_SpearOfShojin"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
@@ -226,25 +281,59 @@
      "items": [
       "DA_GuinsoosRageblade"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
-   "cost": 5
+   "cost": 5,
+   "carry": [
+    {
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Kayle": {
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
-   "cost": 2
+   "cost": 2,
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Kennen": {
    "secondary": [
@@ -273,15 +362,18 @@
       "DA_HandOfJustice",
       "DA_RabadonsDeathcap"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     },
     {
      "items": [
+      "DA_EdgeOfNight",
       "DA_HandOfJustice"
      ],
-     "comps": 2,
-     "weight": 0.67
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -291,17 +383,12 @@
    "secondary": [
     {
      "items": [
-      "DA_SpearOfShojin"
-     ],
-     "comps": 2,
-     "weight": 1.0
-    },
-    {
-     "items": [
+      "DA_Morellonomicon",
       "DA_VoidStaff"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -312,11 +399,12 @@
     {
      "items": [
       "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
       "DA_TitansResolve"
      ],
-     "comps": 3,
+     "comps": null,
      "weight": 1.0,
-     "damage": null
+     "source": "override"
     }
    ],
    "damage": "adaptive",
@@ -329,41 +417,73 @@
       "DA_Morellonomicon",
       "DA_VoidStaff"
      ],
-     "comps": 7,
-     "weight": 1.0
-    },
-    {
-     "items": [
-      "DA_Morellonomicon"
-     ],
-     "comps": 2,
-     "weight": 0.29
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
-   "cost": 4
+   "cost": 4,
+   "carry": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap",
+      "DA_VoidStaff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Rengar": {
    "secondary": [
     {
      "items": [
-      "DA_EdgeOfNight"
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
-   "damage": "AP",
-   "cost": 3
+   "damage": "AD",
+   "cost": 3,
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Sentry": {
    "carry": [
     {
      "items": [
+      "DA_BlueBuff",
       "DA_RabadonsDeathcap"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -376,17 +496,29 @@
       "DA_InfinityEdge",
       "DA_StrikersFlail"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
     {
      "items": [
-      "DA_LastWhisper"
+      "DA_LastWhisper",
+      "DA_RedBuff"
      ],
-     "comps": 5,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
@@ -396,36 +528,71 @@
    "secondary": [
     {
      "items": [
-      "DA_RabadonsDeathcap"
+      "DA_SpearOfShojin"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_AdaptiveHelm"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
-   "cost": 4
+   "cost": 4,
+   "carry": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Teemo": {
    "carry": [
     {
      "items": [
+      "DA_JeweledGauntlet",
       "DA_SpearOfShojin"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
-   "cost": 2
+   "cost": 2,
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Tristana": {
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
@@ -435,10 +602,12 @@
    "secondary": [
     {
      "items": [
+      "DA_LastWhisper",
       "DA_SpearOfShojin"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
@@ -448,10 +617,12 @@
    "carry": [
     {
      "items": [
+      "DA_BlueBuff",
       "DA_JeweledGauntlet"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -461,19 +632,23 @@
    "carry": [
     {
      "items": [
+      "DA_Deathblade",
       "DA_KrakensFury"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
@@ -483,32 +658,50 @@
    "secondary": [
     {
      "items": [
+      "DA_Morellonomicon",
       "DA_VoidStaff"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
-   "cost": 2
+   "cost": 2,
+   "carry": [
+    {
+     "items": [
+      "DA_Deathblade",
+      "DA_LastWhisper",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Zyra": {
    "carry": [
     {
      "items": [
+      "DA_ArchangelsStaff",
       "DA_SpearOfShojin"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
     {
      "items": [
+      "DA_Morellonomicon",
       "DA_VoidStaff"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -518,27 +711,31 @@
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_Quicksilver"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
     {
      "items": [
-      "DA_EdgeOfNight",
-      "DA_Quicksilver"
+      "DA_ThiefsGloves"
      ],
-     "comps": 3,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     },
     {
      "items": [
-      "DA_ThiefsGloves"
+      "DA_EdgeOfNight"
      ],
-     "comps": 2,
-     "weight": 0.67
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AP",
@@ -548,10 +745,12 @@
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "secondary": [
@@ -570,14 +769,27 @@
    "carry": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
      ],
-     "comps": 2,
-     "weight": 1.0
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "AD",
-   "cost": 5
+   "cost": 5,
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_Lux18_Base": {
    "secondary": [
@@ -590,37 +802,187 @@
     }
    ],
    "damage": "AP",
-   "cost": 5
+   "cost": 5,
+   "carry": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_Nidalee18_AP": {
    "secondary": [
     {
      "items": [
-      "DA_GuinsoosRageblade"
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
      ],
-     "comps": 4,
+     "comps": null,
      "weight": 1.0,
-     "damage": "AP"
+     "source": "override"
     },
     {
      "items": [
       "DA_SteraksGage"
      ],
-     "comps": 3,
-     "weight": 0.75,
-     "damage": "AD"
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
     }
    ],
    "damage": "adaptive",
-   "cost": 4
+   "cost": 4,
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin",
+      "DA_SteraksGage"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_18_Akali_AD": {
-   "damage": "adaptive",
-   "cost": 1
+   "damage": "AP",
+   "cost": 1,
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "DA_JeweledGauntlet"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
   },
   "DA_KogMaw18_AD": {
    "damage": "adaptive",
-   "cost": 3
+   "cost": 3,
+   "secondary": [
+    {
+     "items": [
+      "DA_RedBuff"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_Morellonomicon"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ]
+  },
+  "DA_Cinderling18": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_InfinityEdge"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AD"
+  },
+  "DA_18_Camille": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Quicksilver"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AD"
+  },
+  "DA_Murkwolf18": {
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AD"
+  },
+  "DA_18_Warwick": {
+   "carry": [
+    {
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_SteraksGage",
+      "DA_TitansResolve"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AD"
+  },
+  "DA_Karma18": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AP"
+  },
+  "DA_18_Lillia": {
+   "damage": "AP"
+  },
+  "DA_18_Alune": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ],
+     "comps": null,
+     "weight": 1.0,
+     "source": "override"
+    }
+   ],
+   "damage": "AP"
   }
  },
  "comps": [
@@ -664,7 +1026,7 @@
     }
    },
    "carry": "DA_18_Caitlyn",
-   "damage": null
+   "damage": "AD"
   },
   {
    "slug": "set-18-dark-mages",
@@ -1038,7 +1400,7 @@
     }
    },
    "carry": "DA_18_Caitlyn",
-   "damage": null
+   "damage": "AD"
   },
   {
    "slug": "set-18-coven-elise",
@@ -1307,7 +1669,7 @@
     }
    },
    "carry": "DA_Karma18",
-   "damage": null
+   "damage": "AP"
   },
   {
    "slug": "set-18-sprykin-teemo",
@@ -1425,7 +1787,7 @@
     }
    },
    "carry": "DA_18_Warwick",
-   "damage": null
+   "damage": "AD"
   },
   {
    "slug": "",
@@ -1943,7 +2305,7 @@
     }
    },
    "carry": "DA_18_Rengar",
-   "damage": "AP"
+   "damage": "AD"
   },
   {
    "slug": "set-18-solar-mama",
@@ -3254,7 +3616,7 @@
     }
    },
    "carry": "DA_18_Alune",
-   "damage": null
+   "damage": "AP"
   },
   {
    "slug": "set-18-blossom-fast-9",

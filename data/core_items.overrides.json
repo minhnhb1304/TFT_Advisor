@@ -1,10 +1,665 @@
 {
  "note": "Dòng người chơi (Challenger) đã duyệt, đè lên dòng build_core_items.py sinh. Mỗi dòng ghi lý do.",
  "champions": {
+  "DA_18_Ahri": {
+   "carry": [
+    {
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin",
+      "DA_StrikersFlail"
+     ]
+    }
+   ],
+   "verified": true
+  },
   "DA_18_Aphelios": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ]
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_KrakensFury"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   ],
    "note": "2026-11-17: carry chính = Guinsoo HOẶC IE + Kraken (máy sinh Guinsoo+Kraken vì TFT Academy luôn ghép Kraken cùng Guinsoo); carry phụ = Last Whisper + Red Buff (Red Buff chỉ 2/3 comp nên máy không ghép).",
-   "carry": [{"items": ["DA_GuinsoosRageblade"]}, {"items": ["DA_InfinityEdge", "DA_KrakensFury"]}],
-   "secondary": [{"items": ["DA_LastWhisper", "DA_RedBuff"]}]
+   "verified": true
+  },
+  "DA_18_Ashe": {
+   "carry": [
+    {
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Azir": {
+   "carry": [
+    {
+     "items": [
+      "DA_HextechGunblade",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   ],
+   "secondary": [],
+   "verified": true
+  },
+  "DA_18_Caitlyn": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_18_Cassiopeia": {
+   "carry": [
+    {
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Diana": {
+   "secondary": [
+    {
+     "items": [
+      "DA_HandOfJustice",
+      "DA_JeweledGauntlet"
+     ]
+    },
+    {
+     "items": [
+      "DA_IonicSpark"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_ElderDragon": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Elise": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Ezreal": {
+   "carry": [
+    {
+     "items": [
+      "DA_Deathblade",
+      "DA_SpearOfShojin"
+     ]
+    },
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin"
+     ]
+    },
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_GnarSmall": {
+   "verified": true
+  },
+  "DA_18_Ivern": {
+   "carry": [
+    {
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade"
+     ]
+    },
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Kayle": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Kennen": {
+   "verified": true
+  },
+  "DA_18_KhaZix": {
+   "carry": [
+    {
+     "items": [
+      "DA_HandOfJustice",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_LeBlanc": {
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_MasterYi_AD": {
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Morgana": {
+   "carry": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_RabadonsDeathcap",
+      "DA_VoidStaff"
+     ]
+    },
+    {
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Rengar": {
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_18_Sentry": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_RabadonsDeathcap"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Sivir": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_StrikersFlail"
+     ]
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Soraka": {
+   "carry": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_SpearOfShojin"
+     ]
+    },
+    {
+     "items": [
+      "DA_AdaptiveHelm"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Teemo": {
+   "carry": [
+    {
+     "items": [
+      "DA_JeweledGauntlet",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Tristana": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_HextechGunblade"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Varus": {
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Veigar": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Xayah": {
+   "carry": [
+    {
+     "items": [
+      "DA_Deathblade",
+      "DA_KrakensFury"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RedBuff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Yunara": {
+   "carry": [
+    {
+     "items": [
+      "DA_Deathblade",
+      "DA_LastWhisper",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Zyra": {
+   "carry": [
+    {
+     "items": [
+      "DA_ArchangelsStaff",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_Morellonomicon",
+      "DA_VoidStaff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_Brambleback18": {
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_GuinsoosRageblade",
+      "DA_Quicksilver"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_ThiefsGloves"
+     ]
+    },
+    {
+     "items": [
+      "DA_EdgeOfNight"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_CrimsonRaptor18": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_TitansResolve"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_Draven18": {
+   "carry": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_KrakensFury"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_LastWhisper",
+      "DA_RedBuff"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_Lux18_Base": {
+   "carry": [
+    {
+     "items": [
+      "DA_RabadonsDeathcap",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_Nidalee18_AP": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin",
+      "DA_SteraksGage"
+     ]
+    }
+   ],
+   "secondary": [
+    {
+     "items": [
+      "DA_GuinsoosRageblade",
+      "DA_RabadonsDeathcap"
+     ]
+    },
+    {
+     "items": [
+      "DA_SteraksGage"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_18_Akali_AD": {
+   "carry": [
+    {
+     "items": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   ],
+   "damage": "AP",
+   "verified": true
+  },
+  "DA_KogMaw18_AD": {
+   "secondary": [
+    {
+     "items": [
+      "DA_RedBuff"
+     ]
+    },
+    {
+     "items": [
+      "DA_Morellonomicon"
+     ]
+    }
+   ],
+   "verified": true
+  },
+  "DA_Cinderling18": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_InfinityEdge"
+     ]
+    },
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_18_Camille": {
+   "carry": [
+    {
+     "items": [
+      "DA_InfinityEdge",
+      "DA_Quicksilver"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_Murkwolf18": {
+   "secondary": [
+    {
+     "items": [
+      "DA_EdgeOfNight"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_18_Warwick": {
+   "carry": [
+    {
+     "items": [
+      "DA_SpearOfShojin",
+      "DA_SteraksGage",
+      "DA_TitansResolve"
+     ]
+    }
+   ],
+   "damage": "AD",
+   "verified": true
+  },
+  "DA_Karma18": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   ],
+   "damage": "AP",
+   "verified": true
+  },
+  "DA_18_Lillia": {
+   "damage": "AP",
+   "note": "tanker",
+   "verified": true
+  },
+  "DA_18_Alune": {
+   "carry": [
+    {
+     "items": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet"
+     ]
+    }
+   ],
+   "damage": "AP",
+   "verified": true
   }
  }
 }
