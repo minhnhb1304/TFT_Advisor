@@ -46,7 +46,7 @@ Giới hạn còn lại: cờ `live` (pool đổi lõi) theo bản hiện tại,
 - **18.6 là patch cuối cùng**: không đưa patch mới vào bộ đánh giá, kể cả khi Riot ra 18.7.
 - Quy tắc nằm ở `patch_rule` trong `split.json`, ghi trước khi quay video 18.6 đầu tiên.
 - **2026-11-18: Riot ra 18.7. `data/` đóng băng ở 18.6**, không cập nhật theo nữa, kể cả cho demo live (bạn chốt). Không chạy lại các script kéo dữ liệu mạng: `crawl_tftacademy_guides.py`, `crawl_datatft_augments.py`, `fetch_*_icons.py`, và các client trong `src/knowledge/` (CDragon, MetaTFT, tactics.tools, TFT Academy, lolchess). Đường live chỉ đọc file local nên không tự kéo 18.7.
-- Hệ quả: không quay thêm được ván 18.6 → held-out 18.6 chỉ còn `maris_01`–`08`. Held-out tổng: 6 ván 18.2/18.3 + 8 ván 18.6. Chạy live trên client 18.7 chỉ dùng để đo độ trễ và độ đọc; lõi/đồ mới của 18.7 không có trong dữ liệu nên sẽ ra "chưa rõ" hoặc trung tính.
+- Hệ quả: không quay thêm được ván 18.6. Held-out 18.6 = `maris_01`–`08` + các ván bạn đã quay trên 18.6 (`minh_11`–`14`, `chien_01`, chờ ghi vào `split.json`); nếu cần thêm thì **chỉ lấy VOD streamer 18.6**. Chạy live trên client 18.7 chỉ dùng để đo độ trễ và độ đọc; lõi/đồ mới của 18.7 không có trong dữ liệu nên sẽ ra "chưa rõ" hoặc trung tính.
 
 ## Related
 
