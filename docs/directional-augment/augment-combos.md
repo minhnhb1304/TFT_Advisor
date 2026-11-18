@@ -28,8 +28,8 @@ Luật combo lõi của người chơi (Thách Đấu VN), viết 2026-11-18 (ng
 
 | Ý của bạn | Luật | Mức |
 |---|---|---|
-| 2 lõi chống chịu | `tank × tank` | nhẹ |
-| Bonus Gifts + lõi trả orb | `bonus_gift × orb_payers` (Missed Connections, One Two Five, Champ Delivery+/++, Booster Pack+/++, Pilfer) | mạnh |
+| 2 lõi chống chịu | `tank × tank` (cờ `frontline`) | nhẹ |
+| Bonus Gifts + lõi trả orb | `bonus_gift → orb_payers`, một chiều (Missed Connections, One Two Five, Champ Delivery+/++, Booster Pack+/++, Pilfer) | mạnh |
 | Sweet Treats ↔ lõi cho item | `sweet_treats × category item` | vừa |
 | Flexible → lõi cho ấn | `flexible × grant Emblem` | vừa |
 | 2 Verticality vàng + kim cương | `Verticality II/III × II/III` | vừa |
@@ -37,30 +37,39 @@ Luật combo lõi của người chơi (Thách Đấu VN), viết 2026-11-18 (ng
 | Makeshift Armor kị lõi item | `makeshift × category item` | trừ vừa |
 | Slammin' kị Pandora's Items | `slammin × pandoras_items` | trừ vừa |
 | 2 lõi kinh tế (tiền - xp): đừng reroll | ở dòng Reroll: cảnh báo; lõi tiền/XP thứ hai bị trừ | vừa |
-| 1 eco – 1 item – 1 combat | chỉ ghi lý do, không cộng điểm | info |
+| 1 eco – 1 item – 1 combat | lõi thứ 3 hoàn tất bộ | nhẹ |
 | Birthday Reunion phải fast 9 | cảnh báo; trừ ở mọi hướng khác fast9 | vừa |
 | Warpath, Coven Acolyte, Flexible, Speedy Double Kill, Call To Chaos, Trait Ladder | chỉ hiện cảnh báo | — |
 
-"2 lõi kinh tế" chỉ đếm lõi **thuần eco có `econ_type` gold/xp**, đúng chữ "(tiền - xp)".
+## Câu trả lời của bạn (2026-11-18)
+
+| Câu hỏi | Trả lời → đã làm |
+|---|---|
+| Nhóm `tank` | cờ `frontline` đã duyệt kỹ → nhóm = `{"frontline": true}` |
+| Lucky Gloves II | đồng ý Lucky Gloves + Lucky Gloves+ |
+| Champ Delivery / Booster Pack bản thường | chỉ có ở 2-1, luôn chọn trước Bonus Gifts+ (3-2); lõi trả orb chọn **trước** thì orb đã trả, không hưởng thêm → luật một chiều (`one_way`): Bonus Gifts cầm trước, lõi orb là ứng viên |
+| Bộ 1 eco – 1 item – 1 combat | cộng nhẹ |
+| Warpath, Coven Acolyte | lõi 2-1, chưa có chuỗi → chỉ cảnh báo |
+
+"2 lõi kinh tế" chỉ đếm lõi **thuần eco có `econ_type` gold/xp**, đúng chữ "(tiền - xp)" (Expected Unexpectedness không tính).
 
 ## Kết quả trên dev (số trong mẫu)
 
-`scripts/eval_plan_advice.py`, 15 màn, top-1 theo hướng thật: **tắt 6/15 · trước combo 9/15 · có combo 10/15**. Màn đổi được là `minh_06` 4-2 (fast8): cầm Bonus Gifts+, nay ra Booster Pack++.
+`scripts/eval_plan_advice.py`, 15 màn, top-1 theo hướng thật:
 
-Hai cách hiểu được chốt **sau khi** thấy dev; phải ghi rõ điều này trong luận văn:
+| Bản | Khớp |
+|---|---|
+| Tắt hướng | 6/15 |
+| Hướng, chưa combo | 9/15 |
+| Combo, bộ 3 chỉ ghi lý do | 10/15 |
+| **Combo, bộ 3 cộng nhẹ (bản giữ, theo bạn)** | **8/15** |
 
-| Luật | Bản thử đầu | Trên dev | Bản giữ lại |
-|---|---|---|---|
-| 1 eco – 1 item – 1 combat | cộng nhẹ | làm sai `minh_05` 4-2 (Hold The Line vượt Invested++) và chặn `minh_06` 4-2 | info (chỉ lý do); bạn mô tả nó là combo *dễ chơi*, không phải cộng hưởng |
-| 2 lõi kinh tế | đếm mọi lõi eco | trừ Missed Connections ở `minh_04` 3-2, đúng ván bạn reroll | chỉ đếm lõi tiền/XP; Expected Unexpectedness không tính |
+Bộ 3 cộng nhẹ đổi hai màn 4-2:
 
-## Cần bạn xác nhận
+- `minh_05` (Warpath + Slammin'+): Hold The Line và Lotus II 0,5332 vượt Invested++ 0,5207.
+- `minh_06` (Seraphim's Staff + Bonus Gifts+): Glass Cannon và Booster Pack++ **bằng điểm** 0,55, thua theo thứ tự tên.
 
-1. **Nhóm `tank`** lấy từ cờ `frontline`, bỏ lõi có nhãn econ/item. Cờ này còn nhiễu, nên bạn lọc giúp danh sách trong JSON.
-2. **"Lucky Gloves II"** không có trong 18.6; mình lấy Lucky Gloves và Lucky Gloves+.
-3. **Champ Delivery / Booster Pack bản thường** không tính là lõi trả orb, vì bạn chỉ ghi "+/++".
-4. **Bộ 3 eco–item–combat:** có nên cộng điểm không?
-5. **Warpath, Coven Acolyte:** cần thêm tín hiệu (chuỗi thắng/thua) mới chấm được, nên hiện chỉ cảnh báo.
+Đây là luật chuyên gia, không chỉnh số để khớp dev. Chương kết quả ghi cả hai bản.
 
 ## Related
 

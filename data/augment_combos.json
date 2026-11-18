@@ -1,7 +1,7 @@
 {
  "note": "Luật combo lõi của người chơi (Thách Đấu VN), 2026-11-18, nguồn: local_docs/combo lõi - augument.txt. Mỗi luật giữ nguyên câu gốc ở `source`. Đọc bởi src/decision/scoring/augment_combos.py; giải thích ở docs/directional-augment/augment-combos.md.",
  "groups": {
-  "tank": {"apis": ["DA_18_ElderwoodTraitAugment", "DA_18_ResidualMagic", "DA_18_ResidualMagicPlus", "DA_18_ResidualMagicPlusPlus", "DA_18_SolarTraitAugment", "DA_BodyguardTraining", "DA_BoxingLessons", "DA_BronzeForLifeII", "DA_FindYourCenter", "DA_GiantAndMighty", "DA_GroupHugI", "DA_GroupHugII", "DA_HealingOrbsI", "DA_HealingOrbsII", "DA_MakeshiftArmorI", "DA_MakeshiftArmorII", "DA_PlotArmor", "DA_TwinGuardians"], "note": "lõi có cờ frontline, bỏ lõi có nhãn econ/item; danh sách chờ bạn lọc"},
+  "tank": {"frontline": true, "note": "cờ frontline đã duyệt tay"},
   "bonus_gift": {"apis": ["DA_BonusGift", "DA_BonusGiftPlus"]},
   "orb_payers": {"apis": ["DA_MissedConnections", "DA_18_OneTwoFive", "DA_ChampDeliveryPlus", "DA_ChampDeliveryPlusPlus", "DA_BoosterPackPlus", "DA_BoosterPackPlusPlus", "DA_Pilfer"]},
   "sweet_treats": {"apis": ["DA_SweetTreats"]},
@@ -17,7 +17,7 @@
  },
  "pairs": [
   {"id": "tank_pair", "a": "tank", "b": "tank", "strength": "light", "reason": "2 lõi chống chịu: tanker sống lâu cho carry xả dmg", "source": "2 lõi hướng chống chịu => đội hình cứng cáp tanker sống lâu trong giao tranh giúp các carry xả dmg"},
-  {"id": "bonus_gift_orbs", "a": "bonus_gift", "b": "orb_payers", "strength": "strong", "reason": "Bonus Gifts + lõi trả quà dạng orb", "source": "bonus gift: tối ưu kinh tế bang cách chọn them lõi trả quà dạng orbs. ví dụ điển hình: Missed Connections, 'One, Two, Five!', Champ Delivery +/++, Booster Pack +/++, pilfer"},
+  {"id": "bonus_gift_orbs", "a": "bonus_gift", "b": "orb_payers", "one_way": true, "strength": "strong", "reason": "Bonus Gifts + lõi trả quà dạng orb", "order": "Bonus Gifts phải cầm trước: lõi trả orb chọn trước thì orb đã trả, không hưởng thêm (người chơi, 2026-11-18). Champ Delivery / Booster Pack bản thường chỉ có ở 2-1 nên luôn đến trước Bonus Gifts+ (3-2).", "source": "bonus gift: tối ưu kinh tế bang cách chọn them lõi trả quà dạng orbs. ví dụ điển hình: Missed Connections, 'One, Two, Five!', Champ Delivery +/++, Booster Pack +/++, pilfer"},
   {"id": "sweet_treats_items", "a": "sweet_treats", "b": "item_givers", "strength": "medium", "reason": "Sweet Treats mạnh khi có nhiều item", "source": "Sweet Treats: tối ưu chỉ số từ lõi nếu có nhiều item => chọn nếu các lõi trước cho item; nếu chọn thì các lõi sau cũng hướng thêm item"},
   {"id": "flexible_emblems", "a": "flexible", "b": "emblem_givers", "strength": "medium", "reason": "Flexible scale theo số ấn", "source": "Flexible: giống sweet treats nhưng scale theo số lượng ấn (emblem) => chọn them các lõi cho ấn"},
   {"id": "double_verticality", "a": "verticality_high", "b": "verticality_high", "strength": "medium", "reason": "2 Verticality: lợi lớn nếu tộc hệ chính mốc 7–10", "source": "combo 2 verticaly: họ lõi này ở 2 bậc vàng và kim cương có thể xuất hiện chung => chọn các bài đấu tộc hệ chính ở mốc cao từ 7 - 10 sẽ hưởng lợi lớn."},
@@ -28,7 +28,7 @@
   {"id": "slammin_pandora", "a": "slammin", "b": "pandoras_items", "strength": "medium", "reason": "Slammin' cần lắp hết đồ, Pandora's Items cần đồ trên bench", "source": "Slammin + Pandora's Item: 1 lõi cần lắp hết đồ trên bench để nhận xp mỗi vòng, còn 1 lõi đổi lại đồ trên bench => phải chọn 1/2 yếu tố mà khó tối ưu được cả 2"}
  ],
  "eco_pair": {"avoid_plans": ["reroll"], "econ_types": ["gold", "xp"], "strength": "medium", "warning": "2 lõi kinh tế: đừng reroll, lên cấp (nghèo/ít máu fast 8, giàu/nhiều máu fast 9)", "source": "2 lõi kinh tế (tiền - xp): không nên đánh reroll, cần như bắt buộc đánh up cấp. fast 8 nếu nghèo, ít máu. nếu giàu và còn nhiều máu thì nên fast 9 để đẩy trần đội hình (bù lại 2 lõi eco)"},
- "triad": {"strength": "info", "reason": "đủ bộ dễ chơi 1 eco – 1 item – 1 combat", "source": "combo dễ chơi: 1 lõi kinh tế - 1 lõi cho item - 1 lõi combat. tổng hòa và cân 3 yếu tố item - eco - combat, đội hình nào cũng có thể áp dụng"},
+ "triad": {"strength": "light", "reason": "đủ bộ dễ chơi 1 eco – 1 item – 1 combat", "source": "combo dễ chơi: 1 lõi kinh tế - 1 lõi cho item - 1 lõi combat. tổng hòa và cân 3 yếu tố item - eco - combat, đội hình nào cũng có thể áp dụng"},
  "risky": [
   {"api": "DA_Warpath", "warning": "Warpath: chỉ chọn nếu bài đang mạnh, phải dominate lobby sớm", "source": "Warpath(2-1): cần dominate lobby từ sớm để nổ thưởng khi đủ mốc, chỉ chọn nếu tự tin bài đấu mạnh sẵn."},
   {"api": "DA_18_CovenTraitAugment", "warning": "Coven Acolyte: lối nổ hũ, cần thua nhiều rồi comeback", "source": "Coven Acolyte(2-1): lối chơi của tộc hệ nổ hũ (cần lose nhiều để tối ưu và dùng tài nguyên thưởng trả để comeback"},

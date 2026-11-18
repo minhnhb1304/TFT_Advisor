@@ -69,16 +69,22 @@ class ComboTable:
             return g["category"] in feature.categories
         if "grant" in g:
             return g["grant"] in feature.item_grants
+        if "frontline" in g:
+            return feature.frontline == g["frontline"]
         return False
 
     def _partner(self, rule: dict, cand: AugmentFeature,
                  held: Sequence[AugmentFeature]) -> AugmentFeature | None:
-        """Lo da cam ghep voi ung vien theo luat (a-b hoac b-a), neu co."""
+        """Lo da cam ghep voi ung vien theo luat, neu co.
+
+        Mac dinh hai chieu; `one_way` = `a` phai cam TRUOC, ung vien la `b`.
+        """
         for h in held:
             if h.api_name == cand.api_name:
                 continue
-            if ((self.member(rule["a"], cand) and self.member(rule["b"], h))
-                    or (self.member(rule["b"], cand) and self.member(rule["a"], h))):
+            if ((self.member(rule["b"], cand) and self.member(rule["a"], h))
+                    or (not rule.get("one_way")
+                        and self.member(rule["a"], cand) and self.member(rule["b"], h))):
                 return h
         return None
 

@@ -49,18 +49,19 @@ def test_unknown_group_fails_loudly():
         ComboTable({"groups": {}, "pairs": [{"id": "x", "a": "nope", "b": "nope", "strength": "light"}]})
 
 
-@pytest.mark.parametrize("cand, held", [
-    ("DA_BoosterPackPlusPlus", ["DA_BonusGiftPlus"]),   # orb sau Bonus Gifts
-    ("DA_BonusGift", ["DA_MissedConnections"]),         # chieu nguoc lai
-])
-def test_bonus_gift_and_orb_payers_combo_both_ways(table, features, cand, held):
-    e = effect(table, features, cand, held)
+def test_orb_payer_after_bonus_gift(table, features):
+    e = effect(table, features, "DA_BoosterPackPlusPlus", ["DA_BonusGiftPlus"])
     assert e.delta == STRENGTH["strong"]
     assert "combo với" in e.reasons[0]
 
 
-def test_base_booster_pack_is_not_an_orb_payer(table, features):
-    assert effect(table, features, "DA_BoosterPack", ["DA_BonusGift"]).delta == 0
+def test_bonus_gift_after_orb_payer_gains_nothing(table, features):
+    # Orb cua lo chon truoc da tra roi (nguoi choi, 2026-11-18).
+    assert effect(table, features, "DA_BonusGiftPlus", ["DA_MissedConnections"]).delta == 0
+
+
+def test_frontline_flag_forms_the_tank_group(table, features):
+    assert effect(table, features, "DA_TwinGuardians", ["DA_SweetTreats"]).delta == STRENGTH["light"]
 
 
 def test_item_augments_feed_sweet_treats(table, features):
@@ -109,13 +110,17 @@ def test_risky_augment_only_warns(table, features):
     assert e.delta == 0 and "Warpath" in e.warnings[0]
 
 
-def test_easy_triad_is_explained_not_scored(table, features):
-    e = effect(table, features, "DA_TwinGuardians", ["DA_PandorasItemsI", "DA_SlamminPlus"])
-    assert e.delta == 0 and any("1 eco – 1 item – 1 combat" in r for r in e.reasons)
+def test_easy_triad_scores_light(table, features):
+    e = effect(table, features, "DA_GlassCannon_Gold", ["DA_PandorasItemsI", "DA_SlamminPlus"])
+    assert e.delta == STRENGTH["light"] and any("1 eco – 1 item – 1 combat" in r for r in e.reasons)
 
 
 def test_combo_lifts_booster_pack_for_minh_06():
-    """minh_06 4-2 (fast8): cam Bonus Gifts+ -> Booster Pack++ (lua chon cua nguoi choi)."""
+    """minh_06 4-2 (fast8): cam Bonus Gifts+ -> Booster Pack++ (lua chon cua nguoi choi).
+
+    Chi kiem combo duoc cong: bo 3 eco-item-combat cung cong nhe cho Glass Cannon
+    nen hai lo dang bang diem (docs/directional-augment/augment-combos.md).
+    """
     sys.path.insert(0, str(ROOT / "scripts"))
     import eval_plan_advice as E
     from src.decision.advisor import Advisor
@@ -129,7 +134,10 @@ def test_combo_lifts_booster_pack_for_minh_06():
         if screen.stage == "4-2":
             choices = [AugmentChoice(list(s), slot=i) for i, s in enumerate(screen.offers[-1].cards) if s]
             advice = engine.rank_by_plan(choices, E.state_of(screen, held))
-            assert advice.top_for("fast8") == "DA_BoosterPackPlusPlus"
+            entry = next(e for e in advice.rankings["fast8"].entries
+                         if e.api_name == "DA_BoosterPackPlusPlus")
+            assert entry.components["plan_fit"].detail["combo_delta"] == pytest.approx(0.08)
+            assert "Bonus Gifts+" in entry.components["plan_fit"].reason
             return
         held.append(screen.picked)
     pytest.fail("không thấy màn 4-2")
