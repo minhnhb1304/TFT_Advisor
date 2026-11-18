@@ -44,7 +44,7 @@ Chi tiết và ảnh: [dev_log §18](../../dev_log.md). Còn D4: bạn chạy th
 
 ## B. Combo lõi (tuần 8, song song)
 
-**Xong 2026-11-18** (B1 nguồn = file của bạn; B3 thay bằng mục "cần bạn xác nhận"): [augment-combos.md](augment-combos.md). Dev 9/15 → 8/15 khi bộ 3 eco–item–combat cộng nhẹ (bạn chốt); bản chỉ ghi lý do được 10/15.
+**Xong 2026-11-18** (B1 nguồn = file của bạn; B3 thay bằng mục "cần bạn xác nhận"): [augment-combos.md](augment-combos.md). Dev 9/15 (bộ 3 eco–item–combat cộng nhẹ, Warpath không tính là lõi item); `minh_06` 4-2 hoà điểm Booster Pack++ / Glass Cannon.
 
 | Bước | Nội dung |
 |---|---|

@@ -50,6 +50,7 @@ Luật combo lõi của người chơi (Thách Đấu VN), viết 2026-11-18 (ng
 | Champ Delivery / Booster Pack bản thường | chỉ có ở 2-1, luôn chọn trước Bonus Gifts+ (3-2); lõi trả orb chọn **trước** thì orb đã trả, không hưởng thêm → luật một chiều (`one_way`): Bonus Gifts cầm trước, lõi orb là ứng viên |
 | Bộ 1 eco – 1 item – 1 combat | cộng nhẹ |
 | Warpath, Coven Acolyte | lõi 2-1, chưa có chuỗi → chỉ cảnh báo |
+| Warpath có phải lõi item? | không: item + tiền chỉ trả khi gây 80 sát thương lên người chơi (~10–11 trận thắng) → `triad.conditional`, không tính vào trục nào |
 
 "2 lõi kinh tế" chỉ đếm lõi **thuần eco có `econ_type` gold/xp**, đúng chữ "(tiền - xp)" (Expected Unexpectedness không tính).
 
@@ -62,11 +63,12 @@ Luật combo lõi của người chơi (Thách Đấu VN), viết 2026-11-18 (ng
 | Tắt hướng | 6/15 |
 | Hướng, chưa combo | 9/15 |
 | Combo, bộ 3 chỉ ghi lý do | 10/15 |
-| **Combo, bộ 3 cộng nhẹ (bản giữ, theo bạn)** | **8/15** |
+| Combo, bộ 3 cộng nhẹ, Warpath tính là item | 8/15 |
+| **Combo, bộ 3 cộng nhẹ, Warpath có điều kiện (bản giữ)** | **9/15** |
 
-Bộ 3 cộng nhẹ đổi hai màn 4-2:
+Bộ 3 cộng nhẹ từng đổi hai màn 4-2:
 
-- `minh_05` (Warpath + Slammin'+): Hold The Line và Lotus II 0,5332 vượt Invested++ 0,5207.
+- `minh_05` (Warpath + Slammin'+): Hold The Line và Lotus II 0,5332 vượt Invested++ 0,5207. Đã hết sau khi bạn duyệt lại Warpath.
 - `minh_06` (Seraphim's Staff + Bonus Gifts+): Glass Cannon và Booster Pack++ **bằng điểm** 0,55, thua theo thứ tự tên.
 
 Đây là luật chuyên gia, không chỉnh số để khớp dev. Chương kết quả ghi cả hai bản.

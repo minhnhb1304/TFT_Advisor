@@ -114,7 +114,10 @@ class ComboTable:
 
         rule = self.triad
         if rule and len(held) == 2:
-            covers = [axes(held[0]), axes(held[1]), axes(cand)]
+            # Lo chi tra thuong khi thang du (Warpath) khong dem vao truc nao.
+            conditional = {c["api"] for c in rule.get("conditional") or ()}
+            covers = [set() if f.api_name in conditional else axes(f)
+                      for f in (held[0], held[1], cand)]
             if any(all(ax in c for ax, c in zip(order, covers))
                    for order in permutations(TRIAD_AXES)):
                 delta += strength[rule["strength"]]

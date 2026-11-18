@@ -115,6 +115,11 @@ def test_easy_triad_scores_light(table, features):
     assert e.delta == STRENGTH["light"] and any("1 eco – 1 item – 1 combat" in r for r in e.reasons)
 
 
+def test_warpath_reward_is_conditional_so_it_does_not_fill_the_triad(table, features):
+    # minh_05 4-2: Warpath + Slammin'+ -> Hold The Line khong duoc cong bo 3.
+    assert effect(table, features, "DA_HoldTheLine", ["DA_Warpath", "DA_SlamminPlus"]).delta == 0
+
+
 def test_combo_lifts_booster_pack_for_minh_06():
     """minh_06 4-2 (fast8): cam Bonus Gifts+ -> Booster Pack++ (lua chon cua nguoi choi).
 
