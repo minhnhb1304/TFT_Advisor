@@ -118,7 +118,7 @@ def test_four_file_fields_roundtrip(tmp_path):
     "field, value, needle",
     [
         ("game_id", "nam_01", "dạng"),          # thieu '#<so van>'
-        ("game_id", "nam 01#1", "dạng"),        # khoang trang khong hop
+        ("game_id", "nam 01#1", "dạng"),        # khoang trang khong hop le
         ("final_placement", 0, "ngoài khoảng"),
         ("final_placement", 9, "ngoài khoảng"),
         ("player_id", "  ", "rỗng"),

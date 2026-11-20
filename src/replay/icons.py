@@ -1,7 +1,7 @@
-"""Icon lo cho vo replay: `data/augment_icons/<apiName>.png` (scripts/fetch_augment_icons.py).
+"""Icon loi cho vo replay: `data/augment_icons/<apiName>.png` (scripts/fetch_augment_icons.py).
 
-Nap luoi va cache theo apiName. Thieu file (CDragon 522, hoac lo chi co icon giu
-cho `missing-t*`) thi vo nho icon CAT TU THE LO tren khung dang xem (`remember`).
+Nap luoi va cache theo apiName. Thieu file (CDragon 522, hoac loi chi co icon giu
+cho `missing-t*`) thi vo nho icon CAT TU THE LOI tren khung dang xem (`remember`).
 Khong co ca hai thi tra None - widget ve o chu cai, khong bao gio de trong.
 """
 
@@ -26,7 +26,7 @@ def augment_pixmap(api_name: str) -> QtGui.QPixmap | None:
 
 
 def remember(api_name: str, image_bgr) -> None:
-    """Giu icon cat tu the lo (BGR numpy) cho lo chua co file. Khong de file da co."""
+    """Giu icon cat tu the loi (BGR numpy) cho loi chua co file. Khong de file da co."""
     if not api_name or augment_pixmap(api_name) is not None or image_bgr is None:
         return
     import cv2  # noqa: PLC0415

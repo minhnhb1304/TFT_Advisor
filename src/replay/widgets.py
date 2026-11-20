@@ -78,7 +78,7 @@ class Chip(QtWidgets.QLabel):
 
 
 class StateStrip(QtWidgets.QFrame):
-    """Chip stage/cap/vang/HP/chuoi + lo da cam; cau chung va canh bao gon mot dong."""
+    """Chip stage/cap/vang/HP/chuoi + loi da cam; cau chung va canh bao gon mot dong."""
 
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
@@ -153,7 +153,7 @@ def brief(text: str, limit: int = 140) -> str:
 
 
 class VerdictBar(QtWidgets.QFrame):
-    """The ket luan: icon lon + nhan HANH DONG + ten lo + chenh lech; dong ly do o duoi.
+    """The ket luan: icon lon + nhan HANH DONG + ten loi + chenh lech; dong ly do o duoi.
 
     Mau theo hanh dong: ngoc = CHON, vang = DOI. Nen la gradient rat nhe cua mau
     do tren be mat - noi bat ma khong phat sang.
@@ -286,7 +286,7 @@ class DotScale(QtWidgets.QWidget):
 
 
 class IconTile(QtWidgets.QWidget):
-    """Icon lo that (CDragon) trong khung bo goc, vien theo do hiem, khien bac o goc.
+    """Icon loi that (CDragon) trong khung bo goc, vien theo do hiem, khien bac o goc.
 
     Thieu icon thi ve chu cai dau - khong bao gio de o trong. Khien bac la mau
     huy hieu cua Blitz: chu cai tren nen mau bac, day nhon.
@@ -507,7 +507,7 @@ class SlotColumn(QtWidgets.QFrame):
 
 
 class PlanRow(QtWidgets.QFrame):
-    """Mot dong: chip huong (mau co dinh) -> icon + ten lo, o, cai gia, canh bao."""
+    """Mot dong: chip huong (mau co dinh) -> icon + ten loi, o, cai gia, canh bao."""
 
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
@@ -574,7 +574,7 @@ class PlanRow(QtWidgets.QFrame):
 
 
 class PlanPanel(QtWidgets.QFrame):
-    """Theo huong di: moi dong mot huong (da gop huong cung lo). An khi khong co."""
+    """Theo huong di: moi dong mot huong (da gop huong cung loi). An khi khong co."""
 
     MAX_ROWS = 4
 

@@ -1,4 +1,4 @@
-"""Doc lo da chon tu dai icon (src/vision/held_augments.py) - anh tong hop."""
+"""Doc loi da chon tu dai icon (src/vision/held_augments.py) - anh tong hop."""
 
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ def test_tracker_records_one_pick_per_offer(bank):
 
 
 def test_other_players_strip_is_ignored(bank):
-    """So icon tang nhung icon khong khop lo vua chao (doc sai dai): khong ghi."""
+    """So icon tang nhung icon khong khop loi vua chao (doc sai dai): khong ghi."""
     tracker = HeldAugmentTracker(bank)
     tracker.offer_seen(["A", "B"], "2-1", t=0)
     assert tracker.observe(frame(["D"]), 5) is None
@@ -99,7 +99,7 @@ def test_offer_rounds_split_plus_variants(bank):
 
 
 def test_missed_picks_are_padded_with_unknown(bank):
-    """Mo app giua van: dai da co 2 icon, lo moi van ghi duoc, hai o truoc la None."""
+    """Mo app giua van: dai da co 2 icon, loi moi van ghi duoc, hai o truoc la None."""
     tracker = HeldAugmentTracker(bank)
     tracker.offer_seen(["B", "C", "D"], "4-2", t=0)
     assert tracker.observe(frame(["A", "D", "C"]), 5) == "C"
@@ -117,13 +117,13 @@ def test_sixteen_by_ten_frame():
 
 
 def test_destiny_adds_two_icons_and_counts_as_one_pick(bank):
-    """Van Menh: chon MOT lo, dai them HAI icon (no + lo cung bac duoc tang)."""
+    """Van Menh: chon MOT loi, dai them HAI icon (no + loi cung bac duoc tang)."""
     tracker = HeldAugmentTracker(bank, tiers={"DA_GoldDestiny": 2, "B": 2, "C": 2, "D": 1})
-    bank._cache["DA_GoldDestiny"] = bank.get("A")      # icon cua lo Van Menh = mau A
+    bank._cache["DA_GoldDestiny"] = bank.get("A")      # icon cua loi Van Menh = mau A
     tracker.offer_seen(["DA_GoldDestiny", "D"], "2-1", t=0)
     assert tracker.observe(frame(["A", "C"]), 5) == "DA_GoldDestiny"
     assert tracker.picks == ["DA_GoldDestiny"]
-    assert tracker.held == ["DA_GoldDestiny", "C"]     # lo tang nhan dien trong bac vang
+    assert tracker.held == ["DA_GoldDestiny", "C"]     # loi tang nhan dien trong bac vang
     assert tracker.closed
     # Vong sau: dai dem tiep tu 2 icon, khong lech.
     tracker.offer_seen(["B", "D"], "3-2", t=600)

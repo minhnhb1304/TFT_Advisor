@@ -87,7 +87,7 @@ class TacticsToolsError(RuntimeError):
 class TacticsToolsClient:
     """Doc hai endpoint cong khai cua tactics.tools.
 
-    Khong co retry phuc tap: mot dot crawl la 2-3 request: hong thi chay lai
+    Khong co retry phuc tap: mot dot crawl chi 2-3 request, hong thi chay lai
     ca lenh re hon nhieu so voi mot vong retry am tham lam mo nguyen nhan.
     """
 
@@ -128,7 +128,7 @@ class TacticsToolsClient:
 
 
 def rank_group_code(name: str) -> int:
-    """Ten rank group -> ma so trong URL. Ten la vi pham thi bao ngay."""
+    """Ten rank group -> ma so trong URL. Ten khong hop le thi bao loi ngay."""
     try:
         return RANK_GROUPS[name]
     except KeyError:

@@ -5,7 +5,7 @@ Diem hop nhat duy nhat cua ba chan thi giac:
 2. AugmentReader: doc ten the bai, toc he va sinh AugmentChoice.
 3. RerollButtonReader: doc trang thai 3 nut doi the thanh RerollState.
 
-Nguyen tac co lap loi: mot chan hong chi suy giam (degrade) vao `degraded`,
+Nguyen tac co lap loi: mot chan hong chi bi ghi vao `degraded` (degrade),
 khong lam sap toan bo tien trinh doc khung hinh.
 """
 

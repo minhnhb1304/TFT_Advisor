@@ -61,7 +61,7 @@ class LiveSession:
     # khi choi truc tiep. Rong thi `game_id` khong duoc sinh ra va scenario ghi
     # ra KHONG dung duoc cho SPEC 12.2 - xem `_game_id`.
     source_id: str = ""
-    # Doc lo DA CHON tu dai icon huong 10 gio -> `GameState.augments` (luat can
+    # Doc loi DA CHON tu dai icon huong 10 gio -> `GameState.augments` (luat can
     # bang va combo cua directional). None = tat, augments luon rong nhu cu.
     held_tracker: HeldAugmentTracker | None = None
     # Doc do tren tuong minh -> `GameState.completed_items/item_components`
@@ -198,7 +198,7 @@ class LiveSession:
         if self.item_tracker is not None:
             self.item_tracker.apply(state)
         # Icon cat tu the o khung vua doc (the da on dinh `stable_frames`): mau so
-        # sanh cho dai lo da chon, va icon de ve khi CDragon khong co.
+        # sanh cho dai loi da chon, va icon de ve khi CDragon khong co.
         icons = {a: card_icon(frame.image, c.slot) for c in choices if c.slot is not None
                  for a in c.api_names}
         if self.held_tracker is not None:
@@ -273,7 +273,7 @@ class LiveSession:
 
         Nguoi choi an man de di xem nha khac roi mo lai, nhieu lan, bao lau tuy y;
         nhu vay van la CUNG mot man. Man xong khi:
-          - dai lo da chon (huong 10 gio) co them icon khop lo vua chao, ke ca lo
+          - dai loi da chon (huong 10 gio) co them icon khop loi vua chao, ke ca loi
             Van Menh them HAI icon (HeldAugmentTracker.closed); hoac
           - stage da sang vong khac (du phong khi khong doc duoc dai).
         Khong co bo doc dai (held_tracker = None) thi dung nguong `grace_s` cu.

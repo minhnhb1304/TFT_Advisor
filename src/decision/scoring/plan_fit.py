@@ -20,7 +20,7 @@ lieu:
     3 sao) moi manh; 3 combat chi can "full form" (du doi hinh 1 sao).
   - Vi vay moi augment eco DA CAM la mot khoan "no suc manh" ban co phai tra:
     augment combat o man sau duoc cong theo so no do (`debt_bonus`).
-  - Combo / ki nhau / lo rui ro giua lo ung vien va lo da cam: bang
+  - Combo / ki nhau / loi rui ro giua loi ung vien va loi da cam: bang
     data/augment_combos.json (augment_combos.py), muc manh `combo_strength`.
 """
 
@@ -42,7 +42,7 @@ ECO_CATEGORIES = frozenset({"econ", "reroll"})
 POWER_CATEGORIES = frozenset({"combat", "item", "trait"})
 DEFAULT_WEIGHT = 0.15
 DEFAULT_DEBT_BONUS = 0.05
-# Cam tu chung nay lo combat tro len thi dong du kinh te uu tien them combat.
+# Cam tu chung nay loi combat tro len thi dong du kinh te uu tien them combat.
 COMBAT_STACK = 2
 # Don vi TONG DIEM (khong nhan weight): ~1/2, 1, 2 lan khoang cach top-1/top-2
 # trung vi tren dev (0.039, do 2026-11-18).
@@ -83,7 +83,7 @@ class PlanProfile:
     # Dong "thieu tien": nguoi choi tu nhan la thieu kinh te (cach B, 2026-11-18).
     short_on_cash: bool = False
     # Tu stage nay tro di dung bo trong so khac. Vd reroll da roll xong 3 sao
-    # o 4-2 thi lo eco het gia tri: "du eco, thieu combat" (minh_04 4-2).
+    # o 4-2 thi loi eco het gia tri: "du eco, thieu combat" (minh_04 4-2).
     by_stage: tuple[tuple[int, "PlanProfile"], ...] = ()
 
     def at_stage(self, stage_number: int) -> "PlanProfile":
@@ -179,7 +179,7 @@ class PlanFitScorer:
         parts: list[str] = []
         eco, power = is_eco(feature), is_power(feature)
         if eco:
-            # Strength theo econ_value; lo eco khong ghi econ_value (vd chi co
+            # Strength theo econ_value; loi eco khong ghi econ_value (vd chi co
             # nhan `reroll`) van tinh nhu muc thap nhat, khong phai bang 0.
             strength = max(feature.econ_value, 1) / 3.0
             delta += plan.eco * strength
@@ -187,10 +187,10 @@ class PlanFitScorer:
         if power:
             delta += plan.power
 
-        # Can bang HAI chieu: cam eco -> thieu suc manh, lo combat dang gia;
-        # cam combat lam ban dap -> can tien de len full bai, lo eco dang gia
+        # Can bang HAI chieu: cam eco -> thieu suc manh, loi combat dang gia;
+        # cam combat lam ban dap -> can tien de len full bai, loi eco dang gia
         # (minh_06 4-2). `debt` > 0 = nghieng eco, < 0 = nghieng combat.
-        # Rieng khi da cam >= 2 lo combat (nguoi choi, 2026-11-18): du kinh te ->
+        # Rieng khi da cam >= 2 loi combat (nguoi choi, 2026-11-18): du kinh te ->
         # them combat; thieu kinh te -> eco. "Thieu" = dong `short_on_cash`
         # nguoi choi tu chon, KHONG doc tu HUD (cach A con can nghien cuu).
         combat_held = sum(1 for h in held if power_only(h))

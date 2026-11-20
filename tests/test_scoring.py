@@ -204,7 +204,7 @@ def test_infer_carry_type_legacy_counts_tank_votes() -> None:
 
 
 def test_board_fit_frontline_is_neutral_on_carry(config) -> None:
-    """Lose frontline (carry none) khong bi phat khi board di AD."""
+    """Loi frontline (carry none) khong bi phat khi board di AD."""
     scorer = BoardFitScorer(config)
     ad_board = GameState(board=[Champion(name="X", cost=4, items=["BFSword"], position=(1, 1))])
     res = scorer("A", feature(carry_type="none", frontline=True), ad_board)
@@ -218,7 +218,7 @@ def test_board_fit_legacy_tank_feature_is_constructed_from_old_rows() -> None:
 
 
 def test_board_fit_regression_old_tank_penalty_only_under_legacy_flag(config) -> None:
-    """Bug cu: lose tank bi 0.2 khi carry cam do AD. Chi con khi bat co legacy."""
+    """Bug cu: loi tank bi 0.2 khi carry cam do AD. Chi con khi bat co legacy."""
     ad_board = GameState(board=[Champion(name="X", cost=4, items=["BFSword"], position=(1, 1))])
     tank_aug = feature(carry_type="none", frontline=True)
 
@@ -229,7 +229,7 @@ def test_board_fit_regression_old_tank_penalty_only_under_legacy_flag(config) ->
     assert old._carry_part(tank_aug, ad_board)[0] == pytest.approx(0.2)
     assert new("A", tank_aug, ad_board).score > old("A", tank_aug, ad_board).score
 
-    # Chieu nguoc cua bug: board nhieu do tank -> lose AD bi phat o legacy
+    # Chieu nguoc cua bug: board nhieu do tank -> loi AD bi phat o legacy
     ad_aug = feature(carry_type="AD")
     assert new._carry_part(ad_aug, _tank_board())[0] == pytest.approx(1.0)
     assert old._carry_part(ad_aug, _tank_board())[0] == pytest.approx(0.2)

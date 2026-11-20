@@ -8,7 +8,8 @@
     .venv\\Scripts\\python scripts\\review_item_labels.py templates
 
 Chi lay video role=development trong split.json. Khung chon theo nhip `--step` giay,
-bo khung co thanh mau do (giao tranh / xem nha khac), giu khung co >= `--min-cells` o icon, roi lay deu theo thoi gian `--per-video` khung.
+bo khung co thanh mau do (giao tranh / xem nha khac), giu khung co >= `--min-cells` o icon,
+roi lay deu theo thoi gian `--per-video` khung.
 Anh khung luu o data/eval/items/frames/ (khong commit); file nhan thi commit.
 """
 

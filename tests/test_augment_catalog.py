@@ -50,7 +50,7 @@ def vi() -> AugmentCatalog:
 
 
 def test_catalog_size(en: AugmentCatalog, vi: AugmentCatalog) -> None:
-    """258 augment: CDragon 18.5b (253) + 5 lose giu lai qua augment_overrides.json."""
+    """258 augment: CDragon 18.5b (253) + 5 loi giu lai qua augment_overrides.json."""
     assert len(en) == 258
     assert len(vi) == 258
 
@@ -78,7 +78,7 @@ def test_tier_ladder_reproduces_measured_counts(en: AugmentCatalog) -> None:
 
 
 def test_tier_distribution(en: AugmentCatalog, vi: AugmentCatalog) -> None:
-    """71 / 117 / 70 o 18.5b + lose giu lai (2026-10-06: 70 / 115 / 69; truoc khi sua
+    """71 / 117 / 70 o 18.5b + loi giu lai (2026-10-06: 70 / 115 / 69; truoc khi sua
     tier 62 / 132 / 60). Chi voi quy tac A + B (khong override) la 69 / 119 / 70.
     """
     for cat in (en, vi):
@@ -253,7 +253,7 @@ def test_tiers_agree_with_datatft_lists(en: AugmentCatalog) -> None:
     """
     snapshot = json.loads(DATATFT_SNAPSHOT.read_text(encoding="utf-8"))["augments"]
     compared = [a for a in en.augments if a.api_name in snapshot]
-    assert len(compared) == 253   # datatft (CN) thieu Consuming Flora+ va 4 lose moi
+    assert len(compared) == 253   # datatft (CN) thieu Consuming Flora+ va 4 loi moi
     disagree = {
         a.api_name: (a.tier, snapshot[a.api_name]["list_index"] + 1)
         for a in compared

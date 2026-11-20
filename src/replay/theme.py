@@ -5,7 +5,7 @@ phai di tim sau cho la cach mot bang mau chet.
 
 Co HAI bang mau de doi chieu (`apply("amber")` / `apply("blitz")`):
 
-  amber - ban dau: nen ngal am, mot mau nhan vang, tier tu vang -> lam -> xam.
+  amber - ban dau: nen nga am, mot mau nhan vang, tier tu vang -> lam -> xam.
   blitz - do thang tu CSS that cua blitz.gg: nen hue 222 gan den (#14171f),
           the chi sang hon nen mot chut va VIEN moi la thu tach khoi, tier chay
           vang -> ngoc lam -> nhat dan roi chim han vao nen o bac cuoi.
@@ -137,7 +137,7 @@ TEXT_2 = "rgba(255,255,255,0.62)"
 TEXT_MUTED = "rgba(255,255,255,0.42)"
 TEXT_FAINT = "rgba(255,255,255,0.28)"
 
-# Do hiem cua lo trong game. "Ngoc sac" khong co mau don nao dung -> dai chuyen mau.
+# Do hiem cua loi trong game. "Ngoc sac" khong co mau don nao dung -> dai chuyen mau.
 RARITY = {
     1: ("bạc", "#a6acb9", "#a6acb9"),
     2: ("vàng", "#ffbf50", "#ffbf50"),

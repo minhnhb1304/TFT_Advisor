@@ -9,7 +9,7 @@ choi chon tu do), cham hai cach roi so voi `picked`:
   - tat : top-1 cua `rank()`          - dong doi chung, hanh vi hien tai
   - bat : top-1 cua dong huong THAT    - `rank_by_plan()` voi huong cua nhan
 
-Lo da cam o man truoc di vao state (`state.augments`), nen luat "no suc manh"
+Loi da cam o man truoc di vao state (`state.augments`), nen luat "no suc manh"
 duoc do. Moi video cham bang du lieu patch CUA NO (split.json `data_patch`).
 
 Gioi han phai noi khi bao cao: `picked` la lua chon cua MOT nguoi choi, khong

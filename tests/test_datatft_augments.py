@@ -75,7 +75,7 @@ def test_parse_reads_rounds_types_and_list_index(payload) -> None:
     parsed = crawl.parse_augments(payload)
     assert parsed["DA_HedgeFund"] == {"rounds": ["2-1"], "types": [1], "list_index": 2}
     assert parsed["DA_18_BigGrabBag"]["rounds"] == ["3-2", "4-2"]
-    assert parsed["DA_NestingDollsPlus"]["types"] == []      # 2 lose cua nguon khong co `type`
+    assert parsed["DA_NestingDollsPlus"]["types"] == []      # 2 loi cua nguon khong co `type`
     assert "TFT9_Augment_RollTheDice" in parsed              # loc catalog la viec cua build_snapshot
 
 
@@ -98,7 +98,7 @@ def test_snapshot_shape_keeps_only_catalog_augments(payload) -> None:
     snap = crawl.build_snapshot(payload, CATALOG + ["DA_KhongCo"], {"source": "datatft.com"},
                                 min_matched=8)
     assert set(snap) == {"meta", "augments"}
-    assert sorted(snap["augments"]) == sorted(CATALOG)       # bo 2 lose ngoai catalog
+    assert sorted(snap["augments"]) == sorted(CATALOG)       # bo 2 loi ngoai catalog
     assert all(set(r) == {"rounds", "types", "list_index"} for r in snap["augments"].values())
     meta = snap["meta"]
     assert (meta["matched"], meta["n_catalog"], meta["set"]) == (8, 9, "TFTSet18")
@@ -108,7 +108,7 @@ def test_snapshot_shape_keeps_only_catalog_augments(payload) -> None:
 
 
 def test_low_match_refuses_to_build(payload) -> None:
-    """Fixture chi khop 8 lose: voi nguong mac dinh (250) phai tu choi."""
+    """Fixture chi khop 8 loi: voi nguong mac dinh (250) phai tu choi."""
     with pytest.raises(crawl.DataTFTError, match="chi khop 8/8"):
         crawl.build_snapshot(payload, CATALOG, {})
 

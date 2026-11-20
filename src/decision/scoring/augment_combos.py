@@ -1,10 +1,10 @@
-"""Luat combo lo cua nguoi choi (data/augment_combos.json) cho PlanFit.
+"""Luat combo loi cua nguoi choi (data/augment_combos.json) cho PlanFit.
 
 Giai thich: docs/directional-augment/augment-combos.md. Moi luat la LUA CHON
 cua nguoi choi (tung Thach Dau VN), chua fit tren du lieu; muc manh nhe/vua/
 manh doi ra so o `tuning.plan_fit.combo_strength`.
 
-Nhom lo khai bao bang danh sach api (`apis`), nhan (`category`) hoac mon duoc
+Nhom loi khai bao bang danh sach api (`apis`), nhan (`category`) hoac mon duoc
 tang (`grant`). Ham o day khong biet trong so cua huong; chi tra delta + ly do.
 """
 
@@ -23,7 +23,7 @@ TRIAD_AXES = ("eco", "item", "combat")
 
 
 def axes(feature: AugmentFeature) -> set[str]:
-    """Truc ma lo phu trong bo 'eco - item - combat'."""
+    """Truc ma loi phu trong bo 'eco - item - combat'."""
     cats = set(feature.categories)
     out = set()
     if is_eco(feature):
@@ -75,7 +75,7 @@ class ComboTable:
 
     def _partner(self, rule: dict, cand: AugmentFeature,
                  held: Sequence[AugmentFeature]) -> AugmentFeature | None:
-        """Lo da cam ghep voi ung vien theo luat, neu co.
+        """Loi da cam ghep voi ung vien theo luat, neu co.
 
         Mac dinh hai chieu; `one_way` = `a` phai cam TRUOC, ung vien la `b`.
         """
@@ -114,7 +114,7 @@ class ComboTable:
 
         rule = self.triad
         if rule and len(held) == 2:
-            # Lo chi tra thuong khi thang du (Warpath) khong dem vao truc nao.
+            # Loi chi tra thuong khi thang du (Warpath) khong dem vao truc nao.
             conditional = {c["api"] for c in rule.get("conditional") or ()}
             covers = [set() if f.api_name in conditional else axes(f)
                       for f in (held[0], held[1], cand)]

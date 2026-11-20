@@ -2,7 +2,7 @@
 
 Doc trong luc CHUAN BI (ngoai man chon loi, khong co thanh mau do), toi da mot
 lan moi `every_s` giay, giu lan doc gan nhat. Man chon loi che mot phan ban co
-nen luc do dung lai lan doc truoc. Moi vong deu co the tra do (loi, su kien),
+nen luc do dung lai lan doc truoc. Moi vong deu co the tra do (augment, su kien),
 nen doc lai lien tuc chu khong chot mot lan.
 
 Chi do THUONG: o khong chac (do anh sang, do tao tac, icon mo) bi bo, khong doan.

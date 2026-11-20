@@ -19,7 +19,7 @@ y 200..215 va doc phai chu cua nguoi xem.
 TI LE KHUNG KHAC 16:9 - MOI VUNG CO MOT DIEM NEO
 
 Ti le 0..1 chi dung khi khung cung ti le voi khung tham chieu (16:9). TFT
-khong gian giao dien theo chieu ngang: no co UI theo CHIEU CAO roi dat vao
+khong gian giao dien theo chieu ngang: no scale UI theo CHIEU CAO roi dat vao
 giua (the, nut, cua hang), sat mep trai (bang toc) hoac sat mep phai (bang
 nguoi choi). Do tren record 16:10 (1728x1080, 2026-10-26): nut doi o trai
 that o x ~404 px, con `x * width` cho 450 px - lech gan nua nut.

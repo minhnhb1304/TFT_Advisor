@@ -96,7 +96,7 @@ PLAN_FALLBACK = (166, 172, 185)
 
 @dataclass
 class PlanRowVM:
-    """Mot dong "<huong> -> <lo>" cua overlay. Nhieu huong cung lo da gop."""
+    """Mot dong "<huong> -> <loi>" cua overlay. Nhieu huong cung loi da gop."""
 
     labels: list[str]
     keys: list[str]
@@ -253,7 +253,7 @@ def create_panel(parent: Any = None):
             painter.end()
 
         def _paint_plan(self, painter, QtCore, QtGui, plan: PlanRowVM, y: int) -> int:
-            """Vien mau theo huong (moi huong mot vien) + ten lo + cai gia."""
+            """Vien mau theo huong (moi huong mot vien) + ten loi + cai gia."""
             x = 14
             font = painter.font()
             small = QtGui.QFont("Chakra Petch")

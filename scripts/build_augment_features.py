@@ -6,7 +6,7 @@
     python scripts/build_augment_features.py --offline --migrate --write
                                                 # doi sang extractor moi, KHONG goi LLM
 
-Dau ra la file JSON COMMIT vao repo va SUA TAY DUOC. Do la ca diem cua thiet
+Dau ra la file JSON COMMIT vao repo va SUA TAY DUOC. Do chinh la muc dich cua thiet
 ke nay: hoi dong cham do an mo file ra doc duoc 254 dong, khong phai tin vao
 mot loi goi LLM khong tai lap duoc.
 
@@ -260,7 +260,7 @@ def _call_with_retry(client: Any, model: str, prompt: str, attempts: int = 3) ->
         try:
             resp = client.models.generate_content(model=model, contents=prompt)
             return getattr(resp, "text", "") or ""
-        except Exception as exc:  # noqa: BLE001 - SDK nem nhieu loai, doi het
+        except Exception as exc:  # noqa: BLE001 - SDK nem nhieu loai exception, bat het
             if attempt == attempts - 1:
                 # In CA NOI DUNG loi, khong chi ten kieu. Loi 404 cua Gemini
                 # noi thang model nao thay the model da bi go - nuot mat cau

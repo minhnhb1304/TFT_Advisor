@@ -38,8 +38,8 @@ EXPECTED_TIER_DISTRIBUTION = {1: 14, 2: 13, 3: 14, 4: 14, 5: 10}
 # File locale cu hon nguong nay -> nghi ngo nap nham nguon hoac nguon da chet.
 MAX_LOCALE_AGE_DAYS = 30
 
-# /latest/ khong khop client live o vai cho (do tay 2026-10-27): lose con trong
-# game da bi xoa, lose chua vao game da co, ten tieng Viet khac. File nay bu lai.
+# /latest/ khong khop client live o vai cho (do tay 2026-10-27): loi con trong
+# game da bi xoa, loi chua vao game da co, ten tieng Viet khac. File nay bu lai.
 DEFAULT_OVERRIDES = Path(__file__).resolve().parents[2] / "data" / "augment_overrides.json"
 
 
@@ -81,7 +81,7 @@ def apply_overrides(
     """Gop data/augment_overrides.json vao locale. Tra ban MOI, khong sua `locale`.
 
     Ba viec, deu tren `items`:
-        retained_items[lang] -> them lose da bi xoa khoi /latest/ (chi khi chua co)
+        retained_items[lang] -> them loi da bi xoa khoi /latest/ (chi khi chua co)
         live                 -> gan `live` (true/false/null) cho item; item khong
                                 ghi la live
         vi_names (vi_vn)     -> doi `name` sang ten client live, ten CDragon giu

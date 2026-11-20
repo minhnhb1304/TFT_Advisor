@@ -1,4 +1,4 @@
-"""Trang demo thuat toan cham diem lo tren MOT man chon lo da gan nhan.
+"""Trang demo thuat toan cham diem loi tren MOT man chon loi da gan nhan.
 
     .venv\\Scripts\\python tools\\demo_scoring.py minh_06 4-2      # -> local_docs/demo/minh_06_4-2.html
 

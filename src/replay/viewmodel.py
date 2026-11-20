@@ -93,7 +93,7 @@ class StripVM:
     shared: list[str] = field(default_factory=list)     # cau ly do chung cua ca ba the
     sources: list[str] = field(default_factory=list)    # xuat xu bang diem - noi MOT lan
     warnings: list[str] = field(default_factory=list)
-    held: list[str] = field(default_factory=list)       # apiName lo da chon (dai icon)
+    held: list[str] = field(default_factory=list)       # apiName loi da chon (dai icon)
 
     @property
     def line(self) -> str:
@@ -103,7 +103,7 @@ class StripVM:
 
 @dataclass
 class PlanLineVM:
-    """Mot dong "<huong> -> <lo>" (directional). Nhieu huong cung lo da gop san."""
+    """Mot dong "<huong> -> <loi>" (directional). Nhieu huong cung loi da gop san."""
 
     label: str
     plans: list[str]

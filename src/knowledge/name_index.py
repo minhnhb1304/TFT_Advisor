@@ -116,7 +116,7 @@ class NameIndex:
         if len(hits) <= 1:
             return hits
 
-        # Con nhieu hon mot -> thu lai co phan biet hoa thuong truoc khi chiu.
+        # Con nhieu hon mot -> thu lai co phan biet hoa thuong truoc khi chiu thua.
         exact = list(self.exact.get(namespace, {}).get(lang, {}).get(text, []))
         return exact if len(exact) == 1 else hits
 

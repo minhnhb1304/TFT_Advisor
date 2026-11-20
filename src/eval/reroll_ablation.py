@@ -265,7 +265,7 @@ def run_oracle(draw: Draw, *_: Any) -> tuple[float, int]:
 def _bootstrap_delta(
     diffs: Sequence[float], iterations: int, seed: int
 ) -> tuple[float, float, float]:
-    """Trung binh + khoang tin 95% bootstrap tren CHENH LECH da ghep cap."""
+    """Trung binh + khoang tin cay 95% bootstrap tren CHENH LECH da ghep cap."""
     n = len(diffs)
     point = sum(diffs) / n if n else 0.0
     if n < 2:

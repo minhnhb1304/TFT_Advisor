@@ -26,7 +26,7 @@ class WgcFrameSource:
     def __init__(self, hwnd: int, ref_prefix: str = "live", client_size: tuple[int, int] | None = None):
         self.hwnd = int(hwnd)
         self.ref_prefix = ref_prefix
-        # (w, h) vung client: o che cua so co vien, WGC tra ca khung vien.
+        # (w, h) vung client: o che do cua so co vien, WGC tra ca khung vien.
         self.client_size = client_size
         self._lock = threading.Lock()
         self._latest: Frame | None = None

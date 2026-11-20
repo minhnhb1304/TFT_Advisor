@@ -9,7 +9,7 @@ NGUON (docs/offer-rounds/source.md)
       1. https://www.datatft.com/database -> khoi <script id="h5-data-preload">
          chua bang `var urls = {"18": "/assets/h5-data-cn-18-<hash>.json", ...}`.
          Hash doi moi lan ho cap nhat nen KHONG ghi cung, luon doc tu trang.
-      2. file JSON do -> `hexs18` (3 danh sach lose) + `databaseUpdateTime`.
+      2. file JSON do -> `hexs18` (3 danh sach loi) + `databaseUpdateTime`.
     --from-file dung lai file JSON da tai, khong goi mang (snapshot tai lap duoc).
 
 VE SINH CRAWL ("cua so an danh")
@@ -24,7 +24,7 @@ HONG THI BAO TO
 PROVENANCE
     Du lieu may chu Trung Quoc, mot nguoi duy tri, khong tai lieu -> TIN HIEU,
     khong phai ground truth. `list_index` (vi tri trong 3 danh sach) chi giu de
-    dieu tra, KHONG phai bac cua lose: xem docs/offer-rounds/overview.md.
+    dieu tra, KHONG phai bac cua loi: xem docs/offer-rounds/overview.md.
 """
 
 from __future__ import annotations
@@ -47,8 +47,8 @@ from src.knowledge.augment_features import OFFER_ROUNDS  # noqa: E402
 PAGE_URL = "https://www.datatft.com/database"
 DEFAULT_OUT = ROOT / "data" / "augment_rounds.datatft.json"
 DEFAULT_FEATURES = ROOT / "data" / "augment_features.json"
-# Catalog Set 18 co 253 lose (18.5b); cho phep lech vai cai khi ho chua kip cap nhat
-# (2026-10-26: may chu CN chua co 4/5 lose moi cua 18.5b -> 249/253).
+# Catalog Set 18 co 253 loi (18.5b); cho phep lech vai cai khi ho chua kip cap nhat
+# (2026-10-26: may chu CN chua co 4/5 loi moi cua 18.5b -> 249/253).
 MIN_MATCHED = 245
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -96,7 +96,7 @@ def http_get(url: str) -> str:
 
 
 def parse_augments(payload: dict[str, Any], tft_set: int = 18) -> dict[str, dict[str, Any]]:
-    """hexId -> {rounds, types, list_index} cho moi lose trong `hexs<set>`."""
+    """hexId -> {rounds, types, list_index} cho moi loi trong `hexs<set>`."""
     lists = payload.get(f"hexs{tft_set}")
     if not isinstance(lists, list) or not lists:
         raise DataTFTError(f"payload thieu `hexs{tft_set}`")
@@ -126,7 +126,7 @@ def build_snapshot(
     tft_set: int = 18,
     min_matched: int | None = None,
 ) -> dict[str, Any]:
-    """Snapshot chi giu lose co trong `catalog`. Khop duoi nguong -> DataTFTError."""
+    """Snapshot chi giu loi co trong `catalog`. Khop duoi nguong -> DataTFTError."""
     min_matched = MIN_MATCHED if min_matched is None else min_matched
     parsed = parse_augments(payload, tft_set)
     kept = {api: parsed[api] for api in sorted(catalog) if api in parsed}

@@ -10,7 +10,7 @@ xep hang theo huong THAT (`plan.route`) hai lan: khong / co bang core.
 Bao (docs/item-reading/evaluation.md):
   - ty le lui: man co do da ghep nhung khong comp TFT Academy nao khop (do phu)
   - so lan CoreFit doi top-1 cua huong, va khop `picked` truoc/sau
-  - chap loi: man nao bi phat, lose nao
+  - chap loi: man nao bi phat, loi nao
 Do doc bang bo doc that nen gom ca loi doc; so nay la dev, khong bao cao.
 """
 

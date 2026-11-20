@@ -19,7 +19,7 @@ xac dinh duoc kieu doi hinh cung roi ve che do nay.
 
 DO ON DINH HUONG: cong diem cho khuyen nghi truoc do va tru diem khi pivot doi
 hoi ban qua nhieu unit. Khong co no, advisor se doi huong moi vong theo nhung
-dao dong nho cua diem so - va mot advisor lat lat nhu the con te hon khong co.
+dao dong nho cua diem so - va mot advisor doi huong lien tuc nhu the con te hon khong co.
 Rieng fast 8/9 KHONG bi tru: ban ca board khi xoay bai la ke hoach cua no.
 """
 

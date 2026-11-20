@@ -1,7 +1,7 @@
 """Test tien xu ly anh + doc dau ra OCR (src/vision/preprocess.py).
 
 `ocr_texts` la lop dem truoc mot thu vien co schema DOI GIUA CAC BAN. Neu no
-doc sai kieu, ket quả khong phai loi ma la RONG - va mot ti le nhan dien tut
+doc sai kieu, ket qua khong phai loi ma la RONG - va mot ti le nhan dien tut
 xuong 0% ma khong co ngoai le nao thi rat lau moi bi phat hien. Vi the o day
 liet ke tat ca cac dang da biet, ke ca dang cua ban cu.
 """

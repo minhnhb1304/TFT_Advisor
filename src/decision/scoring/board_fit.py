@@ -146,12 +146,12 @@ class BoardFitScorer:
         self.carry_weight = float(tune.get("carry_weight", 0.4))
         self.min_units = int(tune.get("active_trait_min_units", 2))
         # Diem khi augment carry_type "both" gap board AD hoac AP. Mac dinh 0.8:
-        # tren 0.5 vi lose phuc vu dung huong sat thuong cua board (tin hieu that),
-        # duoi 1.0 vi gia tri cua no chia cho ca hai huong, con lose dung loai
+        # tren 0.5 vi loi phuc vu dung huong sat thuong cua board (tin hieu that),
+        # duoi 1.0 vi gia tri cua no chia cho ca hai huong, con loi dung loai
         # don tron vao mot huong. Khong duoc vuot exact match (1.0).
         self.both_match = min(float(tune.get("both_match", 0.8)), 1.0)
         # True = tai hien hanh vi cu de ablation: frontline duoc coi la carry
-        # "tank" va do tank bo phieu huong board (gay phat 0.2 cho lose tank).
+        # "tank" va do tank bo phieu huong board (gay phat 0.2 cho loi tank).
         self.legacy_tank = bool(tune.get("legacy_tank_direction", False))
 
     def __call__(

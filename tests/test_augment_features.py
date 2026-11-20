@@ -473,7 +473,7 @@ def test_offer_rounds_come_from_the_snapshot(locale, tmp_path) -> None:
     built = build_tier1(locale, load_offer_rounds(snap))
     assert built.get("DA_HedgeFund").offer_rounds == ["2-1"]
     assert built.get("DA_18_BigGrabBag").offer_rounds == ["3-2", "4-2"]   # thu tu OFFER_ROUNDS
-    # Lose khong co trong snapshot -> rong = CHUA BIET, coi nhu chao moi luot.
+    # Loi khong co trong snapshot -> rong = CHUA BIET, coi nhu chao moi luot.
     unknown = built.get("DA_Epoch")
     assert unknown.offer_rounds == [] and all(unknown.offered_at(r) for r in OFFER_ROUNDS)
     assert not built.get("DA_HedgeFund").offered_at("4-2")
@@ -495,7 +495,7 @@ def test_committed_table_has_offer_rounds_for_every_augment() -> None:
 
 def test_rebuild_keeps_manually_audited_offer_rounds() -> None:
     """Nguon la may chu CN: sua tay offer_rounds phai song qua lan sinh lai,
-    con lose khong audit thi theo snapshot moi."""
+    con loi khong audit thi theo snapshot moi."""
     fresh = FeatureTable({"DA_X": _feat(offer_rounds=["2-1"])})
     old_row = _feat(
         offer_rounds=["2-1", "3-2"],
@@ -594,7 +594,7 @@ def test_llm_and_manual_audit_cannot_write_econ_type() -> None:
 
 
 def test_committed_table_keeps_every_reroll_keyword(table) -> None:
-    """blind-spots.md §2: 13/13 lose mat nhan reroll vi LLM. econ_type khong
+    """blind-spots.md §2: 13/13 loi mat nhan reroll vi LLM. econ_type khong
     duoc lap lai loi do tren bang da commit."""
     committed = json.loads(COMMITTED.read_text(encoding="utf-8"))["augments"]
     with_kw = [a for a, f in table.features.items() if "reroll" in f.econ_type]

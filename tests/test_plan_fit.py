@@ -75,18 +75,18 @@ def test_reroll_plan_dislikes_xp():
 
 
 def test_held_eco_is_power_debt_for_combat():
-    """3 eco phai full bai moi manh -> lo eco da cam lam lo combat dang gia hon."""
+    """3 eco phai full bai moi manh -> loi eco da cam lam loi combat dang gia hon."""
     scorer = PlanFitScorer(PlanSettings(debt_bonus=0.05))
     none = scorer("COMBAT", COMBAT, state(), SILENT, held=[])
     two = scorer("COMBAT", COMBAT, state(), SILENT, held=[ECO, XP])
     assert two.score == pytest.approx(none.score + 0.10)
     assert two.detail["debt"] == 2
-    # Lo eco khong duoc cong khi da nang eco.
+    # Loi eco khong duoc cong khi da nang eco.
     assert scorer("ECO", ECO, state(), SILENT, held=[ECO]).detail["debt_delta"] == 0
 
 
 def test_held_combat_springboard_makes_eco_worth_more():
-    """Co lo combat lam ban dap -> can tien len full bai (minh_06 4-2)."""
+    """Co loi combat lam ban dap -> can tien len full bai (minh_06 4-2)."""
     scorer = PlanFitScorer(PlanSettings(debt_bonus=0.05))
     assert scorer("ECO", ECO, state(), SILENT, held=[COMBAT]).score == pytest.approx(0.55)
     assert scorer("COMBAT", COMBAT, state(), SILENT, held=[COMBAT]).detail["debt_delta"] == 0

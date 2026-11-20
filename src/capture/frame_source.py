@@ -7,8 +7,8 @@ cau do thanh mot Protocol co the kiem tra duoc, va do la ca diem:
     ScreenCapture      (dxcam / WGC, sau)    -> dung Protocol nay
 
 Nho vay moi thu o tang vision viet DUA TREN VOD hom nay se chay nguyen xi
-tren game that sau nay, khong sua mot dong. Do la ly do bo cong nay duoc bo
-ra bay gio thay vi viet mot script doc video dung mot lan roi vut.
+tren game that sau nay, khong sua mot dong. Do la ly do bo cong viet Protocol
+nay ngay bay gio thay vi viet mot script doc video dung mot lan roi vut.
 
 VI SAO CO `ref` CHU KHONG PHAI DUONG DAN FILE
 

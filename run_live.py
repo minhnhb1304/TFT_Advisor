@@ -95,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
     bridge.event.connect(view.on_event)
     latest_frame: list = [None]
 
-    # Log do tre de do NFR that trong tran (doc HUD khi game chay chua tung do).
+    # Log do tre de do NFR that trong tran (do tre doc HUD khi game chay that chua tung duoc do).
     log_dir = ROOT / "data" / "live_logs"
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{session.source_id}.jsonl"

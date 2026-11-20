@@ -15,7 +15,7 @@ BA KET CUC CUA MOT O, KHONG GOP:
     correct       - doan dung (voi cap map mo: tra ve du ca cap cung tinh dung).
                     Tinh ca khi doc ra the cua offer KE TIEP: `at_s` trong nhan la
                     uoc luong cua nguoi gan nhan, doc nhanh hon nhan khong phai loi.
-    wrong_silent  - tra ve MOT apiName khac su that, khong bao gi. Loi nang nhat:
+    wrong_silent  - tra ve MOT apiName khac su that, khong canh bao gi. Loi nang nhat:
                     nguoi choi khong co cach nao biet.
     missing       - khong doc duoc / chua doc. It nguy hiem hon vi thay duoc.
 

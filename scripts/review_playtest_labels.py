@@ -4,7 +4,7 @@
         --video "D:\\workspace\\tft_record\\<file>.mp4"
 
 Trang chay o 127.0.0.1, KHONG mo ra ngoai may. Moi offer hien anh chup kem ba o
-nhap ten lo (go tieng Viet, co goi y), o chon o vua reroll, va nut chen/xoa offer.
+nhap ten loi (go tieng Viet, co goi y), o chon o vua reroll, va nut chen/xoa offer.
 `--video` la tuy chon, chi can khi muon chup them anh cho offer chen tay.
 
 Huong dan kiem tay tung buoc: docs/playtest-fixes/labeling-guide.md

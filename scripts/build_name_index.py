@@ -52,7 +52,7 @@ def augment_pairs(locale: dict[str, Any]) -> list[tuple[str, str]]:
 
 
 def augment_alias_pairs(locale: dict[str, Any]) -> list[tuple[str, str]]:
-    """(apiName, ten phu): ten CDragon cua lose da doi sang ten client live
+    """(apiName, ten phu): ten CDragon cua loi da doi sang ten client live
     (cdragon_client.apply_overrides). Chi vao index de tra, khong vao display/counts."""
     return [
         (str(i["apiName"]), str(alias))

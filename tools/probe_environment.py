@@ -195,7 +195,7 @@ def probe_window(title: str | None = None) -> dict:
     mx, my, mr, mb = info["Monitor"]
     out["monitor_rect"] = {"x": mx, "y": my, "w": mr - mx, "h": mb - my}
     # Q5: chenh lech giua window rect va client rect CHINH LA phan chrome phai
-    # cat di. Bang 0 o che borderless.
+    # cat di. Bang 0 o che do borderless.
     out["chrome_offset"] = {"x": sx - out["window_rect"][0], "y": sy - out["window_rect"][1]}
     out["borderless"] = (
         not out["has_caption"]

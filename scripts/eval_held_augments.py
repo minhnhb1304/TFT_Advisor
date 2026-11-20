@@ -1,4 +1,4 @@
-"""Doc lo da chon tu dai icon co khop `picked` trong nhan khong? (directional, viec A)
+"""Doc loi da chon tu dai icon co khop `picked` trong nhan khong? (directional, viec A)
 
     python scripts/eval_held_augments.py                       # moi ban development
     python scripts/eval_held_augments.py data/eval/playtest/minh_06.json

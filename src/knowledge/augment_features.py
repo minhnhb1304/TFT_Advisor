@@ -65,9 +65,9 @@ def parse_manual_audit(method: str) -> tuple[tuple[str, ...], str] | None:
 
 
 CATEGORIES = ("econ", "combat", "trait", "item", "utility", "reroll")
-# Toi da 3 nhan/lose (khop MetaTFT 1-3 tag). categories[0] la nhan chinh = `category`.
+# Toi da 3 nhan/loi (khop MetaTFT 1-3 tag). categories[0] la nhan chinh = `category`.
 MAX_CATEGORIES = 3
-# carry_type = huong carry SAT THUONG ma lose phuc vu. "tank" KHONG phai huong carry
+# carry_type = huong carry SAT THUONG ma loi phuc vu. "tank" KHONG phai huong carry
 # (doi nao cung can tank) - chi so chong chiu nam o `frontline`. "both" = phuc vu
 # ca carry AD lan AP. Dinh nghia: docs/category-multilabel/definition.md
 CARRY_TYPES = ("AD", "AP", "both", "none")
@@ -77,7 +77,7 @@ CARRY_TYPES = ("AD", "AP", "both", "none")
 OFFER_ROUNDS = ("2-1", "3-2", "4-2")
 LEGACY_CARRY_TANK = "tank"     # gia tri cu, chi con trong du lieu truoc 2026-10-05
 TEMPOS = ("immediate", "scaling")
-# Hinh thai kinh te (multi-label): lose cho vang, XP hay reroll. Trich TAT DINH tu
+# Hinh thai kinh te (multi-label): loi cho vang, XP hay reroll. Trich TAT DINH tu
 # desc, khong LLM, khong sua tay - docs/directional-augment/architecture.md.
 ECON_TYPES = ("gold", "xp", "reroll")
 # Huong thuong theo SO LUONG trait (khong gan trait cu the nao):
@@ -187,7 +187,7 @@ class AugmentFeature:
     category: str = "utility"     # = categories[0], giu cho cac cho doc cu
     categories: list[str] = field(default_factory=list)
     carry_type: str = "none"
-    frontline: bool = False       # lose chu yeu cho chi so/hieu ung chong chiu
+    frontline: bool = False       # loi chu yeu cho chi so/hieu ung chong chiu
     trait_affinity: list[str] = field(default_factory=list)
     econ_value: int = 0           # 0-3, CHI vang/XP/reroll - item nam o item_grants
     econ_type: list[str] = field(default_factory=list)      # con cua ECON_TYPES
@@ -216,7 +216,7 @@ class AugmentFeature:
             self.category = self.categories[0]
 
     def offered_at(self, stage: str) -> bool:
-        """Lose co the duoc chao o `stage` khong. Thieu du lieu -> True: khong
+        """Loi co the duoc chao o `stage` khong. Thieu du lieu -> True: khong
         biet thi KHONG loc, de mot nguon thieu khong lam rong pool."""
         if not self.offer_rounds or stage not in OFFER_ROUNDS:
             return True
@@ -229,7 +229,7 @@ class AugmentFeature:
 def load_offer_rounds(path: str | Path) -> dict[str, list[str]]:
     """api_name -> luot chao, doc tu snapshot data/augment_rounds.datatft.json.
 
-    Thieu file -> {} (moi lose thanh "chua biet", khong phai loi). Luot xep
+    Thieu file -> {} (moi augment thanh "chua biet", khong phai loi). Luot xep
     theo thu tu OFFER_ROUNDS de bang sinh ra khong phu thuoc thu tu cua nguon.
     Gia tri la khong bi loc o day: check_feature se bao dong.
     """
@@ -363,7 +363,7 @@ def extract_econ_type(desc: str, name: str) -> list[str]:
 
     Doc lap voi econ_value (truong do LLM/audit tay sua duoc): day la nhan dinh
     danh, nen LLM ghi de mat nhan reroll nhu blind-spots.md §2 la khong the.
-    Interest tinh la vang. Rong = khong noi ro hinh thai (vd lose cho tuong).
+    Interest tinh la vang. Rong = khong noi ro hinh thai (vd loi cho tuong).
     """
     text = f"{name} {desc}"
     patterns = {

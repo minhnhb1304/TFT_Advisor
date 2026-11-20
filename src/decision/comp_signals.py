@@ -237,7 +237,7 @@ class PivotReadiness:
 
     Tung dung `value` de noi suy trong so va xep hang bi nguoc: comp cang thieu
     tien thi trong so tuong loi cang thap, nen cang it bi tru vi thieu tuong -
-    fast 9 xa tam voi vuot len tren fast 8 sap xoay duoc.
+    fast 9 con xa tam voi lai vuot len tren fast 8 sap xoay duoc.
     """
 
     pivoted: bool

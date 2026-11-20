@@ -14,7 +14,7 @@ luot. `F_S` la phan bo cua `Score(a | S)` tren pool cung bac.
     V(L, v(1..n))   = max( max(L, v(n)),                       # PICK
                            E[ V(max(L,sigma), v(2..n)) ] - c )  # REROLL o te nhat
 
-Ba ket qua khien bai toan sup xuong con MOT phep so sanh:
+Ba ket qua rut gon bai toan xuong con MOT phep so sanh:
 
 T1  Doi o te nhat la toi uu (lap luan ghep cap: tap giu lai troi hon tung
     phan tu so voi doi bat ky o nao khac).
@@ -346,7 +346,7 @@ def select_pool_members(
     uoc luong tren duoi ~6 diem. Pool that nho nhat do duoc la 23 (bac 3 o 3-2), nen
     nguong nay chi chan du lieu hong/thieu chu khong cat pool that nao.
     """
-    # Lose khong con (hoac chua biet con) trong game khong bao gio duoc chao.
+    # Loi khong con (hoac chua biet con) trong game khong bao gio duoc chao.
     members = [(api, f) for api, f in same_tier if getattr(f, "live", True) is True]
     if not tuning.pool_by_offer_round:
         return members, POOL_SCOPE_TIER, ""

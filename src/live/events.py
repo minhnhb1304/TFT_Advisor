@@ -64,7 +64,7 @@ class AdviceReady:
     state_note: str = ""
     latency_ms: dict[str, float] = field(default_factory=dict)
     # apiName -> icon cat tu the (BGR) o khung vua doc the - icon dung nhu trong
-    # game, ke ca lo CDragon thieu icon. Chi de VE, khong vao `to_dict`.
+    # game, ke ca loi CDragon thieu icon. Chi de VE, khong vao `to_dict`.
     card_icons: dict[str, Any] = field(default_factory=dict, repr=False)
 
     @property

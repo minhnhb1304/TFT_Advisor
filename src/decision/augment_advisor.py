@@ -1,4 +1,4 @@
-"""Augment Advisor - lo thuat toan cua do an (SPEC 3.5.4).
+"""Augment Advisor - loi thuat toan cua do an (SPEC 3.5.4).
 
     Score(a | S) = w1*Base + w2*BoardFit + w3*EconFit + w4*ItemFit + w5*TempoFit
 
@@ -233,7 +233,7 @@ class AugmentAdvisor:
         # Bang do core (docs/item-reading/plan-item-fit.md). None = CoreFit tat,
         # rank_by_plan() nhu truoc.
         self.core_table = core_table
-        # Bang combo lo (docs/directional-augment/augment-combos.md). None = tat.
+        # Bang combo loi (docs/directional-augment/augment-combos.md). None = tat.
         self.combos = combos
 
         self.scorers = {
@@ -302,10 +302,10 @@ class AugmentAdvisor:
         Diem theo huong = tong cua `rank()` + w * (plan_fit - 0.5). Cong lech
         khoi trung tinh thay vi them mot trong so moi: huong khong co y kien
         (0.5) thi thu tu dung bang `rank()`, va `rank()` khong doi mot byte.
-        Lo da cam (`state.augments`) di vao plan_fit qua luat "no suc manh".
+        Loi da cam (`state.augments`) di vao plan_fit qua luat "no suc manh".
 
-        Co bang do core thi cong them w_core * thuong manh core cua huong; lose
-        "chap loi" (lech AD/AP voi moi comp ung vien) thi diem huong nhan
+        Co bang do core thi cong them w_core * thuong manh core cua huong; loi bi
+        "chap loi" (lech AD/AP voi moi comp ung vien) thi diem huong bi nhan voi
         `off_damage_factor`.
         """
         settings = PlanSettings.from_config(self.config)
@@ -366,7 +366,7 @@ class AugmentAdvisor:
                 advice.lines.append(line)
             else:
                 line.plans.append(plan)
-            # Cung mot lo o nhieu huong -> canh bao giong nhau chi hien mot lan.
+            # Cung mot loi o nhieu huong -> canh bao giong nhau chi hien mot lan.
             for warning in fit.detail.get("warnings") or ():
                 if warning not in line.warnings:
                     line.warnings.append(warning)

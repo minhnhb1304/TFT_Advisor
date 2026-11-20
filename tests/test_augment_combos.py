@@ -1,4 +1,4 @@
-"""Luat combo lo cua nguoi choi - docs/directional-augment/augment-combos.md."""
+"""Luat combo loi cua nguoi choi - docs/directional-augment/augment-combos.md."""
 
 from __future__ import annotations
 
@@ -56,7 +56,7 @@ def test_orb_payer_after_bonus_gift(table, features):
 
 
 def test_bonus_gift_after_orb_payer_gains_nothing(table, features):
-    # Orb cua lo chon truoc da tra roi (nguoi choi, 2026-11-18).
+    # Orb cua loi chon truoc da tra roi (nguoi choi, 2026-11-18).
     assert effect(table, features, "DA_BonusGiftPlus", ["DA_MissedConnections"]).delta == 0
 
 
@@ -124,7 +124,7 @@ def test_combo_lifts_booster_pack_for_minh_06():
     """minh_06 4-2 (fast8): cam Bonus Gifts+ -> Booster Pack++ (lua chon cua nguoi choi).
 
     Chi kiem combo duoc cong: bo 3 eco-item-combat cung cong nhe cho Glass Cannon
-    nen hai lo dang bang diem (docs/directional-augment/augment-combos.md).
+    nen hai loi dang bang diem (docs/directional-augment/augment-combos.md).
     """
     sys.path.insert(0, str(ROOT / "scripts"))
     import eval_plan_advice as E

@@ -10,7 +10,7 @@ Giong PlanFit, thanh phan nay KHONG nam trong `AugmentAdvisor.scorers`: `rank()`
                     DA GHEP dang cam nhat; chua ghep mon nao -> moi comp cua huong;
                     khong comp nao khop mon nao -> lui ve tuong theo gia (ghi `fallback`).
   thuong(manh m)  = trung binh tren ung vien: weight bo core neu m con thieu de ghep bo do.
-  chap loi        = moi ung vien cung mot loai sat thuong (AD/AP) va lose co carry_type
+  chap loi        = moi ung vien cung mot loai sat thuong (AD/AP) va loi co carry_type
                     nguoc lai -> diem huong nay con `off_damage_factor` (mac dinh 15%).
 """
 

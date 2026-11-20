@@ -65,7 +65,7 @@ def build_session(
 
 
 def _held_tracker(settings: Any) -> HeldAugmentTracker:
-    """Bo doc lo da chon. Mau chinh cat tu the lo; icon CDragon chi la du phong,
+    """Bo doc loi da chon. Mau chinh cat tu the loi; icon CDragon chi la du phong,
     nen thieu `data/augment_icons` (chua chay fetch_augment_icons) van chay."""
     icons = Path(settings.root) / "data" / "augment_icons"
     path = settings.path("augment_features")

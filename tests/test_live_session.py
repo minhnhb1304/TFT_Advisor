@@ -492,7 +492,7 @@ def test_no_held_tracker_keeps_augments_empty():
 
 
 def test_idle_says_whether_the_augment_screen_is_on_screen():
-    """Vo thoi ve len ban co ngay khi man dong, du phien con giu man `grace_s` giay."""
+    """Vo (UI) thoi ve len ban co ngay khi man dong, du phien van giu man them `grace_s` giay."""
     s, reroll, _, _ = session()
     feed(s, 0.0, 5)                                   # trong man, da khuyen
     idle_inside = s.step(frame(1.2))

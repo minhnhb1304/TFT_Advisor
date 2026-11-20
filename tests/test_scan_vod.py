@@ -118,7 +118,7 @@ def test_masking_leaves_the_rest_of_the_frame_alone() -> None:
 
 
 def test_masking_does_not_mutate_the_cached_array() -> None:
-    """thumbs.npy duoc nap mot lan va dung nhieu lan - suachua tai cho la bay."""
+    """thumbs.npy duoc nap mot lan va dung nhieu lan - sua chua tai cho la bay."""
     thumbs = np.full((1, 72, 128), 200, np.uint8)
     scan_vod._mask_blockers(thumbs, _regions_with_chat())
     assert thumbs[0, 5, 5] == 200

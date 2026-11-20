@@ -1,9 +1,9 @@
-"""Tai icon cua moi lo trong bang dac trung ve data/augment_icons/<apiName>.png.
+"""Tai icon cua moi loi trong bang dac trung ve data/augment_icons/<apiName>.png.
 
     python scripts/fetch_augment_icons.py            # chi tai icon con thieu
     python scripts/fetch_augment_icons.py --force    # tai lai het
 
-Icon dung de doc dai lo DA CHON o huong 10 gio tren man hinh
+Icon dung de doc dai loi DA CHON o huong 10 gio tren man hinh
 (src/vision/held_augments.py). Duong dan lay tu truong `icon` cua CDragon
 (cache `data/cdragon_cache/en_us.json`), doi `.tex` -> `.png` bang
 `CDragonClient.icon_url` - cung cach da resolve dung 36/36 trait.
@@ -30,7 +30,7 @@ USER_AGENT = "TFT_Agent/augment-icons"
 
 
 def icon_fields(locale_path: Path, wanted: set[str]) -> dict[str, str]:
-    """apiName -> truong `icon` (.tex) cho cac lo trong `wanted`."""
+    """apiName -> truong `icon` (.tex) cho cac loi trong `wanted`."""
     data = json.loads(locale_path.read_text(encoding="utf-8"))
     return {
         str(it["apiName"]): str(it["icon"])
@@ -40,8 +40,8 @@ def icon_fields(locale_path: Path, wanted: set[str]) -> dict[str, str]:
 
 
 def is_placeholder(icon: str) -> bool:
-    """CDragon tro ~40 lo chua co icon vao `hexcore/missing-t1|t2|t3.tex` - mot
-    hinh chu "T" dung chung. Tai ve thi moi lo do trong giong nhau va sai."""
+    """CDragon tro ~40 loi chua co icon vao `hexcore/missing-t1|t2|t3.tex` - mot
+    hinh chu "T" dung chung. Tai ve thi moi loi do trong giong nhau va sai."""
     return Path(icon).stem.lower().startswith("missing")
 
 

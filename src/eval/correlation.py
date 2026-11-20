@@ -4,7 +4,7 @@ GIA THUYET: chon augment ma advisor xep cao -> placement tot hon.
 
 Bien X = thu hang advisor gan cho augment nguoi choi DA chon (1 = cao nhat).
 Bien Y = placement cuoi tran (1 = nhat).
-Neu gia thuyet dung, hai bien nay tuong quan DUONG (chon hang thap -> ve nhi).
+Neu gia thuyet dung, hai bien nay tuong quan DUONG (augment duoc chon co rank nho -> placement nho).
 
 GIOI HAN PHAI NEU TRONG BAO CAO, KHONG DUOC IM:
     - Day la du lieu QUAN SAT, khong phai thi nghiem co doi chung. Nguoi choi

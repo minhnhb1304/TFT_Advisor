@@ -111,9 +111,9 @@ def econ_degeneracy(features_path: Path) -> dict[str, Any]:
         "by_econ_value": dict(sorted(by_value.items())),
         "largest_group_value": top_value,
         "largest_group_size": top_count,
-        # Nhan chinh (category = categories[0]) - moi lose dem dung mot lan
+        # Nhan chinh (category = categories[0]) - moi loi dem dung mot lan
         "by_category": dict(collections.Counter(_primary(r) for r in rows)),
-        # Moi nhan trong categories (1-3/lose) - tong co the vuot so lose
+        # Moi nhan trong categories (1-3/loi) - tong co the vuot so loi
         "by_category_label": dict(
             collections.Counter(c for r in rows for c in _categories(r))
         ),

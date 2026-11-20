@@ -373,7 +373,7 @@ class AugmentReader:
 
     @staticmethod
     def _parse(raw: str) -> dict[str, Any] | None:
-        """Trang bi brace scan va json.loads giong llm_reasoner._parse."""
+        """Tach JSON bang brace scan + json.loads, giong llm_reasoner._parse."""
         start, end = raw.find("{"), raw.rfind("}")
         if start < 0 or end <= start:
             return None

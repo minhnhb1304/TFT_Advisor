@@ -210,7 +210,7 @@ def test_unresolvable_title_gives_empty_api_names_and_reason(name_index: NameInd
     assert c0.confidence == 0.0
     assert "Không tìm thấy" in c0.reason
 
-    # Demanding choices hoac flat list khi chua resolved phai nem loi
+    # Lay choices hoac flat list khi the chua resolve thi phai nem loi
     with pytest.raises(AugmentReadError) as exc_choices:
         reading.to_choices()
     assert "chưa xác định" in str(exc_choices.value).lower()

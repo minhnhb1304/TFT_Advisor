@@ -56,7 +56,7 @@ VALID_TIERS = tuple(ExpertTierListProvider.TIER_PLACEMENT)
 
 
 def parse_tier_file(text: str) -> dict[str, list[str]]:
-    """Van ban -> {bac: [ten thô]}. Loi cu phap thi bao ngay tai dong do."""
+    """Van ban -> {bac: [ten tho]}. Loi cu phap thi bao ngay tai dong do."""
     out: dict[str, list[str]] = {}
     for lineno, raw in enumerate(text.splitlines(), start=1):
         line = raw.strip()

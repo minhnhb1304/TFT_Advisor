@@ -205,7 +205,7 @@ def test_ordinal_trust_is_below_one_on_purpose() -> None:
     """Bang tier van la mot Y KIEN, du no den tu nguoi choi rat gioi.
 
     Nang 0.35 -> 0.65 vi no da tro thanh nguon DUY NHAT cua w1, khong phai vi
-    no da tro thanh so do. Phan co ngot chinh la cho trung thuc cua thiet ke:
+    no da tro thanh so do. Phan con thieu toi 1.0 chinh la cho trung thuc cua thiet ke:
     dat 1.0 la tuyen bo mot xep hang chu quan ngang mot phep do.
     """
     trust = ScoringConfig.load("config/scoring_weights.yaml").tune("base")["ordinal_trust"]

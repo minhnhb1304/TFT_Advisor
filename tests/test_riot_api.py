@@ -131,7 +131,7 @@ def test_unknown_platform_fails_loudly_with_the_valid_options() -> None:
 def test_401_says_the_personal_key_expired() -> None:
     """Personal Key het han sau 24 gio - do la nguyen nhan gan nhu chac chan.
 
-    Thong bao phai noi dieu do, nếu khong nguoi dung se di tim bug trong code.
+    Thong bao phai noi dieu do, neu khong nguoi dung se di tim bug trong code.
     """
     c = client([FakeResponse(401, {})])
     with pytest.raises(RiotAuthError, match="24 gio"):
